@@ -1,0 +1,6 @@
+<?php
+namespace Packages\{c package}\Custom\Entities;
+
+class {c model} extends \Packages\{c package}\Entities\{c model}
+{
+}

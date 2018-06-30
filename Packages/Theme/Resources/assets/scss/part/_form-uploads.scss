@@ -1,0 +1,26 @@
+/* =============
+   Form Uploads
+============= */
+
+/* Dropzone */
+.dropzone {
+  border: 2px dashed rgba(0, 0, 0, 0.3);
+  background: #f7f7f7;
+  margin: 20px 0;
+  border-radius: 6px;
+  min-height: auto;
+
+  .dz-message {
+    font-size: 20px;
+    color: #969696;
+    font-weight: 300;
+    margin: 10px 0;
+    & i{
+      font-size: 35px;
+      margin-right: 10px;
+    }
+  }
+  .dz-preview.dz-image-preview{
+    background: transparent;
+  }
+}

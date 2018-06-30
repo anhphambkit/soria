@@ -1,0 +1,9 @@
+<?php
+
+namespace Packages\{c package}\Custom\Middleware;
+
+
+class AjaxMiddleware extends \Packages\{c package}\Middleware\AjaxMiddleware
+{
+
+}

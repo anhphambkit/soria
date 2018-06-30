@@ -1,0 +1,191 @@
+#!/usr/bin/env php
+<?php
+
+class Upgrade {
+
+    const REPOSITORY = 'git@gitlab.com:bigin/ungyo.git';
+    protected $BRANCH = 'bos';
+    const TEMP_FOLDER = '/root/eden_temp';
+    const SPECIFIC_FILES_UPDATE = [
+        'eden',
+        'composer.json.eden',
+        'config/eden.php.eden',
+        'config/app.php.eden',
+        'package.json.eden',
+        '.env.example',
+        'upgrade',
+    ];
+
+    protected $env;
+
+    public function __construct($args){
+        $this->convertEnv();
+        $this->BRANCH = $this->env['APP_BRANCH'];
+        $this->validate($args);
+        $this->execute($args);
+    }
+
+    private function convertEnv(){
+        $env = file_get_contents(".env");
+        $envs = preg_split('/\r\n|\r|\n/', $env);
+        foreach ($envs as $e){
+            if(!empty($e) && $e = trim($e)){
+                if(substr($e,0,1) === '#'){
+                    continue;
+                }
+                $regex = '/([\w|\d|]*)=(.*)/';
+                preg_match_all($regex, $e, $matches, PREG_SET_ORDER, 0);
+                $matches[0][2] = empty($matches[0][2]) || $matches[0][2] === 'null' ? null : $matches[0][2];
+                $matches[0][2] = $matches[0][2] === 'true' ? true : $matches[0][2];
+                $matches[0][2] = $matches[0][2] === 'false' ? false : $matches[0][2];
+                if(!empty($matches[0][1])){
+                    $this->env[$matches[0][1]] = $matches[0][2];
+                }
+            }
+        }
+    }
+
+    /**
+     * Validate user input command
+     * @param $args
+     */
+
+    private function validate($args){
+    }
+
+    /**
+     * Update EDEN project
+     * @param null $module: Update all modules, string : update specific module
+     */
+    private function update($module = null){
+        $module = $module!=null ? ucwords($module) : $module;
+
+        if(is_dir(self::TEMP_FOLDER) && sizeof(scandir(self::TEMP_FOLDER)) == 2) {
+            passthru('git rm -rf .gitignore');
+            print_r('git clone '. self::REPOSITORY. ' '. self::TEMP_FOLDER);
+            passthru('git clone '. self::REPOSITORY. ' '. self::TEMP_FOLDER, $output);
+        }
+
+        if(!is_dir(self::TEMP_FOLDER)) {
+            passthru('mkdir '. self::TEMP_FOLDER, $output);
+            passthru('git clone '. self::REPOSITORY. ' '. self::TEMP_FOLDER, $output);
+        }
+
+        passthru('cd '. self::TEMP_FOLDER. ' && git checkout '. $this->BRANCH, $output);
+        passthru('cd '. self::TEMP_FOLDER. ' && git pull origin '. $this->BRANCH);
+
+        $packages = scandir(self::TEMP_FOLDER. '/Packages');
+        $packages = array_diff($packages, [".", ".."]); // Remove item "." , ".."
+
+        $this->output('We will update list packages:', false);
+        $this->output('--------------------------------', false);
+        foreach($packages as $i => $p){
+            if(!is_dir(self::TEMP_FOLDER. '/Packages/'. $p)){
+                unset($packages[$i]);
+                continue;
+            } else {
+                if($module === null){
+                    $this->output($p, false);
+                }
+                elseif ($module!= null && in_array($module, $packages)){
+                    $this->output($module, false);
+                    $packages = [$module];
+                    break;
+                } elseif ($module!= null && !in_array($module, $packages)){
+                    $packages = [];
+                    break;
+                }
+            }
+        }
+
+        $this->output('--------------------------------', false);
+        $this->output('', false);
+
+
+        if(empty($packages)){
+            $this->output('Nothing to update!');
+        }
+
+        $confirm = readline("Are you sure to update all packages? This process will override all files in main packages. [y] Yes, [n] No: ".PHP_EOL);
+
+        if(!empty($confirm) && strtolower($confirm) === 'y'){
+            $this->copyPackages($packages);
+        }
+    }
+
+    /**
+     * Copy package from TEMP -> CURRENT and ignore Custom folder
+     * @param array $pkg: List packages to copy
+     */
+    private function copyPackages($pkg = null){
+        foreach($pkg as $p){
+            $this->output('Updating package '. strtoupper($p). '...', false);
+            if(!is_dir('Packages/'. $p)){
+                passthru('mkdir Packages/'. $p);
+            }
+            $source = self::TEMP_FOLDER. '/Packages/'. $p. '/';
+            $destination = 'Packages/'. $p. '/';
+
+            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source), \RecursiveIteratorIterator::SELF_FIRST);
+            foreach ($files as $fullPath => $fileInfo) {
+                if (in_array($fileInfo->getBasename(), [".", ".."])) {
+                    continue;
+                }
+
+//                $path: Folder & File name after cutting from full path of TEMP_FOLDER, it maybe  = Permission dir or package.php
+                $path = str_replace($source, "", $fileInfo->getPathname());
+                if ($fileInfo->isDir()) {
+                    try {
+                        mkdir($destination . "/" . $path);
+                    } catch (\ErrorException $e){
+                        // Directory already exist we will continue process
+                    }
+                } else {
+                    $isCutomDir = substr( $path, 0, strlen('Custom')) === 'Custom';
+                    if(
+                        !$isCutomDir ||
+                        ($isCutomDir && !file_exists($destination. $path))
+                    ) {
+                        copy($fileInfo->getPathname(), $destination . "/" . $path);
+                    }
+                }
+            }
+        }
+
+        $this->output('Update some specific files '. strtoupper($p). '...', false);
+        foreach(self::SPECIFIC_FILES_UPDATE as $file){
+            $this->output('Copying file '. $file. '...', false);
+            passthru('cp '. self::TEMP_FOLDER. '/'. $file. ' ./');
+        }
+
+        $this->output('Completed! Thank you and Goodbye!');
+    }
+
+    /**
+     * Print output to console
+     * @param $output
+     * @param bool $exit
+     * @throws Exception
+     */
+    private function output($output, $exit = true){
+        print_r($output.PHP_EOL);
+        if($exit){
+            exit;
+        }
+    }
+
+    /**
+     * After validate complete, we process the command
+     * @param $args
+     */
+    private function execute($args){
+        if(empty($args[1]) || $args[1] === '*'){
+            $this->update();
+        } else {
+            $this->update($args[1]);
+        }
+    }
+}
+
+new Upgrade($argv);
+exit;

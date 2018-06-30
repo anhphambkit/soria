@@ -1,0 +1,3 @@
+<?php
+$package = require(base_path('Packages/{c package}/package.php'));
+return $package;

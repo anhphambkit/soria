@@ -1,0 +1,7 @@
+<?php
+namespace Packages\{c package}\Custom\Controllers\Web;
+
+use Packages\{c package}\Controllers\Web\WebController as CoreController;
+class WebController extends CoreController
+{
+}

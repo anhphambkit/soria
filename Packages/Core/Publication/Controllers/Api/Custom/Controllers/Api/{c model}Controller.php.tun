@@ -1,0 +1,7 @@
+<?php
+
+namespace Packages\{c package}\Custom\Controllers\Api;
+use Packages\{c package}\Controllers\Api\{c model}Controller as Core{c model}Controller;
+
+class {c model}Controller extends Core{c model}Controller
+{}

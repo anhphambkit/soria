@@ -1,0 +1,8 @@
+<?php
+namespace Packages\{c package}\Custom\Controllers\Ajax;
+
+use Packages\{c package}\Controllers\Ajax\AjaxController as CoreController;
+class AjaxController extends CoreController
+{
+
+}

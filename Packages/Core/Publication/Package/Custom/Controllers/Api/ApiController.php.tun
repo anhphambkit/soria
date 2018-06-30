@@ -1,0 +1,8 @@
+<?php
+namespace Packages\{c package}\Custom\Controllers\Api;
+
+use Packages\{c package}\Controllers\Api\ApiController as CoreController;
+class ApiController extends CoreController
+{
+
+}
