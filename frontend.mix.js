@@ -43,9 +43,9 @@ modules.forEach(function (module) {
     jsInPackage.forEach(function (jsFile) {
         let jsPath = path.resolve(moduleFolder, module, 'js', jsFile);
         if (process.env.NODE_ENV === 'development') {
-            mix.js(jsPath, 'public/assets/frontend/' + module.toLowerCase() + '/js/' + jsFile).sourceMaps();
+            mix.js(jsPath, 'public/frontend/' + module.toLowerCase() + '/assets/js/' + jsFile).sourceMaps();
         } else {
-            mix.js(jsPath, 'public/assets/frontend/' + module.toLowerCase() + '/js/' + jsFile);
+            mix.js(jsPath, 'public/frontend/' + module.toLowerCase() + '/assets/js/' + jsFile);
         }
     });
 
@@ -54,9 +54,13 @@ modules.forEach(function (module) {
         let sassPath = path.resolve(moduleFolder, module, 'scss', scssFile);
         let fileName = scssFile.substring(0, scssFile.length - 5) + '.css';
         if (process.env.NODE_ENV === 'development') {
-            mix.sass(sassPath, 'public/assets/frontend/' + module.toLowerCase() + '/css/' + fileName).sourceMaps();
+            mix.sass(sassPath, 'public/frontend/' + module.toLowerCase() + '/assets/css/' + fileName).sourceMaps();
         } else {
-            mix.sass(sassPath, 'public/assets/frontend/' + module.toLowerCase() + '/css/' + fileName);
+            mix.sass(sassPath, 'public/frontend/' + module.toLowerCase() + '/assets/css/' + fileName);
         }
     });
+
+    // Publish plugins + fonts
+    mix.copyDirectory('resources/assets/frontend/' + module + '/plugins', 'public/frontend/' + module.toLowerCase() + '/assets/plugins');
+    mix.copyDirectory('resources/assets/frontend/' + module + '/fonts', 'public/frontend/' + module.toLowerCase() + '/assets/fonts');
 });

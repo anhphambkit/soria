@@ -39,24 +39,27 @@ const files = (p) => {
  */
 let modules = dirs(moduleFolder);
 modules.forEach(function (module) {
-    let jsInPackage = files('./resources/assets/backend/' + module + '/js');
+    let jsInPackage = files('./resources/assets/backend/' + module + '/assets/js');
     jsInPackage.forEach(function (jsFile) {
-        let jsPath = path.resolve(moduleFolder, module, 'js', jsFile);
+        let jsPath = path.resolve(moduleFolder, module, 'assets', 'js', jsFile);
         if (process.env.NODE_ENV === 'development') {
-            mix.js(jsPath, 'public/assets/backend/' + module.toLowerCase() + '/js/' + jsFile).sourceMaps();
+            mix.js(jsPath, 'public/backend/' + module.toLowerCase() + '/assets/js/' + jsFile).sourceMaps();
         } else {
-            mix.js(jsPath, 'public/assets/backend/' + module.toLowerCase() + '/js/' + jsFile);
+            mix.js(jsPath, 'public/backend/' + module.toLowerCase() + '/assets/js/' + jsFile);
         }
     });
 
-    let sassInPackage = files('./resources/assets/backend/' + module + '/scss');
+    let sassInPackage = files('./resources/assets/backend/' + module + '/assets/scss');
     sassInPackage.forEach(function (scssFile) {
-        let sassPath = path.resolve(moduleFolder, module, 'scss', scssFile);
+        let sassPath = path.resolve(moduleFolder, module, 'assets', 'scss', scssFile);
         let fileName = scssFile.substring(0, scssFile.length - 5) + '.css';
         if (process.env.NODE_ENV === 'development') {
-            mix.sass(sassPath, 'public/assets/backend/' + module.toLowerCase() + '/css/' + fileName).sourceMaps();
+            mix.sass(sassPath, 'public/backend/' + module.toLowerCase() + '/assets/css/' + fileName).sourceMaps();
         } else {
-            mix.sass(sassPath, 'public/assets/backend/' + module.toLowerCase() + '/css/' + fileName);
+            mix.sass(sassPath, 'public/backend/' + module.toLowerCase() + '/assets/css/' + fileName);
         }
     });
+
+    // Publish plugins + fonts
+    mix.copyDirectory('resources/assets/backend/' + module + '/app-assets', 'public/backend/' + module.toLowerCase() + '/app-assets');
 });
