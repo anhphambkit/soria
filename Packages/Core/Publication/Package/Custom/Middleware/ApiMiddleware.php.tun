@@ -1,9 +1,0 @@
-<?php
-
-namespace Packages\{c package}\Custom\Middleware;
-
-
-class ApiMiddleware extends \Packages\{c package}\Middleware\ApiMiddleware
-{
-
-}

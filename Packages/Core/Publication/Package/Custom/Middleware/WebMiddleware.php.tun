@@ -1,9 +1,0 @@
-<?php
-
-namespace Packages\{c package}\Custom\Middleware;
-
-
-class WebMiddleware extends \Packages\{c package}\Middleware\WebMiddleware
-{
-
-}

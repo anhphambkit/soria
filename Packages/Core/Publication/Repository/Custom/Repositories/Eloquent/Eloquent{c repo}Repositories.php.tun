@@ -1,8 +1,0 @@
-<?php
-namespace Packages\{c package}\Custom\Repositories\Eloquent;
-
-use Packages\{c package}\Repositories\Eloquent\Eloquent{c repo}Repositories as CoreEloquent{c repo}Repositories;
-
-class Eloquent{c repo}Repositories extends CoreEloquent{c repo}Repositories implements \Packages\{c package}\Custom\Repositories\{c repo}Repositories
-{
-}

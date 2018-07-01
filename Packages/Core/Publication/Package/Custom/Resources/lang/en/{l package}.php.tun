@@ -1,3 +1,0 @@
-<?php
-$lang = require(base_path('Packages/{c package}/Resources/lang/en/{l package}.php'));
-return $lang;

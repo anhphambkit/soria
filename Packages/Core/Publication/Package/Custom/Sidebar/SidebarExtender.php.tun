@@ -1,8 +1,0 @@
-<?php
-
-namespace Packages\{c package}\Custom\Sidebar;
-use Maatwebsite\Sidebar\SidebarExtender as SidebarExtenderCore;
-
-class SidebarExtender extends \Packages\{c package}\Sidebar\SidebarExtender implements SidebarExtenderCore {
-
-}

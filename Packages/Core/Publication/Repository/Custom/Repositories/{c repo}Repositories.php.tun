@@ -1,8 +1,0 @@
-<?php
-namespace Packages\{c package}\Custom\Repositories;
-
-
-interface {c repo}Repositories extends \Packages\{c package}\Repositories\{c repo}Repositories
-{
-
-}

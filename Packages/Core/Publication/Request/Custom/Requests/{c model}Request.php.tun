@@ -1,6 +1,0 @@
-<?php
-namespace Packages\{c package}\Custom\Requests;
-
-class {c model}Request extends \Packages\{c package}\Requests\{c model}Request
-{
-}

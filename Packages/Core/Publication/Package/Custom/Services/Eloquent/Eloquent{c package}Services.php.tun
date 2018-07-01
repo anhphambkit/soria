@@ -1,8 +1,0 @@
-<?php
-namespace Packages\{c package}\Custom\Services\Eloquent;
-use Packages\{c package}\Custom\Services\{c package}Services;
-
-class Eloquent{c package}Services extends \Packages\{c package}\Services\Eloquent\Eloquent{c package}Services implements {c package}Services
-{
-
-}

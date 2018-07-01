@@ -1,6 +1,0 @@
-<?php
-namespace Packages\{c package}\Custom\Services;
-use Packages\{c package}\Services\{c package}Services as Core{c package}Services;
-
-interface {c package}Services extends Core{c package}Services  {
-}
