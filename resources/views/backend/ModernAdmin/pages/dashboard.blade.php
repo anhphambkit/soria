@@ -54,7 +54,31 @@
 
 @endsection
 
-@section('content-header')
+@section('breadcrumbs')
+    @component('components.breadcrumbs')
+        @slot('header', 'Dashboard')
+        @slot('items', [
+            [
+                'active' => false,
+                'link' => '#',
+                'title' => 'Home'
+            ],
+            [
+                'active' => true,
+                'link' => '#',
+                'title' => 'Dashboard'
+            ],
+        ])
+    @endcomponent
+
+    @component('components.section')
+        @slot('title', 'Panel Title')
+        @slot('content', 'Panel Content')
+        @slot('controls', [ 'collapse', 'expand'])
+    @endcomponent
+@endsection
+
+@section('header-right')
 
 @endsection
 

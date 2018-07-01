@@ -6,7 +6,8 @@
  * Time: 07:43
  */
 ?>
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info navbar-shadow">
+<nav role="navigation" class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top
+navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
     <div class="navbar-wrapper">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">

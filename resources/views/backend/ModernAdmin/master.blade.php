@@ -88,6 +88,7 @@
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
     <!-- ========== START THEME SCRIPTS ========== -->
+    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/ui/headroom.min.js') }}" type="text/javascript"></script>
     @yield('theme-scripts')
     <!-- ========== END THEME SCRIPTS ========== -->
 
