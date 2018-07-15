@@ -1,0 +1,130 @@
+@import 'toastr';
+@import 'form';
+a {
+  color: #323f40;
+}
+// FORM control panel
+.float-label {
+  position: relative;
+  & > label {
+    position: absolute;
+    transition: all .3s;
+    background-color: #FFF;
+    color: #019cfd;
+    width: auto;
+    font-size: 12px;
+    font-weight: 300;
+    left: 0px;
+    opacity: 0;
+    z-index: 2;
+  }
+  &.float > label {
+    opacity: 1;
+  }
+
+  &.float {
+    .select2-selection {
+      &.select2-selection--multiple .select2-selection__rendered {
+        padding-top: 10px!important;
+      }
+    }
+  }
+
+  & > .field {
+    & > .input-group-append{ display: none}
+    .float-control {
+      border-color: #0000001f;
+      padding: 20px 0 0 0;
+    }
+    .select2-container {
+      .select2-selection {
+        border-width: 0;
+        .select2-selection__rendered {
+          padding-left: 0;
+          padding-top: 10px;
+        }
+        .select2-selection__arrow{
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.active {
+    & > label {
+      top: -8px;
+      left: 10px;
+    }
+    & > .field {
+      z-index: 1;
+      & > .input-group-append{
+        display: inline-block;
+      }
+      .float-control{
+        border-width: 1px;
+        padding: 8px 10px 4px 10px;
+      }
+      .select2-container {
+        .select2-selection--multiple{
+          min-height: auto;
+          border: 1px solid #0000001f !important;
+        }
+      }
+
+      .select2-selection {
+        border-width: 1px;
+        .select2-selection__rendered {
+          padding: 0 10px 5px 10px;
+        }
+        &.select2-selection--multiple .select2-selection__rendered{
+          display: block;
+        }
+        .select2-selection__arrow{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.loading { // Button loading
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: no-drop;
+}
+
+.card-box {
+  .action-group{
+    transition: all .3s linear;
+    overflow: hidden;
+  }
+  &[data-active="false"]{
+    pointer-events: none;
+  }
+  &[data-active="false"] .action-group{
+    height: 0;
+  }
+  &[data-active="false"] .float-label{
+    .field select, .field input{
+      border: 0;
+    }
+    & label{
+      opacity: 1;
+    }
+
+  }
+  & > .control-panel {
+    pointer-events: auto;
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    color: #b7b7b7;
+    & i {
+      cursor: pointer;
+      transition: all .3s linear;
+      &:hover{
+        color: #01c0ce;
+      }
+    }
+  }
+}
