@@ -11,7 +11,7 @@
             <i class="dripicons-document-edit switch-panel-mode"></i>
         </div>
     @endif
-    <div class="mt-5">
+    <div class="content-card">
         {{ $content }}
     </div>
 </div>

@@ -3,12 +3,12 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const moduleFolder = './resources/assets/frontend';
-// const core = require('./webpack/core.config');
+const core = require('./webpack.config');
 
 /*
  * Some config to load Handlebarsjs
  */
-// mix.webpackConfig(core);
+mix.webpackConfig(core);
 
 /**
  * Scan all folder in parent dir

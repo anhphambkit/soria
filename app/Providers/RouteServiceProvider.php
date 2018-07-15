@@ -15,6 +15,8 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+    protected $namespaceAdmin = 'App\Http\Controllers\Admin';
+    protected $namespaceCustomer = 'App\Http\Controllers\Customer';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -24,6 +26,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Route::pattern('mainDomain', '(www.drsori.bi|drsori.bi)');
+        Route::pattern('subDomain', '(admin)');
 
         parent::boot();
     }
@@ -39,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAjaxRoutes();
     }
 
     /**
@@ -54,6 +58,11 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+
+        //Register for admin:
+        Route::middleware('web')
+             ->namespace($this->namespaceAdmin . "\Web")
+             ->group(base_path('routes/admin/web.php'));
     }
 
     /**
@@ -69,5 +78,24 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "ajax" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAjaxRoutes()
+    {
+        Route::prefix('ajax')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/ajax.php'));
+
+        //Register for admin:
+        Route::middleware('web')
+            ->namespace($this->namespaceAdmin . "\Ajax")
+            ->group(base_path('routes/admin/ajax.php'));
     }
 }

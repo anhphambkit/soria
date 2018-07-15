@@ -1,0 +1,138 @@
+.toast.toast-success {
+  background-color: #02c0ce;
+}
+
+ul[data-validation="eden-validation"] {
+  padding: 0;
+  list-style: none;
+  font-size: 11px;
+  margin: 10px;
+  color: #f1556b;
+}
+
+.form-group.has-error .float-label > label {
+  color: #f1556b;
+}
+
+.form-group.has-error .float-label > .field input,
+.form-group.has-error .float-label > .field select {
+  border-color: #f1556b;
+}
+
+.float-label {
+  position: relative;
+}
+
+.float-label > label {
+  position: absolute;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: #FFF;
+  color: #019cfd;
+  width: auto;
+  font-size: 12px;
+  font-weight: 300;
+  left: 0px;
+  opacity: 0;
+  z-index: 2;
+}
+
+.float-label.float > label {
+  opacity: 1;
+}
+
+.float-label > .field > .input-group-append {
+  display: none;
+}
+
+.float-label > .field .float-control {
+  border-color: #0000001f;
+  border-width: 0;
+  padding: 20px 0 0 0;
+}
+
+.float-label > .field .select2-container .select2-selection {
+  border-width: 0;
+}
+
+.float-label > .field .select2-container .select2-selection .select2-selection__rendered {
+  padding-left: 0;
+  padding-top: 10px;
+}
+
+.float-label > .field .select2-container .select2-selection .select2-selection__arrow {
+  display: none;
+}
+
+.float-label.active > label {
+  top: -8px;
+  left: 10px;
+}
+
+.float-label.active > .field {
+  z-index: 1;
+}
+
+.float-label.active > .field > .input-group-append {
+  display: inline-block;
+}
+
+.float-label.active > .field .float-control {
+  border-width: 1px;
+  padding: 8px 10px 4px 10px;
+}
+
+.float-label.active > .field .select2-selection {
+  border-width: 1px;
+}
+
+.float-label.active > .field .select2-selection .select2-selection__rendered {
+  padding: 0 10px 5px 10px;
+}
+
+.float-label.active > .field .select2-selection .select2-selection__arrow {
+  display: block;
+}
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: no-drop;
+}
+
+.card-box .action-group {
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  overflow: hidden;
+}
+
+.card-box[data-active="false"] {
+  pointer-events: none;
+}
+
+.card-box[data-active="false"] .action-group {
+  height: 0;
+}
+
+.card-box[data-active="false"] .float-label label {
+  opacity: 1;
+}
+
+.card-box > .control-panel {
+  pointer-events: auto;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  color: #b7b7b7;
+}
+
+.card-box > .control-panel i {
+  cursor: pointer;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+.card-box > .control-panel i:hover {
+  color: #01c0ce;
+}
+

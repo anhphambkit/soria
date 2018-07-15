@@ -14,7 +14,8 @@
 ?>
 
 
-<button data-loading="<i class='fa fa-circle-o-notch fa-spin fa-fw'></i> {{trans('theme::theme.action.processing')}}" type="{{ $type }}" data-control="{{ $control }}" id="{{ $id }}" class="btn has-spinner waves-effect waves-light {{ $class }}"
+<button data-loading="<i class='fa fa-circle-o-notch fa-spin fa-fw'></i> {{trans('generals.loading')}}" type="{{
+$type }}" data-control="{{ $control }}" id="{{ $id }}" class="btn has-spinner waves-effect waves-light {{ $class }}"
     @foreach($attributes as $key => $val)
         {!! $key. '="'. $val. '" ' !!}
     @endforeach

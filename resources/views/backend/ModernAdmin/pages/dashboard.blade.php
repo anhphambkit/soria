@@ -71,11 +71,11 @@
         ])
     @endcomponent
 
-    @component('components.section')
-        @slot('title', 'Panel Title')
-        @slot('content', 'Panel Content')
-        @slot('controls', [ 'collapse', 'expand'])
-    @endcomponent
+    {{--@component('components.section')--}}
+        {{--@slot('title', 'Panel Title')--}}
+        {{--@slot('content', 'Panel Content')--}}
+        {{--@slot('controls', [ 'collapse', 'expand'])--}}
+    {{--@endcomponent--}}
 @endsection
 
 @section('header-right')

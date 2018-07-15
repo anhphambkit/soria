@@ -10,7 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('backend.ModernAdmin.pages.dashboard');
+/*********************************************************
+ *
+ *                  ROUTE FOR FRONTEND MODULE
+ *
+ *********************************************************/
+Route::domain('{mainDomain}')->group(function () {
+    Route::get('/', function () {
+        return "homepage";
+    })->name('home');
 });

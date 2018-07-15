@@ -59,6 +59,7 @@
     <!-- ========== START PAGE CSS ========== -->
 
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/assets/css/style-custom.css') }}">
     @yield('styles')
 </head>
 <body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
@@ -84,6 +85,8 @@
     <script src="{{ asset('backend/modernadmin/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/modernadmin/app-assets/js/core/app.js') }}" type="text/javascript"></script>
     <script src="{{ asset('backend/modernadmin/app-assets/js/scripts/customizer.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/js/jquery.serializejson.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/jquery.buttonLoader.min.js')}}"></script>
     @yield('core-footer-scripts')
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
@@ -99,5 +102,9 @@
     <!-- ========== START PAGE SCRIPTS ========== -->
     @yield('page-scripts')
     <!-- ========== END PAGE SCRIPTS ========== -->
+
+    <!-- ========== START CONSTANT HTTP CODE SCRIPTS ========== -->
+    @include('backend.ModernAdmin.layouts.constant')
+    <!-- ========== END CONSTANT HTTP CODE SCRIPTS ========== -->
 </body>
 </html>
