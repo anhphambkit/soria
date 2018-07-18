@@ -18,10 +18,10 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
 
     /************ Router Product ************** */
     Route::prefix('product')->group(function () {
-        Route::get('/list', 'ProductController@indexProduct')->name('admin.product.index');
-        Route::get('/new', 'ProductController@newProduct')->name('admin.product.new');
-        Route::get('/edit/{id}', 'ProductController@editProduct')->name('admin.product.edit')->where('id', '[0-9]+');
-        Route::get('/category/list', 'ProductController@indexCategoryProduct')->name('admin.product.category.index');
-        Route::get('/category/new', 'ProductController@newCategoryProduct')->name('admin.product.category.new');
+        Route::get('/list', 'ProductCategoryController@indexProduct')->name('admin.product.index');
+        Route::get('/new', 'ProductCategoryController@newProduct')->name('admin.product.new');
+        Route::get('/edit/{id}', 'ProductCategoryController@editProduct')->name('admin.product.edit')->where('id', '[0-9]+');
+        Route::get('/category/list', 'ProductCategoryController@indexCategoryProduct')->name('admin.product.category.index');
+        Route::get('/category/new', 'ProductCategoryController@newCategoryProduct')->name('admin.product.category.new');
     });
 });

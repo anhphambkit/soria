@@ -31,3 +31,5 @@ resources/assets/backend/.DS_Store
 .DS_Store
 .idea
 .idea/workspace.xml
+.idea
+public

@@ -16,7 +16,7 @@ class CreateTableProductCategoryRelation extends Migration
         Schema::create('product_category_relation', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
-            $table->integer('cat_id');
+            $table->integer('cate_id');
             $table->timestamps();
         });
     }

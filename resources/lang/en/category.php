@@ -28,4 +28,5 @@ return [
     'meta_title' => 'Meta title',
     'meta_keyword' => 'Meta keyword',
     'meta_desc' => 'Meta Description',
+    'category_parent' => 'Category Parent',
 ];

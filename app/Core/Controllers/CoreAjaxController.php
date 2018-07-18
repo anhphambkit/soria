@@ -6,7 +6,7 @@
  * Time: 22:06
  */
 
-namespace app\Core\Controllers;
+namespace App\Core\Controllers;
 
 use Illuminate\Routing\Controller;
 

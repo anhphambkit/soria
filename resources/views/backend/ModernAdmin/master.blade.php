@@ -36,12 +36,11 @@
     <!-- END FONTS-->
 
     <!-- ========== START CORE SCRIPTS ========== -->
-    {{--<link href="{{ asset('backend/modernadmin/assets/plugins/css/bootstrap.min.css') }}" rel="stylesheet"--}}
-          {{--type="text/css" />--}}
-    {{--<script src="{{ asset('backend/modernadmin/assets/plugins/js/jquery.min.js')}}"></script>--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/vendors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/core/colors/palette-gradient.css') }}">
+    <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert2.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendors/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @yield('core-scripts')
     <!-- ========== START CORE SCRIPTS ========== -->
 
@@ -87,6 +86,8 @@
     <script src="{{ asset('backend/modernadmin/app-assets/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendors/js/jquery.serializejson.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/jquery.buttonLoader.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert2.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/select2.min.js')}}"></script>
     @yield('core-footer-scripts')
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 

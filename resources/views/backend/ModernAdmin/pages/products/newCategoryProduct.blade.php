@@ -96,7 +96,7 @@
                     @slot('content')
                         <form role="form" id="form-create-new-category">
                             <div class="form-group row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     @component('components.field')
                                         @slot('title', trans('category.name'))
                                         @slot('name', 'name')
@@ -104,14 +104,27 @@
                                         @slot('required', true)
                                     @endcomponent
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     @component('components.field')
                                         @slot('title', trans('category.slug'))
                                         @slot('name', 'slug')
                                         @slot('id', 'slug')
                                         @slot('required', true)
+                                    @endcomponent
+                                </div>
+                                <div class="col-md-4">
+                                    @component('components.field')
+                                        @slot('title', trans('category.category_parent'))
+                                        @slot('name', 'parent_id')
+                                        @slot('id', 'parent_id')
+                                        @slot('type', 'dropdown')
+                                        <?php
+                                        $dropdown[''] = 'Select parent category';
+                                        foreach ($categories as $category) {
+                                            $dropdown[$category->id] = $category->name;
+                                        }
+                                        ?>
+                                        @slot('values', $dropdown)
                                     @endcomponent
                                 </div>
                             </div>
@@ -148,8 +161,8 @@
                                 <div class="col-md-12">
                                     @component('components.field')
                                         @slot('title', trans('category.meta_keyword'))
-                                        @slot('name', 'meta_keyword')
-                                        @slot('id', 'meta_keyword')
+                                        @slot('name', 'meta_keywords')
+                                        @slot('id', 'meta_keywords')
                                     @endcomponent
 
                                 </div>
@@ -201,7 +214,7 @@
     <script>
         const PRODUCT_API = {
             TEST_AJAX : "{{ route('test_ajax') }}",
-            CREATE_CATEGORY : "{{ route('admin_ajax.product.create_new_category', $domain) }}"
+            CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         }
     </script>
     <script src="{{ asset('backend/modernadmin/assets/js/pages/newProductCategory.js') }}"

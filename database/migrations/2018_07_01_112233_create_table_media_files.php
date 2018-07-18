@@ -17,7 +17,7 @@ class CreateTableMediaFiles extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('filename');
-            $table->string('path_org')->nullable()->comment('Path to original image file.');
+            $table->string('path_org')->comment('Path to original image file.');
             $table->string('path_medium')->nullable()->comment('Path to medium image file.');
             $table->string('path_small')->nullable()->comment('Path to small image file.');
             $table->string('extension')->nullable()->comment('File type (extension file type).');
@@ -35,6 +35,6 @@ class CreateTableMediaFiles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media');
+        Schema::dropIfExists('media__files');
     }
 }

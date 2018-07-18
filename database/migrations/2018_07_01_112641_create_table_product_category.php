@@ -15,8 +15,8 @@ class CreateTableProductCategory extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->integer('parent_id')->nullable()->comment('Id of category parent');
+            $table->string('name')->unique();
+            $table->integer('parent_id')->default(0)->comment('Id of category parent');
             $table->string('slug')->nullable()->comment('Slug of category');
             $table->string('desc')->nullable();
             $table->integer('order')->nullable()->comment('Order of this category (Just on the same level).');

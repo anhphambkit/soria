@@ -15,23 +15,23 @@ class CreateTableProduct extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('slug')->unique();
-            $table->string('sku')->unique();
-            $table->string('desc')->nullable();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('sku');
+            $table->string('desc');
             $table->text('long_desc')->nullable();
 
             // D: (draft), P: (Published)
-            $table->char('status', 1)->default('D')->comment('P: Published, D: Draft');
+            $table->boolean('is_publish', 1)->default(true)->comment('true: Published, false: Draft');
             $table->boolean('is_feature')->default(false)->comment('Product feature');
             $table->boolean('is_best_seller')->default(false)->comment('Product is best seller');
             $table->boolean('is_free_ship')->default(false)->comment('Product is free ship');
 
             // original price
-            $table->integer('price')->nullable()->comment('Original price'); // Original price
+            $table->integer('price')->comment('Original price'); // Original price
             $table->integer('sale_price')->nullable()->comment('Sale Price'); // Price which client will pay to buy
 
-            $table->integer('stock')->nullable()->comment('Total items in stock'); // Original price
+            $table->integer('in_stock')->nullable()->comment('Total items in stock'); // Original price
             $table->boolean('manager_stock')->default(false)->comment('Admin manager items in stock');
             $table->boolean('allow_order')->default(false)->comment('Allow order product when stock not available');
 

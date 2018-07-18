@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Web;
 
+use App\Packages\Admin\Services\Implement\ImplementProductCategoryServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductCategoryController extends Controller
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
-
-    public function __construct(){
+    protected $productCategoryServices;
+    public function __construct(ImplementProductCategoryServices $productCategoryServices) {
         parent::__construct();
+        $this->productCategoryServices = $productCategoryServices;
     }
 
     /**
@@ -55,6 +57,7 @@ class ProductController extends Controller
      * @return
      */
     public function newCategoryProduct() {
-        return view('backend.ModernAdmin.pages.products.newCategoryProduct');
+        $categories = $this->productCategoryServices->getAllProductCategory();
+        return view('backend.ModernAdmin.pages.products.newCategoryProduct', compact('categories'));
     }
 }

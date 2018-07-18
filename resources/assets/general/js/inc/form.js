@@ -127,6 +127,7 @@ class Form {
                 /**
                  * Do some hook -> parse validation error -> scroll screen to element
                  */
+                $(reuseForm.wrapper + ' ' + reuseForm.submitBtn).buttonLoader('stop')
                 reuseForm.fail(data.response.data);
                 if(data.response.data != null && data.response.data.status == CONFIG.HTTP_CODE.VALIDATE_ERROR ){
                     reuseForm.parseValidateErrors(data.response.data.data);
