@@ -38,3 +38,4 @@ drsori.iml
 *.xml
 .idea
 public/mix-manifest.json
+.idea/workspace.xml

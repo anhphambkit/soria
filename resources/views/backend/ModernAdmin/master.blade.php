@@ -44,7 +44,7 @@
     <!-- ========== START CORE SCRIPTS ========== -->
 
     <!-- ========== START THEME CSS ========== -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/app.css') }}">
     @yield('theme-css')
     <!-- ========== END THEME CSS ========== -->
 

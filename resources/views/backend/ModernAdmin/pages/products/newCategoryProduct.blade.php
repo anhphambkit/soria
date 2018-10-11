@@ -37,17 +37,17 @@
 @endsection
 
 @section('plugin-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/fonts/meteocons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/morris.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/chartist.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/fonts/meteocons/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/morris.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/chartist.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
 @endsection
 
 @section('page-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/fonts/simple-line-icons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/pages/timeline.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/fonts/simple-line-icons/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/pages/timeline.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
 @endsection
 
 @section('styles')
@@ -217,6 +217,6 @@
             CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         }
     </script>
-    <script src="{{ asset('backend/modernadmin/assets/js/pages/newProductCategory.js') }}"
+    <script src="{{ asset('assets/backend/modernadmin/assets/js/pages/newProductCategory.js') }}"
             type="text/javascript"></script>
 @endsection

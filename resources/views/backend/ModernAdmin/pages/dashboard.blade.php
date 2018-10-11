@@ -37,17 +37,17 @@
 @endsection
 
 @section('plugin-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/fonts/meteocons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/morris.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/chartist.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/fonts/meteocons/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/morris.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/chartist.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
 @endsection
 
 @section('page-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/fonts/simple-line-icons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/pages/timeline.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/fonts/simple-line-icons/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/pages/timeline.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/pages/dashboard-ecommerce.css') }}">
 @endsection
 
 @section('styles')
@@ -226,17 +226,17 @@
                                         <ul class="list-unstyled users-list m-0">
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="John Doe"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-19.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-19.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Katherine Nichols"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-18.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-18.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joseph Weaver"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-17.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-17.png"
                                                      alt="Avatar">
                                             </li>
                                             <li class="avatar avatar-sm">
@@ -252,12 +252,12 @@
                                         <ul class="list-unstyled users-list m-0">
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Scott"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-16.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-16.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Charles Miller"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-15.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-15.png"
                                                      alt="Avatar">
                                             </li>
                                         </ul>
@@ -270,17 +270,17 @@
                                         <ul class="list-unstyled users-list m-0">
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Christine Ramos"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-11.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-11.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Thomas Brewer"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-10.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-10.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Alice Chapman"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
                                                      alt="Avatar">
                                             </li>
                                             <li class="avatar avatar-sm">
@@ -296,17 +296,17 @@
                                         <ul class="list-unstyled users-list m-0">
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Ryan Schneider"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-14.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-14.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Tiffany Oliver"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-13.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-13.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Joan Reid"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-12.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-12.png"
                                                      alt="Avatar">
                                             </li>
                                         </ul>
@@ -319,17 +319,17 @@
                                         <ul class="list-unstyled users-list m-0">
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-8.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-8.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
                                                      alt="Avatar">
                                             </li>
                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones"
                                                 class="avatar avatar-sm pull-up">
-                                                <img class="media-object rounded-circle" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
+                                                <img class="media-object rounded-circle" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
                                                      alt="Avatar">
                                             </li>
                                             <li class="avatar avatar-sm">
@@ -382,7 +382,7 @@
                                 <td class="text-truncate"><a href="#">INV-001001</a></td>
                                 <td class="text-truncate">
                           <span class="avatar avatar-xs">
-                            <img class="box-shadow-2" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-4.png"
+                            <img class="box-shadow-2" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-4.png"
                                  alt="avatar">
                           </span>
                                     <span>Elizabeth W.</span>
@@ -392,19 +392,19 @@
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-1.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-1.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-2.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-2.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-4.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-4.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li class="avatar avatar-sm">
@@ -428,7 +428,7 @@
                                 <td class="text-truncate"><a href="#">INV-001002</a></td>
                                 <td class="text-truncate">
                           <span class="avatar avatar-xs">
-                            <img class="box-shadow-2" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-5.png"
+                            <img class="box-shadow-2" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-5.png"
                                  alt="avatar">
                           </span>
                                     <span>Doris R.</span>
@@ -438,13 +438,13 @@
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-6.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-6.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li class="avatar avatar-sm">
@@ -468,7 +468,7 @@
                                 <td class="text-truncate"><a href="#">INV-001003</a></td>
                                 <td class="text-truncate">
                           <span class="avatar avatar-xs">
-                            <img class="box-shadow-2" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
+                            <img class="box-shadow-2" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
                                  alt="avatar">
                           </span>
                                     <span>Megan S.</span>
@@ -478,13 +478,13 @@
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-2.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-2.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
                                                  alt="Avatar">
                                         </li>
                                     </ul>
@@ -505,7 +505,7 @@
                                 <td class="text-truncate"><a href="#">INV-001004</a></td>
                                 <td class="text-truncate">
                           <span class="avatar avatar-xs">
-                            <img class="box-shadow-2" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
+                            <img class="box-shadow-2" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
                                  alt="avatar">
                           </span>
                                     <span>Andrew D.</span>
@@ -515,13 +515,13 @@
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-6.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-6.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-1.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-1.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li class="avatar avatar-sm">
@@ -545,7 +545,7 @@
                                 <td class="text-truncate"><a href="#">INV-001005</a></td>
                                 <td class="text-truncate">
                           <span class="avatar avatar-xs">
-                            <img class="box-shadow-2" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
+                            <img class="box-shadow-2" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
                                  alt="avatar">
                           </span>
                                     <span>Walter R.</span>
@@ -555,13 +555,13 @@
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-5.jpg"
                                                  alt="Avatar">
                                         </li>
                                         <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres"
                                             class="avatar avatar-sm pull-up">
                                             <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                                 src="../../../backend/modernadmin/app-assets/images/portfolio/portfolio-3.jpg"
+                                                 src="../../../assets/backend/modernadmin/app-assets/images/portfolio/portfolio-3.jpg"
                                                  alt="Avatar">
                                         </li>
                                     </ul>
@@ -658,7 +658,7 @@
                     <h4 class="card-title">Basic Card</h4>
                 </div>
                 <div class="card-content">
-                    <img class="img-fluid" src="../../../backend/modernadmin/app-assets/images/carousel/05.jpg" alt="Card image cap">
+                    <img class="img-fluid" src="../../../assets/backend/modernadmin/app-assets/images/carousel/05.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up
                             the bulk of the card's content.</p>
@@ -719,7 +719,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-5.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-5.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -740,7 +740,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -761,7 +761,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -782,7 +782,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-8.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-8.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -803,7 +803,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-9.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -824,7 +824,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -845,7 +845,7 @@
                                             <blockquote class="blockquote border-0">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <img class="media-object img-xl mr-1" src="../../../backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
+                                                        <img class="media-object img-xl mr-1" src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-7.png"
                                                              alt="Generic placeholder image">
                                                     </div>
                                                     <div class="media-body">
@@ -884,14 +884,14 @@
 @endsection
 
 @section('plugin-scripts')
-    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}"
             type="text/javascript"></script>
-    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/charts/raphael-min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/charts/morris.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('backend/modernadmin/app-assets/vendors/js/timeline/horizontal-timeline.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/charts/raphael-min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/charts/morris.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/timeline/horizontal-timeline.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('page-scripts')
-    <script src="{{ asset('backend/modernadmin/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modernadmin/app-assets/js/scripts/pages/dashboard-ecommerce.js') }}" type="text/javascript"></script>
 @endsection

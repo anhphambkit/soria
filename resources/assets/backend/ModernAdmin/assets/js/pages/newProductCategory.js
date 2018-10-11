@@ -1,7 +1,7 @@
-import Form from '@/general/js/inc/form';
-import responeForm from '@/general/js/inc/responeForm';
+import Form from '@incResources/form';
+import responeForm from '@incResources/responeForm';
 import message from '@/general/js/config/message';
-import JSLib from '@/general/js/inc/js-lib';
+import JSLib from '@incResources/js-lib';
 // updatedMess = (new JSLib).format(message.UPDATE_SUCCESS, ['Basic Config']);
 // Config user form for submit profile
 let roleForm = new Form();
