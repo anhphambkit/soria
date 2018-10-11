@@ -55,7 +55,7 @@
 @endsection
 
 @section('breadcrumbs')
-    @component('components.breadcrumbs')
+    @component('components.layouts.breadcrumbs')
         @slot('header', 'Dashboard')
         @slot('items', [
             [

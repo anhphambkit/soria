@@ -2,6 +2,8 @@
 $type = isset($type) ? $type : 'text';
 $class = isset($class) ? $class : '';
 $attributes = isset($attributes) ? $attributes : [];
+$parseErrorLaravel = !empty($parseErrorLaravel) ? $parseErrorLaravel : false;
+$noValidate = !empty($noValidate) ? $noValidate : false;
 ?>
 @if($type === 'text' || $type === 'number' || $type === 'email' || $type === 'password')
 <div class="field-group float-label active {{ $class }}">
@@ -175,5 +177,13 @@ $attributes = isset($attributes) ? $attributes : [];
 @endif
 
 @if(empty($noValidate))
-    <ul class="" data-validation="eden-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
+    <ul class="" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
+@endif
+
+@if($parseErrorLaravel)
+    @if ($errors->has($name))
+        <ul class="{{$classError}}" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}">
+            <li><strong>{{ $errors->first($name) }}</strong></li>
+        </ul>
+    @endif
 @endif

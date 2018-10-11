@@ -1,4 +1,4 @@
-@component('theme::components.button')
+@component('theme::components.elements.button')
 @slot('id', $id)
 @slot('type', 'button')
 @slot('label', '<i class="fi fi-image"></i> '. trans('theme::theme.image'))

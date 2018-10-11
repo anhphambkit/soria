@@ -13,8 +13,7 @@ yarn-error.log
 .env
 /.idea/workspace.xml
 .idea
-.idea
-.idea
+.idea/*
 resources/assets/backend/ModernAdmin/app-assets/images/logo/.DS_Store
 resources/assets/backend/ModernAdmin/app-assets/js/core/.DS_Store
 resources/assets/backend/ModernAdmin/app-assets/js/.DS_Store
@@ -35,3 +34,5 @@ resources/assets/backend/.DS_Store
 public
 workspace.xml
 drsori.iml
+*.iml
+*.xml

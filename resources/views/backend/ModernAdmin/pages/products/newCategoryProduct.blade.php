@@ -55,7 +55,7 @@
 @endsection
 {{-- ['admin', 'drsori.bi'] --}}
 @section('breadcrumbs')
-    @component('components.breadcrumbs')
+    @component('components.layouts.breadcrumbs')
         @slot('header', trans('category.header_create_new_category'))
         @slot('items', [
             [
@@ -90,14 +90,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 none-padding">
-                @component('components.cardbox')
+                @component('components.partials.cardbox')
                     @slot('title', trans('category.category_name'))
                     @slot('isActive', true)
                     @slot('content')
                         <form role="form" id="form-create-new-category">
                             <div class="form-group row">
                                 <div class="col-md-4">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.name'))
                                         @slot('name', 'name')
                                         @slot('id', 'name')
@@ -105,7 +105,7 @@
                                     @endcomponent
                                 </div>
                                 <div class="col-md-4">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.slug'))
                                         @slot('name', 'slug')
                                         @slot('id', 'slug')
@@ -113,7 +113,7 @@
                                     @endcomponent
                                 </div>
                                 <div class="col-md-4">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.category_parent'))
                                         @slot('name', 'parent_id')
                                         @slot('id', 'parent_id')
@@ -130,7 +130,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.desc'))
                                         @slot('name', 'desc')
                                         @slot('id', 'desc')
@@ -139,7 +139,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.order'))
                                         @slot('type', 'number')
                                         @slot('name', 'order')
@@ -150,7 +150,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.meta_title'))
                                         @slot('id', 'meta_title')
                                         @slot('name', 'meta_title')
@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.meta_keyword'))
                                         @slot('name', 'meta_keywords')
                                         @slot('id', 'meta_keywords')
@@ -169,7 +169,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    @component('components.field')
+                                    @component('components.elements.field')
                                         @slot('title', trans('category.meta_desc'))
                                         @slot('id', 'meta_description')
                                         @slot('name', 'meta_description')
@@ -178,13 +178,13 @@
                             </div>
                             <div class="form-group row action-group">
                                 <div class="col-12 text-right">
-                                    @component('components.button')
+                                    @component('components.elements.button')
                                         @slot('id', 'submit-new-category')
                                         @slot('control', 'submit')
                                         @slot('label', trans('generals.create'))
                                     @endcomponent
 
-                                    @component('components.button')
+                                    @component('components.elements.button')
                                         @slot('id', 'cancel-new-category')
                                         @slot('control', 'button')
                                         @slot('label', trans('generals.cancel'))
