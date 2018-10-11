@@ -37,3 +37,4 @@ drsori.iml
 *.iml
 *.xml
 .idea
+public/mix-manifest.json

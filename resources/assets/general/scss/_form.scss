@@ -1,0 +1,22 @@
+ul[data-validation="eden-validation"] {
+  padding: 0;
+  list-style: none;
+  font-size: 11px;
+  margin: 5px 0 5px 0;
+  color: #ef5350;
+}
+
+.form-group {
+  label {
+    margin-bottom: 5px;
+  }
+  &.has-error {
+    label {
+      //color: #ef5350;
+    }
+    input, select, textarea, .select2-selection {
+      border-color: rgb(185, 74, 72);
+      color: #ef5350;
+    }
+  }
+}

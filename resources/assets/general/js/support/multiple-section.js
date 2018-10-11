@@ -1,5 +1,5 @@
 let Handlebars = require('handlebars');
-import floatLabel from '@theme/inc/float-label';
+import floatLabel from '@incResources/float-label';
 class MultipleSection {
     constructor(){
         this.source = '#section-list';

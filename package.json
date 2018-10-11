@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "handlebars": "^4.0.11",
+        "klaw-sync": "^6.0.0",
         "mustache": "^2.3.0"
     }
 }

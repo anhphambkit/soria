@@ -5,6 +5,10 @@ const path = require('path');
 const themeFolder = './resources/assets/backend';
 const core = require('./webpack.config');
 
+let argv = require('yargs').argv;
+let readdirp = require('readdirp');
+// Require the module
+let klawSync = require('klaw-sync');
 /*
  * Some config to load Handlebarsjs
  */
@@ -39,58 +43,63 @@ const files = (p) => {
  */
 let themes = dirs(themeFolder);
 themes.forEach(function (theme) {
-    let jsInTheme = files('./resources/assets/backend/' + theme + '/assets/js');
-    jsInTheme.forEach(function (jsFile) {
-        let jsPath = path.resolve(themeFolder, theme, 'assets', 'js', jsFile);
-        if (process.env.NODE_ENV === 'development') {
-            mix.js(jsPath, 'public/backend/' + theme.toLowerCase() + '/assets/js/' + jsFile).sourceMaps();
-        } else {
-            mix.js(jsPath, 'public/backend/' + theme.toLowerCase() + '/assets/js/' + jsFile);
+    let jsRoot = './resources/assets/backend/' + theme + '/assets/js';
+    let cssRoot = './resources/assets/backend/' + theme + '/assets/scss';
+    let allJsFilePaths = [];
+    let allCssFilePaths = [];
+
+// Create an empty variable to be accesible in the closure
+    let resultJsAllPaths;
+    let resultCssAllPaths;
+
+    try {
+        resultJsAllPaths = klawSync(jsRoot);
+        resultCssAllPaths = klawSync(cssRoot);
+    } catch (err) {
+        console.error(err);
+    }
+
+    resultJsAllPaths.forEach(function (resultPath) {
+        if(fs.lstatSync(resultPath.path).isFile()) {
+            let asset = resultPath.path;
+            let isJS = asset.substr(asset.length - 3) === '.js';
+            if(isJS){
+                allJsFilePaths.push(
+                    resultPath.path
+                );
+            }
         }
     });
 
-    let sassInTheme = files('./resources/assets/backend/' + theme + '/assets/scss');
-    sassInTheme.forEach(function (scssFile) {
-        let sassPath = path.resolve(themeFolder, theme, 'assets', 'scss', scssFile);
-        let fileName = scssFile.substring(0, scssFile.length - 5) + '.css';
-        if (process.env.NODE_ENV === 'development') {
-            mix.sass(sassPath, 'public/backend/' + theme.toLowerCase() + '/assets/css/' + fileName).sourceMaps();
-        } else {
-            mix.sass(sassPath, 'public/backend/' + theme.toLowerCase() + '/assets/css/' + fileName);
+    resultCssAllPaths.forEach(function (resultPath) {
+        if(fs.lstatSync(resultPath.path).isFile()) {
+            let asset = resultPath.path;
+            let isSCSS = asset.substr(asset.length - 5) === '.scss';
+            if (isSCSS) {
+                let arrayPath = asset.split('/');
+                let fileName = arrayPath[arrayPath.length - 1];
+                let indexChar = fileName.indexOf("_");
+                if (indexChar === -1) {
+                    allCssFilePaths.push(
+                        resultPath.path
+                    );
+                }
+            }
         }
     });
 
-    // Publish plugins + fonts
-    mix.copyDirectory('resources/assets/backend/' + theme + '/app-assets', 'public/backend/' + theme.toLowerCase() + '/app-assets');
-
-    // Sub JS folders:
-    let subJSFolder = './resources/assets/backend/' + theme + '/assets/js';
-    let jsFolders = dirs(subJSFolder);
-    jsFolders.forEach(function (jsFolder) {
-        let jsInPackage = files('./resources/assets/backend/' + theme + '/assets/js/' + jsFolder);
-        jsInPackage.forEach(function (jsFile) {
-            let jsPath = path.resolve(subJSFolder, jsFolder, jsFile);
-            if (process.env.NODE_ENV === 'development') {
-                mix.js(jsPath, 'public/backend/' + theme.toLowerCase() + '/assets/js/' + jsFolder.toLowerCase() + '/' + jsFile).sourceMaps();
-            } else {
-                mix.js(jsPath, 'public/backend/' + theme.toLowerCase() + '/assets/js/' + jsFolder.toLowerCase() + '/' + jsFile);
-            }
-        });
+    allJsFilePaths.forEach(function (jsFile) {
+        let jsFileName = jsFile.split('resources/assets/backend/' + theme + '/assets/js/');
+        let buildJsTo = path.resolve('public/assets/backend/' + theme + '/assets/js/', jsFileName[1]);
+        mix.js(jsFile, buildJsTo).sourceMaps();
     });
 
-    // Sub CSS folders:
-    let subCSSFolder = './resources/assets/backend/' + theme + '/assets/scss/custom';
-    let cssFolders = dirs(subCSSFolder);
-    cssFolders.forEach(function (cssFolder) {
-        let sassInPackage = files('./resources/assets/backend/' + theme + '/assets/scss/custom/' + cssFolder);
-        sassInPackage.forEach(function (scssFile) {
-            let sassPath = path.resolve(subCSSFolder, cssFolder, scssFile);
-            let fileName = scssFile.substring(0, scssFile.length - 5) + '.css';
-            if (process.env.NODE_ENV === 'development') {
-                mix.sass(sassPath, 'public/backend/' + theme.toLowerCase() + '/assets/css/custom/' + cssFolder.toLowerCase() + '/' + fileName).sourceMaps();
-            } else {
-                mix.sass(sassPath, 'public/backend/' + theme.toLowerCase() + '/assets/css/custom/' + cssFolder.toLowerCase() + '/' + fileName);
-            }
-        });
+    allCssFilePaths.forEach(function (cssFile) {
+        let cssFileName = cssFile.split('resources/assets/backend/' + theme + '/assets/scss/');
+        let cssAsset = cssFileName[1];
+        cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
+        let buildCssTo = path.resolve('public/assets/backend/' + theme + '/assets/css/', cssAsset);
+        mix.sass(cssFile, buildCssTo);
     });
+
 });

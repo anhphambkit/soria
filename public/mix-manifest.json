@@ -1,6 +1,8 @@
 {
-    "/backend/modernadmin/assets/js/pages/newProductCategory.js": "/backend/modernadmin/assets/js/pages/newProductCategory.js",
-    "/backend/modernadmin/assets/css/style-custom.css": "/backend/modernadmin/assets/css/style-custom.css",
-    "/backend/modernadmin/assets/css/style-rtl.css": "/backend/modernadmin/assets/css/style-rtl.css",
-    "/backend/modernadmin/assets/css/style.css": "/backend/modernadmin/assets/css/style.css"
+    "/assets/backend/ModernAdmin/assets/js/pages/newProductCategory.js": "/assets/backend/ModernAdmin/assets/js/pages/newProductCategory.js",
+    "/assets/backend/ModernAdmin/assets/css/colors/palette-variables.css": "/assets/backend/ModernAdmin/assets/css/colors/palette-variables.css",
+    "/assets/backend/ModernAdmin/assets/css/sources/part/app.css": "/assets/backend/ModernAdmin/assets/css/sources/part/app.css",
+    "/assets/backend/ModernAdmin/assets/css/style-custom.css": "/assets/backend/ModernAdmin/assets/css/style-custom.css",
+    "/assets/backend/ModernAdmin/assets/css/style-rtl.css": "/assets/backend/ModernAdmin/assets/css/style-rtl.css",
+    "/assets/backend/ModernAdmin/assets/css/style.css": "/assets/backend/ModernAdmin/assets/css/style.css"
 }

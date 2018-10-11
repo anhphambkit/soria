@@ -2,8 +2,12 @@ let mix = require('laravel-mix');
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const moduleFolder = './resources/assets/frontend';
+let argv = require('yargs').argv;
+let readdirp = require('readdirp');
 const core = require('./webpack.config');
+const moduleFolder = './resources/assets/frontend';
+// Require the module
+let klawSync = require('klaw-sync');
 
 /*
  * Some config to load Handlebarsjs
@@ -39,28 +43,67 @@ const files = (p) => {
  */
 let modules = dirs(moduleFolder);
 modules.forEach(function (module) {
-    let jsInPackage = files('./resources/assets/frontend/' + module + '/js');
-    jsInPackage.forEach(function (jsFile) {
-        let jsPath = path.resolve(moduleFolder, module, 'js', jsFile);
-        if (process.env.NODE_ENV === 'development') {
-            mix.js(jsPath, 'public/frontend/' + module.toLowerCase() + '/assets/js/' + jsFile).sourceMaps();
-        } else {
-            mix.js(jsPath, 'public/frontend/' + module.toLowerCase() + '/assets/js/' + jsFile);
-        }
-    });
-
-    let sassInPackage = files('./resources/assets/frontend/' + module + '/scss');
-    sassInPackage.forEach(function (scssFile) {
-        let sassPath = path.resolve(moduleFolder, module, 'scss', scssFile);
-        let fileName = scssFile.substring(0, scssFile.length - 5) + '.css';
-        if (process.env.NODE_ENV === 'development') {
-            mix.sass(sassPath, 'public/frontend/' + module.toLowerCase() + '/assets/css/' + fileName).sourceMaps();
-        } else {
-            mix.sass(sassPath, 'public/frontend/' + module.toLowerCase() + '/assets/css/' + fileName);
-        }
-    });
-
     // Publish plugins + fonts
-    mix.copyDirectory('resources/assets/frontend/' + module + '/plugins', 'public/frontend/' + module.toLowerCase() + '/assets/plugins');
-    mix.copyDirectory('resources/assets/frontend/' + module + '/fonts', 'public/frontend/' + module.toLowerCase() + '/assets/fonts');
+    mix.copyDirectory('resources/assets/frontend/' + module + '/plugins', 'public/assets/frontend/' + module.toLowerCase() + '/assets/plugins');
+    mix.copyDirectory('resources/assets/frontend/' + module + '/fonts', 'public/assets/frontend/' + module.toLowerCase() + '/assets/fonts');
+});
+
+
+let jsRoot = './resources/assets/frontend/js';
+let cssRoot = './resources/assets/frontend/scss';
+let allJsFilePaths = [];
+let allCssFilePaths = [];
+
+// Create an empty variable to be accesible in the closure
+let resultJsAllPaths;
+let resultCssAllPaths;
+
+try {
+    resultJsAllPaths = klawSync(jsRoot);
+    resultCssAllPaths = klawSync(cssRoot);
+} catch (err) {
+    console.error(err);
+}
+
+resultJsAllPaths.forEach(function (resultPath) {
+    if(fs.lstatSync(resultPath.path).isFile()) {
+        let asset = resultPath.path;
+        let isJS = asset.substr(asset.length - 3) === '.js';
+        if(isJS){
+            allJsFilePaths.push(
+                resultPath.path
+            );
+        }
+    }
+});
+
+resultCssAllPaths.forEach(function (resultPath) {
+    if(fs.lstatSync(resultPath.path).isFile()) {
+        let asset = resultPath.path;
+        let isSCSS = asset.substr(asset.length - 5) === '.scss';
+        if (isSCSS) {
+            let arrayPath = asset.split('/');
+            let fileName = arrayPath[arrayPath.length - 1];
+            let indexChar = fileName.indexOf("_");
+            if (indexChar === -1) {
+                allCssFilePaths.push(
+                    resultPath.path
+                );
+            }
+        }
+    }
+});
+
+allJsFilePaths.forEach(function (jsFile) {
+    let jsFileName = jsFile.split('resources/assets/');
+    let buildJsTo = path.resolve('public/assets', jsFileName[1]);
+    mix.js(jsFile, buildJsTo).sourceMaps();
+});
+
+allCssFilePaths.forEach(function (cssFile) {
+    let cssFileName = cssFile.split('resources/assets/frontend/scss/');
+    let cssAsset = cssFileName[1];
+    cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
+    let buildCssTo = path.resolve('public/assets/frontend/css', cssAsset);
+    mix.sass(cssFile, buildCssTo);
 });
