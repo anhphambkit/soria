@@ -27,24 +27,24 @@
     <!-- APP FAVICON -->
 
     <!-- BEGIN FONTS-->
-    <link href="{{ asset('assets/backend/modernadmin/app-assets/fonts/family-open-sans.css') }}"
+    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/family-open-sans.css') }}"
           rel="stylesheet">
-    <link href="{{ asset('assets/backend/modernadmin/app-assets/fonts/line-awesome/css/line-awesome.min.css') }}"
+    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/line-awesome/css/line-awesome.min.css') }}"
           rel="stylesheet">
     @yield('fonts')
     <!-- END FONTS-->
 
     <!-- ========== START CORE SCRIPTS ========== -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/vendors.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/core/colors/palette-gradient.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/vendors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/colors/palette-gradient.css') }}">
     <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert2.min.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/vendors/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @yield('core-scripts')
     <!-- ========== START CORE SCRIPTS ========== -->
 
     <!-- ========== START THEME CSS ========== -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/app-assets/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/app.css') }}">
     @yield('theme-css')
     <!-- ========== END THEME CSS ========== -->
 
@@ -56,33 +56,33 @@
     @yield('page-css')
     <!-- ========== START PAGE CSS ========== -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modernadmin/assets/css/style-custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style-custom.css') }}">
     @yield('styles')
 </head>
 <body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
       data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <!-- ========== START FIXED TOP NAV ========== -->
-    @include('backend.ModernAdmin.layouts.nav-top')
+    @include('backend.modern-admin.layouts.nav-top')
     <!-- ========== END FIXED TOP NAV ========== -->
 
     <!-- ========== START LEFT SIDEBAR ========== -->
-    @include('backend.ModernAdmin.layouts.sidebar-menu')
+    @include('backend.modern-admin.layouts.sidebar-menu')
     <!-- ========== END LEFT SIDEBAR ========== -->
 
     <!-- START RIGHT CONTENT -->
-    @include('backend.ModernAdmin.layouts.app-content')
+    @include('backend.modern-admin.layouts.app-content')
     <!-- END RIGHT CONTENT -->
 
     <!-- START FOOTER -->
-    @include('backend.ModernAdmin.layouts.footer')
+    @include('backend.modern-admin.layouts.footer')
     <!-- END FOOTER -->
 
     <!-- ========== START CORE FOOTER SCRIPTS ========== -->
-    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modernadmin/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modernadmin/app-assets/js/core/app.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modernadmin/app-assets/js/scripts/customizer.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendors/js/jquery.serializejson.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/jquery.buttonLoader.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert2.min.js')}}"></script>
@@ -91,7 +91,7 @@
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
     <!-- ========== START THEME SCRIPTS ========== -->
-    <script src="{{ asset('assets/backend/modernadmin/app-assets/vendors/js/ui/headroom.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/vendors/js/ui/headroom.min.js') }}" type="text/javascript"></script>
     @yield('theme-scripts')
     <!-- ========== END THEME SCRIPTS ========== -->
 
@@ -104,7 +104,7 @@
     <!-- ========== END PAGE SCRIPTS ========== -->
 
     <!-- ========== START CONSTANT HTTP CODE SCRIPTS ========== -->
-    @include('backend.ModernAdmin.layouts.constant')
+    @include('backend.modern-admin.layouts.constant')
     <!-- ========== END CONSTANT HTTP CODE SCRIPTS ========== -->
 </body>
 </html>

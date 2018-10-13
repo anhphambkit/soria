@@ -1,6 +1,6 @@
 import axios from "axios";
-import JSLib from '@incResources/js-lib';
-import message from '@helper/messages';
+import JSLib from '@helper/util/js-lib';
+import message from '@helper/config/messages';
 
 class Survey {
     constructor(){

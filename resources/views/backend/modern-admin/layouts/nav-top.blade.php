@@ -34,7 +34,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                                 <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> News</h6>
                                 <div id="mega-menu-carousel-example">
                                     <div>
-                                        <img class="rounded img-fluid mb-1" src="../../../assets/backend/modernadmin/app-assets/images/slider/slider-2.png"
+                                        <img class="rounded img-fluid mb-1" src="../../../assets/backend/modern-admin/app-assets/images/slider/slider-2.png"
                                              alt="First slide"><a class="news-title mb-0" href="#">Poster Frame PSD</a>
                                         <p class="news-content">
                                             <span class="font-small-2">January 26, 2018</span>
@@ -168,7 +168,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                   <span class="user-name text-bold-700">John Doe</span>
                 </span>
                             <span class="avatar avatar-online">
-                  <img src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                  <img src="../../../assets/backend/modern-admin/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
                             <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
@@ -273,7 +273,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                                     <div class="media">
                                         <div class="media-left">
                         <span class="avatar avatar-sm avatar-online rounded-circle">
-                          <img src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                          <img src="../../../assets/backend/modern-admin/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
                                         </div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Margaret Govan</h6>
@@ -288,7 +288,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                                     <div class="media">
                                         <div class="media-left">
                         <span class="avatar avatar-sm avatar-busy rounded-circle">
-                          <img src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span>
+                          <img src="../../../assets/backend/modern-admin/app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span>
                                         </div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Bret Lezama</h6>
@@ -303,7 +303,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                                     <div class="media">
                                         <div class="media-left">
                         <span class="avatar avatar-sm avatar-online rounded-circle">
-                          <img src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span>
+                          <img src="../../../assets/backend/modern-admin/app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span>
                                         </div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Carie Berra</h6>
@@ -318,7 +318,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                                     <div class="media">
                                         <div class="media-left">
                         <span class="avatar avatar-sm avatar-away rounded-circle">
-                          <img src="../../../assets/backend/modernadmin/app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span>
+                          <img src="../../../assets/backend/modern-admin/app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span>
                                         </div>
                                         <div class="media-body">
                                             <h6 class="media-heading">Eric Alsobrook</h6>

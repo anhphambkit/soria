@@ -13,10 +13,6 @@ let klawSync = require('klaw-sync');
  */
 mix.webpackConfig(core);
 
-if (fs.existsSync('resources/assets/vendors')) {
-    mix.copyDirectory('resources/assets/vendors', 'public/assets/vendors');
-}
-
 /**
  * Scan all folder in parent dir
  * @param p: path to folder
@@ -44,8 +40,8 @@ const files = (p) => {
  | file for the application as well as bundling up all the JS files.
  |
  */
-let jsRoot = './resources/assets/general/js';
-let cssRoot = './resources/assets/general/scss';
+let jsRoot = './resources/assets/helper/js';
+let cssRoot = './resources/assets/helper/scss';
 let allJsFilePaths = [];
 let allCssFilePaths = [];
 
@@ -96,9 +92,9 @@ allJsFilePaths.forEach(function (jsFile) {
 });
 
 allCssFilePaths.forEach(function (cssFile) {
-    let cssFileName = cssFile.split('resources/assets/general/scss/');
+    let cssFileName = cssFile.split('resources/assets/helper/scss/');
     let cssAsset = cssFileName[1];
     cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
-    let buildCssTo = path.resolve('public/assets/general/css', cssAsset);
+    let buildCssTo = path.resolve('public/assets/helper/css', cssAsset);
     mix.sass(cssFile, buildCssTo);
 });

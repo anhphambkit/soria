@@ -43,12 +43,25 @@ const files = (p) => {
  */
 let themes = dirs(themeFolder);
 themes.forEach(function (theme) {
+    // Publish plugins + fonts
+    if (fs.existsSync('./resources/assets/backend/' + theme + '/plugins')) {
+        mix.copyDirectory('./resources/assets/backend/' + theme + '/plugins', 'public/assets/backend/' + theme.toLowerCase() + '/assets/plugins');
+    }
+    if (fs.existsSync('./resources/assets/backend/' + theme + '/fonts')) {
+        mix.copyDirectory('./resources/assets/backend/' + theme + '/fonts', 'public/assets/backend/' + theme.toLowerCase() + '/assets/fonts');
+    }
+
+    // Publish app-assets theme:
+    if (fs.existsSync('./resources/assets/backend/' + theme + '/app-assets')) {
+        mix.copyDirectory('./resources/assets/backend/' + theme + '/app-assets', 'public/assets/backend/' + theme.toLowerCase() + '/app-assets');
+    }
+
     let jsRoot = './resources/assets/backend/' + theme + '/assets/js';
     let cssRoot = './resources/assets/backend/' + theme + '/assets/scss';
     let allJsFilePaths = [];
     let allCssFilePaths = [];
 
-// Create an empty variable to be accesible in the closure
+    // Create an empty variable to be accesible in the closure
     let resultJsAllPaths;
     let resultCssAllPaths;
 

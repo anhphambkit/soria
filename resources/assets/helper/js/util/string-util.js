@@ -19,9 +19,13 @@ class StringUtil{
             str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
         }
 
-        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-            .replace(/\s+/g, '-') // collapse whitespace and replace by -
-            .replace(/-+/g, '-'); // collapse dashes
+        str = str.replace(/\s+/g, '-')      // collapse whitespace and replace by -
+            .replace(/[^a-z0-9 -]/g, '')    // remove invalid chars
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/-+/g, '-')            // collapse dashes
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
 
         return str;
 

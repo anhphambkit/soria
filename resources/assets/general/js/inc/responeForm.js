@@ -1,5 +1,5 @@
-import message from '@/general/js/config/message';
-import JSLib from '@incResources/js-lib';
+import message from '@helper/config/messages';
+import JSLib from '@helper/util/js-lib';
 class responeForm {
     initMessageResponse(data) {
         if (data.status === 0) {

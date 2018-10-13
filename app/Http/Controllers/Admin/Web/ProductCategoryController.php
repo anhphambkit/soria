@@ -48,7 +48,7 @@ class ProductCategoryController extends Controller
      * @return
      */
     public function indexCategoryProduct() {
-        return view('backend.ModernAdmin.pages.dashboard');
+        return view('backend.modern-admin.pages.dashboard');
     }
 
     /**
@@ -58,6 +58,6 @@ class ProductCategoryController extends Controller
      */
     public function newCategoryProduct() {
         $categories = $this->productCategoryServices->getAllProductCategory();
-        return view('backend.ModernAdmin.pages.products.newCategoryProduct', compact('categories'));
+        return view('backend.modern-admin.pages.products.newCategoryProduct', compact('categories'));
     }
 }

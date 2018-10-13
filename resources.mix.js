@@ -5,7 +5,7 @@ const path = require('path');
 let argv = require('yargs').argv;
 let readdirp = require('readdirp');
 const core = require('./webpack.config');
-const moduleFolder = './resources/assets/frontend';
+
 // Require the module
 let klawSync = require('klaw-sync');
 
@@ -33,7 +33,7 @@ const files = (p) => {
 
 /*
  |--------------------------------------------------------------------------
- | Mix Asset Management
+ | Mix BACKEND
  |--------------------------------------------------------------------------
  |
  | Mix provides a clean, fluent API for defining some Webpack build steps
@@ -41,25 +41,48 @@ const files = (p) => {
  | file for the application as well as bundling up all the JS files.
  |
  */
-let modules = dirs(moduleFolder);
+const rootFolder = 'resources/assets';
+let folders = dirs(rootFolder);
+folders.forEach(function (folder) {
+    let portalPath = rootFolder + '/' + folder;
+    if (folder === 'backend' || folder === 'frontend') {
+        let portalFolders = dirs(portalPath);
+        portalFolders.forEach(function (portalFolder) {
+            let sourceRoot = portalPath + '/' + portalFolder;
 
-modules.forEach(function (module) {
-    // Publish plugins + fonts
-    if (fs.existsSync('resources/assets/frontend/' + module + '/plugins')) {
-        mix.copyDirectory('resources/assets/frontend/' + module + '/plugins', 'public/assets/frontend/' + module.toLowerCase() + '/assets/plugins');
-    }
-    if (fs.existsSync('resources/assets/frontend/' + module + '/fonts')) {
-        mix.copyDirectory('resources/assets/frontend/' + module + '/fonts', 'public/assets/frontend/' + module.toLowerCase() + '/assets/fonts');
-    }
+            // Publish plugins + fonts
+            if (fs.existsSync(sourceRoot + '/plugins')) {
+                mix.copyDirectory(sourceRoot + '/plugins', 'public/assets/' + folder + '/' + portalFolder.toLowerCase() + '/assets/plugins');
+            }
+            if (fs.existsSync(sourceRoot + '/fonts')) {
+                mix.copyDirectory(sourceRoot + '/fonts', 'public/assets/' + folder + '/' + portalFolder.toLowerCase() + '/assets/fonts');
+            }
+            // Publish app-assets theme:
+            if (fs.existsSync(sourceRoot + '/app-assets')) {
+                mix.copyDirectory(sourceRoot + '/app-assets', 'public/assets/' + folder + '/' + portalFolder.toLowerCase() + '/app-assets');
+            }
 
-    // Publish app-assets theme:
-    if (fs.existsSync('./resources/assets/frontend/' + module + '/app-assets')) {
-        mix.copyDirectory('./resources/assets/frontend/' + module + '/app-assets', 'public/assets/frontend/' + module.toLowerCase() + '/app-assets');
+            // Mix:
+            mixResources(sourceRoot + '/assets');
+        })
     }
+    else if (folder === 'vendors') {
+        if (fs.existsSync(portalPath)) {
+            mix.copyDirectory(portalPath, 'public/assets/' + folder);
+        }
+    }
+    else {
+        mixResources(portalPath);
+    }
+});
 
-    // Mix JS/CSS:
-    let jsRoot = './resources/assets/frontend/' + module + '/js';
-    let cssRoot = './resources/assets/frontend/' + module + '/scss';
+function mixResources(portalPath) {
+    // Convert public path:
+    let sourcePath = portalPath.split('resources/');
+    let publicPath = path.resolve('public/', sourcePath[1]);
+
+    let jsRoot = portalPath + '/js';
+    let cssRoot = portalPath + '/scss';
     let allJsFilePaths = [];
     let allCssFilePaths = [];
 
@@ -104,16 +127,16 @@ modules.forEach(function (module) {
     });
 
     allJsFilePaths.forEach(function (jsFile) {
-        let jsFileName = jsFile.split('resources/assets/');
-        let buildJsTo = path.resolve('public/assets', jsFileName[1]);
+        let jsFileName = jsFile.split(portalPath + '/js/');
+        let buildJsTo = publicPath + '/js/' + jsFileName[1];
         mix.js(jsFile, buildJsTo).sourceMaps();
     });
 
     allCssFilePaths.forEach(function (cssFile) {
-        let cssFileName = cssFile.split('resources/assets/frontend/scss/');
+        let cssFileName = cssFile.split(portalPath + '/scss/');
         let cssAsset = cssFileName[1];
         cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
-        let buildCssTo = path.resolve('public/assets/frontend/css', cssAsset);
+        let buildCssTo = publicPath + '/css/' + cssAsset;
         mix.sass(cssFile, buildCssTo);
     });
-});
+}
