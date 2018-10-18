@@ -29,13 +29,13 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
         // TODO: Implement getAllProductCategory() method.
         return $this->model
                     ->select('id', 'name', 'slug')
+                    ->orderBy('name', 'asc')
                     ->get();
     }
 
     public function createProductCategory($data) {
         try {
-            $this->model->create($data);
-            return 1;
+            return $this->model->create($data);
         }
         catch (Exception $e) {
             return $e->getMessage();

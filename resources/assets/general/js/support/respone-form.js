@@ -3,21 +3,31 @@ class responeForm {
         if (status === 0) {
             swal({
                 title: 'Oh Yeah, Success!',
-                html: successMessage,
-                type:"success",
-                showCancelButton: false,
-                confirmButtonText: 'OK'
-            }).then(() => {
-                location.reload();
+                icon: "success",
+                text: successMessage,
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "",
+                    closeModal: true
+                }
+            }).then((confirm) => {
+                if (confirm) location.reload()
             }).catch(function(){});
         }
         else {
             swal({
                 title: 'Oh No, Error!',
-                html: errorMessage,
-                type:"error",
-                showCancelButton: false,
-                confirmButtonText: 'Close'
+                text: errorMessage,
+                icon: "error",
+                confirm: {
+                    text: "Close",
+                    value: true,
+                    visible: true,
+                    className: "",
+                    closeModal: true
+                }
             }).catch(function(){});
         }
     };

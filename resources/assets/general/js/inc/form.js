@@ -93,7 +93,7 @@ class Form {
      */
     scrollToError(field){
         $('html, body').animate({
-            scrollTop: $(this.wrapper + ' [data-validation="data-validation"][data-field="' + field + '"]').offset().top
+            scrollTop: Math.abs($(this.wrapper + ' [data-validation="data-validation"][data-field="' + field + '"]').offset().top - 210)
         }, 1000);
     }
 
@@ -144,11 +144,11 @@ class Form {
                     toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
                 }
                 reuseForm.afterDone(data);
-                if (reuseForm.isReload) {
-                    setTimeout(function () {
-                        location.reload();
-                    }, 3000)
-                }
+                // if (reuseForm.isReload) {
+                //     setTimeout(function () {
+                //         location.reload();
+                //     }, 3000)
+                // }
                 return data;
             })
             .catch(function(data){
