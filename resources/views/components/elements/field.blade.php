@@ -1,9 +1,10 @@
 <?php
+$parseErrorLaravel = !empty($parseErrorLaravel) ? $parseErrorLaravel : false;
+$jsValidate = !empty($jsValidate) ? $jsValidate : true;
 $type = isset($type) ? $type : 'text';
 $class = isset($class) ? $class : '';
 $attributes = isset($attributes) ? $attributes : [];
-$parseErrorLaravel = !empty($parseErrorLaravel) ? $parseErrorLaravel : false;
-$noValidate = !empty($noValidate) ? $noValidate : false;
+//if ($jsValidate) $class .= ' form-custom-validate-js';
 ?>
 @if($type === 'text' || $type === 'number' || $type === 'email' || $type === 'password')
 <div class="field-group float-label active {{ $class }}">
@@ -176,7 +177,7 @@ $noValidate = !empty($noValidate) ? $noValidate : false;
     <textarea class="eden-editor {{ $class }}" id="{{ $id }}">{{ $value }}</textarea>
 @endif
 
-@if(empty($noValidate))
+@if($jsValidate)
     <ul class="" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
 @endif
 

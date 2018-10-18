@@ -7,6 +7,7 @@ module.exports = {
             "@helper": path.resolve('resources/assets/helper/js'),
             "@componentResources": path.resolve('resources/assets/general/js/components'),
             "@incResources": path.resolve('resources/assets/general/js/inc'),
+            "@supportResources": path.resolve('resources/assets/general/js/support'),
         }
     }
 }

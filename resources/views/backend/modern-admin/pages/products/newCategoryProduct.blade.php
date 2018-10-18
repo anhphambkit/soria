@@ -96,30 +96,34 @@
                     @slot('content')
                         <form role="form" id="form-create-new-category">
                             <div class="form-group row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 form-custom-validate-js">
                                     @component('components.elements.field')
                                         @slot('title', trans('category.name'))
                                         @slot('name', 'name')
                                         @slot('id', 'name')
+                                        @slot('class', 'category_name')
+                                        @slot('attributes', [ 'data-type' => 'source-slug'])
                                         @slot('required', true)
                                     @endcomponent
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 form-custom-validate-js">
                                     @component('components.elements.field')
                                         @slot('title', trans('category.slug'))
                                         @slot('name', 'slug')
                                         @slot('id', 'slug')
+                                        @slot('class', 'category_slug')
+                                        @slot('attributes', [ 'data-type' => 'slug'])
                                         @slot('required', true)
                                     @endcomponent
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 form-custom-validate-js">
                                     @component('components.elements.field')
                                         @slot('title', trans('category.category_parent'))
                                         @slot('name', 'parent_id')
                                         @slot('id', 'parent_id')
                                         @slot('type', 'dropdown')
                                         <?php
-                                        $dropdown[''] = 'Select parent category';
+                                        $dropdown[0] = 'Select parent category';
                                         foreach ($categories as $category) {
                                             $dropdown[$category->id] = $category->name;
                                         }

@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Core\Requests\CoreFormRequest;
 
-class CreateProductCategoryRequest extends FormRequest
+class CreateProductCategoryRequest extends CoreFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

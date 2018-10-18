@@ -1,4 +1,9 @@
 import axios from 'axios';
+import JSLib from '@helper/util/js-lib';
+import message from '@helper/config/messages';
+import responeForm from '@supportResources/respone-form';
+import toastrAlert from '@supportResources/toastr-alert';
+
 class Form {
     constructor(){
         // U must define correct wrapper whenever use this
@@ -16,12 +21,22 @@ class Form {
         this.url = '//google.com';
         // Url to send cancel (restore old data)
         this.urlCancel = '//google.com';
+        // Has alert when update/create success/fail:
+        this.hasSwal = true;
+        // Has toastr when update/create success/fail:
+        this.hasToastr = true;
+        // Default message success:
+        this.successMessage = (new JSLib).format(message.CREATED_SUCCESS, ['Item']);
+        // Default Error message:
+        this.errorMessage = null;
         // Data to send
         this.data = {};
         // Data to send cancel
         this.dataCancel = {};
         // Restore old data when click cancel
         this.restoreWhenCancel = true;
+        // Default reload page when success:
+        this.isReload = true;
     }
 
     // Hooks
@@ -45,7 +60,7 @@ class Form {
 
     parseValidateErrors (errors) {
         let form = this
-        $(this.wrapper +' [data-validation="eden-validation"]').each(function(index){
+        $(this.wrapper +' [data-validation="data-validation"]').each(function(index){
             var is = $(this);
             var errorField = is.attr('data-field');
 
@@ -58,7 +73,7 @@ class Form {
                 for(var i = 0; i < errors[errorField].length; i++){
                     is.append('<li class="help-block">' + errors[errorField][i] + '</li>');
                 }
-                is.closest('.form-group').addClass('has-error');
+                is.closest('.form-custom-validate-js').addClass('has-error');
             }
         });
     }
@@ -68,17 +83,17 @@ class Form {
      */
 
     resetErrors () {
-        $(this.wrapper +' .form-group').removeClass('has-error');
-        $(this.wrapper +' [data-validation="eden-validation"]').empty();
+        $(this.wrapper +' .form-custom-validate-js').removeClass('has-error');
+        $(this.wrapper +' [data-validation="data-validation"]').empty();
     }
 
     /**
-     * Field name that will be detected by "[data-validation="eden-validation"][data-field="{field}"]"
+     * Field name that will be detected by "[data-validation="data-validation"][data-field="{field}"]"
      * @returns {*}
      */
     scrollToError(field){
         $('html, body').animate({
-            scrollTop: $(this.wrapper + ' [data-validation="eden-validation"][data-field="' + field + '"]').offset().top
+            scrollTop: $(this.wrapper + ' [data-validation="data-validation"][data-field="' + field + '"]').offset().top
         }, 1000);
     }
 
@@ -118,9 +133,22 @@ class Form {
         let reuseForm = this;
         return request
             .then(function(data){
-                reuseForm.done(data.data);
-                $(reuseForm.wrapper).closest('.eden-card').find('.control-panel .switch-panel-mode').trigger('click');
-                reuseForm.afterDone(data.data);
+                reuseForm.done(data);
+                let errorMessage = reuseForm.errorMessage || data.data.message;
+                if (reuseForm.hasSwal) {
+                    let successForm = new responeForm();
+                    successForm.init(data.data.status, reuseForm.successMessage, errorMessage)
+                }
+                if (reuseForm.hasToastr) {
+                    let toastrSuccessAlert = new toastrAlert();
+                    toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
+                }
+                reuseForm.afterDone(data);
+                if (reuseForm.isReload) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 3000)
+                }
                 return data;
             })
             .catch(function(data){
@@ -128,9 +156,19 @@ class Form {
                  * Do some hook -> parse validation error -> scroll screen to element
                  */
                 $(reuseForm.wrapper + ' ' + reuseForm.submitBtn).buttonLoader('stop')
-                reuseForm.fail(data.response.data);
-                if(data.response.data != null && data.response.data.status == CONFIG.HTTP_CODE.VALIDATE_ERROR ){
-                    reuseForm.parseValidateErrors(data.response.data.data);
+                let dataRespone = data.response;
+                reuseForm.fail(dataRespone);
+                let errorMessage = reuseForm.errorMessage || data.message;
+                if (reuseForm.hasSwal) {
+                    let errorForm = new responeForm();
+                    errorForm.init(dataRespone.status, reuseForm.successMessage, errorMessage)
+                }
+                if (reuseForm.hasToastr) {
+                    let toastrErrorAlert = new toastrAlert();
+                    toastrErrorAlert.init(dataRespone.status, reuseForm.successMessage, errorMessage)
+                }
+                if(dataRespone.data != null && dataRespone.data.status == CONFIG.HTTP_CODE.VALIDATE_ERROR ){
+                    reuseForm.parseValidateErrors(dataRespone.data.data);
                 }
                 reuseForm.afterFail(data);
                 return data;

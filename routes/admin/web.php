@@ -13,7 +13,7 @@
  *********************************************************/
 Route::domain('{subDomain}.{mainDomain}')->group(function () {
     Route::get('/', function () {
-        return view('backend.ModernAdmin.pages.dashboard');
+        return view('backend.modern-admin.pages.dashboard');
     })->name('admin.dashboard');
 
     /************ Router Product ************** */

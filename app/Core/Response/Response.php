@@ -5,7 +5,7 @@
  * Date: 7/1/18
  * Time: 22:07
  */
-namespace app\Core\Response;
+namespace App\Core\Response;
 
 interface Response
 {

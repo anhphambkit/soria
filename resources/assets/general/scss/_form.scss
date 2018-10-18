@@ -1,4 +1,4 @@
-ul[data-validation="eden-validation"] {
+ul[data-validation="data-validation"] {
   padding: 0;
   list-style: none;
   font-size: 11px;
@@ -6,7 +6,7 @@ ul[data-validation="eden-validation"] {
   color: #ef5350;
 }
 
-.form-group {
+.form-custom-validate-js {
   label {
     margin-bottom: 5px;
   }

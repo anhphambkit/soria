@@ -38,13 +38,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/vendors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/colors/palette-gradient.css') }}">
-    <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert2.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendors/css/toastr/toastr.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/vendors/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @yield('core-scripts')
     <!-- ========== START CORE SCRIPTS ========== -->
 
     <!-- ========== START THEME CSS ========== -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/general/css/app.css') }}">
     @yield('theme-css')
     <!-- ========== END THEME CSS ========== -->
 
@@ -58,7 +60,18 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style-custom.css') }}">
+    <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/libraries/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/general/js/loading/soria-loading.js') }}" type="text/javascript"></script>
     @yield('styles')
+    <script>
+        setTimeout(()=>{
+            SORIALoading.open();
+        },10)
+
+        $( window ).on( "load", function() {
+            SORIALoading.close();
+        });
+    </script>
 </head>
 <body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
       data-open="click" data-menu="vertical-menu" data-col="2-columns">
@@ -85,7 +98,8 @@
     <script src="{{ asset('assets/backend/modern-admin/app-assets/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendors/js/jquery.serializejson.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/jquery.buttonLoader.min.js')}}"></script>
-    <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert2.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/select2.min.js')}}"></script>
     @yield('core-footer-scripts')
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
