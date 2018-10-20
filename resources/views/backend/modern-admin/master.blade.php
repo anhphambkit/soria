@@ -41,10 +41,12 @@
     <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/vendors/css/toastr/toastr.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/vendors/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/vendors/css/datatable/datatables.min.css')}}" rel="stylesheet" type="text/css" />
     @yield('core-scripts')
     <!-- ========== START CORE SCRIPTS ========== -->
 
     <!-- ========== START THEME CSS ========== -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/helper/css/components.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/general/css/app.css') }}">
     @yield('theme-css')
@@ -101,6 +103,7 @@
     <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/select2.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/datatable/datatables.min.js')}}"></script>
     @yield('core-footer-scripts')
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 

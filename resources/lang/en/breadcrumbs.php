@@ -2,25 +2,24 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 7/9/18
- * Time: 22:53
+ * Date: 10/19/18
+ * Time: 20:22
  */
 
 return [
-
     /*
     |--------------------------------------------------------------------------
-    | General Language Lines
+    | Breadcrumb Language Lines
     |--------------------------------------------------------------------------
     |
     |
     |
     */
 
-    'create' => 'Create',
-    'cancel' => 'Cancel',
-    'loading' => 'Loading',
-    'search' => 'Search',
-    'clear' => 'Clear',
-
+    // Title
+    'home' => 'Home',
+    'categories' => 'Categories',
+    'product' => 'Product',
+    'manage' => 'Manage',
+    'new' => 'New',
 ];

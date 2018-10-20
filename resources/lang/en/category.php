@@ -29,4 +29,8 @@ return [
     'meta_keyword' => 'Meta keyword',
     'meta_desc' => 'Meta Description',
     'category_parent' => 'Category Parent',
+
+    // Filter Search:
+    'title_filter' => 'Search Category',
+    'add_new' => 'New Category'
 ];

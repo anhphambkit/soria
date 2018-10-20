@@ -61,22 +61,22 @@
             [
                 'active' => false,
                 'link' => route('admin.dashboard', $domain),
-                'title' => 'Home'
+                'title' => trans('breadcrumbs.home')
             ],
             [
                 'active' => false,
                 'link' => route('admin.product.category.index', $domain),
-                'title' => 'Categories'
+                'title' => trans('breadcrumbs.categories')
             ],
             [
                 'active' => false,
                 'link' => route('admin.product.category.index', $domain),
-                'title' => 'Product'
+                'title' => trans('breadcrumbs.product')
             ],
             [
                 'active' => true,
                 'link' => '#',
-                'title' => 'New'
+                'title' => trans('breadcrumbs.new')
             ],
         ])
     @endcomponent
@@ -221,6 +221,6 @@
             CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         }
     </script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/newProductCategory.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/new-product-category.js') }}"
             type="text/javascript"></script>
 @endsection

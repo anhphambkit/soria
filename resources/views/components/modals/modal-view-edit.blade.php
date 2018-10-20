@@ -14,23 +14,6 @@ $footer = isset($footer) ? $footer : '';
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
 $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
 ?>
-<style>
-    .btn-switch-mode {
-        cursor: pointer;
-    }
-    .view-mode-custom > label {
-        margin-bottom: 0.5rem !important;
-    }
-    .view-mode-custom > input, .view-mode-custom > select, .view-mode-custom > textarea {
-        border: none !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        background-color: inherit !important;
-        resize: none !important;
-        -webkit-appearance: none !important;
-        height: fit-content !important;
-    }
-</style>
 <div @if(isset($idModal)) id="{{ $idModal }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif">
     <div class="modal-dialog @if($isLargeModal) modal-lg @endif">
         <div class="modal-content">

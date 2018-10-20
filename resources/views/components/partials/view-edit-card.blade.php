@@ -11,23 +11,6 @@ $idCard = isset($idCard) ? $idCard : '';
 $classForm = isset($classForm) ? $classForm : '';
 $btnDefaultActions = isset($btnDefaultActions) ? $btnDefaultActions : true;
 ?>
-<style>
-    .btn-switch-mode {
-        cursor: pointer;
-    }
-    .view-mode-custom > label {
-        margin-bottom: 0.5rem !important;
-    }
-    .view-mode-custom > input, .view-mode-custom > select, .view-mode-custom > textarea {
-        border: none !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        background-color: inherit !important;
-        resize: none !important;
-        -webkit-appearance: none !important;
-        height: fit-content !important;
-    }
-</style>
 <div class="card-view-edit card ks-card-widget ks-widget-payment-table {{ $classCard }}" id="{{ $idCard }}">
     <h5 class="card-header">
         <span class="ks-text">{{ $title }}</span>
