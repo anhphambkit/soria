@@ -110,7 +110,7 @@ class Table {
         $(this.wrapperTable)
             .on('processing.dt', function ( e, settings, processing ) {
             // processing
-                selfTable.loadingElement();
+            //     selfTable.loadingElement();
             })
             .on('xhr.dt', function ( e, settings, json, xhr ) {
                 // Stop Loader

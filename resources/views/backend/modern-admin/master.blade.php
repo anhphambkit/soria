@@ -64,6 +64,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style-custom.css') }}">
     <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/libraries/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/general/js/loading/soria-loading.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/general/js/loading/loaded.js') }}" type="text/javascript"></script>
     @yield('styles')
     <script>
         setTimeout(()=>{
