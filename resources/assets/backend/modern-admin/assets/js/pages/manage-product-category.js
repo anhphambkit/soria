@@ -16,14 +16,19 @@ manageCategory.columns = [
         title: "Name",
         data: 'name',
     },
-    // {
-    //     title: "Action",
-    //     data: null,
-    //     orderable: false,
-    //     render(data) {
-    //         return helper.renderActionReset(data);
-    //     }
-    // }
+    {
+        title: "Slug",
+        data: 'slug',
+    },
+    {
+        title: "Created Date",
+        data: 'created_at'
+    },
+    {
+        title: "Updated Date",
+        data: 'updated_at'
+    }
+
 ];
 manageCategory.urlSearch = URL.GEL_LIST_CATEGORIES;
 manageCategory.init();

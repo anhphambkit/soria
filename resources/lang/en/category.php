@@ -18,6 +18,7 @@ return [
     */
 
     'header_create_new_category' => 'Create New Category',
+    'header_manage_categories' => 'Manage Categories',
     'category_name' => 'Category',
 
     //Language for create new category:

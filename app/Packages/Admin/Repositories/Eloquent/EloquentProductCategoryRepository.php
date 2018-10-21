@@ -28,7 +28,7 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
     {
         // TODO: Implement getAllProductCategory() method.
         return $this->model
-                    ->select('id', 'name', 'slug')
+                    ->select('id', 'name', 'slug', 'created_at', 'updated_at')
                     ->orderBy('name', 'asc')
                     ->get();
     }

@@ -5,60 +5,45 @@
  * Date: 9/1/18
  * Time: 23:21
  */
-$extendLayout = isset($extendLayout) ? $extendLayout : true;
+
+$hasSearchFilter = isset($hasSearchFilter) ? $hasSearchFilter : true;
+$hasBtnDefault = isset($hasBtnDefault) ? $hasBtnDefault : true;
+$titleSearchCard = isset($titleSearchCard) ? $titleSearchCard : trans('generals.search');
+$titleTableCard = isset($titleTableCard) ? $titleTableCard : '';
 ?>
-@if($extendLayout)
-    <div class="ks-page-header">
-        <section class="ks-title">
-            <h3>@yield('titlePage')</h3>
-        </section>
-    </div>
-    <div class="ks-page-content">
-        <div class="ks-page-content-body ">
-            <div class="ks-nav-body-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 ks-panels-column-section">
-                            @include('components.layouts.search-filter')
-                        </div>
-                    </div>
-                    <div class="row">
-                        @section('btn-others')
-                        @show
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 ks-panels-column-section">
-                            <div class="ks-user-list-view-table">
-                                    @component('components.partials.data-table-standard', ['idTable_DTS' => $idTable_DTS])
-                                    @endcomponent
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@else
-    <div class="">
+<div class="list-with-search-section">
+    @if($hasSearchFilter)
         <div class="row">
             <div class="col-lg-12 ks-panels-column-section">
-                @include('components.layouts.search-filter')
+                @component('components.sections.card')
+                    @slot('title', $titleSearchCard)
+                    @slot('content')
+                        @include('components.layouts.search-filter')
+                    @endslot
+                @endcomponent
             </div>
         </div>
-        <div class="row">
+    @endif
+    @if($hasBtnDefault)
+        <div class="row btn-default-area">
             @section('btn-others')
             @show
         </div>
-        <div class="row">
-            <div class="col-lg-12 ks-panels-column-section">
-                <div class="ks-user-list-view-table">
-                    @component('components.partials.data-table-standard', ['idTable_DTS' => $idTable_DTS])
-                    @endcomponent
-                </div>
+    @endif
+    <div class="row">
+        <div class="col-lg-12 ks-panels-column-section">
+            <div class="ks-user-list-view-table">
+                @component('components.sections.card')
+                    @slot('title', $titleTableCard)
+                    @slot('content')
+                        @component('components.partials.data-table-standard', ['idTable_DTS' => $idTable_DTS])
+                        @endcomponent
+                    @endslot
+                @endcomponent
             </div>
         </div>
     </div>
-@endif
+</div>
 @section('area-modals')
 @show
 
