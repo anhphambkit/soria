@@ -13,7 +13,6 @@ class responeForm {
                     closeModal: true
                 }
             }).then((confirm) => {
-                if (confirm) location.reload()
             }).catch(function(){});
         }
         else {

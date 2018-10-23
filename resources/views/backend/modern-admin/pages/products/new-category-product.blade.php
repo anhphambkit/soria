@@ -94,108 +94,7 @@
                     @slot('title', trans('category.category_name'))
                     @slot('isActive', true)
                     @slot('content')
-                        <form role="form" id="form-create-new-category">
-                            <div class="form-group row">
-                                <div class="col-md-4 form-custom-validate-js">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.name'))
-                                        @slot('name', 'name')
-                                        @slot('id', 'name')
-                                        @slot('class', 'category_name')
-                                        @slot('attributes', [ 'data-type' => 'source-slug'])
-                                        @slot('required', true)
-                                    @endcomponent
-                                </div>
-                                <div class="col-md-4 form-custom-validate-js">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.slug'))
-                                        @slot('name', 'slug')
-                                        @slot('id', 'slug')
-                                        @slot('class', 'category_slug')
-                                        @slot('attributes', [ 'data-type' => 'slug'])
-                                        @slot('required', true)
-                                    @endcomponent
-                                </div>
-                                <div class="col-md-4 form-custom-validate-js">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.category_parent'))
-                                        @slot('name', 'parent_id')
-                                        @slot('id', 'parent_id')
-                                        @slot('type', 'dropdown')
-                                        <?php
-                                        $dropdown[0] = 'Select parent category';
-                                        foreach ($categories as $category) {
-                                            $dropdown[$category->id] = $category->name;
-                                        }
-                                        ?>
-                                        @slot('values', $dropdown)
-                                    @endcomponent
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.desc'))
-                                        @slot('name', 'desc')
-                                        @slot('id', 'desc')
-                                    @endcomponent
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.order'))
-                                        @slot('type', 'number')
-                                        @slot('name', 'order')
-                                        @slot('id', 'order')
-                                        @slot('attributes', ['step' => 1, 'min' => "1"])
-                                    @endcomponent
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.meta_title'))
-                                        @slot('id', 'meta_title')
-                                        @slot('name', 'meta_title')
-                                    @endcomponent
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.meta_keyword'))
-                                        @slot('name', 'meta_keywords')
-                                        @slot('id', 'meta_keywords')
-                                    @endcomponent
-
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    @component('components.elements.field')
-                                        @slot('title', trans('category.meta_desc'))
-                                        @slot('id', 'meta_description')
-                                        @slot('name', 'meta_description')
-                                    @endcomponent
-                                </div>
-                            </div>
-                            <div class="form-group row action-group">
-                                <div class="col-12 text-right">
-                                    @component('components.elements.button')
-                                        @slot('id', 'submit-new-category')
-                                        @slot('control', 'submit')
-                                        @slot('label', trans('generals.create'))
-                                    @endcomponent
-
-                                    @component('components.elements.button')
-                                        @slot('id', 'cancel-new-category')
-                                        @slot('control', 'button')
-                                        @slot('label', trans('generals.cancel'))
-                                    @endcomponent
-                                </div>
-                            </div>
-                        </form>
+                        @include('backend.modern-admin.forms.products.create-new-product-category-form', [ 'categories' => $categories ])
                     @endslot
                 @endcomponent
             </div>
@@ -216,8 +115,7 @@
 
 @section('page-scripts')
     <script>
-        const PRODUCT_API = {
-            TEST_AJAX : "{{ route('test_ajax') }}",
+        const URL = {
             CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         }
     </script>

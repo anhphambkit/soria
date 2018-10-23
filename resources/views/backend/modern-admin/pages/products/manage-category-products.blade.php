@@ -118,20 +118,22 @@
                 @section('btn-others')
                     <div class="col-lg-12 ks-panels-column-section">
                         @component('components.elements.button')
-                            @slot('id', 'create-consumer')
+                            @slot('id', 'btn-create-category')
                             @slot('type', 'button')
                             @slot('class','btn-primary')
-                            @slot('attributes', [ 'data-toggle' => 'modal', 'data-target' => '#modal-create-consumer'])
+                            @slot('attributes', [ 'data-toggle' => 'modal', 'data-target' => '#modal-create-product-category'])
                             @slot('label', trans('category.add_new'))
                         @endcomponent
                     </div>
                 @endsection
 
                 @section('area-modals')
-                    {{--@include('agoyu::modals.create-consumer', ['typeCreateConsumer' => 'personal'])--}}
+                    @include('backend.modern-admin.modals.products.create-new-product-category-modal', [ 'categories' => $categories ])
+                    @include('backend.modern-admin.modals.products.edit-category-product-modal', [ 'categories' => $categories ])
                 @stop
 
-                @section('tableHeader')
+                {{-- Sections for component data-table --}}
+                @section('table-header')
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -142,8 +144,7 @@
                         </tr>
                     </thead>
                 @stop
-
-                @section('tableFooter')
+                @section('table-footer')
                     <tfoot>
                         <tr>
                             <th>ID</th>
@@ -154,7 +155,6 @@
                         </tr>
                     </tfoot>
                 @stop
-
                 @include('components.layouts.list-with-search',
                     [
                         'idTable_DTS' => 'manage-categories',
@@ -181,9 +181,14 @@
     <script>
         const URL = {
             GEL_LIST_CATEGORIES : "{{ route('admin_ajax.product.get_all_product_category', $domain) }}",
+            CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         };
     </script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/manage-product-category.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/new-product-category.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/edit-product-category.js') }}"
             type="text/javascript"></script>
 @endsection
 

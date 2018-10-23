@@ -30,6 +30,7 @@ return [
     'meta_keyword' => 'Meta keyword',
     'meta_desc' => 'Meta Description',
     'category_parent' => 'Category Parent',
+    'default_select_parent_category' => 'Select parent category',
 
     // Filter Search:
     'title_filter' => 'Search Category',

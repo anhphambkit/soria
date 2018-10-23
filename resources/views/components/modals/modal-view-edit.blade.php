@@ -8,9 +8,7 @@
 $classIcon = isset($classIcon) ? $classIcon : 'la la-edit ks-icon';
 $idModal = isset($idModal) ? $idModal : '';
 $classModal = isset($classModal) ? $classModal : '';
-$content = isset($content) ? $content : '';
 $title = isset($title) ? $title : env('APP_NAME');
-$footer = isset($footer) ? $footer : '';
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
 $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
 ?>
@@ -18,21 +16,25 @@ $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
     <div class="modal-dialog @if($isLargeModal) modal-lg @endif">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ $title }}</h5>
-                <div class="float-right btn-modal-actions">
-                    @if($hasViewEditMode)
-                        <span @if(isset($idBtnSwitch)) id="{{ $idBtnSwitch }}" @endif data-action="switch-mode" data-next-edit-mode="true" class="btn-switch-mode {{ $classIcon }}"></span>
-                    @endif
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -13px !important;">
-                        <span aria-hidden="true" class="la la-close"></span>
-                    </button>
-                </div>
+                @section('modal-header')
+                    <h5 class="modal-title">{{ $title }}</h5>
+                    <div class="float-right btn-modal-actions">
+                        @if($hasViewEditMode)
+                            <span @if(isset($idBtnSwitch)) id="{{ $idBtnSwitch }}" @endif data-action="switch-mode" data-next-edit-mode="true" class="btn-switch-mode {{ $classIcon }}"></span>
+                        @endif
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -13px !important;">
+                            <span aria-hidden="true" class="la la-close"></span>
+                        </button>
+                    </div>
+                @stop
             </div>
             <div class="modal-body">
-                {{ $content }}
+                @section('modal-body')
+                @show
             </div>
             <div class="modal-footer d-none">
-                {!! $footer !!}
+                @section('modal-footer')
+                @show
             </div>
         </div>
     </div>

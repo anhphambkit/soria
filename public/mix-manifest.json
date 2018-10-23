@@ -7,6 +7,7 @@
     "/assets/backend/modern-admin/assets/css/style.css": "/assets/backend/modern-admin/assets/css/style.css",
     "/assets/general/css/app.css": "/assets/general/css/app.css",
     "/assets/helper/css/components.css": "/assets/helper/css/components.css",
+    "/assets/backend/modern-admin/assets/js/partials/edit-product-category.js": "/assets/backend/modern-admin/assets/js/partials/edit-product-category.js",
     "/assets/backend/modern-admin/assets/js/pages/new-product-category.js": "/assets/backend/modern-admin/assets/js/pages/new-product-category.js",
     "/assets/general/js/components/view-edit-modal.js": "/assets/general/js/components/view-edit-modal.js",
     "/assets/general/js/components/view-edit.js": "/assets/general/js/components/view-edit.js",

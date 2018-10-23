@@ -144,11 +144,6 @@ class Form {
                     toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
                 }
                 reuseForm.afterDone(data);
-                // if (reuseForm.isReload) {
-                //     setTimeout(function () {
-                //         location.reload();
-                //     }, 3000)
-                // }
                 return data;
             })
             .catch(function(data){

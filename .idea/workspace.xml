@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e3bbbb7-fd43-4f6c-9909-a03ccf407dd2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/partials/edit-product-category.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/modern-admin/forms/products/create-new-product-category-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/create-new-product-category-modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/edit-category-product-modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/modals/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/general/js/inc/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/general/js/inc/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/general/js/support/respone-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/general/js/support/respone-form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/generals.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/generals.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/manage-category-products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/manage-category-products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/partials/data-table-standard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/partials/data-table-standard.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,15 +100,16 @@
           <entry key="8kAQqv8f3kqNyJSYJ3cC6S5s5pbtPEz24vxZMBrC" value="1" />
           <entry key="config" value="1" />
           <entry key="css" value="22" />
+          <entry key="env" value="1" />
           <entry key="gitattributes" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="htaccess" value="1" />
           <entry key="ico" value="2" />
           <entry key="jpg" value="3" />
-          <entry key="js" value="178" />
+          <entry key="js" value="190" />
           <entry key="json" value="4" />
           <entry key="lock" value="1" />
-          <entry key="php" value="171" />
+          <entry key="php" value="193" />
           <entry key="png" value="4" />
           <entry key="product_categories" value="5" />
           <entry key="product_category_relation" value="1" />
@@ -107,13 +122,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="106" />
+          <entry key=".env file" value="1" />
+          <entry key="Blade" value="121" />
           <entry key="CSS" value="22" />
           <entry key="Database Element" value="9" />
           <entry key="Image" value="9" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="178" />
-          <entry key="PHP" value="65" />
+          <entry key="JavaScript" value="190" />
+          <entry key="PHP" value="72" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SCSS" value="31" />
           <entry key="htaccess" value="1" />
@@ -122,18 +138,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="18" />
-          <entry key="js" value="2625" />
+          <entry key="js" value="2843" />
           <entry key="json" value="17" />
-          <entry key="php" value="1243" />
+          <entry key="php" value="2089" />
           <entry key="scss" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="883" />
+          <entry key="Blade" value="1656" />
           <entry key="JSON" value="17" />
-          <entry key="JavaScript" value="2625" />
-          <entry key="PHP" value="360" />
+          <entry key="JavaScript" value="2843" />
+          <entry key="PHP" value="433" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="SCSS" value="53" />
         </counts>
@@ -160,44 +176,95 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/manage-category-products.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="145" column="39" lean-forward="true" selection-start-line="145" selection-start-column="39" selection-end-line="145" selection-end-column="39" />
+            <state relative-caret-position="547">
+              <caret line="190" column="78" selection-start-line="190" selection-start-column="78" selection-end-line="190" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/partials/data-table-standard.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/create-new-product-category-modal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="135">
+              <caret line="14" column="13" selection-start-line="10" selection-start-column="12" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/general/js/components/table.js">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="547">
+              <caret line="122" column="44" selection-start-line="121" selection-start-column="4" selection-end-line="122" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/layouts/list-with-search.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="135">
+              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/components/layouts/search-filter.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/forms/products/create-new-product-category-form.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1740">
+              <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/edit-category-product-modal.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/partials/edit-product-category.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="17" selection-start-line="16" selection-start-column="12" selection-end-line="17" selection-end-column="17" />
+              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/helper/js/config/messages.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="38" selection-start-column="38" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -207,8 +274,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -262,13 +329,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/general/js/components/view-edit.js" />
-        <option value="$PROJECT_DIR$/resources/assets/backend/ModernAdmin/assets/js/pages/newProductCategory.js" />
-        <option value="$PROJECT_DIR$/helper.mix.js" />
-        <option value="$PROJECT_DIR$/project.mix.js" />
-        <option value="$PROJECT_DIR$/frontend.mix.js" />
-        <option value="$PROJECT_DIR$/backend.mix.js" />
-        <option value="$PROJECT_DIR$/vendors.mix.js" />
         <option value="$PROJECT_DIR$/resources/views/backend/ModernAdmin/master.blade.php" />
         <option value="$PROJECT_DIR$/resources.mix.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -292,26 +352,33 @@
         <option value="$PROJECT_DIR$/resources/assets/general/js/support/responeForm.js" />
         <option value="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/newProductCategory.js" />
         <option value="$PROJECT_DIR$/resources/assets/general/js/support/toastr-alert.js" />
-        <option value="$PROJECT_DIR$/resources/assets/general/js/support/respone-form.js" />
-        <option value="$PROJECT_DIR$/resources/assets/general/js/inc/form.js" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/layouts/sidebar-menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/breadcrumbs.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php" />
-        <option value="$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/components/partials/view-edit-card.blade.php" />
-        <option value="$PROJECT_DIR$/resources/lang/en/generals.php" />
         <option value="$PROJECT_DIR$/resources/views/components/layouts/search-filter.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Packages/Admin/Repositories/Eloquent/EloquentProductCategoryRepository.php" />
-        <option value="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js" />
-        <option value="$PROJECT_DIR$/resources/lang/en/category.php" />
         <option value="$PROJECT_DIR$/resources/views/components/sections/card.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/components/layouts/list-with-search.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/helper/scss/components.scss" />
         <option value="$PROJECT_DIR$/resources/assets/general/js/components/table.js" />
         <option value="$PROJECT_DIR$/resources/views/components/partials/data-table-standard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/lang/en/category.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/forms/products/create-new-product-category.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/general/js/inc/form.js" />
+        <option value="$PROJECT_DIR$/resources/assets/general/js/support/respone-form.js" />
+        <option value="$PROJECT_DIR$/resources/views/components/modals/modal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/lang/en/generals.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/create-new-product-category-modal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/edit-category-product-modal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js" />
+        <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/forms/products/create-new-product-category-form.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/partials/edit-product-category.js" />
+        <option value="$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js" />
         <option value="$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/manage-category-products.blade.php" />
       </list>
     </option>
@@ -587,24 +654,11 @@
               <item name="drsori" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -612,6 +666,23 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="helper" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="helper" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -620,19 +691,6 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="helper" type="462c0819:PsiDirectoryNode" />
               <item name="scss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -654,6 +712,44 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="modals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drsori" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="modern-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="modals" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -687,7 +783,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="elements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -696,22 +792,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="modals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drsori" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="sections" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drsori" type="b2602c69:ProjectViewProjectNode" />
@@ -731,7 +811,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="table&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/components/table.js&#10;form.&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;form&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;field&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/views/components/elements/field.blade.php&#10;form.js&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;app\Core\Requests\CoreFormRequest&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/app/Core/Requests/CoreFormRequest.php" />
+    <property name="SearchEverywhereHistoryKey" value="for&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;form&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;form.js&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;table&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/components/table.js&#10;form.&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/assets/general/js/inc/form.js&#10;field&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/resources/views/components/elements/field.blade.php&#10;app\Core\Requests\CoreFormRequest&#9;FILE&#9;file:///Users/anhpham/Documents/workspace/php/drsori/app/Core/Requests/CoreFormRequest.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -805,12 +885,12 @@
       <workItem from="1540084517004" duration="4351000" />
       <workItem from="1540221057095" duration="1244000" />
       <workItem from="1540262319763" duration="16000" />
-      <workItem from="1540297566402" duration="300000" />
+      <workItem from="1540297566402" duration="8433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70285000" />
+    <option name="totallyTimeSpent" value="78418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -887,41 +967,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/assets/vendors/images/bg-1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="84" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/app-assets/vendors/js/tables/jquery.dataTables.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vendors/js/jquery.dataTables.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/app-assets/vendors/js/tables/datatable/datatables.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/app-assets/vendors/css/tables/datatable/datatables.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vendors/js/datatable/datatables.min.js" />
-    <entry file="file://$PROJECT_DIR$/resources/assets/vendors/css/datatable/datatables.min.css" />
-    <entry file="file://$PROJECT_DIR$/app/Packages/Admin/Services/Implement/ImplementProductCategoryServices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Ajax/ProductCategoryController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -931,16 +976,6 @@
           <caret line="17" column="146" selection-start-line="17" selection-start-column="103" selection-end-line="17" selection-end-column="146" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="51" column="82" selection-start-line="51" selection-start-column="82" selection-end-line="51" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/elements/button.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/components/elements/dropdown.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -994,23 +1029,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="20" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/general/js/inc/form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-983" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/general/js/loading/loaded.js">
@@ -1031,40 +1054,11 @@
     <entry file="file://$PROJECT_DIR$/resources/assets/helper/js/helper.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="199" column="29" lean-forward="true" selection-start-line="92" selection-start-column="16" selection-end-line="199" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/components/partials/cardbox.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/components/layouts/list.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/generals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal-edit.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/assets/helper/scss/components.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1076,13 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="30" column="77" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -1113,24 +1100,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/layouts/list-with-search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/components/partials/data-table-standard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="180">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/layouts/list-with-search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend.mix.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/elements/button.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Web/ProductCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="51" column="103" selection-start-line="51" selection-start-column="93" selection-end-line="51" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/general/js/support/respone-form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/general/js/components/search-table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/general/js/inc/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="145" column="35" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/generals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/modals/modal-view-edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/new-category-product.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="122" column="44" selection-start-line="121" selection-start-column="4" selection-end-line="122" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/helper/js/config/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/forms/products/create-new-product-category-form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/create-new-product-category-modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="13" selection-start-line="10" selection-start-column="12" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/new-product-category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/pages/manage-product-category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/backend/modern-admin/assets/js/partials/edit-product-category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/modals/products/edit-category-product-modal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/modern-admin/pages/products/manage-category-products.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="145" column="39" lean-forward="true" selection-start-line="145" selection-start-column="39" selection-end-line="145" selection-end-column="39" />
+        <state relative-caret-position="547">
+          <caret line="190" column="78" selection-start-line="190" selection-start-column="78" selection-end-line="190" selection-end-column="78" />
         </state>
       </provider>
     </entry>

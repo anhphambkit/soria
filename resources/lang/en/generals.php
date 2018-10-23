@@ -22,5 +22,6 @@ return [
     'loading' => 'Loading',
     'search' => 'Search',
     'clear' => 'Clear',
+    'update' => 'Update',
 
 ];

@@ -48,8 +48,8 @@ class ProductCategoryController extends Controller
      * @return
      */
     public function indexCategoryProduct() {
-//        $categories = $this->productCategoryServices->getAllProductCategory();
-        return view('backend.modern-admin.pages.products.manage-category-products');
+        $categories = $this->productCategoryServices->getAllProductCategory();
+        return view('backend.modern-admin.pages.products.manage-category-products', compact('categories'));
     }
 
     /**

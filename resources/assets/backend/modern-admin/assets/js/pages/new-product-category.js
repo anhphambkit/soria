@@ -1,19 +1,19 @@
 import Form from '@incResources/form';
-import responeForm from '@supportResources/respone-form';
 import Slug from '@supportResources/auto-slug'
-import message from '@helper/config/messages';
-import JSLib from '@helper/util/js-lib';
 // Define Form
-let roleForm = new Form();
-roleForm.wrapper = '#form-create-new-category';
-roleForm.url = PRODUCT_API.CREATE_CATEGORY;
-roleForm.urlCancel = "#";
+let categoryForm = new Form();
+categoryForm.wrapper = '#form-create-new-category';
+categoryForm.url = URL.CREATE_CATEGORY;
+categoryForm.urlCancel = "#";
 
 // Handle event on form
-roleForm.handleSubmit();
-roleForm.handleCancel();
+categoryForm.handleSubmit();
+categoryForm.handleCancel();
+categoryForm.afterDone = () => {
+    refreshManageProductCategoryTable()
+    if ($('#modal-create-product-category').length) $('#modal-create-product-category').modal('hide')
+};
 
 // Define Slug
 let slug = new Slug();
-
 slug.init();
