@@ -131,6 +131,30 @@
                     {{--@include('agoyu::modals.create-consumer', ['typeCreateConsumer' => 'personal'])--}}
                 @stop
 
+                @section('tableHeader')
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Created Date.</th>
+                            <th>Updated Date</th>
+                        </tr>
+                    </thead>
+                @stop
+
+                @section('tableFooter')
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Created Date.</th>
+                            <th>Updated Date</th>
+                        </tr>
+                    </tfoot>
+                @stop
+
                 @include('components.layouts.list-with-search',
                     [
                         'idTable_DTS' => 'manage-categories',

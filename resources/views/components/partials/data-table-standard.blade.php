@@ -10,4 +10,8 @@ $classTable_DTS = isset($classTable_DTS) ? $classTable_DTS : '';
 $idTable_DTS = isset($idTable_DTS) ? $idTable_DTS : '';
 ?>
 <table id="{{ $idTable_DTS }}" class="b-table-custom display responsive no-wrap {{ $isDefault ? 'table table-striped table-bordered' : '' }} {{ $classTable_DTS }}" width="100%">
+    @section('tableHeader')
+    @show
+    @section('tableFooter')
+    @show
 </table>
