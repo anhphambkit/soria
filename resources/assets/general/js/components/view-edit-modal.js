@@ -77,7 +77,7 @@ class ViewEditModal extends ViewEdit{
 
         let reuseForm = this;
 
-        this.loading();
+        // this.loading();
         return request
             .then(function(data){
                 reuseForm.done(data.data);

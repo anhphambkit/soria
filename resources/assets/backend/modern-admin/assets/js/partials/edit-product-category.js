@@ -9,7 +9,7 @@ editProductCategoryForm.wrapperModal = '#modal-edit-product-category';
 editProductCategoryForm.hasViewEditMode = true;
 editProductCategoryForm.switchBtn = editProductCategoryForm.wrapperModal + ' [data-action="switch-mode"]';
 editProductCategoryForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Product Category']);
-editProductCategoryForm.url = URL.UPDATE_SUB_MOVER;
+editProductCategoryForm.url = URL.DETAIL_PRODUCT_CATEGORY;
 editProductCategoryForm.method = "PATCH";
 editProductCategoryForm.afterDone = (data) => {
     refreshManageProductCategoryTable();
@@ -18,13 +18,13 @@ editProductCategoryForm.afterDone = (data) => {
 let isClicked = false;
 window.editProductCategory = function(element) {
     let id = $(element).attr('product-category-id');
-    $(editProductCategoryForm.wrapperModal).modal('show');
-    editProductCategoryForm.urlCancel = URL.GET_SUB_MOVER_DETAIL + "?id=" + id;
+    $('#modal-edit-product-category').modal('show');
+    editProductCategoryForm.urlCancel = URL.DETAIL_PRODUCT_CATEGORY + "?id=" + id;
     editProductCategoryForm.beforeSubmit = () => {
         Object.assign(editProductCategoryForm.data, { id: id});
         return editProductCategoryForm.data;
     }
-    editProductCategoryForm.elementLoading = editProductCategoryForm.wrapper;
+    // editProductCategoryForm.elementLoading = editProductCategoryForm.wrapper;
     // Handle event on form
     editProductCategoryForm.clearForm();
     editProductCategoryForm.cancel(true);

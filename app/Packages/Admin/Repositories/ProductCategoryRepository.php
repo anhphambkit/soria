@@ -19,4 +19,10 @@ interface ProductCategoryRepository {
      * @return mixed
      */
     public function createProductCategory($data);
+
+    /**
+     * @param $productCategoryId
+     * @return mixed
+     */
+    public function getDetailProductCategory($productCategoryId);
 }

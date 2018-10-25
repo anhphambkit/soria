@@ -181,7 +181,8 @@
     <script>
         const URL = {
             GEL_LIST_CATEGORIES : "{{ route('admin_ajax.product.get_all_product_category', $domain) }}",
-            CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
+            CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}",
+            DETAIL_PRODUCT_CATEGORY : "{{ route('admin_ajax.product.get_detail_product_category', $domain) }}",
         };
     </script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/manage-product-category.js') }}"

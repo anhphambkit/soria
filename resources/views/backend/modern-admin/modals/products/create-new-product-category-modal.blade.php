@@ -7,12 +7,7 @@
  */
 ?>
 @section('modal-body')
-    @include('backend.modern-admin.forms.products.create-new-product-category-form',
-            [
-                'categories' => $categories,
-                'isModal' => true,
-                'idForm' => 'form-create-new-category'
-            ])
+
 @stop
 
 @component('components.modals.modal')

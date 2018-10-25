@@ -16,7 +16,6 @@ class ImagePreviewUpload {
     init() {
         let self = this;
         $(document).on('change', $(this.elementInputFile), function () {
-            console.log(self.defaultImg);
             self.readImage();
         });
     }

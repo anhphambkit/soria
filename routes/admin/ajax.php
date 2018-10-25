@@ -16,5 +16,6 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
     Route::prefix('product')->group(function () {
         Route::post('/createProductCategory', 'ProductCategoryController@createProductCategory')->name('admin_ajax.product.create_product_category');
         Route::get('/getAllProductCategory', 'ProductCategoryController@getAllProductCategory')->name('admin_ajax.product.get_all_product_category');
+        Route::get('/getDetailProductCategory', 'ProductCategoryController@getDetailProductCategory')->name('admin_ajax.product.get_detail_product_category');
     });
 });

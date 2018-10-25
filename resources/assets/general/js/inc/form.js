@@ -53,6 +53,13 @@ class Form {
     failCancel(data){};
     finalCancel(data){};
 
+    /* loading */
+    setloading(){};
+    loading()
+    {
+        elementLoading = this.setloading();
+    }
+
     /**
      * Parse validation errors object from Laravel
      * @param errors (Object)

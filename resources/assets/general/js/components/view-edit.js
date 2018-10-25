@@ -121,7 +121,7 @@ class ViewEdit extends Form{
 
         let reuseForm = this;
 
-        this.loading();
+        // this.loading();
         return request
             .then(function(data){
                 reuseForm.done(data.data);
@@ -191,7 +191,7 @@ class ViewEdit extends Form{
                 request = axios.get(this.urlCancel, { params : this.dataCancel });
         }
 
-        this.loading();
+        // this.loading();
         let reuseForm = this;
         return request
             .then(function(data){

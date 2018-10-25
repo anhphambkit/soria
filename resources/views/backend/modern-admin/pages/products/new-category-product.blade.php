@@ -94,7 +94,11 @@
                     @slot('title', trans('category.category_name'))
                     @slot('isActive', true)
                     @slot('content')
-                        @include('backend.modern-admin.forms.products.create-new-product-category-form', [ 'categories' => $categories ])
+                        @include('backend.modern-admin.forms.products.create-new-product-category-form',
+                                [
+                                    'categories' => $categories ,
+                                    'idForm' => 'form-create-new-category'
+                                ])
                     @endslot
                 @endcomponent
             </div>

@@ -15,20 +15,40 @@ class ImplementProductCategoryServices implements ProductCategoryServices{
 
     private $repository;
 
+    /**
+     * ImplementProductCategoryServices constructor.
+     * @param EloquentProductCategoryRepository $productCategoryRepository
+     */
     public function __construct(EloquentProductCategoryRepository $productCategoryRepository)
     {
         $this->repository = $productCategoryRepository;
     }
 
+    /**
+     * @param $data
+     * @return mixed|void
+     */
     public function createProductCategory($data)
     {
         // TODO: Implement createCategory() method.
         $this->repository->createProductCategory($data);
     }
 
+    /**
+     * @return mixed
+     */
     public function getAllProductCategory()
     {
         // TODO: Implement getAllCategory() method.
         return $this->repository->getAllProductCategory();
+    }
+
+    /**
+     * @param $productCategoryId
+     * @return mixed|void
+     */
+    public function getDetailProductCategory($productCategoryId) {
+        // TODO: Implement getDetailProductCategory() method.
+        return $this->repository->getDetailProductCategory($productCategoryId);
     }
 }

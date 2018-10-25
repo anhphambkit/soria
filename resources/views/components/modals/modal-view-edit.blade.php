@@ -29,6 +29,7 @@ $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
                 @stop
             </div>
             <div class="modal-body">
+                {{ $body }}
                 @section('modal-body')
                 @show
             </div>
