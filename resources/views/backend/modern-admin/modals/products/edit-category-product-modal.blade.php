@@ -11,14 +11,12 @@
     @slot('idModal', 'modal-edit-product-category')
     @slot('title', trans('category.header_create_new_category'))
     @slot('hasViewEditMode', true)
-    @slot('body', 'Ahihi')
-    @section('modal-body')
+    @slot('modalBody')
         @include('backend.modern-admin.forms.products.create-new-product-category-form',
                 [
-                    'categories' => $categories,
                     'isModal' => true,
                     'isUpdateMode' => true,
                     'idForm' => 'edit-product-category'
                 ])
-    @stop
+    @endslot
 @endcomponent

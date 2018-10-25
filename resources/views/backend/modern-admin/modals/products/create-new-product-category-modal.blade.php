@@ -6,11 +6,14 @@
  * Time: 19:41
  */
 ?>
-@section('modal-body')
-
-@stop
-
 @component('components.modals.modal')
     @slot('id', 'modal-create-product-category')
     @slot('title', trans('category.header_create_new_category'))
+    @slot('modalBody')
+        @include('backend.modern-admin.forms.products.create-new-product-category-form',
+                [
+                    'isModal' => true,
+                    'idForm' => 'form-create-new-category'
+                ])
+    @endslot
 @endcomponent

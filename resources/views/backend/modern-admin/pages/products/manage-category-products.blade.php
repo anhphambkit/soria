@@ -128,39 +128,34 @@
                 @endsection
 
                 @section('area-modals')
-                    @include('backend.modern-admin.modals.products.create-new-product-category-modal', [ 'categories' => $categories ])
-                    @include('backend.modern-admin.modals.products.edit-category-product-modal', [ 'categories' => $categories ])
+                    @include('backend.modern-admin.modals.products.create-new-product-category-modal')
+                    @include('backend.modern-admin.modals.products.edit-category-product-modal')
                 @stop
 
-                {{-- Sections for component data-table --}}
-                @section('table-header')
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Created Date.</th>
-                            <th>Updated Date</th>
-                        </tr>
-                    </thead>
-                @stop
-                @section('table-footer')
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Created Date.</th>
-                            <th>Updated Date</th>
-                        </tr>
-                    </tfoot>
-                @stop
-                @include('components.layouts.list-with-search',
-                    [
-                        'idTable_DTS' => 'manage-categories',
-                        'hasSearchFilter' => false
-                    ]
-                )
+                @component('components.layouts.list-with-search')
+                    @slot('idTable_DTS', 'manage-categories')
+                    @slot('hasSearchFilter', false)
+                    @slot('tableHeaderFooter')
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Created Date.</th>
+                                <th>Updated Date</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Created Date.</th>
+                                <th>Updated Date</th>
+                            </tr>
+                        </tfoot>
+                    @endslot
+                @endcomponent
             </div>
         </div>
     </div>

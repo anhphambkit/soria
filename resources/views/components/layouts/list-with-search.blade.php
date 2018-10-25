@@ -36,8 +36,7 @@ $titleTableCard = isset($titleTableCard) ? $titleTableCard : '';
                 @component('components.sections.card')
                     @slot('title', $titleTableCard)
                     @slot('content')
-                        @component('components.partials.data-table-standard', ['idTable_DTS' => $idTable_DTS])
-                        @endcomponent
+                        @include('components.partials.data-table-standard')
                     @endslot
                 @endcomponent
             </div>
