@@ -6,7 +6,7 @@
  * Time: 17:40
  */
 $classIcon = isset($classIcon) ? $classIcon : 'la la-edit ks-icon';
-$idModal = isset($idModal) ? $idModal : '';
+$id = isset($id) ? $id : '';
 $classModal = isset($classModal) ? $classModal : '';
 $modalBody = isset($modalBody) ? $modalBody : '';
 $modalFooter = isset($modalFooter) ? $modalFooter : '';
@@ -14,7 +14,7 @@ $title = isset($title) ? $title : env('APP_NAME');
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
 $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
 ?>
-<div @if(isset($idModal)) id="{{ $idModal }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif">
+<div @if(isset($id)) id="{{ $id }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif">
     <div class="modal-dialog @if($isLargeModal) modal-lg @endif">
         <div class="modal-content">
             <div class="modal-header">

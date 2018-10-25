@@ -7,7 +7,7 @@ import toastrAlert from '@supportResources/toastr-alert';
 class Form {
     constructor(){
         // U must define correct wrapper whenever use this
-        this.wrapper = '.eden-form';
+        this.wrapper = '.kc-form';
         // Submit button selector
         this.submitBtn = '[data-control="submit"]';
         // Cancel button selector
@@ -37,6 +37,8 @@ class Form {
         this.restoreWhenCancel = true;
         // Default reload page when success:
         this.isReload = true;
+        // Set attribute to get data null placeholder
+        this.attrNullPlacholder = 'null-placeholder';
     }
 
     // Hooks
@@ -58,6 +60,19 @@ class Form {
     loading()
     {
         elementLoading = this.setloading();
+    }
+
+    /**
+     * Reset data
+     */
+    clearForm() {
+        let self = this;
+        $(this.wrapper).find('select, input, textarea').each(function(item){
+            let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '';
+            if ($(this).is('select')) $(this).val(0);
+            else $(this).val(nullPlaceholder);
+        });
+        this.data = {};
     }
 
     /**
@@ -182,6 +197,7 @@ class Form {
                     reuseForm.final(data.data);
                 }
                 $(reuseForm.wrapper + ' ' + reuseForm.submitBtn).buttonLoader('stop');
+                reuseForm.clearForm()
             });
     }
 
@@ -266,6 +282,7 @@ class Form {
                     reuseForm.finalCancel(data.data);
                 }
                 $(reuseForm.wrapper + ' ' + reuseForm.cancelBtn).loading();
+                reuseForm.clearForm()
             });
     }
 }

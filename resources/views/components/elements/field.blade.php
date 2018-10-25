@@ -65,7 +65,7 @@ $attributes = isset($attributes) ? $attributes : [];
         <div class="field">
             <select
                 id="{{ $id }}"
-                class="select2-control float-control"
+                class="select2-control float-control kc-select"
 
                 @if(isset($name))
                 name="{{ $name }}"

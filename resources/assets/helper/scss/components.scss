@@ -1,3 +1,7 @@
+select.kc-select {
+  height: 39px;
+}
+
 .row-search-form {
   margin-bottom: 0 !important;
   margin-top: 0 !important;
@@ -16,7 +20,10 @@
     background-color: inherit !important;
     resize: none !important;
     -webkit-appearance: none !important;
-    height: fit-content !important;
+  }
+  &>select {
+    padding: 0.75rem 1rem;
+    height: inherit;
   }
 }
 

@@ -34,7 +34,6 @@ class ViewEdit extends Form{
         $(this.wrapper).find('select, input, textarea').each(function(item){
             let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
             $(this).val(nullPlaceholder);
-            $(this).text(nullPlaceholder);
         });
     }
 
