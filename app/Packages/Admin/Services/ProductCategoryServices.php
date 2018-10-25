@@ -26,4 +26,11 @@ interface ProductCategoryServices {
      * @return mixed
      */
     public function getDetailProductCategory($productCategoryId);
+
+    /**
+     * @param $productCategoryId
+     * @param $data
+     * @return mixed
+     */
+    public function updateProductCategory($productCategoryId, $data);
 }

@@ -37,9 +37,25 @@ class ProductCategoryController extends CoreAjaxController
         $this->response($result);
     }
 
+    /**
+     * @param Request $request
+     * Function get detail product category
+     */
     public function getDetailProductCategory(Request $request) {
         $productCategoryId = $request->get('id');
         $result = $this->productCategoryServices->getDetailProductCategory($productCategoryId);
+        $this->response($result);
+    }
+
+    /**
+     * @param Request $request
+     * Function update product category
+     */
+    public function updateProductCategory(Request $request) {
+        $data = $request->all();
+        $productCategoryId = $data['id'];
+        unset($data['id']);
+        $result = $this->productCategoryServices->updateProductCategory($productCategoryId, $data);
         $this->response($result);
     }
 }

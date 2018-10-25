@@ -2,6 +2,7 @@ import Form from '@incResources/form';
 import axios from "axios";
 import JSLib from '@helper/util/js-lib';
 import message from '@helper/config/messages';
+import toastrAlert from '@supportResources/toastr-alert';
 
 class ViewEdit extends Form{
     constructor () {
@@ -23,7 +24,7 @@ class ViewEdit extends Form{
         // Set message when submit success
         this.successMessage = (new JSLib).format(message.CREATED_SUCCESS, ['Item']);
         // Set message when submit fail
-        this.failMessage = message.CONTACT_ADMIN;
+        this.errorMessage = message.CONTACT_ADMIN;
     }
 
     /**
@@ -125,13 +126,9 @@ class ViewEdit extends Form{
             .then(function(data){
                 reuseForm.done(data.data);
                 $(reuseForm.switchBtn).trigger('click');
-                new Noty({
-                    text: reuseForm.successMessage,
-                    type   : 'success',
-                    theme  : 'mint',
-                    layout : 'topRight',
-                    timeout: 3000
-                }).show();
+                let errorMessage = reuseForm.errorMessage || data.data.message;
+                let toastrSuccessAlert = new toastrAlert();
+                toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
                 reuseForm.afterDone(data.data);
                 return data;
             })
@@ -139,13 +136,11 @@ class ViewEdit extends Form{
                 /**
                  * Do some hook -> parse validation error -> scroll screen to element
                  */
-                new Noty({
-                    text: reuseForm.failMessage,
-                    type   : 'error',
-                    theme  : 'mint',
-                    layout : 'topRight',
-                    timeout: 3000
-                }).show();
+                let dataRespone = data.response;
+                reuseForm.fail(dataRespone);
+                let errorMessage = reuseForm.errorMessage || data.message;
+                let toastrErrorAlert = new toastrAlert();
+                toastrErrorAlert.init(dataRespone.status, reuseForm.successMessage, errorMessage)
 
                 reuseForm.fail(data.response.data);
                 if(data.response.data != null && data.response.data.status == CONFIG.HTTP_CODE.VALIDATE_ERROR ){

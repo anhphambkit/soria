@@ -68,4 +68,18 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
             return $e->getMessage();
         }
     }
+
+    /**
+     * @param $productCategoryId
+     * @param $data
+     * @return mixed
+     */
+    public function updateProductCategory($productCategoryId, $data) {
+        try {
+            return $this->model->where('id',$productCategoryId)->update($data);
+        }
+        catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

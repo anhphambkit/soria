@@ -9,7 +9,7 @@ editProductCategoryForm.wrapperModal = '#modal-edit-product-category';
 editProductCategoryForm.hasViewEditMode = true;
 editProductCategoryForm.switchBtn = editProductCategoryForm.wrapperModal + ' [data-action="switch-mode"]';
 editProductCategoryForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Product Category']);
-editProductCategoryForm.url = URL.DETAIL_PRODUCT_CATEGORY;
+editProductCategoryForm.url = URL.UPDATE_PRODUCT_CATEGORY;
 editProductCategoryForm.method = "PATCH";
 editProductCategoryForm.afterDone = (data) => {
     refreshManageProductCategoryTable();

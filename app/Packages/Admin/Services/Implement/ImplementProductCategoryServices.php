@@ -45,10 +45,20 @@ class ImplementProductCategoryServices implements ProductCategoryServices{
 
     /**
      * @param $productCategoryId
-     * @return mixed|void
+     * @return mixed
      */
     public function getDetailProductCategory($productCategoryId) {
         // TODO: Implement getDetailProductCategory() method.
         return $this->repository->getDetailProductCategory($productCategoryId);
+    }
+
+    /**
+     * @param $productCategoryId
+     * @param $data
+     * @return mixed
+     */
+    public function updateProductCategory($productCategoryId, $data) {
+        unset($data['id']);
+        return $this->repository->updateProductCategory($productCategoryId, $data);
     }
 }

@@ -1,5 +1,8 @@
 import ViewEdit from '@componentResources/view-edit';
 import axios from "axios";
+import toastrAlert from '@supportResources/toastr-alert';
+import JSLib from "@/helper/js/util/js-lib";
+import message from "@/helper/js/config/messages";
 
 class ViewEditModal extends ViewEdit{
     constructor () {
@@ -11,6 +14,10 @@ class ViewEditModal extends ViewEdit{
         // Set default type modal
         this.hasViewEditMode = false;
         this.elementLoading = this.wrapperModal + ' .modal-body';
+        // Set message when submit success
+        this.successMessage = (new JSLib).format(message.CREATED_SUCCESS, ['Item']);
+        // Set message when submit fail
+        this.errorMessage = message.CONTACT_ADMIN;
     }
 
     /**
@@ -81,13 +88,9 @@ class ViewEditModal extends ViewEdit{
         return request
             .then(function(data){
                 reuseForm.done(data.data);
-                new Noty({
-                    text: reuseForm.successMessage,
-                    type   : 'success',
-                    theme  : 'mint',
-                    layout : 'topRight',
-                    timeout: 3000
-                }).show();
+                let errorMessage = reuseForm.errorMessage || data.data.message;
+                let toastrSuccessAlert = new toastrAlert();
+                toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
                 $(reuseForm.switchBtn).trigger('click');
                 reuseForm.afterDone(data.data);
 
@@ -99,14 +102,13 @@ class ViewEditModal extends ViewEdit{
                 /**
                  * Do some hook -> parse validation error -> scroll screen to element
                  */
-                // new Noty({
-                //     text: reuseForm.failMessage,
-                //     type   : 'error',
-                //     theme  : 'mint',
-                //     layout : 'topRight',
-                //     timeout: 3000
-                // }).show();
-                reuseForm.fail(data.response.data);
+                let dataRespone = data.response;
+                reuseForm.fail(dataRespone);
+                let errorMessage = reuseForm.errorMessage || data.message;
+                let toastrErrorAlert = new toastrAlert();
+                toastrErrorAlert.init(dataRespone.status, reuseForm.successMessage, errorMessage)
+
+                reuseForm.fail(dataRespone.data);
                 if(data.response.data != null && data.response.data.status == CONFIG.HTTP_CODE.VALIDATE_ERROR ){
                     reuseForm.parseValidateErrors(data.response.data.data);
                 }

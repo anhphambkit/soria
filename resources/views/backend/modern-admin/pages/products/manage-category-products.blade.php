@@ -94,23 +94,6 @@
                     {{ trans('category.title_filter') }}
                 @endsection
 
-                @section('contentSearchFilter')
-                    {{--<div class="row row-search-form">--}}
-                    {{--<fieldset class="form-group col-sm-3">--}}
-                    {{--<label class="form-control-label" for="contact_name">{{ trans('agoyu::agoyu.manage_consumer_page.contact_name') }}</label>--}}
-                    {{--<input type="text" class="form-control pl-3" name="username" id="username" placeholder="{{ trans('agoyu::agoyu.manage_consumer_page.contact_name') }}">--}}
-                    {{--</fieldset>--}}
-                    {{--<fieldset class="form-group col-sm-3">--}}
-                    {{--<label class="form-control-label" for="status">{{ trans('agoyu::agoyu.manage_consumer_page.status') }}</label>--}}
-                    {{--<select class="form-control pl-3" id="status" name="status">--}}
-                    {{--<option selected disabled>{{ trans('agoyu::agoyu.manage_consumer_page.select_status_title') }}</option>--}}
-                    {{--<option value="0">{{ trans('agoyu::agoyu.manage_consumer_page.inactive') }}</option>--}}
-                    {{--<option value="1">{{ trans('agoyu::agoyu.manage_consumer_page.active') }}</option>--}}
-                    {{--</select>--}}
-                    {{--</fieldset>--}}
-                    {{--</div>--}}
-                @endsection
-
                 @section('btnSearchFilter')
                     @parent
                 @endsection
@@ -178,6 +161,7 @@
             GEL_LIST_CATEGORIES : "{{ route('admin_ajax.product.get_all_product_category', $domain) }}",
             CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}",
             DETAIL_PRODUCT_CATEGORY : "{{ route('admin_ajax.product.get_detail_product_category', $domain) }}",
+            UPDATE_PRODUCT_CATEGORY : "{{ route('admin_ajax.product.update_product_category', $domain) }}",
         };
     </script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/manage-product-category.js') }}"
