@@ -6,14 +6,14 @@ manageCategory.wrapperTable = '#manage-categories';
 manageCategory.columns = [
     {
         title: "ID",
+        data: 'id',
+    },
+    {
+        title: "Name",
         data: null,
         render(data) {
             return '<a href="javascript:void(0);" product-category-id= '+data.id+' class="modal-edit-product-category">'+ data.name +'</a>'
         }
-    },
-    {
-        title: "Name",
-        data: 'name',
     },
     {
         title: "Slug",
