@@ -42,3 +42,4 @@ public/mix-manifest.json
 .idea/
 .idea
 .DS_Store
+*.log
