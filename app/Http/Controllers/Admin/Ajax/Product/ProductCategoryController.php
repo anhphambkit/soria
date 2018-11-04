@@ -6,10 +6,10 @@
  * Time: 20:49
  */
 
-namespace App\Http\Controllers\Admin\Ajax;
+namespace App\Http\Controllers\Admin\Ajax\Product;
 
 use App\Http\Requests\Admin\CreateProductCategoryRequest;
-use App\Packages\Admin\Services\Implement\ImplementProductCategoryServices;
+use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServices;
 use Illuminate\Http\Request;
 use App\Core\Controllers\CoreAjaxController;
 

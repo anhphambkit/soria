@@ -6,7 +6,7 @@
  * Time: 13:46
  */
 
-namespace App\Packages\Admin\Entities;
+namespace App\Packages\Admin\Product\Entities;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model

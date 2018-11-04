@@ -3,23 +3,22 @@
  * Created by PhpStorm.
  * User: AnhPham
  * Date: 7/15/18
- * Time: 11:54
+ * Time: 13:55
  */
 
-namespace App\Packages\Admin\Services;
+namespace App\Packages\Admin\Product\Repositories;
 
-interface ProductCategoryServices {
+interface ProductCategoryRepository {
+    /**
+     * @return mixed
+     */
+    public function getAllProductCategory();
 
     /**
      * @param $data
      * @return mixed
      */
     public function createProductCategory($data);
-
-    /**
-     * @return mixed
-     */
-    public function getAllProductCategory();
 
     /**
      * @param $productCategoryId

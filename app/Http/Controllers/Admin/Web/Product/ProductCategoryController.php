@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Web;
+namespace App\Http\Controllers\Admin\Web\Product;
 
-use App\Packages\Admin\Services\Implement\ImplementProductCategoryServices;
+use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

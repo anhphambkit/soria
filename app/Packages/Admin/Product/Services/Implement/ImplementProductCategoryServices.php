@@ -6,10 +6,10 @@
  * Time: 11:54
  */
 
-namespace App\Packages\Admin\Services\Implement;
+namespace App\Packages\Admin\Product\Services\Implement;
 
-use App\Packages\Admin\Repositories\Eloquent\EloquentProductCategoryRepository;
-use App\Packages\Admin\Services\ProductCategoryServices;
+use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductCategoryRepository;
+use App\Packages\Admin\Product\Services\ProductCategoryServices;
 
 class ImplementProductCategoryServices implements ProductCategoryServices{
 

@@ -6,29 +6,29 @@
  * Time: 13:55
  */
 
-namespace App\Packages\Admin\Repositories\Eloquent;
+namespace App\Packages\Admin\Post\Repositories\Eloquent;
 
-use App\Packages\Admin\Entities\ProductCategory;
-use App\Packages\Admin\Entities\ProductCategoryRelation;
-use App\Packages\Admin\Repositories\ProductCategoryRepository;
+use App\Packages\Admin\Post\Entities\PostCategory;
+use App\Packages\Admin\Post\Entities\PostCategoryRelation;
+use App\Packages\Admin\Post\Repositories\PostCategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
 
-class EloquentProductCategoryRepository implements ProductCategoryRepository {
+class EloquentPostCategoryRepository implements PostCategoryRepository {
 
     private $model;
-    private $productCategoryRelation;
-    public function __construct(ProductCategory $productCategory, ProductCategoryRelation $productCategoryRelation)
+    private $postCategoryRelation;
+    public function __construct(PostCategory $postCategory, PostCategoryRelation $postCategoryRelation)
     {
-        $this->model = $productCategory;
-        $this->productCategoryRelation = $productCategoryRelation;
+        $this->model = $postCategory;
+        $this->postCategoryRelation = $postCategoryRelation;
     }
 
     /**
      * @return mixed
      */
-    public function getAllProductCategory()
+    public function getAllPostCategory()
     {
         try {
             return $this->model
@@ -45,7 +45,7 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
      * @param $data
      * @return mixed
      */
-    public function createProductCategory($data) {
+    public function createPostCategory($data) {
         try {
             return $this->model->create($data);
         }
@@ -55,13 +55,13 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
     }
 
     /**
-     * @param $productCategoryId
+     * @param $postCategoryId
      * @return mixed
      */
-    public function getDetailProductCategory($productCategoryId) {
+    public function getDetailPostCategory($postCategoryId) {
         try {
             return $this->model->select('*')
-                                ->where('id', $productCategoryId)
+                                ->where('id', $postCategoryId)
                                 ->first();
         }
         catch (Exception $e) {
@@ -70,13 +70,13 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
     }
 
     /**
-     * @param $productCategoryId
+     * @param $postCategoryId
      * @param $data
      * @return mixed
      */
-    public function updateProductCategory($productCategoryId, $data) {
+    public function updatePostCategory($postCategoryId, $data) {
         try {
-            return $this->model->where('id',$productCategoryId)->update($data);
+            return $this->model->where('id',$postCategoryId)->update($data);
         }
         catch (Exception $e) {
             return $e->getMessage();

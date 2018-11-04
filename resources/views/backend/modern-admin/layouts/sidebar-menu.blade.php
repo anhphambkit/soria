@@ -47,10 +47,10 @@
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts
                     .1_column">Post</a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child
+                            <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}" data-i18n="nav.menu_levels.second_level_child
                             .third_level">Manager</a>
                             </li>
-                            <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child
+                            <li><a class="menu-item" href="{{ URL::to('/post/category/new') }}" data-i18n="nav.menu_levels.second_level_child
                             .third_level">Create</a>
                             </li>
                         </ul>
