@@ -16,7 +16,7 @@ class PostCategory extends Model
      *
      * @var string
      */
-    protected $table = 'product_categories';
+    protected $table = 'post_categories';
 
     /**
      * The attributes that are mass assignable.

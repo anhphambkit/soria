@@ -122,6 +122,6 @@
             CREATE_CATEGORY : "{{ route('admin_ajax.product.create_product_category', $domain) }}"
         }
     </script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/new-product-category.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product-category.js') }}"
             type="text/javascript"></script>
 @endsection

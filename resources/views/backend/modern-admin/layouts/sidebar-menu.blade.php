@@ -20,40 +20,22 @@
             <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
             .page_layouts.main">Products</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts
-                    .1_column">Manager</a>
+                    <li><a class="menu-item" href="{{ URL::to('/product/category/list') }}" data-i18n="nav.page_layouts
+                    .1_column">Categories</a>
                     </li>
                     <li><a class="menu-item" href="layout-2-columns.html" data-i18n="nav.page_layouts
-                    .2_columns">Create</a>
+                    .2_columns">Product</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="la la-th-list"></i><span class="menu-title" data-i18n="nav
-            .page_layouts.main">Categories</span></a>
+            <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
+            .page_layouts.main">Post</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts
-                    .1_column">Product</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="{{ URL::to('/product/category/list') }}" data-i18n="nav
-                            .menu_levels.second_level_child
-                            .third_level">Manager</a>
-                            </li>
-                            <li><a class="menu-item" href="{{ URL::to('/product/category/new') }}" data-i18n="nav.menu_levels
-                            .second_level_child
-                            .third_level">Create</a>
-                            </li>
-                        </ul>
+                    <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}" data-i18n="nav.page_layouts
+                    .1_column">Categories</a>
                     </li>
-                    <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts
-                    .1_column">Post</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}" data-i18n="nav.menu_levels.second_level_child
-                            .third_level">Manager</a>
-                            </li>
-                            <li><a class="menu-item" href="{{ URL::to('/post/category/new') }}" data-i18n="nav.menu_levels.second_level_child
-                            .third_level">Create</a>
-                            </li>
-                        </ul>
+                    <li><a class="menu-item" href="layout-2-columns.html" data-i18n="nav.page_layouts
+                    .2_columns">Post</a>
                     </li>
                 </ul>
             </li>

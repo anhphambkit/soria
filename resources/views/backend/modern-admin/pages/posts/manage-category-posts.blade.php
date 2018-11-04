@@ -111,8 +111,8 @@
                 @endsection
 
                 @section('area-modals')
-                    @include('backend.modern-admin.modals.products.create-new-product-category-modal')
-                    @include('backend.modern-admin.modals.products.edit-category-product-modal')
+                    @include('backend.modern-admin.modals.posts.create-new-post-category-modal')
+                    @include('backend.modern-admin.modals.posts.edit-category-post-modal')
                 @stop
 
                 @component('components.layouts.list-with-search')
@@ -164,11 +164,11 @@
             UPDATE_POST_CATEGORY : "{{ route('admin_ajax.post.update_post_category', $domain) }}",
         };
     </script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/manage-post-category.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/post/manage-post-category.js') }}"
             type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/new-post-category.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/post/new-post-category.js') }}"
             type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/edit-post-category.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/post/edit-post-category.js') }}"
             type="text/javascript"></script>
 @endsection
 

@@ -16,7 +16,7 @@ class PostCategoryRelation extends Model
      *
      * @var string
      */
-    protected $table = 'product_category_relation';
+    protected $table = 'post_category_relation';
 
     /**
      * The attributes that are mass assignable.

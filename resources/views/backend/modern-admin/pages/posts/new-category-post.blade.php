@@ -53,7 +53,6 @@
 @section('styles')
 
 @endsection
-{{-- ['admin', 'drsori.bi'] --}}
 @section('breadcrumbs')
     @component('components.layouts.breadcrumbs')
         @slot('header', trans('category.header_create_new_category'))
@@ -94,7 +93,7 @@
                     @slot('title', trans('category.category_name'))
                     @slot('isActive', true)
                     @slot('content')
-                        @include('backend.modern-admin.forms.products.create-new-product-category-form',
+                        @include('backend.modern-admin.forms.posts.create-new-post-category-form',
                                 [
                                     'idForm' => 'form-create-new-category'
                                 ])
@@ -122,6 +121,6 @@
             CREATE_CATEGORY : "{{ route('admin_ajax.post.create_post_category', $domain) }}"
         }
     </script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/new-post-category.js') }}"
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/post/new-post-category.js') }}"
             type="text/javascript"></script>
 @endsection
