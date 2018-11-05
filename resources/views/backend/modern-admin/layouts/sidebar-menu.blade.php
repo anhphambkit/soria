@@ -29,7 +29,7 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
-            .page_layouts.main">Post</span></a>
+            .page_layouts.main">Posts</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}" data-i18n="nav.page_layouts
                     .1_column">Categories</a>
