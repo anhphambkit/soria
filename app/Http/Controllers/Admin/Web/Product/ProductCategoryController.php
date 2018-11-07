@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Web\Product;
 
-use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServices;
+use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,36 +10,9 @@ class ProductCategoryController extends Controller
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $productCategoryServices;
-    public function __construct(ImplementProductCategoryServices $productCategoryServices) {
+    public function __construct(ProductCategoryServices $productCategoryServices) {
         parent::__construct();
         $this->productCategoryServices = $productCategoryServices;
-    }
-
-    /**
-     * List Products.
-     *
-     * @return
-     */
-    public function indexProduct() {
-
-    }
-
-    /**
-     * New Product.
-     *
-     * @return
-     */
-    public function newProduct() {
-
-    }
-
-    /**
-     * Edit Product.
-     *
-     * @return
-     */
-    public function editProduct() {
-
     }
 
     /**

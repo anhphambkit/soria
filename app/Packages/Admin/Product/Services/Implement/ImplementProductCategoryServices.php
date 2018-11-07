@@ -8,7 +8,7 @@
 
 namespace App\Packages\Admin\Product\Services\Implement;
 
-use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductCategoryRepository;
+use App\Packages\Admin\Product\Repositories\ProductCategoryRepository;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 
 class ImplementProductCategoryServices implements ProductCategoryServices{
@@ -17,9 +17,9 @@ class ImplementProductCategoryServices implements ProductCategoryServices{
 
     /**
      * ImplementProductCategoryServices constructor.
-     * @param EloquentProductCategoryRepository $productCategoryRepository
+     * @param ProductCategoryRepository $productCategoryRepository
      */
-    public function __construct(EloquentProductCategoryRepository $productCategoryRepository)
+    public function __construct(ProductCategoryRepository $productCategoryRepository)
     {
         $this->repository = $productCategoryRepository;
     }

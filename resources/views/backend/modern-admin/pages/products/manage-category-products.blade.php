@@ -37,23 +37,14 @@
 @endsection
 
 @section('plugin-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/vendors/css/weather-icons/climacons.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/fonts/meteocons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/vendors/css/charts/morris.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/vendors/css/charts/chartist.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
 @endsection
 
 @section('page-css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/fonts/simple-line-icons/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/pages/timeline.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/pages/dashboard-ecommerce.css') }}">
 @endsection
 
 @section('styles')
 
 @endsection
-{{-- ['admin', 'drsori.bi'] --}}
 @section('breadcrumbs')
     @component('components.layouts.breadcrumbs')
         @slot('header', trans('category.header_manage_categories'))

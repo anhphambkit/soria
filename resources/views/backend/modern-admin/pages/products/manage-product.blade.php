@@ -1,0 +1,174 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: AnhPham
+ * Date: 11/6/18
+ * Time: 06:47
+ */
+?>
+@extends('backend.modern-admin.master')
+
+@section('desc')
+
+@endsection
+
+@section('metas')
+
+@endsection
+
+@section('title')
+
+@endsection
+
+@section('fonts')
+
+@endsection
+
+@section('core-scripts')
+
+@endsection
+
+@section('theme-css')
+
+@endsection
+
+@section('core-scripts')
+
+@endsection
+
+@section('plugin-css')
+@endsection
+
+@section('page-css')
+@endsection
+
+@section('styles')
+
+@endsection
+@section('breadcrumbs')
+    @component('components.layouts.breadcrumbs')
+        @slot('header', trans('product.header_manage_products'))
+        @slot('items', [
+            [
+                'active' => false,
+                'link' => route('admin.dashboard', $domain),
+                'title' => trans('breadcrumbs.home')
+            ],
+            [
+                'active' => false,
+                'link' => route('admin.product.index', $domain),
+                'title' => trans('breadcrumbs.products')
+            ],
+            [
+                'active' => true,
+                'link' => '#',
+                'title' => trans('breadcrumbs.manage')
+            ],
+        ])
+    @endcomponent
+@endsection
+
+@section('header-right')
+
+@endsection
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 none-padding">
+                @section('titleSearchFilter')
+                    {{ trans('product.title_filter') }}
+                @endsection
+
+                @section('btnSearchFilter')
+                    @parent
+                @endsection
+
+                @section('btn-others')
+                    <div class="col-lg-12 ks-panels-column-section">
+                        @component('components.elements.button')
+                            @slot('id', 'btn-create-product')
+                            @slot('type', 'button')
+                            @slot('class','btn-primary')
+                            @slot('attributes', [ 'data-toggle' => 'modal', 'data-target' => '#modal-create-product'])
+                            @slot('label', trans('product.add_new'))
+                        @endcomponent
+                    </div>
+                @endsection
+
+                @section('area-modals')
+                    @include('backend.modern-admin.modals.products.create-new-product-modal')
+                    {{--@include('backend.modern-admin.modals.products.edit-product-modal')--}}
+                @stop
+
+                @component('components.layouts.list-with-search')
+                    @slot('idTable_DTS', 'manage-products')
+                    @slot('hasSearchFilter', false)
+                    @slot('tableHeaderFooter')
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>SKU</th>
+                            <th>Price</th>
+                            <th>Sale Price</th>
+                            <th>Publish</th>
+                            <th>Feature</th>
+                            <th>Best Seller</th>
+                            <th>Free Ship</th>
+                            <th>Rating</th>
+                            <th>Created Date</th>
+                            <th>Updated Date</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>SKU</th>
+                            <th>Price</th>
+                            <th>Sale Price</th>
+                            <th>Publish</th>
+                            <th>Feature</th>
+                            <th>Best Seller</th>
+                            <th>Free Ship</th>
+                            <th>Rating</th>
+                            <th>Created Date</th>
+                            <th>Updated Date</th>
+                        </tr>
+                        </tfoot>
+                    @endslot
+                @endcomponent
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('core-footer-scripts')
+
+@endsection
+
+@section('theme-scripts')
+
+@endsection
+
+@section('plugin-scripts')
+@endsection
+
+@section('page-scripts')
+    <script>
+        const URL = {
+            GEL_LIST_PRODUCTS : "{{ route('admin_ajax.product.get_all_products', $domain) }}",
+            CREATE_PRODUCT : "{{ route('admin_ajax.product.create_product', $domain) }}",
+            DETAIL_PRODUCT : "{{ route('admin_ajax.product.get_detail_product', $domain) }}",
+            UPDATE_PRODUCT : "{{ route('admin_ajax.product.update_product', $domain) }}",
+        };
+    </script>
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}"
+            type="text/javascript"></script>
+@endsection
+

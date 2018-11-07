@@ -1,0 +1,73 @@
+import SearchTable from '@componentResources/search-table';
+
+let manageCategory = new SearchTable();
+manageCategory.wrapperTable = '#manage-products';
+manageCategory.columns = [
+    {
+        title: "ID",
+        data: 'id',
+    },
+    {
+        title: "Name",
+        data: null,
+        render(data) {
+            return '<a href="javascript:void(0);" product-id= '+data.id+' class="modal-edit-product">'+ data.name +'</a>'
+        }
+    },
+    {
+        title: "SKU",
+        data: 'sku',
+    },
+    {
+        title: "Price",
+        data: 'price',
+    },
+    {
+        title: "Sale Price",
+        data: 'sale_price',
+    },{
+        title: "Publish",
+        data: 'is_publish',
+    },{
+        title: "Feature",
+        data: 'is_feature',
+    },{
+        title: "Best Seller",
+        data: 'is_best_seller',
+    },
+    {
+        title: "Free Ship",
+        data: 'is_free_ship',
+    },
+    {
+        title: "Rating",
+        data: 'rating',
+    },
+    {
+        title: "Created Date",
+        data: 'created_at'
+    },
+    {
+        title: "Updated Date",
+        data: 'updated_at'
+    }
+
+];
+manageCategory.otherDefaultOption = {
+    "drawCallback": function( settings ) {
+        $(".modal-edit-product").click(function(){
+            if(typeof editProduct === 'function'){
+                editProduct(this);
+            }
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+    },
+};
+manageCategory.urlSearch = URL.GEL_LIST_PRODUCTS;
+manageCategory.init();
+manageCategory.handleSearchBtn();
+manageCategory.handleClearBtn();
+
+window.refreshManageProductCategoryTable = function() {
+    manageCategory.refreshTable()
+}

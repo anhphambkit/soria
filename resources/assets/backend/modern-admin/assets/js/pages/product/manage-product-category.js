@@ -1,4 +1,3 @@
-import helper from '@helper/helper';
 import SearchTable from '@componentResources/search-table';
 
 let manageCategory = new SearchTable();

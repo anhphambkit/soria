@@ -9,14 +9,14 @@
 namespace App\Http\Controllers\Admin\Ajax\Post;
 
 use App\Http\Requests\Admin\Post\CreatePostCategoryRequest;
-use App\Packages\Admin\Post\Services\Implement\ImplementPostCategoryServices;
+use App\Packages\Admin\Post\Services\PostCategoryServices;
 use Illuminate\Http\Request;
 use App\Core\Controllers\CoreAjaxController;
 
 class PostCategoryController extends CoreAjaxController
 {
     protected $postCategoryServices;
-    public function __construct(ImplementPostCategoryServices $postCategoryServices) {
+    public function __construct(PostCategoryServices $postCategoryServices) {
         $this->postCategoryServices = $postCategoryServices;
     }
 

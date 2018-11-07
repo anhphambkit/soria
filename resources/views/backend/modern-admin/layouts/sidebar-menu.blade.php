@@ -20,22 +20,18 @@
             <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
             .page_layouts.main">Products</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="{{ URL::to('/product/category/list') }}" data-i18n="nav.page_layouts
-                    .1_column">Categories</a>
+                    <li><a class="menu-item" href="{{ \Illuminate\Support\Facades\URL::to('/product/category/list') }}">Categories</a>
                     </li>
-                    <li><a class="menu-item" href="layout-2-columns.html" data-i18n="nav.page_layouts
-                    .2_columns">Product</a>
+                    <li><a class="menu-item" href="{{ \Illuminate\Support\Facades\URL::to('/product/list') }}">Product</a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
             .page_layouts.main">Posts</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}" data-i18n="nav.page_layouts
-                    .1_column">Categories</a>
+                    <li><a class="menu-item" href="{{ URL::to('/post/category/list') }}">Categories</a>
                     </li>
-                    <li><a class="menu-item" href="layout-2-columns.html" data-i18n="nav.page_layouts
-                    .2_columns">Post</a>
+                    <li><a class="menu-item" href="layout-2-columns.html">Post</a>
                     </li>
                 </ul>
             </li>

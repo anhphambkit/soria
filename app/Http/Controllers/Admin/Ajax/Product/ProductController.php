@@ -2,29 +2,29 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 7/14/18
- * Time: 20:49
+ * Date: 11/7/18
+ * Time: 03:30
  */
 
 namespace App\Http\Controllers\Admin\Ajax\Product;
 
 use App\Http\Requests\Admin\Product\CreateProductCategoryRequest;
-use App\Packages\Admin\Product\Services\ProductCategoryServices;
+use App\Packages\Admin\Product\Services\ProductServices;
 use Illuminate\Http\Request;
 use App\Core\Controllers\CoreAjaxController;
 
-class ProductCategoryController extends CoreAjaxController
+class ProductController extends CoreAjaxController
 {
-    protected $productCategoryServices;
-    public function __construct(ProductCategoryServices $productCategoryServices) {
-        $this->productCategoryServices = $productCategoryServices;
+    protected $productServices;
+    public function __construct(ProductServices $productServices) {
+        $this->productServices = $productServices;
     }
 
     /**
-     * Function get all product categories
+     * Function get all products
      */
-    public function getAllProductCategory() {
-        $result = $this->productCategoryServices->getAllProductCategory();
+    public function getAllProducts() {
+        $result = $this->productServices->getAllProducts();
         $this->response($result);
     }
 
@@ -33,7 +33,7 @@ class ProductCategoryController extends CoreAjaxController
      * @param CreateProductCategoryRequest $request
      */
     public function createProductCategory(CreateProductCategoryRequest $request) {
-        $result = $this->productCategoryServices->createProductCategory($request->all());
+        $result = $this->productServices->createProduct($request->all());
         $this->response($result);
     }
 
@@ -43,7 +43,7 @@ class ProductCategoryController extends CoreAjaxController
      */
     public function getDetailProductCategory(Request $request) {
         $productCategoryId = $request->get('id');
-        $result = $this->productCategoryServices->getDetailProductCategory($productCategoryId);
+        $result = $this->productServices->getDetailProduct($productCategoryId);
         $this->response($result);
     }
 
@@ -55,7 +55,7 @@ class ProductCategoryController extends CoreAjaxController
         $data = $request->all();
         $productCategoryId = $data['id'];
         unset($data['id']);
-        $result = $this->productCategoryServices->updateProductCategory($productCategoryId, $data);
+        $result = $this->productServices->updateProduct($productCategoryId, $data);
         $this->response($result);
     }
 }

@@ -8,7 +8,7 @@
 
 namespace App\Packages\Admin\Post\Services\Implement;
 
-use App\Packages\Admin\Post\Repositories\Eloquent\EloquentPostCategoryRepository;
+use App\Packages\Admin\Post\Repositories\PostCategoryRepository;
 use App\Packages\Admin\Post\Services\PostCategoryServices;
 
 class ImplementPostCategoryServices implements PostCategoryServices{
@@ -17,9 +17,9 @@ class ImplementPostCategoryServices implements PostCategoryServices{
 
     /**
      * ImplementPostCategoryServices constructor.
-     * @param EloquentPostCategoryRepository $postCategoryRepository
+     * @param PostCategoryRepository $postCategoryRepository
      */
-    public function __construct(EloquentPostCategoryRepository $postCategoryRepository)
+    public function __construct(PostCategoryRepository $postCategoryRepository)
     {
         $this->repository = $postCategoryRepository;
     }
