@@ -19,7 +19,7 @@ return [
     // Title
     'home' => 'Home',
     'categories' => 'Categories',
-    'product' => 'Product',
+    'products' => 'Products',
     'manage' => 'Manage',
     'new' => 'New',
 ];

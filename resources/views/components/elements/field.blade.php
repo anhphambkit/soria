@@ -4,11 +4,16 @@ $jsValidate = !empty($jsValidate) ? $jsValidate : true;
 $type = isset($type) ? $type : 'text';
 $class = isset($class) ? $class : '';
 $attributes = isset($attributes) ? $attributes : [];
+$isCkEditor = isset($isCkEditor) ? $isCkEditor : true;
+$isTinyEditor = isset($isTinyEditor) ? $isTinyEditor : false;
+$content = isset($content) ? $content : '';
+$classWrap = isset($classWrap) ? $classWrap : 'wrapper-element';
+$disabled = isset($disabled) ? $disabled : false;
 //if ($jsValidate) $class .= ' form-custom-validate-js';
 ?>
 @if($type === 'text' || $type === 'number' || $type === 'email' || $type === 'password')
 <div class="field-group float-label active {{ $class }}">
-    <label for="{{ $id }}">
+    <label for="{{ $id }}" class="label-default-custom">
         {{ $title }}
         @if(isset($required) && $required)
             <span class="text-danger">*</span>
@@ -49,14 +54,14 @@ $attributes = isset($attributes) ? $attributes : [];
         {{ $key. '='. $val. ' ' }}
     @endforeach
     >
-    <label for="{{ $id }}">
+    <label for="{{ $id }}" class="label-checkbox label-default-custom">
         {{ $title }}
     </label>
 </div>
 
 @elseif(isset($type) && $type === 'dropdown')
     <div class="field-group float-label selectpicker {{ $class }}">
-        <label for="{{ $id }}">
+        <label for="{{ $id }}" class="label-default-custom">
             {{ $title }}
             @if(isset($required) && $required)
                 <span class="text-danger">*</span>
@@ -99,7 +104,7 @@ $attributes = isset($attributes) ? $attributes : [];
 
 @elseif(isset($type) && ($type === 'date' || $type === 'date-range'))
     <div class="field-group float-label {{ $class }}">
-        <label for="{{ $id }}">
+        <label for="{{ $id }}" class="label-default-custom">
             {{ $title }}
             @if(isset($required) && $required)
                 <span class="text-danger">*</span>
@@ -137,7 +142,7 @@ $attributes = isset($attributes) ? $attributes : [];
     </div>
 @elseif(isset($type) && ($type === 'time'))
     <div class="field-group float-label {{ $class }}">
-        <label for="{{ $id }}">
+        <label for="{{ $id }}" class="label-default-custom">
             {{ $title }}
             @if(isset($required) && $required)
                 <span class="text-danger">*</span>
@@ -174,8 +179,82 @@ $attributes = isset($attributes) ? $attributes : [];
         </div>
     </div>
 @elseif(isset($type) && $type === 'editor')
-    <textarea class="eden-editor {{ $class }}" id="{{ $id }}">{{ $value }}</textarea>
+    <div class="{{ $classWrap }}" id="editor-{{ $id }}">
+        <label for="{{ $id }}" class="label-default-custom">
+            {{ $title }}
+            @if(isset($tooltip))
+                <i class="{{$tooltipClass}}" data-toggle="tooltip" title="{{$tooltipTitle}}"></i>
+            @endif
+        </label>
+        <textarea
+                @if($disabled)
+                disabled
+                @endif
+
+                @if(!empty($name))
+                name="{{ $name }}"
+                @endif
+
+                @if(!empty($required))
+                required
+                @endif
+
+                @if(empty($class))
+                class="form-control noIcon"
+                @else
+                class="form-control"
+                @endif
+
+                id="{{ $id }}"
+
+                @if(isset($placeholder))
+                placeholder="{{ $placeholder }}"
+                org-placeholder="{{ $placeholder }}"
+                @else
+                placeholder="{{ $title. (isset($required) && $required ? ' (*)': '') }}"
+                org-placeholder="{{ $title. (isset($required) && $required ? ' (*)': '') }}"
+                @endif
+
+                @if(isset($rows))
+                rows="{{ $rows }}"
+                @endif
+
+                @if(isset($cols))
+                cols="{{ $cols }}"
+                @endif
+
+                @if(isset($maxlength))
+                maxlength="{{ $maxlength }}"
+                @endif
+
+        @foreach($attributes as $key => $val)
+            {{ $key. '='. $val. ' ' }}
+                @endforeach
+        >
+                @if(isset($value)){{ $value }}@endif
+            </textarea>
+    </div>
+@elseif($type === 'radio')
+    <div class="{{ $classWrap }}">
+        <div class="{{$class}}">
+            @foreach($radioFields as $radioField)
+                <div class="radio-field {{$classElement}}">
+                    <input id="{{isset($radioField['id']) ? $radioField['id'] : ''}}" value="{{isset($radioField['value']) ? $radioField['value'] : ''}}"
+                           name="{{$name}}"
+                           class="{{isset($radioField['class']) ? $radioField['class'] : ''}}"
+                           type="{{$type}}"
+                           @if(isset($checked) && $checked == $radioField['value'])
+                           checked="checked"
+                            @endif
+
+                    />
+                    <label for="{{isset($radioField['id']) ? $radioField['id'] : ''}}" class="label-default-custom">{{isset($radioField['name']) ? $radioField['name'] : ''}}</label>
+                </div>
+            @endforeach
+        </div>
+    </div>
 @endif
+
 
 @if($jsValidate)
     <ul class="" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>

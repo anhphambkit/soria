@@ -17,14 +17,10 @@
 @endsection
 
 @section('title')
-
+    Manage Products
 @endsection
 
 @section('fonts')
-
-@endsection
-
-@section('core-scripts')
 
 @endsection
 
@@ -33,17 +29,18 @@
 @endsection
 
 @section('core-scripts')
-
+    <script src="{{ asset('assets/vendors/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{ asset('assets/vendors/plugins/ckfinder/ckfinder.js')}}"></script>
 @endsection
 
 @section('plugin-css')
+
 @endsection
 
 @section('page-css')
 @endsection
 
 @section('styles')
-
 @endsection
 @section('breadcrumbs')
     @component('components.layouts.breadcrumbs')
@@ -164,11 +161,12 @@
             UPDATE_PRODUCT : "{{ route('admin_ajax.product.update_product', $domain) }}",
         };
     </script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}"
-            type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}"
-            type="text/javascript"></script>
-    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}"
-            type="text/javascript"></script>
+    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}" type="text/javascript"></script>--}}
+    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}" type="text/javascript"></script>--}}
+    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}" type="text/javascript"></script>--}}
+    <script>
+        core.initCkEditor4('desc');
+        core.initCkEditor4('long_desc');
+    </script>
 @endsection
 

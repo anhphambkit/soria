@@ -6,4 +6,7 @@
  * Time: 21:45
  */
 
-Route::get('/testAjax', 'Admin\Ajax\TestController@test')->name('test_ajax');
+/** Router Upload */
+Route::prefix('upload')->group(function() {
+    Route::post('/image', 'MediaController@uploadImage')->name('ajax.upload.image');
+});

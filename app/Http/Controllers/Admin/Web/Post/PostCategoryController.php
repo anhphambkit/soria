@@ -10,7 +10,7 @@ namespace App\Http\Controllers\Admin\Web\Post;
 
 use App\Packages\Admin\Post\Services\PostCategoryServices;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SystemGeneral\Web\Controller;
 
 class PostCategoryController extends Controller
 {

@@ -8,7 +8,7 @@
 namespace App\Http\Controllers\Admin\Web\Product;
 
 use App\Packages\Admin\Product\Services\ProductServices;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SystemGeneral\Web\Controller;
 
 class ProductController extends Controller
 {

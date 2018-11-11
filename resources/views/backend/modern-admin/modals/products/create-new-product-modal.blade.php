@@ -8,7 +8,8 @@
 ?>
 @component('components.modals.modal')
     @slot('id', 'modal-create-product')
-    @slot('title', trans('category.header_create_new_product'))
+    @slot('isLargeModal', true)
+    @slot('title', trans('product.header_create_new_product'))
     @slot('modalBody')
         @include('backend.modern-admin.forms.products.create-new-product-form',
                 [

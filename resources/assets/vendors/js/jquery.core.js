@@ -21,42 +21,42 @@ var core = {
             event.preventDefault()
         });
     },
-    initSlimScrollPlugin: function() {
-        $(".slimscroll-alt").slimScroll({
-            position: "right",
-            size: "5px",
-            color: "#98a6ad",
-            wheelStep: 10
-        })
-    },
     initSwitchery: function() {
+        let defaults = {
+            color             : '#64bd63',
+            className         : 'switchery switchery-custom',
+            size              : 'default'
+        }
+
         $('[data-plugin="switchery"]').each(function() {
-            new Switchery($(this)[0], $(this).data())
+            let config = Object.assign(defaults, $(this).data());
+            new Switchery($(this)[0], config)
         })
     },
-    initKnob: function() {
-        $('[data-plugin="knob"]').each(function() {
-            $(this).knob()
-        })
-    },
-    initCounterUp: function() {
-        $(this).attr("data-delay") ? $(this).attr("data-delay") : 100,
-            $(this).attr("data-time") ? $(this).attr("data-time") : 1200;
-        $('[data-plugin="counterup"]').each(function() {
-            $(this).counterUp({
-                delay: 100,
-                time: 1200
+    initCkEditor5: function(el = null) {
+        let element = (el !== null) ? el : '.ck-editor';
+        ClassicEditor
+            .create( document.querySelector( element ), {
+                ckfinder: {
+                    uploadUrl: '/ajax/upload/image'
+                }
             })
-        })
+            .then( editor => {
+                // console.log( editor );
+            } )
+            .catch( error => {
+                // console.error( error );
+            } );
+    },
+    initCkEditor4: function(el = null) {
+        CKFinder.setupCKEditor();
+        CKEDITOR.replace( el );
     },
     init: function() {
         this.initTooltipPlugin(),
             this.initPopoverPlugin(),
-            this.initSlimScrollPlugin(),
             this.initCustomModalPlugin(),
-            this.initSwitchery(),
-            this.initKnob(),
-            this.initCounterUp()
+            this.initSwitchery()
     }
 }
 

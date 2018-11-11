@@ -43,9 +43,9 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.desc'))
+                @slot('title', trans('product.short_desc'))
                 @slot('name', 'desc')
                 @slot('id', 'desc')
                 @slot('type', 'editor')
@@ -53,40 +53,109 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.long_desc'))
                 @slot('name', 'long_desc')
                 @slot('id', 'long_desc')
+                @slot('rows', 10)
                 @slot('type', 'editor')
             @endcomponent
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-3">
             @component('components.elements.field')
-                @slot('title', trans('product.meta_title'))
-                @slot('id', 'meta_title')
-                @slot('name', 'meta_title')
+                @slot('title', trans('product.price'))
+                @slot('name', 'price')
+                @slot('id', 'price')
+                @slot('type', 'number')
+                @slot('attributes', [ 'min' => '0' ])
+            @endcomponent
+        </div>
+        <div class="col-md-3">
+            @component('components.elements.field')
+                @slot('title', trans('product.sale_price'))
+                @slot('name', 'sale_price')
+                @slot('id', 'sale_price')
+                @slot('type', 'number')
+                @slot('attributes', [ 'min' => '0' ])
+            @endcomponent
+        </div>
+        <div class="col-md-3">
+            @component('components.elements.field')
+                @slot('title', trans('product.in_stock'))
+                @slot('name', 'in_stock')
+                @slot('id', 'in_stock')
+                @slot('type', 'number')
+                @slot('attributes', [ 'min' => '0' ])
+            @endcomponent
+        </div>
+        <div class="col-md-3">
+            @component('components.elements.field')
+                @slot('title', trans('product.rating'))
+                @slot('name', 'rating')
+                @slot('id', 'rating')
+                @slot('type', 'number')
+                @slot('attributes', [ 'min' => '0' ])
             @endcomponent
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.meta_keyword'))
-                @slot('name', 'meta_keywords')
-                @slot('id', 'meta_keywords')
+                @slot('title', trans('product.publish'))
+                @slot('id', 'is_publish')
+                @slot('name', 'is_publish')
+                @slot('type', 'checkbox')
+                @slot('checked', false)
             @endcomponent
-
+        </div>
+        <div class="col-md-4 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('product.feature'))
+                @slot('id', 'is_feature')
+                @slot('name', 'is_feature')
+                @slot('type', 'checkbox')
+                @slot('checked', false)
+            @endcomponent
+        </div>
+        <div class="col-md-4 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('product.best_seller'))
+                @slot('id', 'is_best_seller')
+                @slot('name', 'is_best_seller')
+                @slot('type', 'checkbox')
+                @slot('checked', false)
+            @endcomponent
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.meta_desc'))
-                @slot('id', 'meta_description')
-                @slot('name', 'meta_description')
+                @slot('title', trans('product.free_ship'))
+                @slot('id', 'is_free_ship')
+                @slot('name', 'is_free_ship')
+                @slot('type', 'checkbox')
+                @slot('checked', false)
+            @endcomponent
+        </div>
+        <div class="col-md-4">
+            @component('components.elements.field')
+                @slot('title', trans('product.manage_stock'))
+                @slot('name', 'manager_stock')
+                @slot('id', 'manager_stock')
+                @slot('type', 'checkbox')
+                @slot('checked', true)
+            @endcomponent
+        </div>
+        <div class="col-md-4">
+            @component('components.elements.field')
+                @slot('title', trans('product.allow_order'))
+                @slot('name', 'allow_order')
+                @slot('id', 'allow_order')
+                @slot('type', 'checkbox')
+                @slot('checked', true)
             @endcomponent
         </div>
     </div>
