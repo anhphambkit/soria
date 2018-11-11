@@ -11,4 +11,6 @@ namespace App\Packages\Admin\Product\Constants;
 interface MediaProductConfig
 {
     CONST PATH_STORAGE = 'public/products';
+    CONST FEATURE_PRODUCT_TBL = 'product_feature_images';
+    CONST GALLERY_PRODUCT_TBL = 'product_galleries';
 }

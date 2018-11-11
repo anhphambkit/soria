@@ -163,7 +163,6 @@
     <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-validate.js')}}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendors/plugins/noty/noty.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('assets/vendors/plugins/jquery-confirm/jquery-confirm.min.js')}}" type="text/javascript"></script>
-
 @endsection
 
 @section('page-scripts')

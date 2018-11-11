@@ -64,7 +64,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-3">
+        <div class="col-md-3 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.price'))
                 @slot('name', 'price')
@@ -102,7 +102,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-12">
+        <div class="col-md-12 form-custom-validate-js">
             @component('components.third-party.file-upload')
                 @slot('title', trans('product.image_feature'))
                 @slot('name', 'image_feature')

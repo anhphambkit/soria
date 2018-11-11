@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\Admin\Ajax\Product;
 
-use App\Http\Requests\Admin\Product\CreateProductCategoryRequest;
+use App\Http\Requests\Admin\Product\CreateProductRequest;
 use App\Packages\Admin\Product\Services\ProductServices;
 use Illuminate\Http\Request;
 use App\Core\Controllers\CoreAjaxController;
@@ -29,19 +29,19 @@ class ProductController extends CoreAjaxController
     }
 
     /**
-     * Function create new product category
-     * @param CreateProductCategoryRequest $request
+     * Function create new product
+     * @param CreateProductRequest $request
      */
-    public function createProductCategory(CreateProductCategoryRequest $request) {
+    public function createProduct(CreateProductRequest $request) {
         $result = $this->productServices->createProduct($request->all());
         $this->response($result);
     }
 
     /**
      * @param Request $request
-     * Function get detail product category
+     * Function get detail product
      */
-    public function getDetailProductCategory(Request $request) {
+    public function getDetailProduct(Request $request) {
         $productCategoryId = $request->get('id');
         $result = $this->productServices->getDetailProduct($productCategoryId);
         $this->response($result);
@@ -49,9 +49,9 @@ class ProductController extends CoreAjaxController
 
     /**
      * @param Request $request
-     * Function update product category
+     * Function update product
      */
-    public function updateProductCategory(Request $request) {
+    public function updateProduct(Request $request) {
         $data = $request->all();
         $productCategoryId = $data['id'];
         unset($data['id']);

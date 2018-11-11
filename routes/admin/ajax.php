@@ -22,10 +22,10 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
     /************ Router Product ************** */
     Route::prefix('product')->group(function () {
         // Product
-        Route::post('/createProduct', 'Product\ProductController@createProduct')->name('admin_ajax.product.create_product');
-        Route::get('/getAllProducts', 'Product\ProductController@getAllProducts')->name('admin_ajax.product.get_all_products');
-        Route::get('/getDetailProduct', 'Product\ProductController@getDetailProduct')->name('admin_ajax.product.get_detail_product');
-        Route::patch('/updateProduct', 'Product\ProductController@updateProduct')->name('admin_ajax.product.update_product');
+        Route::post('/create-product', 'Product\ProductController@createProduct')->name('admin_ajax.product.create_product');
+        Route::get('/get-all-products', 'Product\ProductController@getAllProducts')->name('admin_ajax.product.get_all_products');
+        Route::get('/get-detail-product', 'Product\ProductController@getDetailProduct')->name('admin_ajax.product.get_detail_product');
+        Route::patch('/update-product', 'Product\ProductController@updateProduct')->name('admin_ajax.product.update_product');
 
         // Product Category
         Route::post('/createProductCategory', 'Product\ProductCategoryController@createProductCategory')->name('admin_ajax.product.create_product_category');

@@ -8,20 +8,25 @@
 
 namespace App\Packages\Admin\Product\Services\Implement;
 
+use App\Packages\Admin\Product\Constants\MediaProductConfig;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 
 class ImplementProductServices implements ProductServices {
 
     private $repository;
+    private $coreDBRepository;
 
     /**
      * ImplementProductCategoryServices constructor.
      * @param ProductRepository $productRepository
+     * @param CoreDBRepository $coreDBRepository
      */
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository, CoreDBRepository $coreDBRepository)
     {
         $this->repository = $productRepository;
+        $this->coreDBRepository = $coreDBRepository;
     }
 
     /**
@@ -31,7 +36,30 @@ class ImplementProductServices implements ProductServices {
     public function createProduct($data)
     {
         // TODO: Implement createProduct() method.
-        $this->repository->createProduct($data);
+        $product = $this->repository->createProduct($data);
+        // Insert images features:
+        $imgFeatures = $data['imgFeatures'];
+        $imgFeaturesProduct = [];
+        foreach ($imgFeatures as $imgFeature) {
+            $newImgFeature = [
+                'product_id' => $product->id,
+                'media_id' => $imgFeature
+            ];
+            array_push($imgFeaturesProduct, $newImgFeature);
+        }
+        $this->coreDBRepository->createNewRecordOfTable(MediaProductConfig::FEATURE_PRODUCT_TBL, $imgFeaturesProduct);
+
+        // Insert images galleries:
+        $imgGalleries = $data['imgGalleries'];
+        $imgGalleriesProduct = [];
+        foreach ($imgGalleries as $imgGallery) {
+            $newImgGallery = [
+                'product_id' => $product->id,
+                'media_id' => $imgGallery
+            ];
+            array_push($imgGalleriesProduct, $newImgGallery);
+        }
+        $this->coreDBRepository->createNewRecordOfTable(MediaProductConfig::GALLERY_PRODUCT_TBL, $imgGalleriesProduct);
     }
 
     /**
