@@ -1,4 +1,5 @@
 import SearchTable from '@componentResources/search-table';
+import Helper from '@helper/helper';
 
 let manageCategory = new SearchTable();
 manageCategory.wrapperTable = '#manage-products';
@@ -21,27 +22,23 @@ manageCategory.columns = [
     {
         title: "Price",
         data: 'price',
+        render(data) {
+            return Helper.formatCurrency(data);
+        }
     },
     {
         title: "Sale Price",
         data: 'sale_price',
-    },{
+        render(data) {
+            return Helper.formatCurrency(data);
+        }
+    },
+    {
         title: "Publish",
         data: 'is_publish',
-    },{
-        title: "Feature",
-        data: 'is_feature',
-    },{
-        title: "Best Seller",
-        data: 'is_best_seller',
-    },
-    {
-        title: "Free Ship",
-        data: 'is_free_ship',
-    },
-    {
-        title: "Rating",
-        data: 'rating',
+        render(data) {
+            return Helper.renderPublishStatus(data);
+        }
     },
     {
         title: "Created Date",

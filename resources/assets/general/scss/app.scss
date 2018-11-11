@@ -7,6 +7,16 @@
 @import "loading";
 @import "widgets/upload";
 
+.bb-publish-status-true {
+	color: $color-complete;
+	font-size: 20px;
+	font-weight: 600;
+}
+.bb-publish-status-false {
+	color: $color-cancelled;
+	font-size: 20px;
+	font-weight: 600;
+}
 .bb-header {
 	font-weight: 500;
 	font-family: Montserrat,sans-serif;

@@ -31,6 +31,8 @@
           rel="stylesheet">
     <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/line-awesome/css/line-awesome.min.css') }}"
           rel="stylesheet">
+    <link href="{{ asset('assets/vendors/plugins/fontawesome/css/all.min.css') }}"
+          rel="stylesheet">
     @yield('fonts')
     <!-- END FONTS-->
 
@@ -96,6 +98,8 @@
     <!-- END FOOTER -->
 
     <!-- ========== START CORE FOOTER SCRIPTS ========== -->
+    <script src="{{ asset('assets/vendors/plugins/fontawesome/js/all.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/plugins/numeral/min/numeral.min.js')}}"></script>
     <script src="{{ asset('assets/backend/modern-admin/app-assets/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/app.js') }}" type="text/javascript"></script>

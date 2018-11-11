@@ -65,6 +65,17 @@ export default {
         else return '-'
     },
 
+    renderPublishStatus(data) {
+        if (data)
+            return `<span class="status-publish bb-publish-status-true" data-toggle="tooltip" data-placement="top" data-original-title="Reset Password">
+                        <i class="far fa-check-circle"></i>
+                    </span>`;
+
+        return `<span class="status-publish bb-publish-status-false" data-toggle="tooltip" data-placement="top" data-original-title="Reset Password">
+                    <i class="far fa-times-circle"></i>
+                </span>`;
+    },
+
     renderActionReset(data) {
 
         if(!data.status)
@@ -93,10 +104,10 @@ export default {
         else return data
     },
 
-    // Format currency: 12345678.34567 => $12,345,678.35
-    formatCurrency(data) {
+    // Format currency: 12345678.34567 => $12.345,678.35
+    formatCurrency(data, format = '0,0.00') {
         if (!data || data === '') return '-'
-        else return numeral(data).format('$0,0.00');
+        else return numeral(data).format(format);
     },
 
     playSoundEffect(path){

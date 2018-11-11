@@ -111,10 +111,6 @@
                             <th>Price</th>
                             <th>Sale Price</th>
                             <th>Publish</th>
-                            <th>Feature</th>
-                            <th>Best Seller</th>
-                            <th>Free Ship</th>
-                            <th>Rating</th>
                             <th>Created Date</th>
                             <th>Updated Date</th>
                         </tr>
@@ -127,10 +123,6 @@
                             <th>Price</th>
                             <th>Sale Price</th>
                             <th>Publish</th>
-                            <th>Feature</th>
-                            <th>Best Seller</th>
-                            <th>Free Ship</th>
-                            <th>Rating</th>
                             <th>Created Date</th>
                             <th>Updated Date</th>
                         </tr>
@@ -174,7 +166,7 @@
             UPDATE_PRODUCT : "{{ route('admin_ajax.product.update_product', $domain) }}",
         };
     </script>
-    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}" type="text/javascript"></script>--}}
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}" type="text/javascript"></script>
     {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}" type="text/javascript"></script>--}}
     <script type="application/javascript">
