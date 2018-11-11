@@ -34,7 +34,8 @@
 @endsection
 
 @section('plugin-css')
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/plugins/noty/noty.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/plugins/jquery-confirm/jquery-confirm.min.css')}}"> <!-- original -->
 @endsection
 
 @section('page-css')
@@ -82,7 +83,7 @@
                 @endsection
 
                 @section('btn-others')
-                    <div class="col-lg-12 ks-panels-column-section">
+                    <div class="col-lg-12 bb-panels-column-section">
                         @component('components.elements.button')
                             @slot('id', 'btn-create-product')
                             @slot('type', 'button')
@@ -150,6 +151,19 @@
 @endsection
 
 @section('plugin-scripts')
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/load-image.all.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/canvas-to-blob.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.iframe-transport.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-process.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-image.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-audio.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-video.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-file-upload/js/jquery.fileupload-validate.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/noty/noty.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/vendors/plugins/jquery-confirm/jquery-confirm.min.js')}}" type="text/javascript"></script>
+
 @endsection
 
 @section('page-scripts')
@@ -162,11 +176,15 @@
         };
     </script>
     {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}" type="text/javascript"></script>--}}
-    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}" type="text/javascript"></script>--}}
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}" type="text/javascript"></script>
     {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}" type="text/javascript"></script>--}}
-    <script>
+    <script type="application/javascript">
         core.initCkEditor4('desc');
         core.initCkEditor4('long_desc');
+        core.initDropzoneImplement('.bb-attach-files-widget .bb-upload');
+        core.initBindDropDrag();
+        core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeatures');
+        core.initFileUploadWidget('#bb-widget-attachments-images-gallery', 'imgGalleries');
     </script>
 @endsection
 

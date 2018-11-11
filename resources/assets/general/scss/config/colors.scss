@@ -1,0 +1,154 @@
+$text-color: #333;
+$text-color-light: #858585;
+
+$bb-default-text-color: #333;
+$bb-default-text-color-light: #858585;
+
+$text-primary-light: #8997c3;
+$color-primary: #25628F;
+$color-info: #42a5f5;
+$color-success: #4caf50;
+$color-success-hover: #43a047;
+$color-success-active: #388e3c;
+$color-warning: #ffb300;
+$color-danger: #ef5350;
+$color-grey: #ebedf5;
+$color-purple: #cb48bb;
+
+$bb-text-primary-light: #8997c3;
+$bb-color-primary: #25628F;
+$bb-color-primary-active: #1d4c6f;
+
+$bb-color-secondary: #ebebeb;
+$bb-color-secondary-hover: darken($bb-color-secondary, 4%);
+$bb-color-secondary-active: darken($bb-color-secondary, 8%);
+
+$bb-color-info: #42a5f5;
+$bb-color-info-active: #1e88e5;
+$bb-color-success: #4caf50;
+$bb-color-success-hover: #43a047;
+$bb-color-success-active: #388e3c;
+$bb-color-warning: #ffb300;
+$bb-color-warning-active: #ff8f00;
+$bb-color-danger: #ef5350;
+$bb-color-danger-active: #e53935;
+
+$bb-color-grey: #ebedf5;
+$bb-color-purple: #cb48bb;
+$bb-color-white: #fff;
+$bb-color-pink: #DF5468;
+$bb-color-primary-dark: #DF5468;
+$bb-color-fuchsia-pink: #d149cc;
+$bb-color-cerise-red: #e23e57;
+$bb-color-cerise-red-active: #882535;
+$bb-color-crusta: #e79716;
+$bb-color-crusta-active: #f96800;
+$bb-color-medium-purple: #9043d8;
+$bb-color-medium-purple-active: #5b2e81;
+$bb-color-royal-blue: #4160de;
+$bb-color-royal-blue-active: #2a4085;
+$bb-color-persian-green: #02a388;
+$bb-color-persian-green-active: #006758;
+$bb-color-dark-tan: #630a10;
+$bb-color-dark-tan-active: #42060f;
+$bb-color-cranberry: #df538b;
+
+$bb-color-cinnabar: #e74c3c;
+$bb-color-cinnabar-active: #dc3125;
+
+$bb-color-zest: #e67e22;
+$bb-color-zest-active: #da5e13;
+
+$bb-color-supernova: #ffcd02;
+$bb-color-supernova-active: #ffb901;
+$bb-color-supernova-hover: darken($bb-color-supernova, 3%);
+
+$bb-color-pavlova: #d5c295;
+$bb-color-pavlova-active: #c3ab76;
+
+$bb-color-pickled-bluewood: #34495e;
+$bb-color-pickled-bluewood-active: #1f2f40;
+
+$bb-color-mine-shaft: #2b2b2b;
+$bb-color-mine-shaft-active: #191919;
+
+$bb-color-wisteria: #9b59b6;
+$bb-color-wisteria-active: #7c3c9c;
+
+$bb-color-ming: #3a6f81;
+$bb-color-ming-active: #1f2f40;
+
+$bb-color-curious-blue: #3498db;
+$bb-color-curious-blue-active: #1f79cb;
+
+$bb-color-shamrock: #2ecc71;
+$bb-color-shamrock-active: #1bb751;
+
+$bb-color-mountain-meadow: #1abc9c;
+$bb-color-mountain-meadow-active: #0ea37d;
+
+$bb-color-porcelain: #ecf0f1;
+$bb-color-porcelain-active: #e3e9ea;
+
+$bb-color-cascade: #95a5a6;
+$bb-color-cascade-active: #768889;
+
+$bb-color-killarney: #345f41;
+$bb-color-killarney-active: #1f4129;
+
+$bb-color-blue-marguerite: #745ec5;
+$bb-color-blue-marguerite-active: #5440ae;
+
+$bb-color-millbrook: #5e4534;
+$bb-color-millbrook-active: #402c1f;
+
+$bb-color-cosmic: #5e345e;
+$bb-color-cosmic-active: #401f40;
+
+$bb-color-flory: #ef717a;
+$bb-color-flory-active: #e7515a;
+
+$bb-color-atlantis: #a5c63b;
+$bb-color-atlantis-active: #88b024;
+
+$bb-color-persian-pink: #f47cc3;
+$bb-color-persian-pink-active: #ee5cac;
+
+$bb-color-nutmeg: #79302a;
+$bb-color-nutmeg-active: #591c18;
+
+$bb-color-donkey-brown: #a38671;
+$bb-color-donkey-brown-active: #856651;
+
+$bb-color-perano: #b8c9f1;
+$bb-color-perano-active: #9eb3ea;
+
+$bb-color-kashmir-blue: #5065a1;
+$bb-color-kashmir-blue-active: #344683;
+
+$btn-primary-bcolor: $bb-color-primary;
+$btn-primary-bcolor-hover: darken($bb-color-primary, 8%);
+$btn-primary-bcolor-active: darken($bb-color-primary, 12%);
+$btn-primary-bcolor-disabled: #9FA8DA;
+
+$btn-success-bcolor: $bb-color-success;
+$btn-success-bcolor-hover: #43a047;
+$btn-success-bcolor-active: #388e3c;
+$btn-success-bcolor-disabled: #81c784;
+
+$btn-success-light-color: #4caf50;
+$btn-success-light-color-hover: #fff;
+$btn-success-light-color-disabled: #82e0aa;
+$btn-success-light-bcolor: #eafaf1;
+$btn-success-light-bcolor-hover: #43a047;
+$btn-success-light-bcolor-active: #388e3c;
+$btn-success-light-bcolor-disabled: #81c784;
+
+$bb-default-border-color: #dee0e1;
+$bb-default-border-color-light: lighten($bb-default-border-color, 6);
+$bb-default-border-color-hover: #c4cbe1;
+$border-color: #d7dceb;
+$border-color-light: #ebeef5;
+$bb-default-table-border-color: $bb-default-border-color;
+$bb-default-box-shadow-color: #d9d9d9;
+

@@ -1,0 +1,2339 @@
+@import "../config/colors";
+@import "../config/ui";
+
+.panel, .bb-panel {
+  &.bb-widget {
+    &.bb-widget-info {
+      > .card-block {
+        > .bb-item {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          > span {
+            display: block;
+
+            &:first-child {
+              font-size: 10px;
+              font-weight: 500;
+              color: $text-color-light;
+              text-transform: uppercase;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    &.bb-widget-tags {
+      > .card-block {
+        padding-bottom: 15px;
+
+        > .badge {
+          border-radius: 14px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          padding: 8px 15px;
+        }
+      }
+    }
+
+    &.bb-widget-users {
+      > .card-block {
+        > .bb-user {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          > .bb-avatar {
+            width: 36px;
+            height: 36px;
+            margin-right: 10px;
+          }
+
+          > .bb-info {
+            flex: 1 1 auto;
+
+            > .bb-name {
+              font-size: 12px;
+              font-weight: 500;
+              font-style: normal;
+              display: block;
+              color: $text-color;
+            }
+
+            > .bb-occupation {
+              font-size: 12px;
+              color: $text-color-light;
+            }
+          }
+
+          > .bb-add {
+            margin-left: 10px;
+            width: 23px;
+            height: 23px;
+            border-radius: 12px;
+            border: solid 1px $bb-color-primary;
+            display: block;
+            font-size: 14px;
+            color: $bb-color-primary;
+            line-height: 21px;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    &.bb-widget-images-grid {
+      > .card-block {
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 21px;
+        padding-bottom: 21px;
+
+        > .bb-image {
+          text-decoration: none;
+          margin-right: 9px;
+          margin-bottom: 9px;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          > img {
+            width: 26px;
+            height: 26px;
+          }
+        }
+      }
+    }
+
+    &.bb-widget-photos {
+      > .card-block {
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 19px;
+        padding-bottom: 19px;
+
+        > .bb-photo {
+          text-decoration: none;
+          margin-right: 9px;
+          margin-bottom: 9px;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          > img {
+            width: 62px;
+            height: 62px;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+
+    &.bb-widget-videos {
+      > .card-block {
+        > .bb-video {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          > .bb-thumbnail {
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            > img {
+              border-radius: 2px;
+            }
+          }
+
+          > .bb-name {
+            display: block;
+            font-size: 12px;
+            color: $text-color;
+            text-decoration: none;
+          }
+
+          > .bb-duration {
+            font-size: 10px;
+            font-weight: 500;
+            color: $text-color-light;
+          }
+        }
+      }
+    }
+
+    &.bb-widget-social-profiles {
+      > .card-block {
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 21px;
+        padding-bottom: 21px;
+
+        > .bb-social-profile {
+          width: 35px;
+          height: 35px;
+          background-color: #ffffff;
+          border: solid 1px $bb-default-border-color;
+          margin-right: 9px;
+          margin-bottom: 9px;
+          line-height: 36px;
+          text-align: center;
+          border-radius: 50%;
+
+          > span {
+            color: $bb-color-primary;
+            font-size: 27px;
+            font-weight: normal;
+            line-height: 33px;
+          }
+        }
+
+        > .bb-add {
+          width: 35px;
+          height: 35px;
+          background: #ffffff;
+          border-radius: 50%;
+          border: solid 1px $bb-color-primary;
+          display: block;
+          font-size: 16px;
+          color: $bb-color-primary;
+          line-height: 35px;
+          text-align: center;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget {
+  > .card-block {
+    padding: 0;
+  }
+
+  &.bb-news {
+    .bb-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .bb-item {
+        display: block;
+        padding: 15px 20px;
+        color: $text-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        > .bb-datetime {
+          display: block;
+          margin-bottom: 3px;
+          font-size: 10px;
+          color: $text-color-light;
+        }
+
+        > .bb-text {
+          display: block;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &.bb-events {
+    > .card-block.scrollable {
+      height: 190px;
+    }
+
+    .table {
+      margin: 0;
+
+      td {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      tr:first-child {
+        td {
+          border-top: none;
+        }
+      }
+    }
+
+    .bb-icon {
+      > span {
+        text-align: center;
+        font-size: 26px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        line-height: 42px;
+
+        &.text-danger {
+          background: rgba(236, 100, 75, 0.1);
+        }
+
+        &.text-success {
+          background-color: rgba(46, 204, 113, 0.1);
+        }
+
+        &.text-info {
+          background-color: rgba(33, 166, 240, 0.1);
+        }
+      }
+    }
+
+    .bb-text {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .bb-datetime {
+      font-size: 10px;
+      color: $text-color-light;
+    }
+
+    .bb-amount {
+      width: 1px;
+      white-space: nowrap;
+      text-align: right;
+    }
+  }
+
+  &.bb-chart {
+    #bb-chart {
+      .c3-line-data1, .c3-line-data2 {
+        stroke-width: 2px;
+      }
+    }
+
+    .card-block {
+      > .bb-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 13px 20px;
+        align-items: center;
+        border-bottom: 1px solid $border-color;
+
+        > .bb-labels {
+          > .bb-label {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 12px;
+            line-height: 12px;
+
+            > .bb-point {
+              width: 13px;
+              height: 13px;
+              border-radius: 2px;
+              display: inline-block;
+              margin-right: 7px;
+              position: relative;
+              top: 2px;
+            }
+          }
+        }
+
+        > .bb-sort {
+          > .dropdown {
+            > .btn {
+              padding: 0;
+              height: auto;
+
+              > .bb-text {
+                color: $text-color-light;
+                display: inline-block;
+                margin-right: 2px;
+              }
+            }
+
+            > .dropdown-menu {
+              margin-top: 8px;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      > .bb-wrapper {
+        padding: 20px 25px 20px 15px;
+      }
+    }
+  }
+}
+
+.bb-widget-audio {
+  display: flex;
+  padding: 15px 20px;
+  background: #fff;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  align-items: flex-start;
+
+  > .bb-control {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    border: solid 1px rgba(57, 81, 155, 0.3);
+    color: $bb-color-primary;
+    font-size: 20px;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 15px;
+    cursor: pointer;
+    background: #fff;
+
+    > span {
+      position: relative;
+      left: 1px;
+    }
+  }
+
+  > .bb-info {
+    flex: 1 1 auto;
+
+    > .bb-header {
+      margin-bottom: 10px;
+
+      > .bb-album-name {
+        margin-bottom: 2px;
+
+        > span {
+          color: $text-color-light;
+        }
+      }
+
+      > .bb-song-name {
+        font-weight: 500;
+      }
+    }
+
+    > .bb-body {
+      > .progress {
+        margin-bottom: 10px;
+      }
+
+      > .bb-time {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.bb-widget-profile-default {
+  > .card-block {
+    padding: 0;
+
+    > .bb-user {
+      display: flex;
+      padding: 20px;
+      height: 95px;
+
+      > .bb-avatar {
+        margin-right: 12px;
+
+        > img {
+          width: 55px;
+          height: 55px;
+        }
+      }
+
+      > .bb-info {
+        > .bb-name {
+          color: $text-color;
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        > .bb-nickname {
+          display: block;
+          color: $text-color;
+          font-size: 12px;
+        }
+
+        > .bb-location {
+          display: block;
+          font-size: 12px;
+          color: $text-color-light;
+        }
+      }
+    }
+
+    > .bb-sections {
+      border-top: 1px solid $bb-default-border-color;
+      display: flex;
+      justify-content: space-between;
+
+      > .bb-section {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        border-right: 1px solid $bb-default-border-color;
+
+        > .bb-icon {
+          font-size: 19px;
+          margin-bottom: 5px;
+        }
+
+        > .bb-amount {
+          font-size: 12px;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    > .bb-about {
+      border-top: 1px solid $bb-default-border-color;
+      padding: 20px;
+
+      > .bb-header {
+        font-size: 12px;
+        color: $text-color-light;
+        margin-bottom: 7px;
+      }
+    }
+
+    > .bb-controls {
+      border-top: 1px solid $bb-default-border-color;
+      display: flex;
+
+      > .bb-control {
+        height: 42px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid $bb-default-border-color;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        > .bb-icon {
+          color: $bb-color-primary;
+          font-size: 20px;
+          margin-right: 10px;
+          line-height: 20px;
+          position: relative;
+          top: -1px;
+        }
+
+        > .bb-text {
+          text-decoration: none;
+          color: $bb-color-primary;
+          font-size: 12px;
+          line-height: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-profile-image {
+  > .card-block {
+    padding: 0;
+
+    > .bb-cover {
+      height: 120px;
+      background-color: #ccc;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: -1px;
+      margin-left: -1px;
+      margin-right: -1px;
+    }
+
+    > .bb-user {
+      margin-top: -40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > .bb-avatar {
+        margin-bottom: 10px;
+
+        > img {
+          width: 80px;
+          height: 80px;
+          border: solid 3px #fff;
+        }
+      }
+
+      > .bb-info {
+        text-align: center;
+        height: 91px;
+
+        > .bb-name {
+          color: $text-color;
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        > .bb-nickname {
+          display: block;
+          color: $text-color;
+          font-size: 12px;
+        }
+
+        > .bb-location {
+          display: block;
+          font-size: 12px;
+          color: $text-color-light;
+        }
+      }
+    }
+
+    > .bb-sections {
+      border-top: 1px solid $bb-default-border-color;
+      display: flex;
+      justify-content: space-between;
+
+      > .bb-section {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        border-right: 1px solid $bb-default-border-color;
+
+        > .bb-icon {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+
+        > .bb-amount {
+          font-size: 12px;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    > .bb-about {
+      border-top: 1px solid $bb-default-border-color;
+      padding: 20px;
+
+      > .bb-header {
+        font-size: 12px;
+        color: $text-color-light;
+        margin-bottom: 7px;
+      }
+    }
+
+    > .bb-controls {
+      border-top: 1px solid $bb-default-border-color;
+      display: flex;
+
+      > .bb-control {
+        height: 42px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid $bb-default-border-color;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        > .bb-icon {
+          color: $bb-color-primary;
+          font-size: 20px;
+          margin-right: 10px;
+          line-height: 20px;
+          position: relative;
+          top: -1px;
+        }
+
+        > .bb-text {
+          text-decoration: none;
+          color: $bb-color-primary;
+          font-size: 12px;
+          line-height: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-amount-statistics {
+  background: #fff;
+
+  > .bb-statistics {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: solid 1px rgba(57, 81, 155, 0.2);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    > .bb-amount {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    > .bb-text {
+      font-size: 12px;
+    }
+  }
+
+  > .bb-percent {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    height: 40px;
+    border-bottom: solid 1px rgba(57, 81, 155, 0.2);
+    border-left: solid 1px rgba(57, 81, 155, 0.2);
+    border-right: solid 1px rgba(57, 81, 155, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > .bb-text {
+      font-size: 12px;
+
+      &:before {
+        font-family: $bb-icon-font-name;
+        color: $bb-default-text-color;
+        font-size: 16px;
+        display: inline-block;
+        margin-right: 7px;
+        position: relative;
+      }
+    }
+
+    &.bb-up {
+      > .bb-text {
+        &:before {
+          content: "\f113";
+          top: 2px;
+        }
+      }
+    }
+
+    &.bb-down {
+      > .bb-text {
+        &:before {
+          content: "\f110";
+          top: 1px;
+        }
+      }
+    }
+  }
+
+  &.bb-primary {
+    > .bb-statistics {
+      background-color: $bb-color-primary;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-info {
+    > .bb-statistics {
+      background-color: $bb-color-info;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-success {
+    > .bb-statistics {
+      background: $bb-color-success;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-warning {
+    > .bb-statistics {
+      background: $bb-color-warning;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-danger {
+    > .bb-statistics {
+      background: $bb-color-danger;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-purple {
+    > .bb-statistics {
+      background: $bb-color-purple;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-auto-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    > .bb-statistics {
+      flex-grow: 1;
+      height: auto;
+    }
+  }
+}
+
+.bb-widget-amount-chart-statistics {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  > .bb-body {
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: solid 1px rgba(57, 81, 155, 0.2);
+    height: 100px;
+    align-items: center;
+
+    > .bb-statistics {
+      padding-left: 25px;
+
+      > .bb-amount {
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+        display: block;
+      }
+
+      > .bb-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+        display: block;
+      }
+    }
+
+    > .bb-chart {
+      padding-right: 25px;
+    }
+  }
+
+  > .bb-footer {
+    height: 40px;
+    border-bottom: solid 1px #d7dceb;
+    border-left: solid 1px #d7dceb;
+    border-right: solid 1px #d7dceb;
+  }
+
+  &.bb-white {
+    > .bb-body {
+      background: #fff;
+      color: #333;
+      border-bottom: none;
+
+      > .bb-statistics {
+        > .bb-amount {
+          color: $bb-color-primary;
+        }
+
+        > .bb-text {
+          color: #333;
+        }
+      }
+    }
+  }
+
+  &.bb-primary {
+    > .bb-body {
+      background: $bb-color-primary;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-info {
+    > .bb-body {
+      background: $bb-color-info;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-success {
+    > .bb-body {
+      background: $bb-color-success;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-warning {
+    > .bb-body {
+      background: $bb-color-warning;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-danger {
+    > .bb-body {
+      background: $bb-color-danger;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-purple {
+    > .bb-body {
+      background: $bb-color-purple;
+      border: none;
+      color: #fff;
+    }
+  }
+
+  &.bb-auto-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    > .bb-body {
+      flex-grow: 1;
+      height: auto;
+    }
+  }
+}
+
+.bb-widget-simple-solid-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 35px;
+  color: #fff;
+  flex-direction: column;
+  border-radius: 2px;
+
+  > .bb-amount {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  > .bb-description {
+    text-align: center;
+  }
+
+  &.bb-primary {
+    background: $bb-color-primary;
+  }
+
+  &.bb-info {
+    background: $bb-color-info;
+  }
+
+  &.bb-success {
+    background: $bb-color-success;
+  }
+
+  &.bb-warning {
+    background: $bb-color-warning;
+  }
+
+  &.bb-danger {
+    background: $bb-color-danger;
+  }
+}
+
+.bb-widget-overview {
+  background: #fff;
+  border-radius: 2px;
+  border: solid 1px $bb-default-border-color;
+
+  > .bb-body {
+    padding: 30px;
+
+    > .bb-header {
+      margin: 0;
+      line-height: 14px;
+      margin-bottom: 30px;
+    }
+
+    > .bb-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      > .bb-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        > .bb-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 2px;
+          background-color: rgba(57, 80, 155, 0.05);
+          margin-right: 15px;
+          color: $bb-color-primary;
+          font-size: 19px;
+          text-align: center;
+          line-height: 36px;
+        }
+
+        > .bb-text {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  > .bb-footer {
+    padding: 18px 30px;
+    background: rgba(57, 80, 155, 0.05);
+    border-top: 1px solid $bb-default-border-color;
+    display: flex;
+    justify-content: space-between;
+
+    > .bb-info {
+      > .bb-name {
+        color: $bb-color-primary;
+        font-size: 14px;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      > .bb-datetime {
+        display: block;
+        color: $bb-default-text-color-light;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.bb-widget-progress-list {
+  > .card-block {
+    padding: 0;
+
+    > .bb-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid $bb-default-border-color;
+
+      &:last-child {
+        border: none;
+      }
+
+      > .bb-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        > .bb-wrapper {
+          > .bb-header {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+          }
+
+          > .bb-description {
+            display: block;
+            font-size: 12px;
+            color: $text-color-light;
+          }
+        }
+
+        > .bb-percent {
+          font-size: 18px;
+        }
+      }
+
+      > .progress {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.bb-widget-simple-offer {
+  > .card-block {
+    padding-bottom: 27px;
+
+    > .bb-item {
+      display: flex;
+
+      > .bb-preview {
+        margin-right: 15px;
+
+        > .bb-video-preview {
+          width: 60px;
+          min-width: 60px;
+          height: 60px;
+          border-radius: 2px;
+          background: $bb-color-warning;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .bb-icon {
+            color: $bb-color-warning;
+            font-size: 12px;
+            line-height: 12px;
+            background: #fff;
+            padding: 5px 5px 5px 7px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      > .bb-info {
+        > .bb-header {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        > .bb-text {
+          font-size: 12px;
+          color: $bb-default-text-color-light;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-events-stream {
+  > .card-block {
+    padding: 0;
+
+    .bb-table {
+      width: 100%;
+
+      td {
+        padding: 20px;
+        border-bottom: 1px solid $bb-default-border-color;
+      }
+
+      tr {
+
+        &:last-child {
+          td {
+            border: none;
+          }
+        }
+      }
+
+      .bb-user {
+        width: 60px;
+        position: relative;
+        padding-right: 0;
+
+        > .bb-avatar {
+          width: 55px;
+          height: 55px;
+        }
+
+        > .bb-label {
+          position: absolute;
+          bottom: 21px;
+          right: -6px;
+          padding-left: 6px;
+          border-radius: 12px;
+          background-color: $bb-default-border-color;
+          border: solid 3px #ffffff;
+          color: #333;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+
+      .bb-info {
+        > .bb-name {
+          color: $bb-default-text-color;
+          font-size: 14px;
+          font-weight: normal;
+
+          > .bb-label {
+            margin-left: 10px;
+          }
+        }
+
+        > .bb-description {
+          font-size: 12px;
+          color: $bb-default-text-color-light;
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+
+      .bb-datetime {
+        width: 80px;
+        text-align: right;
+        font-size: 10px;
+        text-transform: uppercase;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.bb-widget-leader-board {
+  > .card-block {
+    padding: 0;
+
+    .bb-table {
+      width: 100%;
+
+      td {
+        padding: 20px;
+        border-bottom: 1px solid $bb-default-border-color;
+      }
+
+      tr {
+
+        &:last-child {
+          td {
+            border: none;
+          }
+        }
+
+        &.bb-first-place {
+          .bb-user {
+            position: relative;
+
+            &:before {
+              border-bottom: 95px solid rgba(222, 186, 12, 0.4);
+            }
+
+            > .bb-label {
+              background-color: #ebd66d;
+              border: solid 3px #fff;
+              font-weight: 500;
+              width: 27px;
+              height: 27px;
+              top: 14px;
+              right: 9px;
+              line-height: 12px;
+            }
+          }
+        }
+
+        &.bb-second-place {
+          .bb-user {
+            &:before {
+              border-bottom: 95px solid rgba(0, 0, 0, 0.1);
+            }
+
+            > .bb-label {
+              background-color: #d6d6d6;
+              border: solid 3px #fff;
+              font-weight: 500;
+              width: 27px;
+              height: 27px;
+              top: 14px;
+              right: 9px;
+              line-height: 12px;
+            }
+          }
+        }
+
+        &.bb-third-place {
+          .bb-user {
+            &:before {
+              border-bottom: 95px solid rgba(185, 115, 44, 0.4);
+            }
+
+            > .bb-label {
+              background-color: #e3c7aa;
+              border: solid 3px #fff;
+              font-weight: 500;
+              width: 27px;
+              height: 27px;
+              top: 14px;
+              right: 9px;
+              line-height: 12px;
+            }
+          }
+        }
+      }
+
+      .bb-user {
+        width: 85px;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 95px solid #fff;
+          border-right: 95px solid transparent;
+        }
+
+        > .bb-avatar {
+          width: 55px;
+          height: 55px;
+        }
+
+        > .bb-label {
+          position: absolute;
+          top: 16px;
+          right: 12px;
+          border-radius: 50%;
+          background-color: #ffffff;
+          border: solid 1px $bb-default-border-color;
+          width: 24px;
+          height: 24px;
+          line-height: 13px;
+          text-align: center;
+          color: $bb-default-text-color;
+          font-size: 12px;
+
+          > span {
+            position: relative;
+            left: -1px;
+          }
+        }
+      }
+
+      .bb-info {
+        > .bb-name {
+          color: $bb-default-text-color;
+          font-size: 14px;
+          font-weight: normal;
+
+          > .bb-label {
+            margin-left: 10px;
+          }
+        }
+
+        > .bb-description {
+          font-size: 12px;
+          color: $bb-default-text-color-light;
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    &.bb-scrollable {
+      margin-right: -1px;
+    }
+  }
+}
+
+.bb-widget-progress-chart-statistics {
+  .card-block {
+    padding: 0;
+  }
+
+  table {
+    &.bb-statistics {
+      width: 100%;
+      height: 196px;
+
+      td {
+        width: 50%;
+        border-right: 1px solid $bb-default-border-color;
+        text-align: center;
+        padding: 10px;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      tr {
+        &:first-child {
+          td {
+            &:last-child {
+              border-bottom: 1px solid $bb-default-border-color;
+            }
+          }
+        }
+      }
+
+      .bb-chart {
+        vertical-align: middle;
+        padding: 10px;
+      }
+
+      .bb-statistic-item {
+        text-align: center;
+        vertical-align: middle;
+
+        > .bb-amount {
+          display: block;
+          font-size: 30px;
+          font-weight: normal;
+          margin-bottom: 3px;
+        }
+
+        > .bb-text {
+          display: block;
+          text-transform: uppercase;
+          color: $bb-default-text-color-light;
+          font-size: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-activity-stream {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > .card-block {
+    padding: 0;
+
+    .bb-activity-stream-items {
+      padding: 20px;
+
+      > .bb-header {
+        margin: 0;
+        line-height: 18px;
+        margin-bottom: 20px;
+        font-weight: normal;
+        margin-left: 55px;
+      }
+
+      > .bb-body {
+        display: block;
+
+        + .bb-header {
+          margin-top: 20px;
+        }
+
+        > .bb-item {
+          display: flex;
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          > .bb-datetime {
+            font-size: 10px;
+            line-height: 10px;
+            text-transform: uppercase;
+            color: $bb-default-text-color-light;
+            width: 55px;
+            min-width: 55px;
+            position: relative;
+            top: 14px;
+          }
+
+          > .bb-avatar {
+            margin-right: 18px;
+            width: 36px;
+            height: 36px;
+          }
+
+          > .bb-action {
+            position: relative;
+            top: 8px;
+
+            > .bb-name {
+              font-size: 12px;
+              font-weight: 500;
+              color: $text-color;
+            }
+
+            > .bb-description {
+              font-size: 12px;
+              color: $text-color-light;
+
+              > a {
+                &.bb-closed {
+                  text-decoration: line-through;
+                }
+              }
+            }
+
+            > .bb-comment {
+              margin-top: 9px;
+              font-size: 12px;
+              color: $bb-default-text-color-light;
+              opacity: 0.9;
+              border-left: 4px solid $bb-default-border-color;
+              padding-left: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-post {
+  border: none;
+
+  > .card-header {
+    background-image: linear-gradient(114deg, $bb-color-primary, $bb-color-info);
+
+    > .bb-text {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: normal;
+      color: #fff;
+    }
+  }
+
+  > .card-block {
+    border: 1px solid $bb-default-border-color;
+    border-top: none;
+    padding: 20px;
+
+    > .bb-user {
+      display: flex;
+
+      > .bb-avatar {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+      }
+
+      > .bb-info {
+        flex-grow: 1;
+
+        > .bb-name {
+          color: #333;
+          font-size: 12px;
+          font-weight: 500;
+          display: block;
+        }
+
+        > .bb-description {
+          font-size: 12px;
+          color: rgba(51, 51, 51, 0.8);
+          font-weight: normal;
+        }
+      }
+
+      > .bb-datetime {
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 500;
+      }
+
+      + .bb-text {
+        margin-top: 20px;
+      }
+    }
+
+    > .bb-text {
+      + .bb-actions {
+        margin-top: 20px;
+      }
+    }
+
+    > .bb-actions {
+      margin-top: 20px;
+
+      > .bb-control {
+        cursor: pointer;
+        display: inline-block;
+
+        > .bb-icon {
+          color: rgba(58,82,155,.5);
+          font-size: 19px;
+          display: inline-block;
+          margin-right: 1px;
+          position: relative;
+          top: 2px;
+        }
+
+        > .bb-amount {
+          color: $bb-default-text-color;
+          font-size: 12px;
+        }
+
+        + .bb-control {
+          margin-left: 10px;
+        }
+
+        &:hover {
+          > .bb-icon {
+            color: $bb-color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-like-post {
+  > .card-header {
+    > .bb-user {
+      display: flex;
+
+      > .bb-avatar {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+      }
+
+      > .bb-info {
+        flex-grow: 1;
+
+        > .bb-name {
+          color: $bb-default-text-color;
+          font-size: 12px;
+          font-weight: 500;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        > .bb-description {
+          font-size: 12px;
+          color: rgba(51, 51, 51, 0.8);
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  > .card-block {
+    padding: 20px;
+
+    > .bb-text {
+      + .bb-thumbnail {
+        margin-top: 20px;
+      }
+    }
+
+    > .bb-thumbnail {
+      + .bb-actions {
+        margin-top: 20px;
+      }
+    }
+
+    > .bb-text {
+      + .bb-actions {
+        margin-top: 20px;
+      }
+    }
+
+    > .bb-actions {
+      margin-top: 20px;
+
+      > .bb-control {
+        cursor: pointer;
+        display: inline-block;
+
+        > .bb-icon {
+          color: rgba(58,82,155,.5);
+          font-size: 19px;
+          display: inline-block;
+          margin-right: 1px;
+          position: relative;
+          top: 2px;
+        }
+
+        > .bb-amount {
+          color: $bb-default-text-color;
+          font-size: 12px;
+        }
+
+        + .bb-control {
+          margin-left: 10px;
+        }
+
+        &:hover {
+          > .bb-icon {
+            color: $bb-color-primary;
+          }
+        }
+      }
+    }
+
+    > .bb-likes-block {
+      margin-top: 17px;
+      display: flex;
+      align-items: center;
+
+      > .bb-users {
+        display: flex;
+
+        > .bb-user {
+          + .bb-user {
+            margin-left: 6px;
+
+            > .bb-avatar {
+              width: 26px;
+              height: 26px;
+            }
+          }
+        }
+      }
+
+      > .bb-text {
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.bb-widget-followers {
+  > .card-block {
+    .bb-wrapper {
+      padding: 20px;
+
+      > .bb-user {
+        display: flex;
+
+        + .bb-user {
+          margin-top: 15px;
+        }
+
+        > .bb-avatar {
+          width: 36px;
+          height: 36px;
+          margin-right: 10px;
+        }
+
+        > .bb-info {
+          flex-grow: 1;
+
+          > .bb-name {
+            color: #333;
+            font-size: 12px;
+            font-weight: 500;
+            display: block;
+          }
+
+          > .bb-description {
+            font-size: 12px;
+            color: rgba(51, 51, 51, 0.8);
+            font-weight: normal;
+          }
+        }
+
+        > .btn {
+          min-width: 105px;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-to-do-list {
+  > .card-block {
+    padding: 0;
+
+    > .bb-header {
+      padding: 15px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    > .bb-body {
+      .bb-wrapper {
+        padding: 0 20px;
+        margin: 0;
+        list-style: none;
+        margin-top: 2px;
+
+        > .bb-task {
+          font-size: 12px;
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+
+          &.bb-completed {
+            .custom-control-description {
+              text-decoration: line-through;
+              color: rgba(51, 51, 51, 0.6);
+            }
+          }
+
+          > .bb-icon {
+            color: rgba(0, 0, 0, 0.2);
+            margin-right: 10px;
+            font-size: 18px;
+          }
+
+          > .custom-control {
+            margin-bottom: 0;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+
+    > .bb-footer {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+
+      > .form-control {
+        flex-grow: 1;
+      }
+
+      > .btn {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.bb-user-widget {
+  .card-block {
+    padding: 30px;
+    text-align: center;
+
+    > .bb-avatar {
+      display: inline-block;
+      width: 55px;
+      height: 55px;
+      margin-bottom: 6px;
+    }
+
+    > .bb-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    > .bb-desc {
+      font-size: 12px;
+      margin-bottom: 25px;
+
+      > .bb-nickname {
+        margin-bottom: 1px;
+      }
+
+      > .bb-country {
+        color: $bb-default-text-color-light;
+      }
+    }
+
+    > .bb-rate {
+      margin-bottom: 25px;
+
+      > .bb-name {
+        font-size: 14px;
+        margin-bottom: 1px;
+      }
+
+      > .bb-due-date {
+        color: $bb-default-text-color-light;
+      }
+    }
+
+    > .bb-balance {
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+  }
+}
+
+.bb-amount-widget {
+  > .card-header {
+    > .bb-controls {
+      .bb-control {
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &.panel-purple {
+    .progress-white[value]::-webkit-progress-bar {
+      background-color: #A639A5;
+    }
+  }
+
+  &.panel-info {
+    .progress-white[value]::-webkit-progress-bar {
+      background-color: #1B85C0;
+    }
+  }
+
+  &.panel-success {
+    .progress-white[value]::-webkit-progress-bar {
+      background-color: #23A259;
+    }
+  }
+
+  > .card-block {
+    padding: 10px 15px 16px 15px;
+
+    > .bb-amount {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    > .bb-progress {
+      margin-bottom: 10px;
+    }
+
+    > .bb-desc {
+      color: #fff;
+      line-height: 1.25;
+
+      &.bb-up, &.bb-down {
+        &:before {
+          font-family: $bb-icon-font-name;
+          color: #fff;
+          font-size: 16px;
+          display: inline-block;
+          margin-right: 7px;
+          position: relative;
+          top: 1px;
+        }
+      }
+
+      &.bb-up {
+        &:before {
+          top: 2px;
+          content: "\f113";
+        }
+      }
+
+      &.bb-down {
+        &:before {
+          content: "\f110";
+        }
+      }
+    }
+  }
+}
+
+.bb-action-widget {
+  .card-block {
+    padding: 0;
+    height: 132px;
+
+    > .bb-action {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      > .bb-icon {
+        color: $bb-color-primary;
+        font-size: 44px;
+        margin-right: 30px;
+      }
+
+      > .bb-text {
+        line-height: 1.29;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &.panel-primary, &.panel-success, &.panel-info, .panel-danger {
+    .card-block {
+      > .bb-action {
+        > .bb-icon, > .bb-text {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.bb-widget-tasbb-overview-progress {
+  .bb-tasbb-progress-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    + .bb-tasbb-progress-item {
+      margin-top: 18px;
+    }
+
+    .bb-progress {
+      flex-grow: 1;
+
+      .progress {
+        margin: 0;
+      }
+    }
+
+    .bb-label {
+      margin-right: 15px;
+      font-size: 12px;
+      color: $bb-default-text-color-light;
+    }
+  }
+
+  .bb-task-progress-bar {
+    background-color: #dae5e3;
+  }
+
+  .bb-task-due-bar {
+    background-color: #c5d4c5;
+  }
+
+  .bb-task-qa-bar {
+    background-color: #b6ada1;
+  }
+
+  .bb-task-delegated-bar {
+    background-color: #979189;
+  }
+
+  .bb-tasbb-progress-item-statuses {
+    list-style: none;
+    padding: 0;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+
+    li {
+      &:before {
+        content: '';
+        width: 10px;
+        height: 6px;
+        border-radius: 3px;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      font-size: 12px;
+
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .bb-task-progress-bar-status {
+    &:before {
+      background-color: #dae5e3;
+    }
+  }
+
+  .bb-task-progress-due-status {
+    &:before {
+      background-color: #c5d4c5;
+    }
+  }
+
+  .bb-task-progress-qa-status {
+    &:before {
+      background-color: #b6ada1;
+    }
+  }
+
+  .bb-task-progress-delegated-status {
+    &:before {
+      background-color: #979189;
+    }
+  }
+}
+
+.bb-widget-tasbb-table {
+  .bb-table-tasks {
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    tr {
+      &:first-child {
+        td {
+          border-top: none;
+        }
+      }
+    }
+
+    td {
+      padding-bottom: 6px;
+      font-size: 14px;
+
+      &.bb-cell-checkbox, &.bb-cell-radio {
+        padding-right: 0;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        text-align: right;
+      }
+
+      &.bb-cell-checked {
+        text-decoration: line-through;
+        color: rgba(51, 51, 51, 0.4);
+        text-align: left;
+      }
+    }
+  }
+}
+
+.bb-widget-tasbb-statuses-progress {
+  .tasbb-statuses-progress-table {
+    width: 100%;
+    margin: 0;
+    margin-top: 25px;
+
+    td {
+      font-size: 12px;
+      border: none;
+      padding-top: 9px;
+      padding-bottom: 9px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .bb-progress-status {
+      font-weight: 700;
+    }
+  }
+
+  .tasbb-total-statuses-progress {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: $bb-default-text-color-light;
+    align-items: center;
+    margin-top: 24px;
+
+    .bb-name {
+      font-weight: 500;
+      color: #333;
+    }
+
+    .progress {
+      min-width: 180px;
+      margin: 0 20px;
+    }
+  }
+}
+
+.bb-widget-messages-inbox {
+  .card-block {
+    padding-top: 8px;
+  }
+
+  .bb-widget-messages-inbox-item {
+    display: flex;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    + .bb-widget-messages-inbox-item {
+      border-top: 1px solid $bb-default-border-color;
+    }
+  }
+
+  .bb-widget-messages-inbox-item-avatar {
+    margin-right: 15px;
+  }
+
+  .bb-widget-messages-inbox-item-body-name-and-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+
+    > .bb-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    > .bb-time {
+      text-transform: uppercase;
+      font-size: 10px;
+      color: $bb-default-text-color-light;
+    }
+  }
+
+  .bb-widget-messages-inbox-item-body-message {
+    font-size: 12px;
+    color: #263238;
+    margin: 0;
+  }
+}
+
+.bb-widget-table {
+  .table {
+    margin-top: 15px;
+    margin-bottom: 0;
+
+    th {
+      border-top: none;
+    }
+  }
+}
+
+.bb-widget-weather-and-datetime {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &.bb-sunny {
+    background: #fefcd8;
+
+    .bb-widget-weather-and-datetime-weather-block-amount, .bb-icon {
+      color: #f88528;
+    }
+  }
+
+  &.bb-cold {
+    background: #eff1fc;
+
+    .bb-widget-weather-and-datetime-weather-block-amount, .bb-icon {
+      color: #4e54a8;
+    }
+  }
+}
+
+.bb-widget-weather-and-datetime-weather-block-amount {
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.bb-widget-weather-and-datetime-weather-block-type {
+  font-size: 14px;
+  color: #171717;
+  margin-bottom: 20px;
+}
+
+.bb-widget-weather-and-datetime-datetime-block-datetime {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  color: #171717;
+  text-transform: uppercase;
+}
+
+.bb-widget-weather-and-datetime-datetime-block-location {
+  font-size: 10px;
+  font-weight: 500;
+  text-align: right;
+  color: #333333;
+  text-transform: uppercase;
+}
+
+.bb-widget-weather-and-datetime-datetime-block {
+  text-align: right;
+
+  .bb-icon {
+    margin-top: 60px;
+    display: inline-block;
+    font-size: 26px;
+  }
+}
+
+.bb-widget-simple-weather-only {
+  border: none;
+  color: #fff;
+  text-align: right;
+  padding: 20px;
+
+  &.bb-sunny {
+    background: #f88528;
+  }
+
+  &.bb-cold {
+    background: #4e54a8;
+  }
+
+  .bb-icon {
+    font-size: 26px;
+  }
+}
+
+.bb-widget-simple-weather-only-body {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.bb-widget-simple-weather-only-block-amount {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.bb-widget-simple-weather-only-location {
+  font-size: 14px;
+}

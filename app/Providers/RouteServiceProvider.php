@@ -92,7 +92,7 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/ajax.php'));
 
         //Register for admin:
-        Route::middleware('web')
+        Route::prefix('ajax-admin')
             ->namespace($this->namespaceAdmin . "\Ajax")
             ->group(base_path('routes/admin/ajax.php'));
     }

@@ -5,6 +5,22 @@
 @import "variables";
 @import "form";
 @import "loading";
+@import "widgets/upload";
+
+.bb-header {
+	font-weight: 500;
+	font-family: Montserrat,sans-serif;
+	color: #333;
+	font-size: 13px;
+	margin-bottom: 10px;
+}
+.header-default-custom {
+	font-weight: 600;
+	color: #2b335e;
+	font-size: 14px;
+	font-family: "Open Sans",sans-serif !important;
+	margin-bottom: 10px;
+}
 
 .navbar-laravel {
 	background-color: #fff;
@@ -184,17 +200,17 @@ h1, h2, h3, h4, h5, h6 {
 .la.agoyu-la-custom:hover{
 	color: #00A1E0;
 }
-.card .card-header .ks-text{
+.card .card-header .bb-text{
 	margin-bottom: 15px;
 }
-.ks-payment-method{
+.bb-payment-method{
 	transition: background .3s ease;
 }
-.ks-payment-method:hover{
+.bb-payment-method:hover{
 	background: rgba(57,80,155,.05);
 }
 
-.ks-sidebar .ks-sidebar-wrapper .nav .nav-item >a, .ks-sidebar>.ks-wrapper .nav .nav-item >a{
+.bb-sidebar .bb-sidebar-wrapper .nav .nav-item >a, .bb-sidebar>.bb-wrapper .nav .nav-item >a{
 	transition: background .3s ease;
 }
 .div.dataTables_wrapper .dataTables_length select.form-control{
@@ -360,7 +376,7 @@ body.swal2-height-auto{
 	font-family: Raleway, sans-serif;
 }
 
-.ks-form-steps-progress-wrapper-steps {
+.bb-form-steps-progress-wrapper-steps {
 	z-index: 10 !important;
 }
 

@@ -14,6 +14,8 @@ use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServic
 use App\Packages\Admin\Product\Services\Implement\ImplementProductServices;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
+use App\Packages\SystemGeneral\Services\MediaServices;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,6 +38,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Bind Media Services:
+        $this->app->singleton(MediaServices::class, ImplementMediaServices::class);
+
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);
         $this->app->singleton(ProductRepository::class, EloquentProductRepository::class);
 

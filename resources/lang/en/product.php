@@ -35,6 +35,8 @@ return [
     'free_ship' => 'Free Ship',
     'price' => 'Price',
     'sale_price' => 'Sale Price',
+    'image_feature' => 'Image Feature',
+    'image_gallery' => 'Image Gallery',
     'in_stock' => 'In Stock',
     'manage_stock' => 'Manage Stock',
     'allow_order' => 'Allow Order',

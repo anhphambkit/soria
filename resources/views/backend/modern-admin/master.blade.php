@@ -107,7 +107,6 @@
     <script src="{{ asset('assets/vendors/js/select2.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/plugins/DataTables/datatables.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/switchery.min.js')}}"></script>
-    <script src="{{ asset('assets/vendors/js/jquery.core.js')}}"></script>
     @yield('core-footer-scripts')
     <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
@@ -119,7 +118,7 @@
     <!-- ========== START PLUGINS SCRIPTS ========== -->
     @yield('plugin-scripts')
     <!-- ========== END PLUGINS SCRIPTS ========== -->
-
+    <script src="{{ asset('assets/vendors/js/jquery.core.js')}}"></script>
     <!-- ========== START PAGE SCRIPTS ========== -->
     @yield('page-scripts')
     <!-- ========== END PAGE SCRIPTS ========== -->

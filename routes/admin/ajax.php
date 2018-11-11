@@ -12,6 +12,13 @@
  *
  *********************************************************/
 Route::domain('{subDomain}.{mainDomain}')->group(function () {
+    /************ Router Media Product **********/
+    /** Router Upload */
+    Route::prefix('media-product')->group(function() {
+        Route::post('/image-feature', 'Product\MediaProductController@uploadSingleImageFeatureProduct')->name('admin_ajax.media_product.image_feature');
+        Route::post('/image-gallery', 'Product\MediaProductController@uploadSingleImageGalleryProduct')->name('admin_ajax.media_product.image_gallery');
+    });
+
     /************ Router Product ************** */
     Route::prefix('product')->group(function () {
         // Product

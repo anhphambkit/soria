@@ -166,6 +166,7 @@ class Form {
                     toastrSuccessAlert.init(data.data.status, reuseForm.successMessage, errorMessage)
                 }
                 reuseForm.afterDone(data);
+                reuseForm.clearForm()
                 return data;
             })
             .catch(function(data){
@@ -197,7 +198,6 @@ class Form {
                     reuseForm.final(data.data);
                 }
                 $(reuseForm.wrapper + ' ' + reuseForm.submitBtn).buttonLoader('stop');
-                reuseForm.clearForm()
             });
     }
 
