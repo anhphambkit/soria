@@ -1,5 +1,13 @@
 var helper = this;
 export default {
+    resetDefaultDataSwitchery(element, valueDefault) {
+        let currentValue = $(element)[0].checked;
+        if (currentValue != valueDefault)
+            $(element).trigger('click');
+    },
+    removeElements(element) {
+        $(element).remove();
+    },
     showImgStorage(image, defaultValue = '/default-avatar-user.png')
     {
         if(image != undefined && image)
@@ -464,5 +472,5 @@ export default {
             }
         }
         return a;
-    }
+    },
 }

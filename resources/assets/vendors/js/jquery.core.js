@@ -33,6 +33,16 @@ var core = {
             new Switchery($(this)[0], config)
         })
     },
+    initSelect2: function() {
+        let defaults = {
+            width: '100%',
+        }
+
+        $('[data-plugin="select2"]').each(function() {
+            let config = Object.assign(defaults, $(this).data());
+            $(this).select2(config);
+        })
+    },
     initCkEditor5: function(el = null) {
         let element = (el !== null) ? el : '.ck-editor';
         ClassicEditor
@@ -182,7 +192,8 @@ var core = {
         this.initTooltipPlugin(),
         this.initPopoverPlugin(),
         this.initCustomModalPlugin(),
-        this.initSwitchery()
+        this.initSwitchery(),
+        this.initSelect2()
     }
 }
 

@@ -8,6 +8,7 @@
 
 namespace App\Packages\Admin\Product\Services\Implement;
 
+use App\Packages\Admin\Product\Constants\CategoryProductConfig;
 use App\Packages\Admin\Product\Constants\MediaProductConfig;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
 use App\Packages\Admin\Product\Services\ProductServices;
@@ -37,13 +38,26 @@ class ImplementProductServices implements ProductServices {
     {
         // TODO: Implement createProduct() method.
         $product = $this->repository->createProduct($data);
+
+        // Insert relation category product:
+        $categories = $data['category_id'];
+        $categoryProduct = [];
+        foreach ($categories as $category) {
+            $newCategoryProduct = [
+                'product_id' => $product->id,
+                'cate_id' => (int)$category
+            ];
+            array_push($categoryProduct, $newCategoryProduct);
+        }
+        $this->coreDBRepository->createNewRecordOfTable(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL, $categoryProduct);
+
         // Insert images features:
         $imgFeatures = $data['imgFeatures'];
         $imgFeaturesProduct = [];
         foreach ($imgFeatures as $imgFeature) {
             $newImgFeature = [
                 'product_id' => $product->id,
-                'media_id' => $imgFeature
+                'media_id' => (int)$imgFeature
             ];
             array_push($imgFeaturesProduct, $newImgFeature);
         }
@@ -55,7 +69,7 @@ class ImplementProductServices implements ProductServices {
         foreach ($imgGalleries as $imgGallery) {
             $newImgGallery = [
                 'product_id' => $product->id,
-                'media_id' => $imgGallery
+                'media_id' => (int)$imgGallery
             ];
             array_push($imgGalleriesProduct, $newImgGallery);
         }

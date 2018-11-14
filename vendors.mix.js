@@ -12,6 +12,7 @@ let klawSync = require('klaw-sync');
  * Some config to load Handlebarsjs
  */
 mix.webpackConfig(core);
+mix.disableNotifications();
 
 if (fs.existsSync('resources/assets/vendors')) {
     mix.copyDirectory('resources/assets/vendors', 'public/assets/vendors');

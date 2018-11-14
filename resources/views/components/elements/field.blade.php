@@ -70,8 +70,8 @@ $disabled = isset($disabled) ? $disabled : false;
         <div class="field">
             <select
                 id="{{ $id }}"
-                class="select2-control float-control kc-select"
-
+                class="select2-control float-control bb-select"
+                data-plugin="select2"
                 @if(isset($name))
                 name="{{ $name }}"
                 @endif

@@ -12,7 +12,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
 ?>
 <form role="form" id="{{ $idForm }}">
     <div class="form-group row">
-        <div class="col-md-4 form-custom-validate-js">
+        <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.name'))
                 @slot('name', 'name')
@@ -22,7 +22,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('required', true)
             @endcomponent
         </div>
-        <div class="col-md-4 form-custom-validate-js">
+        <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.slug'))
                 @slot('name', 'slug')
@@ -32,13 +32,31 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('required', true)
             @endcomponent
         </div>
-        <div class="col-md-4 form-custom-validate-js">
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.sku'))
                 @slot('name', 'sku')
                 @slot('id', 'sku')
                 @slot('class', 'product_sku')
                 @slot('required', true)
+            @endcomponent
+        </div>
+        <div class="col-md-6 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('category.category_parent'))
+                @slot('name', 'category_id')
+                @slot('id', 'category_id')
+                @slot('type', 'dropdown')
+                <?php
+//                $dropdown[0] = trans('category.default_select_parent_category');
+                foreach ($categories as $category) {
+                    $dropdown[$category->id] = $category->name;
+                }
+                ?>
+                @slot('values', $dropdown)
+                @slot('attributes', [ 'multiple' => 'multiple'])
             @endcomponent
         </div>
     </div>

@@ -8,6 +8,7 @@
 
 namespace App\Packages\Admin\Product\Repositories\Eloquent;
 
+use App\Packages\Admin\Product\Constants\CategoryProductConfig;
 use App\Packages\Admin\Product\Entities\Product;
 use App\Packages\Admin\Product\Entities\ProductCategoryRelation;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
@@ -31,9 +32,13 @@ class EloquentProductRepository implements ProductRepository {
     {
         try {
             return $this->model
-                ->select('id', 'name', 'sku', 'price', 'sale_price',
-                        'is_publish', 'is_feature', 'is_best_seller', 'is_free_ship',
-                        'rating', 'created_at', 'updated_at')
+                ->select('products.id', 'products.name', 'products.sku', 'products.price', 'products.sale_price',
+                        'products.is_publish', 'products.is_feature', 'products.is_best_seller', 'products.is_free_ship',
+                        'products.rating', 'products.created_at', 'products.updated_at',
+                        'cateProduct.name as cateName'
+                )
+                ->leftJoin(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL . ' as relationProduct', 'relationProduct.product_id', '=', 'products.id')
+                ->leftJoin(CategoryProductConfig::PRODUCT_CATEGORY_TBL . ' as cateProduct', 'cateProduct.id', '=', 'relationProduct.cate_id')
                 ->orderBy('id', 'asc')
                 ->get();
         }

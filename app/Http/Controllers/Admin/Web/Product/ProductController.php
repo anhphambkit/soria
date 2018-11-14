@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers\Admin\Web\Product;
 
+use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Http\Controllers\SystemGeneral\Web\Controller;
 
@@ -14,9 +15,11 @@ class ProductController extends Controller
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $productServices;
-    public function __construct(ProductServices $productServices) {
+    protected $productCategoryServices;
+    public function __construct(ProductServices $productServices, ProductCategoryServices $productCategoryServices) {
         parent::__construct();
         $this->productServices = $productServices;
+        $this->productCategoryServices = $productCategoryServices;
     }
 
     /**
@@ -25,7 +28,8 @@ class ProductController extends Controller
      * @return
      */
     public function indexProduct() {
-        return view('backend.modern-admin.pages.products.manage-product');
+        $categories = $this->productCategoryServices->getAllProductCategory();
+        return view('backend.modern-admin.pages.products.manage-product', compact('categories'));
     }
 
     /**

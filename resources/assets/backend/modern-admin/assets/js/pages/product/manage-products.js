@@ -1,9 +1,9 @@
 import SearchTable from '@componentResources/search-table';
 import Helper from '@helper/helper';
 
-let manageCategory = new SearchTable();
-manageCategory.wrapperTable = '#manage-products';
-manageCategory.columns = [
+let manageProduct = new SearchTable();
+manageProduct.wrapperTable = '#manage-products';
+manageProduct.columns = [
     {
         title: "ID",
         data: 'id',
@@ -50,7 +50,7 @@ manageCategory.columns = [
     }
 
 ];
-manageCategory.otherDefaultOption = {
+manageProduct.otherDefaultOption = {
     "drawCallback": function( settings ) {
         $(".modal-edit-product").click(function(){
             if(typeof editProduct === 'function'){
@@ -60,11 +60,11 @@ manageCategory.otherDefaultOption = {
         $('[data-toggle="tooltip"]').tooltip();
     },
 };
-manageCategory.urlSearch = URL.GEL_LIST_PRODUCTS;
-manageCategory.init();
-manageCategory.handleSearchBtn();
-manageCategory.handleClearBtn();
+manageProduct.urlSearch = URL.GEL_LIST_PRODUCTS;
+manageProduct.init();
+manageProduct.handleSearchBtn();
+manageProduct.handleClearBtn();
 
-window.refreshManageProductCategoryTable = function() {
-    manageCategory.refreshTable()
+window.refreshManageProductTable = function() {
+    manageProduct.refreshTable()
 }

@@ -1,5 +1,7 @@
 import Form from '@incResources/form';
 import Slug from "@/general/js/support/auto-slug";
+import helper from "@helper/helper"
+
 // Define Form
 let productForm = new Form();
 productForm.wrapper = '#form-create-new-product';
@@ -18,6 +20,7 @@ productForm.beforeSubmit = () => {
     let is_free_ship = $('#is_free_ship')[0].checked;
     let allow_order = $('#allow_order')[0].checked;
     let manager_stock = $('#manager_stock')[0].checked;
+    let categories = $('#category_id').val();
 
     productForm.data.desc = desc;
     productForm.data.long_desc = desc;
@@ -27,8 +30,26 @@ productForm.beforeSubmit = () => {
     productForm.data.is_free_ship = is_free_ship;
     productForm.data.allow_order = allow_order;
     productForm.data.manager_stock = manager_stock;
+    productForm.data.category_id = categories;
     return productForm.data;
 };
+
+productForm.afterDone = () => {
+    CKEDITOR.instances.desc.setData('');
+    CKEDITOR.instances.long_desc.setData('');
+    helper.removeElements("#bb-widget-attachments-images-feature .bb-file");
+    helper.removeElements("#bb-widget-attachments-images-gallery .bb-file");
+    $('#category_id').val(null).trigger('change');
+    helper.resetDefaultDataSwitchery('#is_publish', false)
+    helper.resetDefaultDataSwitchery('#is_feature', false)
+    helper.resetDefaultDataSwitchery('#is_best_seller', false)
+    helper.resetDefaultDataSwitchery('#is_free_ship', false)
+    helper.resetDefaultDataSwitchery('#allow_order', true)
+    helper.resetDefaultDataSwitchery('#manager_stock', true)
+    refreshManageProductTable()
+    if ($('#modal-create-product').length) $('#modal-create-product').modal('hide')
+};
+
 
 // Define Slug
 let slug = new Slug();

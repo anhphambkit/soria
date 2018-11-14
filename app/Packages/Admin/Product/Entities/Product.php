@@ -31,4 +31,12 @@ class Product extends Model
     ];
 
     public $timestamps = true;
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

@@ -13,6 +13,7 @@ let klawSync = require('klaw-sync');
  * Some config to load Handlebarsjs
  */
 mix.webpackConfig(core);
+mix.disableNotifications();
 
 /**
  * Scan all folder in parent dir
