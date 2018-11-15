@@ -1,7 +1,8 @@
 {
+    "/assets/backend/modern-admin/assets/js/pages/product/new-product.js": "/assets/backend/modern-admin/assets/js/pages/product/new-product.js",
+    "/assets/backend/modern-admin/assets/js/partials/product/edit-product.js": "/assets/backend/modern-admin/assets/js/partials/product/edit-product.js",
     "/assets/backend/modern-admin/assets/js/partials/product/edit-product-category.js": "/assets/backend/modern-admin/assets/js/partials/product/edit-product-category.js",
     "/assets/backend/modern-admin/assets/js/partials/post/edit-post-category.js": "/assets/backend/modern-admin/assets/js/partials/post/edit-post-category.js",
-    "/assets/backend/modern-admin/assets/js/pages/product/new-product.js": "/assets/backend/modern-admin/assets/js/pages/product/new-product.js",
     "/assets/backend/modern-admin/assets/js/pages/product/new-product-category.js": "/assets/backend/modern-admin/assets/js/pages/product/new-product-category.js",
     "/assets/backend/modern-admin/assets/js/pages/post/new-post-category.js": "/assets/backend/modern-admin/assets/js/pages/post/new-post-category.js",
     "/assets/general/js/components/view-edit-modal.js": "/assets/general/js/components/view-edit-modal.js",

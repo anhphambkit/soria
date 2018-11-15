@@ -96,7 +96,7 @@
 
                 @section('area-modals')
                     @include('backend.modern-admin.modals.products.create-new-product-modal')
-                    {{--@include('backend.modern-admin.modals.products.edit-product-modal')--}}
+                    @include('backend.modern-admin.modals.products.edit-product-modal')
                 @stop
 
                 @component('components.layouts.list-with-search')
@@ -168,7 +168,7 @@
     </script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/manage-products.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/backend/modern-admin/assets/js/pages/product/new-product.js') }}" type="text/javascript"></script>
-    {{--<script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}" type="text/javascript"></script>--}}
+    <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/product/edit-product.js') }}" type="text/javascript"></script>
     <script type="application/javascript">
         core.initCkEditor4('desc');
         core.initCkEditor4('long_desc');

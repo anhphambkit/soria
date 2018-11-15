@@ -67,7 +67,7 @@ class ViewEdit extends Form{
             $(this.wrapper).find('select, input, textarea').each(function(item){
                 let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
                 $(this).attr("placeholder", nullPlaceholder);
-                $(this).attr('disabled','disabled');
+                // $(this).attr('disabled','disabled');
                 $(this).parent().addClass('view-mode-custom');
             });
             $(this.switchBtn).data(self.dataIsEditMode, true);

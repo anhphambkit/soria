@@ -49,7 +49,7 @@ $disabled = isset($disabled) ? $disabled : false;
 
 @elseif(isset($type) && $type === 'checkbox')
 <div class="checkbox checkbox-custom checkbox-circle">
-    <input id="{{ $id }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="checkbox" {{ $checked ? 'checked' : '' }} data-plugin="switchery"
+    <input id="{{ $id }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="checkbox" {{ $checked ? 'checked' : '' }}
     @foreach($attributes as $key => $val)
         {{ $key. '='. $val. ' ' }}
     @endforeach
@@ -71,7 +71,6 @@ $disabled = isset($disabled) ? $disabled : false;
             <select
                 id="{{ $id }}"
                 class="select2-control float-control bb-select"
-                data-plugin="select2"
                 @if(isset($name))
                 name="{{ $name }}"
                 @endif

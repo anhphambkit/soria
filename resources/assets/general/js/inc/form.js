@@ -3,6 +3,7 @@ import JSLib from '@helper/util/js-lib';
 import message from '@helper/config/messages';
 import responeForm from '@supportResources/respone-form';
 import toastrAlert from '@supportResources/toastr-alert';
+import helper from "@/helper/js/helper";
 
 class Form {
     constructor(){
@@ -234,6 +235,16 @@ class Form {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
             if(ctl){
                 ctl.val(_data[field]);
+                let idElement = ctl.attr('id');
+                if (ctl.data('plugin') === 'ckeditor') {
+                    let editor = CKEDITOR.instances[idElement];
+                    if (!editor)
+                        core.initCkEditor4(idElement);
+                    CKEDITOR.instances[idElement].setData(_data[field]);
+                }
+                if (ctl.data('plugin') === 'switchery') {
+                    helper.resetDefaultDataSwitchery('#' + idElement, _data[field])
+                }
             }
         });
     }

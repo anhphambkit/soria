@@ -46,6 +46,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                     }
                 ?>
                 @slot('values', $dropdown)
+                @slot('attributes', [ 'data-plugin' => 'select2' ])
             @endcomponent
         </div>
     </div>
