@@ -219,9 +219,13 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @if($isUpdateMode)
                     @slot('id', 'update-product')
                     @slot('label', trans('generals.update'))
+                    @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
                     @slot('id', 'submit-new-product')
                     @slot('label', trans('generals.create'))
+                @endif
+                @if($isModal)
+                    @slot('attributes', [ 'data-btn-action' => 'edit', 'data-control' => 'cancel', 'data-dismiss' => "modal" ])
                 @endif
             @endcomponent
 
@@ -229,11 +233,12 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('control', 'button')
                 @if($isUpdateMode)
                     @slot('id', 'cancel-update-product')
+                    @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
                     @slot('id', 'cancel-new-product')
                 @endif
                 @if($isModal)
-                    @slot('attributes', ['data-control' => 'cancel', 'data-dismiss' => "modal"])
+                    @slot('attributes', [ 'data-btn-action' => 'edit', 'data-control' => 'cancel', 'data-dismiss' => "modal" ])
                 @endif
                 @slot('label', trans('generals.cancel'))
             @endcomponent

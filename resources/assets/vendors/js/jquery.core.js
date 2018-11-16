@@ -1,6 +1,8 @@
 "use strict";
 
-var core = {
+window.swObjs = {};
+
+let core = {
     initTooltipPlugin: function() {
         $('[data-toggle="tooltip"]').tooltip()
     },
@@ -30,7 +32,8 @@ var core = {
 
         $('[data-plugin="switchery"]').each(function() {
             let config = Object.assign(defaults, $(this).data());
-            new Switchery($(this)[0], config)
+            let init = new Switchery($(this)[0], config);
+            swObjs[$(this)[0].id] = init;
         })
     },
     initSelect2: function() {

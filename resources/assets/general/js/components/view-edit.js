@@ -3,6 +3,7 @@ import axios from "axios";
 import JSLib from '@helper/util/js-lib';
 import message from '@helper/config/messages';
 import toastrAlert from '@supportResources/toastr-alert';
+import helper from "@/helper/js/helper";
 
 class ViewEdit extends Form{
     constructor () {
@@ -65,9 +66,21 @@ class ViewEdit extends Form{
         }
         else {
             $(this.wrapper).find('select, input, textarea').each(function(item){
+                let idElement = $(this)[0].id;
                 let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
                 $(this).attr("placeholder", nullPlaceholder);
-                // $(this).attr('disabled','disabled');
+
+                // if ($(this).data('plugin') === 'ckeditor') {
+                //     let editor = CKEDITOR.instances[idElement];
+                //     if (!editor)
+                //         core.initCkEditor4(idElement);
+                // }
+
+                if ($(this).data('plugin') === 'switchery') {
+                    swObjs[idElement].disable()
+                }
+
+                $(this).attr('disabled','disabled');
                 $(this).parent().addClass('view-mode-custom');
             });
             $(this.switchBtn).data(self.dataIsEditMode, true);

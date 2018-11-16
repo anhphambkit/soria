@@ -105,9 +105,13 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @if($isUpdateMode)
                     @slot('id', 'update-post-category')
                     @slot('label', trans('generals.update'))
+                    @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
                     @slot('id', 'submit-new-post-category')
                     @slot('label', trans('generals.create'))
+                @endif
+                @if($isModal)
+                    @slot('attributes', [ 'data-btn-action' => 'edit', 'data-control' => 'cancel', 'data-dismiss' => "modal" ])
                 @endif
             @endcomponent
 
@@ -115,11 +119,12 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('control', 'button')
                 @if($isUpdateMode)
                     @slot('id', 'cancel-update-post-category')
+                    @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
                     @slot('id', 'cancel-new-post-category')
                 @endif
                 @if($isModal)
-                    @slot('attributes', ['data-control' => 'cancel', 'data-dismiss' => "modal"])
+                    @slot('attributes', [ 'data-btn-action' => 'edit', 'data-control' => 'cancel', 'data-dismiss' => "modal" ])
                 @endif
                 @slot('label', trans('generals.cancel'))
             @endcomponent
