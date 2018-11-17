@@ -153,7 +153,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.elements.field')
                 @slot('title', trans('product.publish'))
                 @slot('id', "is_publish".$suffixEdit)
-                @slot('name', "is_publish".$suffixEdit)
+                @slot('name', "is_publish")
                 @slot('type', 'checkbox')
                 @slot('checked', false)
                 @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => "fasle" ])

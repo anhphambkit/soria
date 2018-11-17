@@ -51,11 +51,37 @@ class ViewEdit extends Form{
         let self = this;
         if (isEditMode)  {
             $(this.wrapper).find('select, input, textarea').each(function(item){
+                let idElement = $(this)[0].id;
                 let isAlwaysDisabled = $(this).data(self.dataAlwaysDisabled) || false;
                 let orgPlaceholder = $(this).attr(self.attrOrgPlaceholder) || '-';
                 $(this).attr("placeholder", orgPlaceholder);
-                if (isAlwaysDisabled) $(this).attr('disabled','disabled');
+                if (isAlwaysDisabled) {
+                    if ($(this).data('plugin') === 'ckeditor') {
+                        let editor = CKEDITOR.instances[idElement];
+                        if (!editor)
+                            core.initCkEditor4(idElement, true);
+                        else
+                            editor.setReadOnly(true);
+                    }
+
+                    if ($(this).data('plugin') === 'switchery') {
+                        swObjs[idElement].disable()
+                    }
+                    $(this).attr('disabled','disabled');
+                }
                 else {
+                    if ($(this).data('plugin') === 'ckeditor') {
+                        let editor = CKEDITOR.instances[idElement];
+                        if (!editor)
+                            core.initCkEditor4(idElement);
+                        else
+                            editor.setReadOnly(false);
+                    }
+
+                    if ($(this).data('plugin') === 'switchery') {
+                        swObjs[idElement].enable()
+                    }
+
                     $(this).removeAttr('disabled');
                     $(this).parent().removeClass('view-mode-custom');
                 }
@@ -70,11 +96,13 @@ class ViewEdit extends Form{
                 let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
                 $(this).attr("placeholder", nullPlaceholder);
 
-                // if ($(this).data('plugin') === 'ckeditor') {
-                //     let editor = CKEDITOR.instances[idElement];
-                //     if (!editor)
-                //         core.initCkEditor4(idElement);
-                // }
+                if ($(this).data('plugin') === 'ckeditor') {
+                    let editor = CKEDITOR.instances[idElement];
+                    if (!editor)
+                        core.initCkEditor4(idElement, true);
+                    else
+                        editor.setReadOnly(true);
+                }
 
                 if ($(this).data('plugin') === 'switchery') {
                     swObjs[idElement].disable()

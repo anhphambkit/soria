@@ -65,6 +65,6 @@ manageProduct.init();
 manageProduct.handleSearchBtn();
 manageProduct.handleClearBtn();
 
-window.refreshManageProductTable = function() {
+window.refreshTable = function() {
     manageProduct.refreshTable()
 }

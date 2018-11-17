@@ -73,7 +73,38 @@ class Form {
             if ($(this).is('select')) $(this).val(0);
             else $(this).val(nullPlaceholder);
         });
+
+        let keys = Object.keys(this.data);
+        let reuseForm = this;
+        keys.forEach( (field) => {
+            let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
+            if(ctl){
+                let idElement = ctl.attr('id');
+                if (ctl.data('plugin') === 'ckeditor') {
+                    let editor = CKEDITOR.instances[idElement];
+                    if (!editor)
+                        core.initCkEditor4(idElement);
+                    CKEDITOR.instances[idElement].setData("");
+                }
+                if (ctl.data('plugin') === 'switchery') {
+                    let defaultValue = ctl.data('default');
+                    helper.resetDefaultDataSwitchery('#' + idElement, defaultValue)
+                }
+                if (ctl.data('plugin') === 'select2') {
+                    $('#' + idElement).val(null).trigger('change');
+                }
+            }
+        });
+
         this.data = {};
+
+        if(typeof refreshTable === 'function'){
+            refreshTable();
+        }
+
+        if(typeof closeModal === 'function'){
+            closeModal();
+        }
     }
 
     /**
@@ -133,6 +164,26 @@ class Form {
                     return null;
                 }
                 return val;
+            }
+        });
+
+        let self = this;
+        $(this.wrapper).find('select, input, textarea').each(function(item){
+            let idElement = $(this)[0].id;
+            let name = $(this).attr('name');
+            if ($(this).data('plugin') === 'ckeditor') {
+                let editor = CKEDITOR.instances[idElement];
+                if (!editor)
+                    core.initCkEditor4(idElement);
+                self.data[name] = CKEDITOR.instances[idElement].getData();
+            }
+
+            if ($(this).data('plugin') === 'switchery') {
+                self.data[name] = $('#' + idElement)[0].checked;
+            }
+
+            if ($(this).data('plugin') === 'select2') {
+                self.data[name] = $('#' + idElement).val();
             }
         });
     }

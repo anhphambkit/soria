@@ -61,9 +61,11 @@ let core = {
                 // console.error( error );
             } );
     },
-    initCkEditor4: function(el = null) {
+    initCkEditor4: function(el = null, isReadOnly = false) {
         CKFinder.setupCKEditor();
-        CKEDITOR.replace( el );
+        CKEDITOR.replace( el, {
+            readOnly : isReadOnly
+        } );
     },
     initDropzoneImplement : function(el = null) {
         let element = (el !== null) ? el : '.bb-dropzone .bb-upload';
