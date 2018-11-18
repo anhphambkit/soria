@@ -32,11 +32,23 @@ class Product extends Model
 
     public $timestamps = true;
 
-    /**
-     * Get the comments for the blog post.
-     */
-    public function comments()
+    public function getCategoryNameAttribute($value)
     {
-        return $this->hasMany('App\Comment');
+        return json_decode($value, true);
+    }
+
+    public function getCategoryIdAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getFeatureImagesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getGalleryImagesAttribute($value)
+    {
+        return json_decode($value, true);
     }
 }
