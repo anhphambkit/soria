@@ -66,7 +66,7 @@ class Form {
     /**
      * Reset data
      */
-    clearForm() {
+    clearForm(isRefreshTable = true, isCloseModal = true) {
         let self = this;
         $(this.wrapper).find('select, input, textarea').each(function(item){
             let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '';
@@ -136,11 +136,11 @@ class Form {
 
         this.data = {};
 
-        if(typeof refreshTable === 'function'){
+        if(typeof refreshTable === 'function' && isRefreshTable){
             refreshTable();
         }
 
-        if(typeof closeModal === 'function'){
+        if(typeof closeModal === 'function' && isCloseModal){
             closeModal();
         }
     }

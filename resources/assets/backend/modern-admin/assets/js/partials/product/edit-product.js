@@ -11,9 +11,8 @@ editProductForm.switchBtn = editProductForm.wrapperModal + ' [data-action="switc
 editProductForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Product']);
 editProductForm.url = URL.UPDATE_PRODUCT;
 editProductForm.method = "PATCH";
-editProductForm.afterDone = (data) => {
-    refreshTable();
-};
+// editProductForm.afterDone = (data) => {
+// };
 
 let isClicked = false;
 window.editProduct = function(element) {
@@ -26,7 +25,7 @@ window.editProduct = function(element) {
     }
     // editProductForm.elementLoading = editProductForm.wrapper;
     // Handle event on form
-    editProductForm.clearForm();
+    editProductForm.clearForm(false, false);
     editProductForm.cancel(true);
     editProductForm.switchMode(false);
     if (!isClicked) {
