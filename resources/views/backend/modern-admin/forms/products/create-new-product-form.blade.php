@@ -122,32 +122,32 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @endcomponent
         </div>
     </div>
-    {{--<div class="form-group row">--}}
-        {{--<div class="col-md-12 form-custom-validate-js">--}}
-            {{--@component('components.third-party.file-upload')--}}
-                {{--@slot('title', trans('product.image_feature'))--}}
-                {{--@slot('name', 'image_feature')--}}
-                {{--@slot('idWrap', 'image_feature')--}}
-                {{--@slot('idCardUpload', 'bb-widget-attachments-images-feature')--}}
-                {{--@slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')--}}
-                {{--@slot('idBtnUpload', 'bb-file-upload-images-feature')--}}
-                {{--@slot('urlUpload', route('admin_ajax.media_product.image_feature', $domain))--}}
-            {{--@endcomponent--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--<div class="form-group row">--}}
-        {{--<div class="col-md-12">--}}
-            {{--@component('components.third-party.file-upload')--}}
-                {{--@slot('title', trans('product.image_gallery'))--}}
-                {{--@slot('name', 'image_gallery')--}}
-                {{--@slot('idWrap', 'image_gallery')--}}
-                {{--@slot('idCardUpload', 'bb-widget-attachments-images-gallery')--}}
-                {{--@slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery')--}}
-                {{--@slot('idBtnUpload', 'bb-file-upload-images-gallery')--}}
-                {{--@slot('urlUpload', route('admin_ajax.media_product.image_gallery', $domain))--}}
-            {{--@endcomponent--}}
-        {{--</div>--}}
-    {{--</div>--}}
+    <div class="form-group row">
+        <div class="col-md-12 form-custom-validate-js">
+            @component('components.third-party.file-upload')
+                @slot('title', trans('product.image_feature'))
+                @slot('name', 'image_feature')
+                @slot('idWrap', 'image_feature')
+                @slot('idCardUpload', 'bb-widget-attachments-images-feature')
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
+                @slot('idBtnUpload', 'bb-file-upload-images-feature')
+                @slot('urlUpload', route('admin_ajax.media_product.image_feature', $domain))
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.third-party.file-upload')
+                @slot('title', trans('product.image_gallery'))
+                @slot('name', 'image_gallery')
+                @slot('idWrap', 'image_gallery')
+                @slot('idCardUpload', 'bb-widget-attachments-images-gallery')
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery')
+                @slot('idBtnUpload', 'bb-file-upload-images-gallery')
+                @slot('urlUpload', route('admin_ajax.media_product.image_gallery', $domain))
+            @endcomponent
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')

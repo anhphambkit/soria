@@ -70,8 +70,33 @@ class Form {
         let self = this;
         $(this.wrapper).find('select, input, textarea').each(function(item){
             let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '';
-            if ($(this).is('select')) $(this).val(0);
-            else $(this).val(nullPlaceholder);
+            let idElement = $(this).attr('id');
+            switch ($(this).data('plugin')) {
+                case 'ckeditor':
+                    let editor = CKEDITOR.instances[idElement];
+                    if (!editor)
+                        core.initCkEditor4(idElement);
+                    CKEDITOR.instances[idElement].setData("");
+                    break;
+
+                case 'switchery':
+                    let defaultValue = $(this).data('default');
+                    helper.resetDefaultDataSwitchery('#' + idElement, defaultValue)
+                    break;
+
+                case 'select2':
+                    $('#' + idElement).val(null).trigger('change');
+                    break;
+
+                case 'bb-file-upload':
+                    let idElementPlugin = $(this).data('element-plugin');
+                    helper.removeElements(`${idElementPlugin} .bb-file`);
+                    break;
+
+                default:
+                    if ($(this).is('select')) $(this).val(0);
+                    else $(this).val(nullPlaceholder);
+            }
         });
 
         let keys = Object.keys(this.data);
@@ -80,7 +105,7 @@ class Form {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
             if(ctl){
                 let idElement = ctl.attr('id');
-                let nullPlaceholder = ctl.attr(self.attrNullPlacholder) || '-';
+                let nullPlaceholder = ctl.attr(self.attrNullPlacholder) || '';
                 switch (ctl.data('plugin')) {
                     case 'ckeditor':
                         let editor = CKEDITOR.instances[idElement];
@@ -96,6 +121,11 @@ class Form {
 
                     case 'select2':
                         $('#' + idElement).val(null).trigger('change');
+                        break;
+
+                    case 'bb-file-upload':
+                        let idElementPlugin = ctl.data('element-plugin');
+                        helper.removeElements(`${idElementPlugin} .bb-file`);
                         break;
 
                     default:
@@ -295,17 +325,24 @@ class Form {
             if(ctl){
                 ctl.val(_data[field]);
                 let idElement = ctl.attr('id');
-                if (ctl.data('plugin') === 'ckeditor') {
-                    let editor = CKEDITOR.instances[idElement];
-                    if (!editor)
-                        core.initCkEditor4(idElement);
-                    CKEDITOR.instances[idElement].setData(_data[field]);
-                }
-                if (ctl.data('plugin') === 'switchery') {
-                    helper.resetDefaultDataSwitchery('#' + idElement, _data[field])
-                }
-                if (ctl.data('plugin') === 'select2') {
-                    $('#' + idElement).val(_data[field]).trigger('change')
+                switch (ctl.data('plugin')) {
+                    case 'ckeditor':
+                        let editor = CKEDITOR.instances[idElement];
+                        if (!editor)
+                            core.initCkEditor4(idElement);
+                        CKEDITOR.instances[idElement].setData(_data[field]);
+                        break;
+
+                    case 'switchery':
+                        helper.resetDefaultDataSwitchery('#' + idElement, _data[field])
+                        break;
+
+                    case 'select2':
+                        $('#' + idElement).val(_data[field]).trigger('change')
+                        break;
+
+                    default:
+                        $('#' + idElement).val(_data[field]);
                 }
             }
         });

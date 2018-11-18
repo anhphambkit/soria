@@ -136,11 +136,11 @@ let core = {
                         $('#' + id).remove();
                     });
 
-                    var uploadedFileInfo = '<li class="bb-file bb-file-' + name + '"> \
-                        \<input type="text" hidden value="' + data.result.file.fileID + '" name="' + nameInput + '[]"> \
-                        <img class="bb-thumb" src="../' + data.result.file.url + '" > \
-                            <a class="bb-icon la la-trash bb-remove"></a> \
-                        </li>';
+                    var uploadedFileInfo = `<li class="bb-file bb-file-${name}">
+                                                <input type="text" hidden data-plugin="bb-file-upload" data-element-plugin="${element}" value="${data.result.file.fileID}" name="${nameInput}[]" />
+                                                <img class="bb-thumb" src="../${data.result.file.url}" />
+                                                <a class="bb-icon la la-trash bb-remove"></a>
+                                            </li>`;
                     $(uploadedFileInfo).appendTo($(element + ' .bb-files ul'));
 
                     new Noty({

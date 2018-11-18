@@ -43,6 +43,7 @@ class CreateProductRequest extends CoreFormRequest
             'manager_stock' => 'required',
             'allow_order' => 'required',
             'rating' => 'required|int',
+            'imgFeatures' => 'required',
         ];
     }
 }
