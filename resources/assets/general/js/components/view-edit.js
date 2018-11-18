@@ -29,17 +29,6 @@ class ViewEdit extends Form{
     }
 
     /**
-     * Clear data form:
-     */
-    clearForm() {
-        let self = this;
-        $(this.wrapper).find('select, input, textarea').each(function(item){
-            let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
-            $(this).val(nullPlaceholder);
-        });
-    }
-
-    /**
      * After switch mode
      */
     afterSwitchMode() {}
@@ -53,38 +42,53 @@ class ViewEdit extends Form{
             $(this.wrapper).find('select, input, textarea').each(function(item){
                 let idElement = $(this)[0].id;
                 let isAlwaysDisabled = $(this).data(self.dataAlwaysDisabled) || false;
-                let orgPlaceholder = $(this).attr(self.attrOrgPlaceholder) || '-';
-                $(this).attr("placeholder", orgPlaceholder);
+                let orgPlaceholder = $(this).attr(self.attrOrgPlaceholder) || '';
                 if (isAlwaysDisabled) {
-                    if ($(this).data('plugin') === 'ckeditor') {
-                        let editor = CKEDITOR.instances[idElement];
-                        if (!editor)
-                            core.initCkEditor4(idElement, true);
-                        else
-                            editor.setReadOnly(true);
-                    }
+                    switch ($(this).data('plugin')) {
+                        case 'ckeditor':
+                            let editor = CKEDITOR.instances[idElement];
+                            if (!editor)
+                                core.initCkEditor4(idElement, true);
+                            else
+                                editor.setReadOnly(true);
+                            break;
 
-                    if ($(this).data('plugin') === 'switchery') {
-                        swObjs[idElement].disable()
+                        case 'switchery':
+                            swObjs[idElement].disable()
+                            break;
+
+                        case 'select2':
+                            $(this).prop("disabled", true);
+                            break;
+
+                        default:
+                            $(this).attr('disabled','disabled');
                     }
-                    $(this).attr('disabled','disabled');
                 }
                 else {
-                    if ($(this).data('plugin') === 'ckeditor') {
-                        let editor = CKEDITOR.instances[idElement];
-                        if (!editor)
-                            core.initCkEditor4(idElement);
-                        else
-                            editor.setReadOnly(false);
-                    }
+                    switch ($(this).data('plugin')) {
+                        case 'ckeditor':
+                            let editor = CKEDITOR.instances[idElement];
+                            if (!editor)
+                                core.initCkEditor4(idElement);
+                            else
+                                editor.setReadOnly(false);
+                            break;
 
-                    if ($(this).data('plugin') === 'switchery') {
-                        swObjs[idElement].enable()
-                    }
+                        case 'switchery':
+                            swObjs[idElement].enable()
+                            break;
 
-                    $(this).removeAttr('disabled');
-                    $(this).parent().removeClass('view-mode-custom');
+                        case 'select2':
+                            $(this).prop("disabled", false);
+                            break;
+
+                        default:
+                            $(this).removeAttr('disabled');
+                            $(this).parent().removeClass('view-mode-custom');
+                    }
                 }
+                // $(this).attr("placeholder", orgPlaceholder);
             });
             $(this.switchBtn).data(self.dataIsEditMode, false);
             $(this.switchBtn).hide();
@@ -94,22 +98,29 @@ class ViewEdit extends Form{
             $(this.wrapper).find('select, input, textarea').each(function(item){
                 let idElement = $(this)[0].id;
                 let nullPlaceholder = $(this).attr(self.attrNullPlacholder) || '-';
-                $(this).attr("placeholder", nullPlaceholder);
 
-                if ($(this).data('plugin') === 'ckeditor') {
-                    let editor = CKEDITOR.instances[idElement];
-                    if (!editor)
-                        core.initCkEditor4(idElement, true);
-                    else
-                        editor.setReadOnly(true);
+                switch ($(this).data('plugin')) {
+                    case 'ckeditor':
+                        let editor = CKEDITOR.instances[idElement];
+                        if (!editor)
+                            core.initCkEditor4(idElement, true);
+                        else
+                            editor.setReadOnly(true);
+                        break;
+
+                    case 'switchery':
+                        swObjs[idElement].disable()
+                        break;
+
+                    case 'select2':
+                        $(this).prop("disabled", true);
+                        break;
+
+                    default:
+                        $(this).attr("placeholder", nullPlaceholder);
+                        $(this).attr('disabled','disabled');
+                        $(this).parent().addClass('view-mode-custom');
                 }
-
-                if ($(this).data('plugin') === 'switchery') {
-                    swObjs[idElement].disable()
-                }
-
-                $(this).attr('disabled','disabled');
-                $(this).parent().addClass('view-mode-custom');
             });
             $(this.switchBtn).data(self.dataIsEditMode, true);
             $(this.switchBtn).show();

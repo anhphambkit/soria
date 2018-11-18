@@ -36,13 +36,14 @@ let core = {
             swObjs[$(this)[0].id] = init;
         })
     },
-    initSelect2: function() {
+    initSelect2: function(options = {}) {
         let defaults = {
             width: '100%',
+            placeholder: "Select a option",
         }
 
         $('[data-plugin="select2"]').each(function() {
-            let config = Object.assign(defaults, $(this).data());
+            let config = Object.assign(defaults, $(this).data(), options);
             $(this).select2(config);
         })
     },

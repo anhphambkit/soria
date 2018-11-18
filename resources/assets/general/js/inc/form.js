@@ -80,18 +80,26 @@ class Form {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
             if(ctl){
                 let idElement = ctl.attr('id');
-                if (ctl.data('plugin') === 'ckeditor') {
-                    let editor = CKEDITOR.instances[idElement];
-                    if (!editor)
-                        core.initCkEditor4(idElement);
-                    CKEDITOR.instances[idElement].setData("");
-                }
-                if (ctl.data('plugin') === 'switchery') {
-                    let defaultValue = ctl.data('default');
-                    helper.resetDefaultDataSwitchery('#' + idElement, defaultValue)
-                }
-                if (ctl.data('plugin') === 'select2') {
-                    $('#' + idElement).val(null).trigger('change');
+                let nullPlaceholder = ctl.attr(self.attrNullPlacholder) || '-';
+                switch (ctl.data('plugin')) {
+                    case 'ckeditor':
+                        let editor = CKEDITOR.instances[idElement];
+                        if (!editor)
+                            core.initCkEditor4(idElement);
+                        CKEDITOR.instances[idElement].setData("");
+                        break;
+
+                    case 'switchery':
+                        let defaultValue = ctl.data('default');
+                        helper.resetDefaultDataSwitchery('#' + idElement, defaultValue)
+                        break;
+
+                    case 'select2':
+                        $('#' + idElement).val(null).trigger('change');
+                        break;
+
+                    default:
+                        $('#' + idElement).val(nullPlaceholder);
                 }
             }
         });
@@ -295,6 +303,9 @@ class Form {
                 }
                 if (ctl.data('plugin') === 'switchery') {
                     helper.resetDefaultDataSwitchery('#' + idElement, _data[field])
+                }
+                if (ctl.data('plugin') === 'select2') {
+                    $('#' + idElement).val(_data[field]).trigger('change')
                 }
             }
         });
