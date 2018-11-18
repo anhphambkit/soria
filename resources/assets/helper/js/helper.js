@@ -11,7 +11,7 @@ export default {
     showImgStorage(image, defaultValue = '/default-avatar-user.png')
     {
         if(image != undefined && image)
-            return `/storage/${image}`;
+            return `/${image.replace("public", "storage")}`;
         if(defaultValue !== false)
             return defaultValue;
     },

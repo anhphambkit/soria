@@ -14,9 +14,8 @@ productForm.handleCancel();
 // productForm.beforeSubmit = () => {
 // };
 
-productForm.afterDone = () => {
-    helper.removeElements("#bb-widget-attachments-images-gallery .bb-file");
-};
+// productForm.afterDone = () => {
+// };
 
 window.closeModal = function() {
     if ($('#modal-create-product').length) $('#modal-create-product').modal('hide')

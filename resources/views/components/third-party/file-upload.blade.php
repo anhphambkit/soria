@@ -11,6 +11,7 @@ $title = isset($title) ? $title : 'Upload Files';
 $idWrap = isset($idWrap) ? $idWrap : '';
 $headerAction = isset($headerAction) ? $headerAction : 'Add a file';
 $name = isset($name) ? $name : 'files';
+$attributes = isset($attributes) ? $attributes : [];
 ?>
 <div class="file-upload-component {{ $classWrap }}"
      @if(isset($idWrap))
@@ -30,7 +31,12 @@ $name = isset($name) ? $name : 'files';
                     <button class="btn btn-primary bb-btn-file">
                         <span class="la la-cloud-upload bb-icon"></span>
                         <span class="bb-text">Choose file</span>
-                        <input id="{{ $idBtnUpload }}" class="bb-btn-file-input" type="file" name="{{$name}}[]" data-url="{{ $urlUpload }}" multiple>
+                        <input id="{{ $idBtnUpload }}" class="bb-btn-file-input" data-plugin="bb-file-upload" type="file"
+                            name="{{$name}}[]" data-url="{{ $urlUpload }}" multiple
+                            @foreach($attributes as $key => $val)
+                                {{ $key. '='. $val. ' ' }}
+                            @endforeach
+                        >
                     </button>
                 </span>
             </div>

@@ -88,7 +88,7 @@ class ViewEdit extends Form{
                             $(this).parent().removeClass('view-mode-custom');
                     }
                 }
-                // $(this).attr("placeholder", orgPlaceholder);
+                $(this).attr("placeholder", orgPlaceholder);
             });
             $(this.switchBtn).data(self.dataIsEditMode, false);
             $(this.switchBtn).hide();

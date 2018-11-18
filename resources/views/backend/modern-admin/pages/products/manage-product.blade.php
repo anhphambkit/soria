@@ -172,6 +172,8 @@
     <script type="application/javascript">
         core.initCkEditor4('desc');
         core.initCkEditor4('long_desc');
+        core.initCkEditor4('desc-edit');
+        core.initCkEditor4('long_desc-edit');
         core.initDropzoneImplement('.bb-attach-files-widget .bb-upload');
         core.initBindDropDrag();
         core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeatures');

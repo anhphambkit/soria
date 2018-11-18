@@ -12,7 +12,7 @@ editProductForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Pr
 editProductForm.url = URL.UPDATE_PRODUCT;
 editProductForm.method = "PATCH";
 editProductForm.afterDone = (data) => {
-    refreshManageProductTable();
+    refreshTable();
 };
 
 let isClicked = false;

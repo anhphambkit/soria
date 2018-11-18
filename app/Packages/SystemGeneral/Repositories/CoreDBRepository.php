@@ -40,6 +40,14 @@ interface CoreDBRepository {
 
     /**
      * @param $db
+     * @param $whereDelete
+     * @param $new
+     * @return mixed
+     */
+    public function deleteAndCreateNewRecordOfTable($db, $whereDelete, $new);
+
+    /**
+     * @param $db
      * @param $new
      * @return mixed
      */

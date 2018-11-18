@@ -27,7 +27,7 @@ class MediaProductController extends CoreAjaxController
      */
     public function uploadSingleImageFeatureProduct(Request $request)
     {
-        $file = $request->file('image_feature')[0];
+        $file = $request->file('feature_images')[0];
         $fileInfo = $this->mediaServices->storeMedia($file, MediaProductConfig::PATH_STORAGE);
         return response()->json(array('file' => $fileInfo));
     }
@@ -39,7 +39,7 @@ class MediaProductController extends CoreAjaxController
      */
     public function uploadSingleImageGalleryProduct(Request $request)
     {
-        $file = $request->file('image_gallery')[0];
+        $file = $request->file('gallery_images')[0];
         $fileInfo = $this->mediaServices->storeMedia($file, MediaProductConfig::PATH_STORAGE);
         return response()->json(array('file' => $fileInfo));
     }

@@ -100,7 +100,51 @@ class ImplementProductServices implements ProductServices {
      * @return mixed
      */
     public function updateProduct($productId, $data) {
+        // Insert relation category product:
+        $categories = $data['category_id'];
+        $categoryProduct = [];
+        $whereDelete = [
+            [
+                'product_id', '=',  $productId
+            ]
+        ];
+        foreach ($categories as $category) {
+            $newCategoryProduct = [
+                'product_id' => $productId,
+                'cate_id' => (int)$category
+            ];
+            array_push($categoryProduct, $newCategoryProduct);
+        }
+        $this->coreDBRepository->deleteAndCreateNewRecordOfTable(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL, $whereDelete, $categoryProduct);
+
+        // Insert images features:
+        $imgFeatures = $data['imgFeatures'];
+        $imgFeaturesProduct = [];
+        foreach ($imgFeatures as $imgFeature) {
+            $newImgFeature = [
+                'product_id' => $productId,
+                'media_id' => (int)$imgFeature
+            ];
+            array_push($imgFeaturesProduct, $newImgFeature);
+        }
+        $this->coreDBRepository->deleteAndCreateNewRecordOfTable(MediaProductConfig::FEATURE_PRODUCT_TBL, $whereDelete, $imgFeaturesProduct);
+
+        // Insert images galleries:
+        $imgGalleries = $data['imgGalleries'];
+        $imgGalleriesProduct = [];
+        foreach ($imgGalleries as $imgGallery) {
+            $newImgGallery = [
+                'product_id' => $productId,
+                'media_id' => (int)$imgGallery
+            ];
+            array_push($imgGalleriesProduct, $newImgGallery);
+        }
+        $this->coreDBRepository->deleteAndCreateNewRecordOfTable(MediaProductConfig::GALLERY_PRODUCT_TBL, $whereDelete, $imgGalleriesProduct);
+
         unset($data['id']);
+        unset($data['category_id']);
+        unset($data['imgFeatures']);
+        unset($data['imgGalleries']);
         return $this->repository->updateProduct($productId, $data);
     }
 }

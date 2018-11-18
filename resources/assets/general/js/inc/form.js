@@ -88,7 +88,7 @@ class Form {
                     $('#' + idElement).val(null).trigger('change');
                     break;
 
-                case 'bb-file-upload':
+                case 'bb-file-upload-item':
                     let idElementPlugin = $(this).data('element-plugin');
                     helper.removeElements(`${idElementPlugin} .bb-file`);
                     break;
@@ -103,7 +103,7 @@ class Form {
         let reuseForm = this;
         keys.forEach( (field) => {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
-            if(ctl){
+            if(ctl.length > 0){
                 let idElement = ctl.attr('id');
                 let nullPlaceholder = ctl.attr(self.attrNullPlacholder) || '';
                 switch (ctl.data('plugin')) {
@@ -123,7 +123,7 @@ class Form {
                         $('#' + idElement).val(null).trigger('change');
                         break;
 
-                    case 'bb-file-upload':
+                    case 'bb-file-upload-item':
                         let idElementPlugin = ctl.data('element-plugin');
                         helper.removeElements(`${idElementPlugin} .bb-file`);
                         break;
@@ -322,7 +322,7 @@ class Form {
         let reuseForm = this;
         keys.forEach( (field) => {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
-            if(ctl){
+            if(ctl.length > 0){
                 ctl.val(_data[field]);
                 let idElement = ctl.attr('id');
                 switch (ctl.data('plugin')) {
@@ -343,6 +343,27 @@ class Form {
 
                     default:
                         $('#' + idElement).val(_data[field]);
+                }
+            }
+            else {
+                // Check element has name array:
+                let ctlArray = $(reuseForm.wrapper + ' ' + '[name="' + field + '[]"]');
+                if (ctlArray.length > 0) {
+                    let element = ctlArray.data('wrap-plugin');
+                    let nameInput = ctlArray.data('name-file-item');
+                    switch (ctlArray.data('plugin')) {
+                        case 'bb-file-upload':
+                            _data[field].forEach( (item) => {
+                                let src = helper.showImgStorage(item.path_org);
+                                let uploadedFileInfo = `<li class="bb-file bb-file-${name}">
+                                                <input type="text" hidden data-plugin="bb-file-upload-item" data-element-plugin="${element}" value="${item.id}" name="${nameInput}[]" />
+                                                <img class="bb-thumb" src="${src}" />
+                                                <a class="bb-icon la la-trash bb-remove"></a>
+                                            </li>`;
+                                $(uploadedFileInfo).appendTo($(element + ' .bb-files ul'));
+                            })
+                            break;
+                    }
                 }
             }
         });
