@@ -48,6 +48,7 @@ class ProductCategoryController extends CoreAjaxController
     }
 
     /**
+     * Update Product Category
      * @param Request $request
      * Function update product category
      */
@@ -57,5 +58,15 @@ class ProductCategoryController extends CoreAjaxController
         unset($data['id']);
         $result = $this->productCategoryServices->updateProductCategory($productCategoryId, $data);
         $this->response($result);
+    }
+
+    /**
+     * Delete product category
+     * @param Request $request
+     */
+    public function deleteProductCategory(Request $request) {
+        $data = $request->all();
+        $productCategoryId = $data['id'];
+        $result = $this->productCategoryServices->deleteProductCategory($productCategoryId);
     }
 }

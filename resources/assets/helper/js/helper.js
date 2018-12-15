@@ -75,11 +75,17 @@ export default {
 
     renderPublishStatus(data) {
         if (data)
-            return `<span class="status-publish bb-publish-status-true" data-toggle="tooltip" data-placement="top" data-original-title="Reset Password">
+            return `<span class="status-publish bb-publish-status-true" data-toggle="tooltip" data-placement="top" data-original-title="Publish">
                         <i class="far fa-check-circle"></i>
                     </span>`;
 
-        return `<span class="status-publish bb-publish-status-false" data-toggle="tooltip" data-placement="top" data-original-title="Reset Password">
+        return `<span class="status-publish bb-publish-status-false" data-toggle="tooltip" data-placement="top" data-original-title="Not Publish">
+                    <i class="far fa-times-circle"></i>
+                </span>`;
+    },
+
+    renderActionDelete(data) {
+        return `<span class="status-publish bb-publish-status-false" data-toggle="tooltip" data-placement="top" data-original-title="Not Publish">
                     <i class="far fa-times-circle"></i>
                 </span>`;
     },

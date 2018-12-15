@@ -32,4 +32,11 @@ interface ProductCategoryRepository {
      * @return mixed
      */
     public function updateProductCategory($productCategoryId, $data);
+
+    /**
+     * Delete Product Category
+     * @param $productCategoryId
+     * @return mixed
+     */
+    public function deleteProductCategory($productCategoryId);
 }

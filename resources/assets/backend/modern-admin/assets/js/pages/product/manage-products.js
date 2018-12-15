@@ -37,7 +37,9 @@ manageProduct.columns = [
         title: "Publish",
         data: 'is_publish',
         render(data) {
-            return Helper.renderPublishStatus(data);
+            Helper.renderPublishStatus(data);
+            Helper.renderPublishStatus(data);
+            return;
         }
     },
     {

@@ -32,6 +32,7 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
         Route::get('/getAllProductCategory', 'Product\ProductCategoryController@getAllProductCategory')->name('admin_ajax.product.get_all_product_category');
         Route::get('/getDetailProductCategory', 'Product\ProductCategoryController@getDetailProductCategory')->name('admin_ajax.product.get_detail_product_category');
         Route::patch('/updateProductCategory', 'Product\ProductCategoryController@updateProductCategory')->name('admin_ajax.product.update_product_category');
+        Route::delete('/delete-product-category', 'Product\ProductCategoryController@deleteProductCategory')->name('admin_ajax.product.delete_product_category');
     });
 
     /************ Router Post ************** */

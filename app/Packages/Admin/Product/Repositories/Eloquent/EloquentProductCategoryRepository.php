@@ -82,4 +82,18 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
             return $e->getMessage();
         }
     }
+
+    /**
+     * Delete Product Category
+     * @param $productCategoryId
+     * @return mixed
+     */
+    public function deleteProductCategory($productCategoryId) {
+        try {
+            return $this->model->where('id', $productCategoryId)->delete();
+        }
+        catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

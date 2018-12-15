@@ -61,4 +61,13 @@ class ImplementProductCategoryServices implements ProductCategoryServices{
         unset($data['id']);
         return $this->repository->updateProductCategory($productCategoryId, $data);
     }
+
+    /**
+     * Delete Product Category
+     * @param $productCategoryId
+     * @return mixed
+     */
+    public function deleteProductCategory($productCategoryId) {
+        return $this->repository->deleteProductCategory($productCategoryId);
+    }
 }
