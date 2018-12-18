@@ -16,7 +16,7 @@
             <div class="col-lg-4">
                 <div class="related_posts_item">
                     <a href="#" class="post_card_thumbnail">
-                        <img src="assets/img/posts/r-p-1.jpg" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/r-p-1.jpg') }}" alt="">
                     </a>
 
                     <div class="post_card_body">
@@ -39,7 +39,7 @@
             <div class="col-lg-4">
                 <div class="related_posts_item">
                     <a href="#" class="post_card_thumbnail">
-                        <img src="assets/img/posts/r-p-2.jpg" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/r-p-2.jpg') }}" alt="">
                     </a>
 
                     <div class="post_card_body">
@@ -62,7 +62,7 @@
             <div class="col-lg-4">
                 <div class="related_posts_item">
                     <a href="#" class="post_card_thumbnail">
-                        <img src="assets/img/posts/r-p-3.jpg" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/r-p-3.jpg') }}" alt="">
                     </a>
 
                     <div class="post_card_body">

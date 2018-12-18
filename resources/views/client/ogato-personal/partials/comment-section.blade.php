@@ -16,7 +16,7 @@
             <li class="blog_comment_user">
                 <div class="commenter_div">
                     <div class="commenter">
-                        <img src="assets/img/authors/1.jpg" class="avatar" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" class="avatar" alt="">
                     </div>
 
                     <div class="comment_block">
@@ -40,7 +40,7 @@
             <li class="blog_comment_user">
                 <div class="commenter_div">
                     <div class="commenter">
-                        <img src="assets/img/authors/1.jpg" class="avatar" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" class="avatar" alt="">
                     </div>
 
                     <div class="comment_block">
@@ -63,7 +63,7 @@
             <li class="blog_comment_user">
                 <div class="commenter_div">
                     <div class="commenter">
-                        <img src="assets/img/authors/1.jpg" class="avatar" alt="">
+                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" class="avatar" alt="">
                     </div>
 
                     <div class="comment_block">

@@ -6,7 +6,7 @@
  * Time: 20:52
  */
 ?>
-<header class="site_header_image cover-bg" data-image-src="assets/img/header-image.jpg"  data-overlay="5">
+<header class="site_header_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/header-image.jpg') }}"  data-overlay="5">
     <div class="container">
         <div class="post-categories">
             <a href="#">Lifestyle</a>, <a href="#">Travel</a>

@@ -17,7 +17,7 @@ $typePost = isset($typePost) ? $typePost : '';
                     @if($typePost === 'image')
                         <div class="post_media mb-50">
                             <a href="#">
-                                <img src="assets/img/posts/demo-image-1.jpg" alt="">
+                                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/demo-image-1.jpg') }}" alt="">
                             </a>
                             <figcaption>Travel and change of place impart new vigor to the
                                 mind. </figcaption>
@@ -32,7 +32,7 @@ $typePost = isset($typePost) ? $typePost : '';
                     @elseif($typePost === 'video')
                         <div class="post_media post_media_video  mb-50">
                             <a href="#">
-                                <img src="assets/img/posts/p4.jpg" alt="">
+                                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p4.jpg') }}" alt="">
                             </a>
                             <a class="vid" href="https://vimeo.com/127203262">
                                 <div class="play-button">
@@ -90,7 +90,7 @@ $typePost = isset($typePost) ? $typePost : '';
                         <ul class="post_meta">
                             <li>
                                 <span class="author">
-                                    <img src="assets/img/authors/1.jpg" class="avatar" alt="">By
+                                    <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" class="avatar" alt="">By
                                     <a href="#">admin</a>
                                 </span>
                             </li>

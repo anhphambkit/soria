@@ -5,10 +5,23 @@
  * Date: 12/18/18
  * Time: 15:14
  */
+$isSinglePost = isset($isSinglePost) ? $isSinglePost : true;
+$classNavBarMenuCustom = isset($classNavBarMenuCustom) ? $classNavBarMenuCustom : '';
+
+if ($isSinglePost) {
+    $classHeaderNavBarSection = 'header-overlay text-center';
+    $classNavBarSection = '';
+
+}
+else {
+    $classHeaderNavBarSection = 'text-center';
+    $classNavBarSection = 'nav-overlay';
+}
+$classHeaderNavBarSection .= $classNavBarMenuCustom;
 ?>
-<div class="header-controller text-center">
+<div class="header-controller {{ $classHeaderNavBarSection }}">
     <div class="container">
-        <nav id="nav" class="navbar navbar-expand-lg nav-overlay">
+        <nav id="nav" class="navbar navbar-expand-lg {{ $classNavBarSection }}">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets/client/ogato-personal/app-assets/img/logo-dark.png') }}" alt="logo" class="logo-1">
             </a>
@@ -137,8 +150,6 @@
                 </button>
             </div>
         </nav>
-
-
     </div>
 </div>
 

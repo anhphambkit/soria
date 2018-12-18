@@ -6,7 +6,7 @@
  * Time: 16:02
  */
 ?>
-@extends('client.ogato-personal.client-master')
+@extends('client.ogato-personal.client-master', [ 'isSinglePost' => false ])
 
 @section('keywords')
 @endsection

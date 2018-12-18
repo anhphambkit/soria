@@ -6,7 +6,7 @@
  * Time: 16:05
  */
 $isSinglePost = isset($isSinglePost) ? $isSinglePost : true;
-$classCustom = isset($classCustom) ? $classCustom : '';
+$classContentPageCustom = isset($classContentPageCustom) ? $classContentPageCustom : '';
 
 if ($isSinglePost) {
     $classContentSection = 'main_p main_p_v_2';
@@ -15,7 +15,7 @@ if ($isSinglePost) {
 else {
     $classContentSection = '';
 }
-$classContentSection .= $classCustom;
+$classContentSection .= $classContentPageCustom;
 ?>
 <div id="content_full" class="section-padding {{ $classContentSection }}">
     <div class="container">

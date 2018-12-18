@@ -5,6 +5,17 @@
  * Date: 12/18/18
  * Time: 14:19
  */
+$isSinglePost = isset($isSinglePost) ? $isSinglePost : true;
+$classBodyCustom = isset($classBodyCustom) ? $classBodyCustom : '';
+
+if ($isSinglePost) {
+    $classBodyPage = 'single-post';
+
+}
+else {
+    $classBodyPage = '';
+}
+$classBodyPage .= $classBodyCustom;
 ?>
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
@@ -58,7 +69,7 @@
 
         @yield('styles')
     </head>
-    <body>
+    <body class="{{ $classBodyPage }}">
         <!-- ========== START LOADER ========== -->
         @include('client.ogato-personal.partials.preloader')
         <!-- ========== END LOADER ========== -->
@@ -71,13 +82,24 @@
    ================================================== -->
         <main id="mainContent">
             <div class="sidebar-overlay"></div>
-            <!-- ========== START MAIN CENTER HEADER ========== -->
-            @yield('main-header-page')
-            <!-- ========== END MAIN CENTER HEADER ========== -->
 
-            <!-- ========== START NAV BAR MENU ========== -->
-            @include('client.ogato-personal.partials.nav-bar-menu')
-            <!-- ========== END NAV BAR MENU ========== -->
+            @if ($isSinglePost)
+                <!-- ========== START NAV BAR MENU ========== -->
+                @include('client.ogato-personal.partials.nav-bar-menu')
+                <!-- ========== END NAV BAR MENU ========== -->
+
+                <!-- ========== START MAIN CENTER HEADER ========== -->
+                @yield('main-header-page')
+                <!-- ========== END MAIN CENTER HEADER ========== -->
+            @else
+                <!-- ========== START MAIN CENTER HEADER ========== -->
+                @yield('main-header-page')
+                <!-- ========== END MAIN CENTER HEADER ========== -->
+
+                    <!-- ========== START NAV BAR MENU ========== -->
+                @include('client.ogato-personal.partials.nav-bar-menu')
+                <!-- ========== END NAV BAR MENU ========== -->
+            @endif
 
             <!-- main content
             ================================================== -->
