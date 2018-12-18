@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 15:23
  */
-$typeArticle = empty($typeArticle) ? '' : $typeArticle;
+$typeArticle = isset($typeArticle) ? $typeArticle : '';
 
 switch ($typeArticle) {
     case 'gallery':

@@ -72,7 +72,7 @@
         <main id="mainContent">
             <div class="sidebar-overlay"></div>
             <!-- ========== START MAIN CENTER HEADER ========== -->
-            @include('client.ogato-personal.partials.main-center-header')
+            @yield('main-header-page')
             <!-- ========== END MAIN CENTER HEADER ========== -->
 
             <!-- ========== START NAV BAR MENU ========== -->
@@ -81,7 +81,7 @@
 
             <!-- main content
             ================================================== -->
-            @include('client.ogato-personal.partials.content-right-sidebar')
+            @yield('content')
             <!-- End main content
             ================================================== -->
 
@@ -94,10 +94,10 @@
         <!-- End Main Content
         ================================================== -->
 
-        <!-- Recent Posts
+        <!-- Viewed Posts
         ================================================== -->
-        @include('client.ogato-personal.partials.recent-posts')
-        <!-- End Recent Posts
+        @include('client.ogato-personal.partials.viewed-posts')
+        <!-- End Viewed Posts
         ================================================== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->

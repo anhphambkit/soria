@@ -5,17 +5,32 @@
  * Date: 12/18/18
  * Time: 16:05
  */
+$isSinglePost = isset($isSinglePost) ? $isSinglePost : true;
+$classCustom = isset($classCustom) ? $classCustom : '';
+
+if ($isSinglePost) {
+    $classContentSection = 'main_p main_p_v_2';
+
+}
+else {
+    $classContentSection = '';
+}
+$classContentSection .= $classCustom;
 ?>
-<div id="content_full" class="section-padding">
+<div id="content_full" class="section-padding {{ $classContentSection }}">
     <div class="container">
         <div class="row sticky-container">
-            <!-- latest-posts -->
             <div class="col-lg-8 content">
-                <div id="content" class="latest-posts">
-                    @yield('content-page')
-                </div>
+                @if($isSinglePost)
+                    <div class="p_content">
+                        @yield('content-page')
+                    </div>
+                @else
+                    <div id="content" class="latest-posts">
+                        @yield('content-page')
+                    </div>
+                @endif
             </div>
-            <!-- End latest-posts -->
 
             <!-- Side Bar -->
             <div class="col-lg-4">
@@ -24,4 +39,10 @@
             <!-- End Side Bar -->
         </div>
     </div>
+    @if($isSinglePost)
+        @include('client.ogato-personal.partials.post-pagination')
+        @yield('related-posts')
+    @else
+
+    @endif
 </div>

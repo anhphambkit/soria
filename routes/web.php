@@ -17,6 +17,6 @@
  *********************************************************/
 Route::domain('{mainDomain}')->group(function () {
     Route::get('/', function () {
-        return view(config('setting.theme.client') . '.pages.homepage');
+        return view(config('setting.theme.client') . '.layouts.single-post');
     })->name('home');
 });

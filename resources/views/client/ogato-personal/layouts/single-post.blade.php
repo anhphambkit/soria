@@ -39,30 +39,26 @@
 @endsection
 
 @section('main-header-page')
-    @include('client.ogato-personal.partials.main-center-header')
+    @include('client.ogato-personal.partials.header-page')
+@endsection
+
+@section('related-posts')
+    @include('client.ogato-personal.partials.recent-posts')
 @endsection
 
 {{--content page must define before section content--}}
 @section('content-page')
-    @component('client.ogato-personal.components.article')
+    @component('client.ogato-personal.components.article-detail')
+        @slot('typePost', 'image')
     @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'gallery')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'video')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'audio')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'slide')
-    @endcomponent
-    @include('client.ogato-personal.partials.pagination')
+
+    <div class="clearfix"></div>
+
+    @include('client.ogato-personal.partials.comment-section')
 @endsection
 
 @section('content')
-    @include('client.ogato-personal.partials.content-right-sidebar', [ 'isSinglePost' => false ])
+    @include('client.ogato-personal.partials.content-right-sidebar')
 @endsection
 
 
