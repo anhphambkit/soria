@@ -31,7 +31,7 @@ resources/assets/backend/.DS_Store
 .idea
 .idea/workspace.xml
 .idea
-public
+/public
 workspace.xml
 drsori.iml
 *.iml
@@ -43,3 +43,7 @@ public/mix-manifest.json
 .idea
 .DS_Store
 *.log
+/storage/framework
+/storage/framework/*
+/storage/logs/*
+/storage/logs
