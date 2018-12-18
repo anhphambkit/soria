@@ -32,10 +32,6 @@
 
 @endsection
 
-@section('core-scripts')
-
-@endsection
-
 @section('plugin-css')
 @endsection
 

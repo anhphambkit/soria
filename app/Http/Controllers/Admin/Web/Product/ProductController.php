@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function indexProduct() {
         $categories = $this->productCategoryServices->getAllProductCategory();
-        return view('backend.modern-admin.pages.products.manage-product', compact('categories'));
+        return view(config('setting.theme.system') . '.pages.products.manage-product', compact('categories'));
     }
 
     /**

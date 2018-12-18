@@ -55,7 +55,7 @@ class PostCategoryController extends Controller
      */
     public function indexCategoryPost() {
         $categories = $this->postCategoryServices->getAllPostCategory();
-        return view('backend.modern-admin.pages.posts.manage-category-posts', compact('categories'));
+        return view(config('setting.theme.system') . '.pages.posts.manage-category-posts', compact('categories'));
     }
 
     /**
@@ -65,6 +65,6 @@ class PostCategoryController extends Controller
      */
     public function newCategoryPost() {
         $categories = $this->postCategoryServices->getAllPostCategory();
-        return view('backend.modern-admin.pages.posts.new-category-post', compact('categories'));
+        return view(config('setting.theme.system') . '.pages.posts.new-category-post', compact('categories'));
     }
 }

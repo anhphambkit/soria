@@ -22,7 +22,7 @@ class ProductCategoryController extends Controller
      */
     public function indexCategoryProduct() {
         $categories = $this->productCategoryServices->getAllProductCategory();
-        return view('backend.modern-admin.pages.products.manage-category-products', compact('categories'));
+        return view(config('setting.theme.system') . '.pages.products.manage-category-products', compact('categories'));
     }
 
     /**
@@ -32,6 +32,6 @@ class ProductCategoryController extends Controller
      */
     public function newCategoryProduct() {
         $categories = $this->productCategoryServices->getAllProductCategory();
-        return view('backend.modern-admin.pages.products.new-category-product', compact('categories'));
+        return view(config('setting.theme.system') . '.pages.products.new-category-product', compact('categories'));
     }
 }
