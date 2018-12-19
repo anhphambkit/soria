@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers\Admin\Web\Post;
 
+use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SystemGeneral\Web\Controller;
@@ -15,9 +16,11 @@ class PostController extends Controller
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $postServices;
-    public function __construct(PostServices $postServices) {
+    protected $postCategoryServices;
+    public function __construct(PostServices $postServices, PostCategoryServices $postCategoryServices) {
         parent::__construct();
         $this->postServices = $postServices;
+        $this->postCategoryServices = $postCategoryServices;
     }
 
     /**
