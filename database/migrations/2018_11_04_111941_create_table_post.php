@@ -28,6 +28,7 @@ class CreateTablePost extends Migration
             $table->integer('rating')->default(0)->comment('Number of star for this product.');
 
             $table->string('keywords')->nullable();
+            $table->string('type_article')->nullable()->comment('Gallery | Slide | Video | Audio');
 
             $table->timestamps();
         });

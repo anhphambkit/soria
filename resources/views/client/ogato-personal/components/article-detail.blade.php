@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 21:49
  */
-$typePost = isset($typePost) ? $typePost : '';
+$typeArticle = isset($typeArticle) ? $typeArticle : '';
 ?>
 <article>
     <div class="entry_header_small">
@@ -13,8 +13,7 @@ $typePost = isset($typePost) ? $typePost : '';
             <div class="col-lg-12">
                 <div class="entry_header">
                     <h1 class="entry_title">Integer Maecenas Eget Viverra</h1>
-
-                    @if($typePost === 'image')
+                    @if($typeArticle === 'gallery' || $typeArticle === 'slide')
                         <div class="post_media mb-50">
                             <a href="#">
                                 <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/demo-image-1.jpg') }}" alt="">
@@ -22,14 +21,14 @@ $typePost = isset($typePost) ? $typePost : '';
                             <figcaption>Travel and change of place impart new vigor to the
                                 mind. </figcaption>
                         </div>
-                    @elseif($typePost === 'audio')
+                    @elseif($typeArticle === 'audio')
                         <div class="post_media audio  mb-50">
                             <iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/533305992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
                             <figcaption>Travel and change of place impart new vigor to the
                                 mind. </figcaption>
                         </div>
-                    @elseif($typePost === 'video')
+                    @elseif($typeArticle === 'video')
                         <div class="post_media post_media_video  mb-50">
                             <a href="#">
                                 <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p4.jpg') }}" alt="">
