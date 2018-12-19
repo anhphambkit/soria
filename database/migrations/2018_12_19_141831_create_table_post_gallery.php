@@ -13,7 +13,14 @@ class CreateTablePostGallery extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('post_gallery', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('post_id');
+            $table->integer('media_id');
+            $table->text('external_link');
+            $table->integer('order');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreateTablePostGallery extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('post_gallery');
     }
 }

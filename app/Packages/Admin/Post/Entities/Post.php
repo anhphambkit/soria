@@ -1,0 +1,30 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: BiWin
+ * Date: 19/12/2018
+ * Time: 10:06 PM
+ */
+namespace App\Packages\Admin\Post\Entities;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'posts';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'slug', 'desc', 'content', 'image_feature', 'is_publish', 'at_homepage', 'rating', 'view', 'keywords', 'type_article'
+    ];
+
+    public $timestamps = true;
+}

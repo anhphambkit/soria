@@ -19,13 +19,14 @@ class CreateTablePost extends Migration
             $table->string('slug');
             $table->string('desc');
             $table->longText('content');
-            $table->text('image_feature')->default('post-default.jpg');
+            $table->integer('image_feature')->nullable();
 
             // D: (draft), P: (Published)
             $table->boolean('is_publish', 1)->default(true)->comment('true: Published, false: Draft');
             $table->boolean('at_homepage')->default(false)->comment('Show post in homepage');
 
             $table->integer('rating')->default(0)->comment('Number of star for this product.');
+            $table->integer('view')->default(0)->comment('Number of viewed for this product.');
 
             $table->string('keywords')->nullable();
             $table->string('type_article')->nullable()->comment('Gallery | Slide | Video | Audio');
