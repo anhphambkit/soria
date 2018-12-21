@@ -30,7 +30,7 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
     /************ Router Post ************** */
     Route::prefix('post')->group(function () {
         // Post Category:
-        Route::get('/list', 'Post\PostCategoryController@indexPost')->name('admin.post.index');
+        Route::get('/list', 'Post\PostController@indexPost')->name('admin.post.index');
         Route::get('/new', 'Post\PostCategoryController@newPost')->name('admin.post.new');
         Route::get('/edit/{id}', 'Post\PostCategoryController@editPost')->name('admin.post.edit')->where('id', '[0-9]+');
         Route::get('/category/list', 'Post\PostCategoryController@indexCategoryPost')->name('admin.post.category.index');

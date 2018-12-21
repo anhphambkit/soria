@@ -37,6 +37,12 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
 
     /************ Router Post ************** */
     Route::prefix('post')->group(function () {
+        // Post
+        Route::post('/create-post', 'Post\PostController@createPost')->name('admin_ajax.post.create_post');
+        Route::get('/get-all-posts', 'Post\PostController@getAllPosts')->name('admin_ajax.post.get_all_posts');
+        Route::get('/get-detail-post', 'Post\PostController@getDetailPost')->name('admin_ajax.post.get_detail_post');
+        Route::patch('/update-post', 'Post\PostController@updatePost')->name('admin_ajax.post.update_post');
+
         // Post Category
         Route::post('/createPostCategory', 'Post\PostCategoryController@createPostCategory')->name('admin_ajax.post.create_post_category');
         Route::get('/getAllPostCategory', 'Post\PostCategoryController@getAllPostCategory')->name('admin_ajax.post.get_all_post_category');

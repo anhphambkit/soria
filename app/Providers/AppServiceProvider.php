@@ -3,9 +3,13 @@
 namespace App\Providers;
 
 use App\Packages\Admin\Post\Repositories\Eloquent\EloquentPostCategoryRepository;
+use App\Packages\Admin\Post\Repositories\Eloquent\EloquentPostRepository;
 use App\Packages\Admin\Post\Repositories\PostCategoryRepository;
+use App\Packages\Admin\Post\Repositories\PostRepository;
 use App\Packages\Admin\Post\Services\Implement\ImplementPostCategoryServices;
+use App\Packages\Admin\Post\Services\Implement\ImplementPostServices;
 use App\Packages\Admin\Post\Services\PostCategoryServices;
+use App\Packages\Admin\Post\Services\PostServices;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentMediaProductRepository;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductCategoryRepository;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductRepository;
@@ -56,6 +60,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ProductCategoryRepository::class, EloquentProductCategoryRepository::class);
 
         // Bind Post:
+        $this->app->singleton(PostServices::class, ImplementPostServices::class);
+        $this->app->singleton(PostRepository::class, EloquentPostRepository::class);
+
         $this->app->singleton(PostCategoryServices::class, ImplementPostCategoryServices::class);
         $this->app->singleton(PostCategoryRepository::class, EloquentPostCategoryRepository::class);
 
