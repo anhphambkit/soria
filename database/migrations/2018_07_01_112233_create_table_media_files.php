@@ -21,9 +21,10 @@ class CreateTableMediaFiles extends Migration
             $table->string('path_medium')->nullable()->comment('Path to medium image file.');
             $table->string('path_small')->nullable()->comment('Path to small image file.');
             $table->string('extension')->nullable()->comment('File type (extension file type).');
-            $table->string('mimetype');
-            $table->string('filesize');
+            $table->string('mime_type');
+            $table->string('file_size');
             $table->integer('folder_id')->unsigned();
+            $table->text('external_link')->nullable()->comment('Link external media');
             $table->timestamps();
         });
     }

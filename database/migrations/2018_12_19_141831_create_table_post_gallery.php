@@ -17,7 +17,6 @@ class CreateTablePostGallery extends Migration
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('media_id');
-            $table->text('external_link');
             $table->integer('order');
             $table->timestamps();
         });

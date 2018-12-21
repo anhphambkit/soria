@@ -19,8 +19,7 @@ class CreateTablePost extends Migration
             $table->string('slug');
             $table->string('desc');
             $table->longText('content');
-            $table->integer('image_feature')->nullable();
-
+            
             // D: (draft), P: (Published)
             $table->boolean('is_publish', 1)->default(true)->comment('true: Published, false: Draft');
             $table->boolean('at_homepage')->default(false)->comment('Show post in homepage');
