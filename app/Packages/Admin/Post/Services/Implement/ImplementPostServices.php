@@ -34,6 +34,10 @@ class ImplementPostServices implements PostServices {
     public function createPost($data)
     {
         // TODO: Implement createCategory() method.
+        if (empty($data['rating']))
+            $data['rating'] = rand(4,5);
+        if (empty($data['view']))
+            $data['view'] = rand(169, 9998);
         $this->repository->createPost($data);
     }
 

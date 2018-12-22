@@ -42,8 +42,8 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
         Route::prefix('media')->group(function() {
             Route::post('/image-feature', 'Post\MediaPostController@uploadImageFeaturePost')->name('admin_ajax.post.media.image_feature');
             Route::post('/image-gallery', 'Post\MediaPostController@uploadImageGalleryPost')->name('admin_ajax.post.media.image_gallery');
-            Route::post('/image-slide', 'Post\MediaPostController@uploadImageSecondaryPost')->name('admin_ajax.post.media.image_slide');
-            Route::post('/image-secondary', 'Post\MediaPostController@uploadImageSlidePost')->name('admin_ajax.post.media.image_secondary');
+            Route::post('/image-slide', 'Post\MediaPostController@uploadImageSlidePost')->name('admin_ajax.post.media.image_slide');
+            Route::post('/image-secondary', 'Post\MediaPostController@uploadImageSecondaryPost')->name('admin_ajax.post.media.image_secondary');
             Route::post('/media-feature', 'Post\MediaPostController@uploadMediaFeaturePost')->name('admin_ajax.post.media.media_feature');
         });
 

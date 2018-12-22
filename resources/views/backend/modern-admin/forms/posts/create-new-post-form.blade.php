@@ -58,8 +58,8 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('post.post_type'))
-                @slot('name', 'post_type')
-                @slot('id', "post_type".$suffixEdit)
+                @slot('name', 'type_article')
+                @slot('id', "type_article".$suffixEdit)
                 @slot('type', 'dropdown')
                 <?php
                 //                $dropdownPostTypes[0] = trans('category.default_select_parent_category');
@@ -101,8 +101,8 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         <div class="col-md-3">
             @component('components.elements.field')
                 @slot('title', trans('post.viewed'))
-                @slot('name', 'viewed')
-                @slot('id', "viewed".$suffixEdit)
+                @slot('name', 'view')
+                @slot('id', "view".$suffixEdit)
                 @slot('type', 'number')
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
@@ -119,9 +119,9 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('post.keyword'))
-                @slot('name', 'name')
-                @slot('id', "name".$suffixEdit)
-                @slot('class', 'keyword')
+                @slot('name', 'keywords')
+                @slot('id', "keywords".$suffixEdit)
+                @slot('class', 'keywords')
                 @slot('required', true)
             @endcomponent
         </div>
@@ -133,6 +133,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('isMultiple', false)
                 @slot('headerAction', "Add a file")
                 @slot('name', 'image_feature')
+                @slot('fileNameItem', 'imgFeature')
                 @slot('idWrap', 'image_feature')
                 @slot('idCardUpload', 'bb-widget-attachments-images-feature')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
@@ -150,6 +151,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('headerAction', "Add a file")
                 @slot('name', 'image_secondary')
                 @slot('idWrap', 'image_secondary')
+                @slot('fileNameItem', 'imgSecondary')
                 @slot('idCardUpload', 'bb-widget-attachments-image-secondary')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-secondary')
                 @slot('idBtnUpload', 'bb-file-upload-image-secondary')
@@ -164,6 +166,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('title', trans('post.image_slide'))
                 @slot('name', 'image_slide')
                 @slot('idWrap', 'image_slide')
+                @slot('fileNameItem', 'imgSlides')
                 @slot('idCardUpload', 'bb-widget-attachments-image-slide')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-slide')
                 @slot('idBtnUpload', 'bb-file-upload-image-slide')
@@ -179,6 +182,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('isMultiple', false)
                 @slot('headerAction', "Add a media (video or audio)")
                 @slot('name', 'media_feature')
+                @slot('fileNameItem', 'mediaFeature')
                 @slot('idWrap', 'media_feature')
                 @slot('idCardUpload', 'bb-widget-attachments-media-feature')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-media-feature')
