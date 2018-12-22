@@ -29,8 +29,7 @@ class PostController extends Controller
      * @return
      */
     public function indexPost() {
-        $categories = $this->postCategoryServices->getAllPostCategory();
-        $posts = $this->postServices->getAllPosts();
+
         return view(config('setting.theme.system') . '.pages.posts.manage-posts', compact('posts' ,'categories'));
     }
 

@@ -56,23 +56,7 @@ interface CoreDBRepository {
     /**
      * @param $table
      * @param $where
-     * @param bool $isUnique
-     * @param string $orderBy
-     * @return mixed
-     */
-    public function getReferenceFromAttribute($table, $where, $isUnique = false, $orderBy = 'id');
-
-    /**
-     * @param $table
-     * @param $where
      * @return mixed
      */
     public function getIdRecordOfTable($table, $where);
-
-    /**
-     * @param $table
-     * @param null $where
-     * @return mixed
-     */
-    public function getDataReferenceFromTable($table, $where = null);
 }

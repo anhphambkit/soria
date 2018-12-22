@@ -16,15 +16,15 @@
     },
     "devDependencies": {
         "axios": "^0.18",
-        "popper.js": "^1.12",
         "cross-env": "^5.1",
         "jquery": "^3.2",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4"
+        "laravel-mix": "^4.0.12",
+        "lodash": "^4.17.11",
+        "popper.js": "^1.14.6"
     },
     "dependencies": {
-        "handlebars": "^4.0.11",
+        "handlebars": "^4.0.12",
         "klaw-sync": "^6.0.0",
-        "mustache": "^2.3.0"
+        "mustache": "^2.3.2"
     }
 }

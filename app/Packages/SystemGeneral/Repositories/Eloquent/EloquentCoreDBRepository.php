@@ -116,36 +116,9 @@ class EloquentCoreDBRepository implements CoreDBRepository {
     /**
      * @param $table
      * @param $where
-     * @param bool $isUnique
-     * @param string $orderBy
-     * @return mixed
-     */
-    public function getReferenceFromAttribute($table, $where, $isUnique = false, $orderBy = 'id') {
-        $query = DB::table($table)
-            ->select('*')
-            ->where($where)
-            ->orderBy($orderBy);
-        if ($isUnique) return $query->first();
-        return $query->get();
-    }
-
-    /**
-     * @param $table
-     * @param $where
      * @return mixed
      */
     public function getIdRecordOfTable($table, $where) {
         return DB::table($table)->select('id')->where($where)->first()->id;
-    }
-
-    /**
-     * @param $table
-     * @param null $where
-     * @return mixed
-     */
-    public function getDataReferenceFromTable($table, $where = null) {
-        $query = DB::table($table);
-        if ($where !== null) $query = $query->where($where);
-        return $query->get();
     }
 }

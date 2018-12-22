@@ -60,4 +60,12 @@ class ImplementPostServices implements PostServices {
         unset($data['id']);
         return $this->repository->updatePos($postCategoryId, $data);
     }
+
+    /**
+     * @return mixed
+     */
+    public function prepairDataIndexPost() {
+        $categories = $this->postCategoryServices->getAllPostCategory();
+        $posts = $this->postServices->getAllPosts();
+    }
 }
