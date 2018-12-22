@@ -16,7 +16,7 @@ managePost.columns = [
         }
     },
     {
-        title: "slug",
+        title: "Slug",
         data: 'slug',
     },
     {

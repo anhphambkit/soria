@@ -17,7 +17,7 @@ class CreateTablePost extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->string('desc');
+            $table->text('desc');
             $table->longText('content');
             
             // D: (draft), P: (Published)

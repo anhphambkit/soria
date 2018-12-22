@@ -8,6 +8,7 @@
 ?>
 @component('components.modals.modal-view-edit')
     @slot('id', 'modal-edit-product')
+    @slot('classModalCustom', 'modal-full-screen')
     @slot('title', trans('category.header_edit_category'))
     @slot('hasViewEditMode', true)
     @slot('modalBody')

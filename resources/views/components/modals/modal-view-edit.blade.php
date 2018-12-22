@@ -13,9 +13,10 @@ $modalFooter = isset($modalFooter) ? $modalFooter : '';
 $title = isset($title) ? $title : env('APP_NAME');
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
 $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
+$classModalCustom = isset($classModalCustom) ? $classModalCustom : '';
 ?>
 <div @if(isset($id)) id="{{ $id }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif">
-    <div class="modal-dialog @if($isLargeModal) modal-lg @endif">
+    <div class="modal-dialog @if($isLargeModal) modal-lg @endif {{ $classModalCustom }}">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ $title }}</h5>

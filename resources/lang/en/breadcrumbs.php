@@ -20,6 +20,7 @@ return [
     'home' => 'Home',
     'categories' => 'Categories',
     'products' => 'Products',
+    'posts' => 'Posts',
     'manage' => 'Manage',
     'new' => 'New',
 ];

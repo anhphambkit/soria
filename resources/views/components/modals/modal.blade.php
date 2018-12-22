@@ -8,11 +8,14 @@
 $title = isset($title) ? $title : env('APP_NAME');
 $class = isset($class) ? $class : '';
 $modalBody = isset($modalBody) ? $modalBody : '';
+$classModalCustom = isset($classModalCustom) ? $classModalCustom : '';
 $modalFooter = isset($modalFooter) ? $modalFooter : '';
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
+$dataKeyboard = isset($dataKeyboard) ? $dataKeyboard : "false";
+$dataBackdrop = isset($dataBackdrop) ? $dataBackdrop : "static";
 ?>
-<div id="{{ $id }}" class="modal fade modal-custom {{ $class }}">
-    <div class="modal-dialog @if($isLargeModal) modal-lg @endif">
+<div id="{{ $id }}" class="modal fade modal-custom {{ $class }}" data-backdrop="{{ $dataBackdrop }}"  data-keyboard="{{ $dataKeyboard }}">
+    <div class="modal-dialog @if($isLargeModal) modal-lg @endif {{ $classModalCustom }}">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ $title }}</h5>

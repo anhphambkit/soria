@@ -95,8 +95,8 @@
                 @endsection
 
                 @section('area-modals')
-                    {{--@include('backend.modern-admin.modals.posts.create-new-post-modal')--}}
-                    {{--@include('backend.modern-admin.modals.posts.edit-post-modal')--}}
+                    @include('backend.modern-admin.modals.posts.create-new-post-modal')
+                    @include('backend.modern-admin.modals.posts.edit-post-modal')
                 @stop
 
                 @component('components.layouts.list-with-search')

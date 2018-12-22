@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 11/7/18
- * Time: 07:06
+ * Date: 12/22/18
+ * Time: 10:51
  */
+
 $categories = (isset($categories)) ? $categories : [];
 $isModal = (isset($isModal)) ? $isModal : false;
 $isUpdateMode = (isset($isUpdateMode)) ? $isUpdateMode : false;
@@ -15,20 +16,20 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.name'))
+                @slot('title', trans('post.name'))
                 @slot('name', 'name')
                 @slot('id', "name".$suffixEdit)
-                @slot('class', 'product_name')
+                @slot('class', 'post_name')
                 @slot('attributes', [ 'data-type' => 'source-slug'])
                 @slot('required', true)
             @endcomponent
         </div>
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.slug'))
+                @slot('title', trans('post.slug'))
                 @slot('name', 'slug')
                 @slot('id', "slug".$suffixEdit)
-                @slot('class', 'product_slug')
+                @slot('class', 'post_slug')
                 @slot('attributes', [ 'data-type' => 'slug'])
                 @slot('required', true)
             @endcomponent
@@ -37,10 +38,10 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.sku'))
+                @slot('title', trans('post.sku'))
                 @slot('name', 'sku')
                 @slot('id', "sku".$suffixEdit)
-                @slot('class', 'product_sku')
+                @slot('class', 'post_sku')
                 @slot('required', true)
             @endcomponent
         </div>
@@ -51,7 +52,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('id', "category_id".$suffixEdit)
                 @slot('type', 'dropdown')
                 <?php
-//                $dropdown[0] = trans('category.default_select_parent_category');
+                //                $dropdown[0] = trans('category.default_select_parent_category');
                 $dropdown = [];
                 foreach ($categories as $category) {
                     $dropdown[$category->id] = $category->name;
@@ -65,7 +66,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.short_desc'))
+                @slot('title', trans('post.short_desc'))
                 @slot('name', 'desc')
                 @slot('id', "desc".$suffixEdit)
                 @slot('type', 'editor')
@@ -76,7 +77,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.long_desc'))
+                @slot('title', trans('post.long_desc'))
                 @slot('name', 'long_desc')
                 @slot('id', "long_desc".$suffixEdit)
                 @slot('rows', 10)
@@ -88,7 +89,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-3 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.price'))
+                @slot('title', trans('post.price'))
                 @slot('name', 'price')
                 @slot('id', "price".$suffixEdit)
                 @slot('type', 'number')
@@ -97,7 +98,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-3">
             @component('components.elements.field')
-                @slot('title', trans('product.sale_price'))
+                @slot('title', trans('post.sale_price'))
                 @slot('name', 'sale_price')
                 @slot('id', "sale_price".$suffixEdit)
                 @slot('type', 'number')
@@ -106,7 +107,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-3">
             @component('components.elements.field')
-                @slot('title', trans('product.in_stock'))
+                @slot('title', trans('post.in_stock'))
                 @slot('name', 'in_stock')
                 @slot('id', "in_stock".$suffixEdit)
                 @slot('type', 'number')
@@ -115,7 +116,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-3">
             @component('components.elements.field')
-                @slot('title', trans('product.rating'))
+                @slot('title', trans('post.rating'))
                 @slot('name', 'rating')
                 @slot('id', "rating".$suffixEdit)
                 @slot('type', 'number')
@@ -126,13 +127,13 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.third-party.file-upload')
-                @slot('title', trans('product.image_feature'))
+                @slot('title', trans('post.image_feature'))
                 @slot('name', 'feature_images')
                 @slot('idWrap', 'feature_images')
                 @slot('idCardUpload', 'bb-widget-attachments-images-feature')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
                 @slot('idBtnUpload', 'bb-file-upload-images-feature')
-                @slot('urlUpload', route('admin_ajax.media_product.image_feature', $domain))
+                @slot('urlUpload', '')
                 @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature', 'data-name-file-item' => 'imgFeatures' ])
             @endcomponent
         </div>
@@ -140,13 +141,13 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-12">
             @component('components.third-party.file-upload')
-                @slot('title', trans('product.image_gallery'))
+                @slot('title', trans('post.image_gallery'))
                 @slot('name', 'gallery_images')
                 @slot('idWrap', 'gallery_images')
                 @slot('idCardUpload', 'bb-widget-attachments-images-gallery')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery')
                 @slot('idBtnUpload', 'bb-file-upload-images-gallery')
-                @slot('urlUpload', route('admin_ajax.media_product.image_gallery', $domain))
+                @slot('urlUpload', '')
                 @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery', 'data-name-file-item' => 'imgGalleries' ])
             @endcomponent
         </div>
@@ -154,7 +155,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.publish'))
+                @slot('title', trans('post.publish'))
                 @slot('id', "is_publish".$suffixEdit)
                 @slot('name', "is_publish")
                 @slot('type', 'checkbox')
@@ -164,7 +165,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.feature'))
+                @slot('title', trans('post.feature'))
                 @slot('id', "is_feature".$suffixEdit)
                 @slot('name', 'is_feature')
                 @slot('type', 'checkbox')
@@ -174,7 +175,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.best_seller'))
+                @slot('title', trans('post.best_seller'))
                 @slot('id', "is_best_seller".$suffixEdit)
                 @slot('name', 'is_best_seller')
                 @slot('type', 'checkbox')
@@ -186,7 +187,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('product.free_ship'))
+                @slot('title', trans('post.free_ship'))
                 @slot('id', "is_free_ship".$suffixEdit)
                 @slot('name', 'is_free_ship')
                 @slot('type', 'checkbox')
@@ -196,7 +197,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-4">
             @component('components.elements.field')
-                @slot('title', trans('product.manage_stock'))
+                @slot('title', trans('post.manage_stock'))
                 @slot('name', 'manager_stock')
                 @slot('id', "manager_stock".$suffixEdit)
                 @slot('type', 'checkbox')
@@ -206,7 +207,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
         <div class="col-md-4">
             @component('components.elements.field')
-                @slot('title', trans('product.allow_order'))
+                @slot('title', trans('post.allow_order'))
                 @slot('name', 'allow_order')
                 @slot('id', "allow_order".$suffixEdit)
                 @slot('type', 'checkbox')
@@ -220,11 +221,11 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.elements.button')
                 @slot('control', 'submit')
                 @if($isUpdateMode)
-                    @slot('id', 'update-product')
+                    @slot('id', 'update-post')
                     @slot('label', trans('generals.update'))
                     @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
-                    @slot('id', 'submit-new-product')
+                    @slot('id', 'submit-new-post')
                     @slot('label', trans('generals.create'))
                 @endif
                 @if($isModal)
@@ -235,10 +236,10 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.elements.button')
                 @slot('control', 'button')
                 @if($isUpdateMode)
-                    @slot('id', 'cancel-update-product')
+                    @slot('id', 'cancel-update-post')
                     @slot('attributes', [ 'data-btn-action' => 'edit' ])
                 @else
-                    @slot('id', 'cancel-new-product')
+                    @slot('id', 'cancel-new-post')
                 @endif
                 @if($isModal)
                     @slot('attributes', [ 'data-btn-action' => 'edit', 'data-control' => 'cancel', 'data-dismiss' => "modal" ])

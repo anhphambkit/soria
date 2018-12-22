@@ -8,6 +8,7 @@
 ?>
 @component('components.modals.modal')
     @slot('id', 'modal-create-post-category')
+    @slot('classModalCustom', 'modal-full-screen')
     @slot('title', trans('category.header_create_new_category'))
     @slot('modalBody')
         @include('backend.modern-admin.forms.posts.create-new-post-category-form',

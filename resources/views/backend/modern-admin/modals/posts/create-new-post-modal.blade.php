@@ -2,20 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 11/7/18
- * Time: 07:07
+ * Date: 12/22/18
+ * Time: 10:49
  */
 ?>
 @component('components.modals.modal')
-    @slot('id', 'modal-create-product')
+    @slot('id', 'modal-create-post')
     @slot('classModalCustom', 'modal-full-screen')
     @slot('isLargeModal', true)
-    @slot('title', trans('product.header_create_new_product'))
+    @slot('title', trans('post.header_create_new_post'))
     @slot('modalBody')
-        @include('backend.modern-admin.forms.products.create-new-product-form',
+        @include('backend.modern-admin.forms.posts.create-new-post-form',
                 [
                     'isModal' => true,
-                    'idForm' => 'form-create-new-product'
+                    'idForm' => 'form-create-new-post'
                 ])
     @endslot
 @endcomponent
