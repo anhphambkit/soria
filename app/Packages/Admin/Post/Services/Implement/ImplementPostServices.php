@@ -8,19 +8,23 @@
 namespace App\Packages\Admin\Post\Services\Implement;
 
 use App\Packages\Admin\Post\Repositories\PostRepository;
+use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
 
 class ImplementPostServices implements PostServices {
 
     private $repository;
+    private $postCategoryServices;
 
     /**
      * ImplementPostServices constructor.
      * @param PostRepository $postRepository
+     * @param PostCategoryServices $postCategoryServices
      */
-    public function __construct(PostRepository $postRepository)
+    public function __construct(PostRepository $postRepository, PostCategoryServices $postCategoryServices)
     {
         $this->repository = $postRepository;
+        $this->postCategoryServices = $postCategoryServices;
     }
 
     /**
@@ -58,14 +62,6 @@ class ImplementPostServices implements PostServices {
      */
     public function updatePost($postCategoryId, $data) {
         unset($data['id']);
-        return $this->repository->updatePos($postCategoryId, $data);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function prepairDataIndexPost() {
-        $categories = $this->postCategoryServices->getAllPostCategory();
-        $posts = $this->postServices->getAllPosts();
+        return $this->repository->updatePost($postCategoryId, $data);
     }
 }

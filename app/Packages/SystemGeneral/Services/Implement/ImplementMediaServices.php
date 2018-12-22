@@ -44,8 +44,8 @@ class ImplementMediaServices implements MediaServices{
         $media = Media::create([
             'filename' => $fileNameExt,
             'path_org' => $path,
-            'mimetype' => $file->getClientOriginalExtension(),
-            'filesize' => $fileSize . ' KB',
+            'mime_type' => $file->getClientOriginalExtension(),
+            'file_size' => $fileSize . ' KB',
             'folder_id' => 1,
         ]);
 
@@ -66,19 +66,19 @@ class ImplementMediaServices implements MediaServices{
     public function getType($ext)
     {
         if (in_array($ext, $this->image_ext)) {
-            return 'image';
+            return 'images';
         }
 
         if (in_array($ext, $this->audio_ext)) {
-            return 'audio';
+            return 'audios';
         }
 
         if (in_array($ext, $this->video_ext)) {
-            return 'video';
+            return 'videos';
         }
 
         if (in_array($ext, $this->document_ext)) {
-            return 'document';
+            return 'documents';
         }
     }
 

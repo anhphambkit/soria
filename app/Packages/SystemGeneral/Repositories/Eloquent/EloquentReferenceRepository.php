@@ -27,6 +27,7 @@ class EloquentReferenceRepository implements ReferenceRepository {
         $query = DB::table($table)
             ->select('*')
             ->where($where)
+            ->where('is_publish', '=', true)
             ->orderBy($orderBy);
         if ($isUnique) return $query->first();
         return $query->get();

@@ -25,7 +25,7 @@ class Media extends Model
      */
     protected $fillable = [
         'filename', 'path_org', 'path_medium', 'path_small', 'extension',
-        'mimetype', 'filesize', 'folder_id'
+        'mime_type', 'file_size', 'folder_id'
     ];
 
     public $timestamps = true;

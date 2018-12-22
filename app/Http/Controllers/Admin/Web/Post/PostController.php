@@ -9,6 +9,8 @@ namespace App\Http\Controllers\Admin\Web\Post;
 
 use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
+use App\Packages\SystemGeneral\Constants\ReferencesConfig;
+use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SystemGeneral\Web\Controller;
 
@@ -17,10 +19,12 @@ class PostController extends Controller
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $postServices;
     protected $postCategoryServices;
-    public function __construct(PostServices $postServices, PostCategoryServices $postCategoryServices) {
+    protected $referenceRepository;
+    public function __construct(PostServices $postServices, PostCategoryServices $postCategoryServices, ReferenceRepository $referenceRepository) {
         parent::__construct();
         $this->postServices = $postServices;
         $this->postCategoryServices = $postCategoryServices;
+        $this->referenceRepository = $referenceRepository;
     }
 
     /**
@@ -29,8 +33,13 @@ class PostController extends Controller
      * @return
      */
     public function indexPost() {
-
-        return view(config('setting.theme.system') . '.pages.posts.manage-posts', compact('posts' ,'categories'));
+        $categories = $this->postCategoryServices->getAllPostCategory();
+        $posts = $this->postServices->getAllPosts();
+        $wherePostTypes = [
+            ['type', '=', ReferencesConfig::POST_TYPE],
+        ];
+        $postTypes = $this->referenceRepository->getReferenceFromAttribute(ReferencesConfig::REFERENCE_TBL, $wherePostTypes);
+        return view(config('setting.theme.system') . '.pages.posts.manage-posts', compact('posts' ,'categories', 'postTypes'));
     }
 
     /**

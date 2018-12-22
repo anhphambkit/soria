@@ -165,12 +165,13 @@
     <script src="{{ asset('assets/backend/modern-admin/assets/js/partials/post/edit-post.js') }}" type="text/javascript"></script>
     <script type="application/javascript">
         core.initCkEditor4('desc');
-        core.initCkEditor4('long_desc');
+        core.initCkEditor4('content');
         core.initCkEditor4('desc-edit');
-        core.initCkEditor4('long_desc-edit');
+        core.initCkEditor4('content-edit');
         core.initDropzoneImplement('.bb-attach-files-widget .bb-upload');
         core.initBindDropDrag();
-        core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeatures');
-        core.initFileUploadWidget('#bb-widget-attachments-images-gallery', 'imgGalleries');
+        core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeature');
+        core.initFileUploadWidget('#bb-widget-attachments-image-slide', 'imgSlides');
+        core.initFileUploadWidget('#bb-widget-attachments-image-secondary', 'imgSecondary');
     </script>
 @endsection

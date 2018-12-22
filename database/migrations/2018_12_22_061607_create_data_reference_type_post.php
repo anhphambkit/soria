@@ -18,23 +18,33 @@ class CreateDataReferenceTypePost extends Migration
         $postTypes = [
             [
                 'type' => ReferencesConfig::POST_TYPE,
+                'value' => "Normal",
+                'slug' => "normal",
+                'is_publish' => true,
+            ],
+            [
+                'type' => ReferencesConfig::POST_TYPE,
                 'value' => "Gallery",
                 'slug' => "gallery",
+                'is_publish' => true,
             ],
             [
                 'type' => ReferencesConfig::POST_TYPE,
                 'value' => "Slide",
                 'slug' => "slide",
+                'is_publish' => true,
             ],
             [
                 'type' => ReferencesConfig::POST_TYPE,
                 'value' => "Video",
                 'slug' => "video",
+                'is_publish' => false,
             ],
             [
                 'type' => ReferencesConfig::POST_TYPE,
                 'value' => "Audio",
                 'slug' => "audio",
+                'is_publish' => false,
             ]
         ];
 

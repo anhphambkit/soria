@@ -33,9 +33,4 @@ interface PostServices {
      * @return mixed
      */
     public function updatePost($postId, $data);
-
-    /**
-     * @return mixed
-     */
-    public function prepairDataIndexPost();
 }

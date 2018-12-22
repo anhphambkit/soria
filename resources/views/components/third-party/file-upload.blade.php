@@ -9,9 +9,10 @@
 $classWrap = isset($classWrap) ? $classWrap : 'wrapper-file-upload';
 $title = isset($title) ? $title : 'Upload Files';
 $idWrap = isset($idWrap) ? $idWrap : '';
-$headerAction = isset($headerAction) ? $headerAction : 'Add a file';
+$headerAction = isset($headerAction) ? $headerAction : 'Add files';
 $name = isset($name) ? $name : 'files';
 $attributes = isset($attributes) ? $attributes : [];
+$isMultiple = isset($isMultiple) ? $isMultiple : true;
 ?>
 <div class="file-upload-component {{ $classWrap }}"
      @if(isset($idWrap))
@@ -32,7 +33,7 @@ $attributes = isset($attributes) ? $attributes : [];
                         <span class="la la-cloud-upload bb-icon"></span>
                         <span class="bb-text">Choose file</span>
                         <input id="{{ $idBtnUpload }}" class="bb-btn-file-input" data-plugin="bb-file-upload" type="file"
-                            name="{{$name}}[]" data-url="{{ $urlUpload }}" multiple
+                            name="{{$name}}[]" data-url="{{ $urlUpload }}"
                             @foreach($attributes as $key => $val)
                                 {{ $key. '='. $val. ' ' }}
                             @endforeach

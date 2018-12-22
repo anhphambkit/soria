@@ -20,6 +20,7 @@ class CreateTableReference extends Migration
             $table->string('value');
             $table->integer('order')->default(0);
             $table->string('code')->nullable();
+            $table->boolean('is_publish')->default(true)->comment('true: Published');
             $table->timestamps();
         });
     }

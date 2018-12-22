@@ -22,7 +22,7 @@ class CreateTableProduct extends Migration
             $table->text('long_desc')->nullable();
 
             // D: (draft), P: (Published)
-            $table->boolean('is_publish', 1)->default(true)->comment('true: Published, false: Draft');
+            $table->boolean('is_publish')->default(true)->comment('true: Published, false: Draft');
             $table->boolean('is_feature')->default(false)->comment('Product feature');
             $table->boolean('is_best_seller')->default(false)->comment('Product is best seller');
             $table->boolean('is_free_ship')->default(false)->comment('Product is free ship');

@@ -22,6 +22,8 @@ use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentCoreDBRepository;
+use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentReferenceRepository;
+use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
 use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
 use App\Packages\SystemGeneral\Services\MediaServices;
 use Illuminate\Support\ServiceProvider;
@@ -51,6 +53,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Bind Core DB:
         $this->app->singleton(CoreDBRepository::class, EloquentCoreDBRepository::class);
+        $this->app->singleton(ReferenceRepository::class, EloquentReferenceRepository::class);
 
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);

@@ -13,7 +13,7 @@ class CreateTablePostGallery extends Migration
      */
     public function up()
     {
-        Schema::create('post_gallery', function (Blueprint $table) {
+        Schema::create('post_galleries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('media_id');
@@ -29,6 +29,6 @@ class CreateTablePostGallery extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_gallery');
+        Schema::dropIfExists('post_galleries');
     }
 }

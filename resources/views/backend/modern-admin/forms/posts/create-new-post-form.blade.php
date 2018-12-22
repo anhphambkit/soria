@@ -7,6 +7,8 @@
  */
 
 $categories = (isset($categories)) ? $categories : [];
+$postTypes = (isset($postTypes)) ? $postTypes : [];
+$postTypeCurrent = (isset($postTypeId)) ? ((sizeof($postTypes) > 0) ? $postTypes->where('id', '=', $postTypeId)->first() : null) : ((sizeof($postTypes) > 0) ? $postTypes->first() : null);
 $isModal = (isset($isModal)) ? $isModal : false;
 $isUpdateMode = (isset($isUpdateMode)) ? $isUpdateMode : false;
 $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
@@ -38,15 +40,6 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('post.sku'))
-                @slot('name', 'sku')
-                @slot('id', "sku".$suffixEdit)
-                @slot('class', 'post_sku')
-                @slot('required', true)
-            @endcomponent
-        </div>
-        <div class="col-md-6 form-custom-validate-js">
-            @component('components.elements.field')
                 @slot('title', trans('category.category_parent'))
                 @slot('name', 'category_id')
                 @slot('id', "category_id".$suffixEdit)
@@ -62,6 +55,23 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('attributes', [ 'multiple' => 'multiple', 'data-plugin' => 'select2'])
             @endcomponent
         </div>
+        <div class="col-md-6 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('post.post_type'))
+                @slot('name', 'post_type')
+                @slot('id', "post_type".$suffixEdit)
+                @slot('type', 'dropdown')
+                <?php
+                //                $dropdownPostTypes[0] = trans('category.default_select_parent_category');
+                $dropdownPostTypes = [];
+                foreach ($postTypes as $postType) {
+                    $dropdownPostTypes[$postType->id] = $postType->value;
+                }
+                ?>
+                @slot('values', $dropdownPostTypes)
+                @slot('attributes', ['data-plugin' => 'select2'])
+            @endcomponent
+        </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
@@ -70,6 +80,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('name', 'desc')
                 @slot('id', "desc".$suffixEdit)
                 @slot('type', 'editor')
+                @slot('rows', 20)
                 @slot('attributes', [ 'data-plugin' => 'ckeditor'])
             @endcomponent
         </div>
@@ -77,39 +88,21 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('post.long_desc'))
-                @slot('name', 'long_desc')
-                @slot('id', "long_desc".$suffixEdit)
-                @slot('rows', 10)
+                @slot('title', trans('post.content'))
+                @slot('name', 'content')
+                @slot('id', "content".$suffixEdit)
+                @slot('rows', 20)
                 @slot('type', 'editor')
                 @slot('attributes', [ 'data-plugin' => 'ckeditor'])
             @endcomponent
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-3 form-custom-validate-js">
-            @component('components.elements.field')
-                @slot('title', trans('post.price'))
-                @slot('name', 'price')
-                @slot('id', "price".$suffixEdit)
-                @slot('type', 'number')
-                @slot('attributes', [ 'min' => '0' ])
-            @endcomponent
-        </div>
         <div class="col-md-3">
             @component('components.elements.field')
-                @slot('title', trans('post.sale_price'))
-                @slot('name', 'sale_price')
-                @slot('id', "sale_price".$suffixEdit)
-                @slot('type', 'number')
-                @slot('attributes', [ 'min' => '0' ])
-            @endcomponent
-        </div>
-        <div class="col-md-3">
-            @component('components.elements.field')
-                @slot('title', trans('post.in_stock'))
-                @slot('name', 'in_stock')
-                @slot('id', "in_stock".$suffixEdit)
+                @slot('title', trans('post.viewed'))
+                @slot('name', 'viewed')
+                @slot('id', "viewed".$suffixEdit)
                 @slot('type', 'number')
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
@@ -120,35 +113,78 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('name', 'rating')
                 @slot('id', "rating".$suffixEdit)
                 @slot('type', 'number')
-                @slot('attributes', [ 'min' => '0' ])
+                @slot('attributes', [ 'min' => '0', 'max' => '5' ])
+            @endcomponent
+        </div>
+        <div class="col-md-6 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('post.keyword'))
+                @slot('name', 'name')
+                @slot('id', "name".$suffixEdit)
+                @slot('class', 'keyword')
+                @slot('required', true)
             @endcomponent
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row image-feature-upload {{ ($postTypeCurrent->value === "Gallery" || $postTypeCurrent->value === "Slide" || $postTypeCurrent->value === "Normal") ? '' : 'd-none' }}">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.third-party.file-upload')
                 @slot('title', trans('post.image_feature'))
-                @slot('name', 'feature_images')
-                @slot('idWrap', 'feature_images')
+                @slot('isMultiple', false)
+                @slot('headerAction', "Add a file")
+                @slot('name', 'image_feature')
+                @slot('idWrap', 'image_feature')
                 @slot('idCardUpload', 'bb-widget-attachments-images-feature')
                 @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
                 @slot('idBtnUpload', 'bb-file-upload-images-feature')
-                @slot('urlUpload', '')
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature', 'data-name-file-item' => 'imgFeatures' ])
+                @slot('urlUpload', route('admin_ajax.post.media.image_feature', $domain))
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature', 'data-name-file-item' => 'imgFeature' ])
             @endcomponent
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row image-secondary-upload {{ ($postTypeCurrent->value === "Gallery") ? '' : 'd-none' }}">
         <div class="col-md-12">
             @component('components.third-party.file-upload')
-                @slot('title', trans('post.image_gallery'))
-                @slot('name', 'gallery_images')
-                @slot('idWrap', 'gallery_images')
-                @slot('idCardUpload', 'bb-widget-attachments-images-gallery')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery')
-                @slot('idBtnUpload', 'bb-file-upload-images-gallery')
-                @slot('urlUpload', '')
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery', 'data-name-file-item' => 'imgGalleries' ])
+                @slot('title', trans('post.image_secondary'))
+                @slot('isMultiple', false)
+                @slot('headerAction', "Add a file")
+                @slot('name', 'image_secondary')
+                @slot('idWrap', 'image_secondary')
+                @slot('idCardUpload', 'bb-widget-attachments-image-secondary')
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-secondary')
+                @slot('idBtnUpload', 'bb-file-upload-image-secondary')
+                @slot('urlUpload', route('admin_ajax.post.media.image_secondary', $domain))
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery', 'data-name-file-item' => 'imgSecondary' ])
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row image-slides-upload {{ ($postTypeCurrent->value === "Slide") ? '' : 'd-none' }}">
+        <div class="col-md-12">
+            @component('components.third-party.file-upload')
+                @slot('title', trans('post.image_slide'))
+                @slot('name', 'image_slide')
+                @slot('idWrap', 'image_slide')
+                @slot('idCardUpload', 'bb-widget-attachments-image-slide')
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-slide')
+                @slot('idBtnUpload', 'bb-file-upload-image-slide')
+                @slot('urlUpload', route('admin_ajax.post.media.image_slide', $domain))
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-image-slide', 'data-name-file-item' => 'imgSlides' ])
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row media-feature-upload {{ ($postTypeCurrent->value === "Audio" || $postTypeCurrent->value === "Video") ? '' : 'd-none' }}">
+        <div class="col-md-12">
+            @component('components.third-party.file-upload')
+                @slot('title', trans('post.media_feature'))
+                @slot('isMultiple', false)
+                @slot('headerAction', "Add a media (video or audio)")
+                @slot('name', 'media_feature')
+                @slot('idWrap', 'media_feature')
+                @slot('idCardUpload', 'bb-widget-attachments-media-feature')
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-media-feature')
+                @slot('idBtnUpload', 'bb-file-upload-media-feature')
+                @slot('urlUpload', route('admin_ajax.post.media.media_feature', $domain))
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-media-feature', 'data-name-file-item' => 'mediaFeature' ])
             @endcomponent
         </div>
     </div>
@@ -160,59 +196,17 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('name', "is_publish")
                 @slot('type', 'checkbox')
                 @slot('checked', false)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => "fasle" ])
-            @endcomponent
-        </div>
-        <div class="col-md-4 form-custom-validate-js">
-            @component('components.elements.field')
-                @slot('title', trans('post.feature'))
-                @slot('id', "is_feature".$suffixEdit)
-                @slot('name', 'is_feature')
-                @slot('type', 'checkbox')
-                @slot('checked', false)
                 @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => false ])
             @endcomponent
         </div>
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
-                @slot('title', trans('post.best_seller'))
-                @slot('id', "is_best_seller".$suffixEdit)
-                @slot('name', 'is_best_seller')
+                @slot('title', trans('post.show_at_homepage'))
+                @slot('id', "show_at_homepage".$suffixEdit)
+                @slot('name', 'show_at_homepage')
                 @slot('type', 'checkbox')
                 @slot('checked', false)
                 @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => false ])
-            @endcomponent
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-md-4 form-custom-validate-js">
-            @component('components.elements.field')
-                @slot('title', trans('post.free_ship'))
-                @slot('id', "is_free_ship".$suffixEdit)
-                @slot('name', 'is_free_ship')
-                @slot('type', 'checkbox')
-                @slot('checked', false)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => false ])
-            @endcomponent
-        </div>
-        <div class="col-md-4">
-            @component('components.elements.field')
-                @slot('title', trans('post.manage_stock'))
-                @slot('name', 'manager_stock')
-                @slot('id', "manager_stock".$suffixEdit)
-                @slot('type', 'checkbox')
-                @slot('checked', true)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => true ])
-            @endcomponent
-        </div>
-        <div class="col-md-4">
-            @component('components.elements.field')
-                @slot('title', trans('post.allow_order'))
-                @slot('name', 'allow_order')
-                @slot('id', "allow_order".$suffixEdit)
-                @slot('type', 'checkbox')
-                @slot('checked', true)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => true ])
             @endcomponent
         </div>
     </div>

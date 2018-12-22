@@ -10,6 +10,8 @@ namespace App\Packages\SystemGeneral\Constants;
 
 interface MediaConfig
 {
-    CONST ROOT_STORAGE = 'public';
     CONST MEDIA_TBL = 'media__files';
+    CONST ROOT_STORAGE = 'public';
+    CONST ROOT_PRODUCT_STORAGE = 'public/products';
+    CONST ROOT_POST_STORAGE = 'public/posts';
 }
