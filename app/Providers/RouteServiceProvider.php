@@ -16,7 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\Http\Controllers\SystemGeneral';
     protected $namespaceAdmin = 'App\Http\Controllers\Admin';
-    protected $namespaceCustomer = 'App\Http\Controllers\Customer';
+    protected $namespaceClient = 'App\Http\Controllers\Client';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace . "\Web")
+             ->namespace($this->namespaceClient . "\Web")
              ->group(base_path('routes/web.php'));
 
         //Register for admin:
@@ -88,7 +88,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAjaxRoutes()
     {
         Route::prefix('ajax')
-             ->namespace($this->namespace. "\Ajax")
+             ->namespace($this->namespaceClient. "\Ajax")
              ->group(base_path('routes/ajax.php'));
 
         //Register for admin:

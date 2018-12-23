@@ -16,7 +16,5 @@
  *
  *********************************************************/
 Route::domain('{mainDomain}')->group(function () {
-    Route::get('/', function () {
-        return view(config('setting.theme.client') . '.layouts.single-post');
-    })->name('home');
+    Route::get('/', 'ClientController@index')->name('client.page.home');
 });

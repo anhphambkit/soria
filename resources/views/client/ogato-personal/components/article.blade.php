@@ -6,6 +6,18 @@
  * Time: 15:23
  */
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
+$medias = isset($medias) ? $medias : [];
+//dd($categories);
+$categories = isset($categories) ? $categories : [];
+$avatar_link = isset($avatar_link) ? $avatar_link : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
+$username = isset($username) ? $username : "Admin";
+$featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
+$secondaryImage = "assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg";
+if (sizeof($medias) > 0)
+    $featureImage = reset($medias)['path_org'];
+
+if (sizeof($medias) > 1)
+    $secondaryImage = end($medias)['path_org'];
 
 switch ($typeArticle) {
     case 'gallery':
@@ -36,12 +48,12 @@ switch ($typeArticle) {
         <div class="post_banner post_banner_gallery">
             <div class="gallery_image_1">
                 <a href="#">
-                    <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p2.jpg') }}" alt="">
+                    <img src="{{ asset($featureImage) }}" alt="">
                 </a>
             </div>
 
             <div class="gallery_image_2">
-                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg') }}" alt="">
+                <img src="{{ asset($secondaryImage) }}" alt="">
                 <a href="#">
 
                 </a>
@@ -74,35 +86,21 @@ switch ($typeArticle) {
     @elseif($typeArticle === 'slide')
         <div class="post_banner post_banner_gallery_cur">
             <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="gallery_image_1">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p4.jpg') }}" alt="">
-                        </a>
+               @foreach($medias as $item)
+                    <div class="item">
+                        <div class="gallery_image_1">
+                            <a href="#">
+                                <img src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="gallery_image_1">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p5.jpg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="gallery_image_1">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p6.jpg') }}" alt="">
-                        </a>
-                    </div>
-                </div>
+               @endforeach
             </div>
         </div>
     @else
         <div class="gallery_image_1">
             <a href="#">
-                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p1.jpg') }}" alt="">
+                <img src="{{ asset($featureImage) }}" alt="">
             </a>
         </div>
     @endif
@@ -111,36 +109,34 @@ switch ($typeArticle) {
             <span class="post_meta_item post_author">
                 <a href="#">
                     <span class="post_author_img">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" alt="">
+                        <img src="{{ asset($avatar_link) }}" alt="">
                     </span>
-                    <span class="post_author_info">by : ogato </span>
+                    <span class="post_author_info">by : {{ $username }} </span>
                 </a>
             </span>
 
             <a href="#">
-                <span class="post_meta_item post_cat">life</span>
+                <span class="post_meta_item post_cat">
+                    @for($i=0; $i < sizeof($categories); $i++)
+                        {{ $categories[$i]['name'] }}
+                        @if($i < sizeof($categories) - 1)
+                            ,
+                        @endif
+                    @endfor
+                </span>
             </a>
 
             <a href="#">
-                <span class="post_meta_item meta_item_date">February 27, 2018</span>
+                <span class="post_meta_item meta_item_date">{{ $created_at }}</span>
             </a>
         </div>
 
         <div class="post_header">
-            <h3><a href="#">Makeup Primers for Everyday Wear</a></h3>
+            <h3><a href="#">{{ $name }}</a></h3>
         </div>
 
         <div class="post_info_wrapper">
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis
-                bibendum auctor, nisi elit consequat ipsum, nec sagittis jmnibh id elit.
-                Duis
-                sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
-                ipsum
-                velit. Nam nec tellus ale oplodio tincidunt auctor a ornare odio. Sed non
-                mauris
-                vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad
-                litora
-                orquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
+            {!! $desc !!}
         </div>
 
         <div class="post_bottom_meta">

@@ -5,6 +5,7 @@
  * Date: 12/18/18
  * Time: 16:02
  */
+//dd($posts);
 ?>
 @extends('client.ogato-personal.client-master', [ 'isSinglePost' => false ])
 
@@ -44,21 +45,18 @@
 
 {{--content page must define before section content--}}
 @section('content-page')
-    @component('client.ogato-personal.components.article')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'gallery')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'video')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'audio')
-    @endcomponent
-    @component('client.ogato-personal.components.article')
-        @slot('typeArticle', 'slide')
-    @endcomponent
-    @include('client.ogato-personal.partials.pagination')
+    @foreach($posts as $post)
+        @component('client.ogato-personal.components.article')
+            @slot('typeArticle', strtolower($post->type_post))
+            @slot('medias', $post->medias)
+            @slot('categories', $post->categories)
+            @slot('avatar_link', $post->avatar_link)
+            @slot('created_at', $post->created_at)
+            @slot('name', $post->name)
+            @slot('desc', $post->desc)
+        @endcomponent
+    @endforeach
+    {{--@include('client.ogato-personal.partials.pagination')--}}
 @endsection
 
 @section('content')

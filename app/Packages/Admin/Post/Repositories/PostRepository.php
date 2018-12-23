@@ -32,4 +32,11 @@ interface PostRepository {
      * @return mixed
      */
     public function updatePost($postId, $data);
+
+    /**
+     * @param int|null $categoryId | if categoryId null, get all posts
+     * @param boolean $isHomepage | default false
+     * @return mixed
+     */
+    public function getAllPostsByCategory(int $categoryId = null, bool $isHomepage = false);
 }

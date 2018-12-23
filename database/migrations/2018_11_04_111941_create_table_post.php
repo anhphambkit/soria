@@ -28,7 +28,8 @@ class CreateTablePost extends Migration
             $table->integer('view')->default(0)->comment('Number of viewed for this product.');
 
             $table->string('keywords')->nullable();
-            $table->string('type_article')->nullable()->comment('Gallery | Slide | Video | Audio');
+            $table->integer('type_article')->nullable()->comment('Reference Gallery | Slide | Video | Audio');
+            $table->integer('created_by')->default(1);
 
             $table->timestamps();
         });

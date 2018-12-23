@@ -13,6 +13,7 @@ use App\Packages\Admin\Post\Entities\Post;
 use App\Packages\Admin\Post\Entities\PostCategoryRelation;
 use App\Packages\Admin\Post\Repositories\PostRepository;
 use App\Packages\SystemGeneral\Constants\MediaConfig;
+use App\Packages\SystemGeneral\Constants\ReferencesConfig;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
@@ -92,5 +93,36 @@ class EloquentPostRepository implements PostRepository {
         catch (Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    /**
+     * @param int|null $categoryId | if categoryId null, get all posts
+     * @param boolean $isHomepage | default false
+     * @return mixed
+     */
+    public function getAllPostsByCategory(int $categoryId = null, bool $isHomepage = false) {
+        $query = $this->model
+                        ->select('posts.id', 'posts.name', 'posts.slug', 'posts.desc', 'posts.rating', 'posts.view', 'posts.type_article',
+                            'posts.created_at', 'posts.updated_at', 'reference.value as type_post', 'users.username', 'users.avatar_link',
+                            DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                        )
+                        ->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                        ->leftJoin(PostCategoryConfig::POST_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                        ->leftJoin(ReferencesConfig::REFERENCE_TBL . ' as reference', 'reference.id', '=', 'posts.type_article')
+                        ->leftJoin(MediaPostConfig::GALLERY_POST_TBL . ' as gallery_images_tbl', 'posts.id', '=', 'gallery_images_tbl.post_id')
+                        ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'gallery_images_tbl.media_id')
+                        ->leftJoin('users', 'users.id', '=', 'posts.created_by')
+                        ->groupBy('posts.id', 'reference.value', 'users.username', 'users.avatar_link')
+                        ->where('posts.is_publish', '=', true);
+
+        if ($isHomepage)
+            $query = $query->where('posts.at_homepage', '=', true);
+
+        if ($categoryId)
+            $query = $query->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                            ->where('relation.cate_id', '=', $categoryId);
+
+        return $query->orderBy('created_at', 'desc')->get();
     }
 }

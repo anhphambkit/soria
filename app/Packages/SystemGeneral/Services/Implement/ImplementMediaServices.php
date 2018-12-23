@@ -43,7 +43,7 @@ class ImplementMediaServices implements MediaServices{
 
         $media = Media::create([
             'filename' => $fileNameExt,
-            'path_org' => $path,
+            'path_org' => str_replace('public/', 'storage/', $path),
             'mime_type' => $file->getClientOriginalExtension(),
             'file_size' => $fileSize . ' KB',
             'folder_id' => 1,
