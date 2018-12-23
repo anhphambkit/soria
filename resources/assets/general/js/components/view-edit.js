@@ -61,6 +61,13 @@ class ViewEdit extends Form{
                             $(this).prop("disabled", true);
                             break;
 
+                        case 'bb-file-upload':
+                            let wrapperUploadId = $("#" + idElement).parents('.file-upload-component')[0].id;
+                            $("#" + wrapperUploadId + " .bb-upload-block").addClass("d-none");
+                            $("#" + wrapperUploadId + " input").attr("disabled", "disabled");
+                            $("#" + wrapperUploadId + " .bb-file .bb-remove").addClass("d-none");
+                            break;
+
                         default:
                             $(this).attr('disabled','disabled');
                     }
@@ -81,6 +88,13 @@ class ViewEdit extends Form{
 
                         case 'select2':
                             $(this).prop("disabled", false);
+                            break;
+
+                        case 'bb-file-upload':
+                            let wrapperUploadId = $("#" + idElement).parents('.file-upload-component')[0].id;
+                            $("#" + wrapperUploadId + " .bb-upload-block").removeClass("d-none");
+                            $("#" + wrapperUploadId + " input").removeAttr("disabled");
+                            $("#" + wrapperUploadId + " .bb-file .bb-remove").removeClass("d-none");
                             break;
 
                         default:
@@ -114,6 +128,13 @@ class ViewEdit extends Form{
 
                     case 'select2':
                         $(this).prop("disabled", true);
+                        break;
+
+                    case 'bb-file-upload':
+                        let wrapperUploadId = $("#" + idElement).parents('.file-upload-component')[0].id;
+                        $("#" + wrapperUploadId + " .bb-upload-block").addClass("d-none");
+                        $("#" + wrapperUploadId + " input").attr("disabled", "disabled");
+                        $("#" + wrapperUploadId + " .bb-file .bb-remove").addClass("d-none");
                         break;
 
                     default:

@@ -57,7 +57,7 @@ class CreatePostRequest extends CoreFormRequest
             'category_id' => 'required',
             'type_article' => 'required|numeric',
             'is_publish' => 'required',
-            'show_at_homepage' => 'required',
+            'at_homepage' => 'required',
             'imgFeature' => 'required',
             'imgSecondary' => 'required_if:type_article,==,'.$galleryPostType->id,
             'imgSlides' => 'required_if:type_article,==,'.$slidePostType->id,

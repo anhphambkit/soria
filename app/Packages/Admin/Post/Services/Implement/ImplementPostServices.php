@@ -105,7 +105,7 @@ class ImplementPostServices implements PostServices {
                 break;
             case $slidePostType->id:
                 // Insert image secondary:
-                $imgSlides = $data['imgSlide'];
+                $imgSlides = $data['imgSlides'];
                 $imgSlidePost = [];
                 foreach ($imgSlides as $imgSlide) {
                     $newImgSlide = [
@@ -137,6 +137,71 @@ class ImplementPostServices implements PostServices {
     public function getDetailPost($postCategoryId) {
         // TODO: Implement getDetailPost() method.
         $post = $this->repository->getDetailPost($postCategoryId);
+        $post = collect($post);
+        if (sizeof($post['medias']) > 0) {
+            $wherePostTypes = [
+                ['type', '=', ReferencesConfig::POST_TYPE],
+            ];
+            $postTypes = $this->referenceRepository->getReferenceFromAttribute(ReferencesConfig::REFERENCE_TBL, $wherePostTypes);
+            $galleryPostType = $postTypes->where('value', '=', ReferencesConfig::GALLERY_POST_TYPE)->first();
+            $slidePostType = $postTypes->where('value', '=', ReferencesConfig::SLIDE_POST_TYPE)->first();
+            $normalPostType = $postTypes->where('value', '=', ReferencesConfig::NORMAL_POST_TYPE)->first();
+            $post->put("image_feature", [$post['medias'][0]]);
+            switch ((int)$post['type_article']) {
+                case $galleryPostType->id:
+                    // get image secondary:
+                    $post->put("image_secondary", array_slice($post['medias'], 1));
+                    break;
+                case $slidePostType->id:
+                    // get image slide:
+                    $post->put("image_slide", array_slice($post['medias'], 1));
+                    break;
+            }
+        }
+
+        return $post;
+    }
+
+    /**
+     * @param $postId
+     * @param $data
+     * @return mixed
+     */
+    public function updatePost($postId, $data) {
+        $whereDelete = [
+            [
+                'post_id', '=',  $postId
+            ]
+        ];
+
+        // Insert relation category product:
+        $categories = $data['category_id'];
+        $categoryPost = [];
+        foreach ($categories as $category) {
+            $newCategoryPost = [
+                'post_id' => $postId,
+                'cate_id' => (int)$category
+            ];
+            array_push($categoryPost, $newCategoryPost);
+        }
+        $this->coreDBRepository->deleteAndCreateNewRecordOfTable(PostCategoryConfig::CATEGORY_POST_RELATION_TBL, $whereDelete, $categoryPost);
+
+        // Update media:
+        // Insert image secondary:
+        $imgFeatures = $data['imgFeature'];
+        $imgFeaturesPost = [];
+        $index = 0;
+        foreach ($imgFeatures as $imgFeature) {
+            $newImgFeature = [
+                'post_id' => $postId,
+                'media_id' => (int)$imgFeature,
+                'order' => $index
+            ];
+            array_push($imgFeaturesPost, $newImgFeature);
+            $index++;
+        }
+        $this->coreDBRepository->deleteAndCreateNewRecordOfTable(MediaPostConfig::GALLERY_POST_TBL, $whereDelete, $imgFeaturesPost);
+
         $wherePostTypes = [
             ['type', '=', ReferencesConfig::POST_TYPE],
         ];
@@ -144,27 +209,45 @@ class ImplementPostServices implements PostServices {
         $galleryPostType = $postTypes->where('value', '=', ReferencesConfig::GALLERY_POST_TYPE)->first();
         $slidePostType = $postTypes->where('value', '=', ReferencesConfig::SLIDE_POST_TYPE)->first();
         $normalPostType = $postTypes->where('value', '=', ReferencesConfig::NORMAL_POST_TYPE)->first();
-        $post->image_feature = reset($post->media);
-        switch ((int)$post->type_article) {
+
+        switch ((int)$data['type_article']) {
             case $galleryPostType->id:
-                // get image secondary:
-                $post->image_secondary = array_slice($post->media, 1);
+                // Insert image secondary:
+                $imgSecondaries = $data['imgSecondary'];
+                $imgSecondaryPost = [];
+                foreach ($imgSecondaries as $imgSecondary) {
+                    $newImgSecondary = [
+                        'post_id' => $postId,
+                        'media_id' => (int)$imgSecondary,
+                        'order' => $index
+                    ];
+                    array_push($imgSecondaryPost, $newImgSecondary);
+                    $index++;
+                }
+                $this->coreDBRepository->createNewRecordOfTable(MediaPostConfig::GALLERY_POST_TBL, $imgSecondaryPost);
                 break;
             case $slidePostType->id:
-                // get image slide:
-                $post->image_slide = array_slice($post->media, 1);
+                // Insert image secondary:
+                $imgSlides = $data['imgSlides'];
+                $imgSlidePost = [];
+                foreach ($imgSlides as $imgSlide) {
+                    $newImgSlide = [
+                        'post_id' => $postId,
+                        'media_id' => (int)$imgSlide,
+                        'order' => $index
+                    ];
+                    array_push($imgSlidePost, $newImgSlide);
+                    $index++;
+                }
+                $this->coreDBRepository->createNewRecordOfTable(MediaPostConfig::GALLERY_POST_TBL, $imgSlidePost);
                 break;
         }
-        return $post;
-    }
 
-    /**
-     * @param $postCategoryId
-     * @param $data
-     * @return mixed
-     */
-    public function updatePost($postCategoryId, $data) {
         unset($data['id']);
-        return $this->repository->updatePost($postCategoryId, $data);
+        unset($data['category_id']);
+        unset($data['imgFeature']);
+        unset($data['imgSlides']);
+        unset($data['imgSecondary']);
+        return $this->repository->updatePost($postId, $data);
     }
 }

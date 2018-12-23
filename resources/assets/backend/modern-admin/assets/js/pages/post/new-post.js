@@ -49,6 +49,7 @@ $('document').ready(function () {
         }
     });
 });
+
 // Define Form
 let postForm = new Form();
 postForm.wrapper = '#form-create-new-post';

@@ -83,11 +83,19 @@ class EloquentCoreDBRepository implements CoreDBRepository {
      * @return mixed|void
      */
     public function deleteAndCreateNewRecordOfTable($db, $whereDelete, $new) {
+        // Delete records:
         DB::beginTransaction();
         try{
-            // Delete records:
             DB::table($db)->where($whereDelete)->delete();
-            // Create new:
+        }catch(\Exception $ex)
+        {
+            DB::rollback();
+        }
+        DB::commit();
+
+        // Create new:
+        DB::beginTransaction();
+        try{
             DB::table($db)->insert($new);
         }catch(\Exception $ex)
         {

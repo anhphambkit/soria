@@ -27,4 +27,15 @@ class Post extends Model
     ];
 
     public $timestamps = true;
+
+
+    public function getCategoryIdAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getMediasAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

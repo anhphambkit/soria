@@ -173,5 +173,10 @@
         core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeature');
         core.initFileUploadWidget('#bb-widget-attachments-image-slide', 'imgSlides');
         core.initFileUploadWidget('#bb-widget-attachments-image-secondary', 'imgSecondary');
+
+        //Edit:
+        core.initFileUploadWidget('#bb-widget-attachments-images-feature-edit', 'imgFeature');
+        core.initFileUploadWidget('#bb-widget-attachments-image-slide-edit', 'imgSlides');
+        core.initFileUploadWidget('#bb-widget-attachments-image-secondary-edit', 'imgSecondary');
     </script>
 @endsection

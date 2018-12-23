@@ -11,8 +11,8 @@ $postTypes = (isset($postTypes)) ? $postTypes : [];
 $postTypeCurrent = (isset($postTypeId)) ? ((sizeof($postTypes) > 0) ? $postTypes->where('id', '=', $postTypeId)->first() : null) : ((sizeof($postTypes) > 0) ? $postTypes->first() : null);
 $isModal = (isset($isModal)) ? $isModal : false;
 $isUpdateMode = (isset($isUpdateMode)) ? $isUpdateMode : false;
-$idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
 $suffixEdit = ($isUpdateMode) ? '-edit' : '';
+$idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
 ?>
 <form role="form" id="{{ $idForm }}">
     <div class="form-group row">
@@ -134,12 +134,12 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('headerAction', "Add a file")
                 @slot('name', 'image_feature')
                 @slot('fileNameItem', 'imgFeature')
-                @slot('idWrap', 'image_feature')
-                @slot('idCardUpload', 'bb-widget-attachments-images-feature')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
-                @slot('idBtnUpload', 'bb-file-upload-images-feature')
+                @slot('idWrap', 'image_feature'.$suffixEdit)
+                @slot('idCardUpload', 'bb-widget-attachments-images-feature'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-images-feature'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.post.media.image_feature', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature', 'data-name-file-item' => 'imgFeature' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature'.$suffixEdit, 'data-name-file-item' => 'imgFeature' ])
             @endcomponent
         </div>
     </div>
@@ -150,13 +150,13 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('isMultiple', false)
                 @slot('headerAction', "Add a file")
                 @slot('name', 'image_secondary')
-                @slot('idWrap', 'image_secondary')
+                @slot('idWrap', 'image_secondary'.$suffixEdit)
                 @slot('fileNameItem', 'imgSecondary')
-                @slot('idCardUpload', 'bb-widget-attachments-image-secondary')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-secondary')
-                @slot('idBtnUpload', 'bb-file-upload-image-secondary')
+                @slot('idCardUpload', 'bb-widget-attachments-image-secondary'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-secondary'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-image-secondary'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.post.media.image_secondary', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery', 'data-name-file-item' => 'imgSecondary' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-image-secondary'.$suffixEdit, 'data-name-file-item' => 'imgSecondary' ])
             @endcomponent
         </div>
     </div>
@@ -165,13 +165,13 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.third-party.file-upload')
                 @slot('title', trans('post.image_slide'))
                 @slot('name', 'image_slide')
-                @slot('idWrap', 'image_slide')
+                @slot('idWrap', 'image_slide'.$suffixEdit)
                 @slot('fileNameItem', 'imgSlides')
-                @slot('idCardUpload', 'bb-widget-attachments-image-slide')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-slide')
-                @slot('idBtnUpload', 'bb-file-upload-image-slide')
+                @slot('idCardUpload', 'bb-widget-attachments-image-slide'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-image-slide'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-image-slide'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.post.media.image_slide', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-image-slide', 'data-name-file-item' => 'imgSlides' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-image-slide'.$suffixEdit, 'data-name-file-item' => 'imgSlides' ])
             @endcomponent
         </div>
     </div>
@@ -183,12 +183,12 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('headerAction', "Add a media (video or audio)")
                 @slot('name', 'media_feature')
                 @slot('fileNameItem', 'mediaFeature')
-                @slot('idWrap', 'media_feature')
-                @slot('idCardUpload', 'bb-widget-attachments-media-feature')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-media-feature')
-                @slot('idBtnUpload', 'bb-file-upload-media-feature')
+                @slot('idWrap', 'media_feature'.$suffixEdit)
+                @slot('idCardUpload', 'bb-widget-attachments-media-feature'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-media-feature'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-media-feature'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.post.media.media_feature', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-media-feature', 'data-name-file-item' => 'mediaFeature' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-media-feature'.$suffixEdit, 'data-name-file-item' => 'mediaFeature' ])
             @endcomponent
         </div>
     </div>
@@ -200,17 +200,17 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('name', "is_publish")
                 @slot('type', 'checkbox')
                 @slot('checked', false)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => false ])
+                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => "false" ])
             @endcomponent
         </div>
         <div class="col-md-4 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('post.show_at_homepage'))
-                @slot('id', "show_at_homepage".$suffixEdit)
-                @slot('name', 'show_at_homepage')
+                @slot('id', "at_homepage".$suffixEdit)
+                @slot('name', 'at_homepage')
                 @slot('type', 'checkbox')
                 @slot('checked', false)
-                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => false ])
+                @slot('attributes', [ 'data-plugin' => 'switchery', 'data-default' => "false" ])
             @endcomponent
         </div>
     </div>
