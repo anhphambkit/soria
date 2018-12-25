@@ -1,20 +1,8 @@
 {
-    "/assets/backend/modern-admin/assets/js/partials/product/edit-product.js": "/assets/backend/modern-admin/assets/js/partials/product/edit-product.js",
-    "/assets/backend/modern-admin/assets/js/partials/product/edit-product-category.js": "/assets/backend/modern-admin/assets/js/partials/product/edit-product-category.js",
-    "/assets/backend/modern-admin/assets/js/partials/post/edit-post.js": "/assets/backend/modern-admin/assets/js/partials/post/edit-post.js",
-    "/assets/backend/modern-admin/assets/js/partials/post/edit-post-category.js": "/assets/backend/modern-admin/assets/js/partials/post/edit-post-category.js",
-    "/assets/backend/modern-admin/assets/js/pages/product/new-product.js": "/assets/backend/modern-admin/assets/js/pages/product/new-product.js",
-    "/assets/backend/modern-admin/assets/js/pages/product/new-product-category.js": "/assets/backend/modern-admin/assets/js/pages/product/new-product-category.js",
-    "/assets/backend/modern-admin/assets/js/pages/post/new-post.js": "/assets/backend/modern-admin/assets/js/pages/post/new-post.js",
-    "/assets/backend/modern-admin/assets/js/pages/post/new-post-category.js": "/assets/backend/modern-admin/assets/js/pages/post/new-post-category.js",
-    "/assets/backend/modern-admin/assets/js/pages/product/manage-products.js": "/assets/backend/modern-admin/assets/js/pages/product/manage-products.js",
-    "/assets/backend/modern-admin/assets/js/pages/post/manage-posts.js": "/assets/backend/modern-admin/assets/js/pages/post/manage-posts.js",
-    "/assets/backend/modern-admin/assets/js/pages/post/manage-post-category.js": "/assets/backend/modern-admin/assets/js/pages/post/manage-post-category.js",
-    "/assets/backend/modern-admin/assets/js/pages/product/manage-product-category.js": "/assets/backend/modern-admin/assets/js/pages/product/manage-product-category.js",
-    "/assets/backend/modern-admin/assets/js/main.js": "/assets/backend/modern-admin/assets/js/main.js",
-    "/assets/backend/modern-admin/assets/css/colors/palette-variables.css": "/assets/backend/modern-admin/assets/css/colors/palette-variables.css",
-    "/assets/backend/modern-admin/assets/css/sources/part/app.css": "/assets/backend/modern-admin/assets/css/sources/part/app.css",
-    "/assets/backend/modern-admin/assets/css/style-custom.css": "/assets/backend/modern-admin/assets/css/style-custom.css",
-    "/assets/backend/modern-admin/assets/css/style-rtl.css": "/assets/backend/modern-admin/assets/css/style-rtl.css",
-    "/assets/backend/modern-admin/assets/css/style.css": "/assets/backend/modern-admin/assets/css/style.css"
+    "/assets/helper/js/config/messages.js": "/assets/helper/js/config/messages.js",
+    "/assets/helper/css/components.css": "/assets/helper/css/components.css",
+    "/assets/helper/js/helper.js": "/assets/helper/js/helper.js",
+    "/assets/helper/js/util/js-lib.js": "/assets/helper/js/util/js-lib.js",
+    "/assets/helper/js/util/string-util.js": "/assets/helper/js/util/string-util.js",
+    "/assets/helper/js/util/window.js": "/assets/helper/js/util/window.js"
 }

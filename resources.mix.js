@@ -97,47 +97,55 @@ function mixResources(portalPath) {
     } catch (err) {
         console.error(err);
     }
-
-    resultJsAllPaths.forEach(function (resultPath) {
-        if(fs.lstatSync(resultPath.path).isFile()) {
-            let asset = resultPath.path;
-            let isJS = asset.substr(asset.length - 3) === '.js';
-            if(isJS){
-                allJsFilePaths.push(
-                    resultPath.path
-                );
-            }
-        }
-    });
-
-    resultCssAllPaths.forEach(function (resultPath) {
-        if(fs.lstatSync(resultPath.path).isFile()) {
-            let asset = resultPath.path;
-            let isSCSS = asset.substr(asset.length - 5) === '.scss';
-            if (isSCSS) {
-                let arrayPath = asset.split('/');
-                let fileName = arrayPath[arrayPath.length - 1];
-                let indexChar = fileName.indexOf("_");
-                if (indexChar === -1) {
-                    allCssFilePaths.push(
+    
+    if (resultJsAllPaths !== undefined) {
+        resultJsAllPaths.forEach(function (resultPath) {
+            if(fs.lstatSync(resultPath.path).isFile()) {
+                let asset = resultPath.path;
+                let isJS = asset.substr(asset.length - 3) === '.js';
+                if(isJS){
+                    allJsFilePaths.push(
                         resultPath.path
                     );
                 }
             }
-        }
-    });
+        });
+    }
 
-    allJsFilePaths.forEach(function (jsFile) {
-        let jsFileName = jsFile.split(portalPath + '/js/');
-        let buildJsTo = publicPath + '/js/' + jsFileName[1];
-        mix.js(jsFile, buildJsTo).sourceMaps();
-    });
+    if (resultCssAllPaths !== undefined) {
+        resultCssAllPaths.forEach(function (resultPath) {
+            if(fs.lstatSync(resultPath.path).isFile()) {
+                let asset = resultPath.path;
+                let isSCSS = asset.substr(asset.length - 5) === '.scss';
+                if (isSCSS) {
+                    let arrayPath = asset.split('/');
+                    let fileName = arrayPath[arrayPath.length - 1];
+                    let indexChar = fileName.indexOf("_");
+                    if (indexChar === -1) {
+                        allCssFilePaths.push(
+                            resultPath.path
+                        );
+                    }
+                }
+            }
+        });
+    }
 
-    allCssFilePaths.forEach(function (cssFile) {
-        let cssFileName = cssFile.split(portalPath + '/scss/');
-        let cssAsset = cssFileName[1];
-        cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
-        let buildCssTo = publicPath + '/css/' + cssAsset;
-        mix.sass(cssFile, buildCssTo);
-    });
+    if (allJsFilePaths.length > 0) {
+        allJsFilePaths.forEach(function (jsFile) {
+            let jsFileName = jsFile.split(portalPath + '/js/');
+            let buildJsTo = publicPath + '/js/' + jsFileName[1];
+            mix.js(jsFile, buildJsTo).sourceMaps();
+        });
+    }
+
+    if (allCssFilePaths.length > 0) {
+        allCssFilePaths.forEach(function (cssFile) {
+            let cssFileName = cssFile.split(portalPath + '/scss/');
+            let cssAsset = cssFileName[1];
+            cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
+            let buildCssTo = publicPath + '/css/' + cssAsset;
+            mix.sass(cssFile, buildCssTo);
+        });
+    }
 }
