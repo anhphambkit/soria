@@ -24,6 +24,8 @@ use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentCoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentReferenceRepository;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
+use App\Packages\SystemGeneral\Services\HelperServices;
+use App\Packages\SystemGeneral\Services\Implement\ImplementHelperServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
 use App\Packages\SystemGeneral\Services\MediaServices;
 use Illuminate\Support\ServiceProvider;
@@ -48,6 +50,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Bind Helper Services:
+        $this->app->singleton(HelperServices::class, ImplementHelperServices::class);
+
         // Bind Media Services:
         $this->app->singleton(MediaServices::class, ImplementMediaServices::class);
 
