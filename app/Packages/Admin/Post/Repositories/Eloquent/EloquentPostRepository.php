@@ -76,7 +76,9 @@ class EloquentPostRepository implements PostRepository {
                 ->leftJoin(ReferencesConfig::REFERENCE_TBL . ' as reference', 'reference.id', '=', 'posts.type_article')
                 ->groupBy('posts.id', 'users.username', 'users.avatar_link', 'reference.value')
                 ->where('posts.id', $postId)
-                ->first();
+                ->where('posts.is_publish', true)
+                ->first()
+                ->toArray();
         }
         catch (Exception $e) {
             return $e->getMessage();
@@ -103,28 +105,48 @@ class EloquentPostRepository implements PostRepository {
      * @return mixed
      */
     public function getAllPostsByCategory(int $categoryId = null, bool $isHomepage = false) {
-        $query = $this->model
-                        ->select('posts.id', 'posts.name', 'posts.slug', 'posts.desc', 'posts.rating', 'posts.view', 'posts.type_article',
-                            'posts.created_at', 'posts.updated_at', 'reference.value as type_post', 'users.username as author', 'users.avatar_link',
-                            DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
-                                array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
-                        )
-                        ->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
-                        ->leftJoin(PostCategoryConfig::POST_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
-                        ->leftJoin(ReferencesConfig::REFERENCE_TBL . ' as reference', 'reference.id', '=', 'posts.type_article')
-                        ->leftJoin(MediaPostConfig::GALLERY_POST_TBL . ' as gallery_images_tbl', 'posts.id', '=', 'gallery_images_tbl.post_id')
-                        ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'gallery_images_tbl.media_id')
-                        ->leftJoin(UsersConfig::USERS_TBL . ' as users', 'users.id', '=', 'posts.created_by')
-                        ->groupBy('posts.id', 'reference.value', 'users.username', 'users.avatar_link')
-                        ->where('posts.is_publish', '=', true);
+        try {
+            $query = $this->model
+                ->select('posts.id', 'posts.name', 'posts.slug', 'posts.desc', 'posts.rating', 'posts.view', 'posts.type_article',
+                    'posts.created_at', 'posts.updated_at', 'reference.value as type_post', 'users.username as author', 'users.avatar_link',
+                    DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                    array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                )
+                ->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                ->leftJoin(PostCategoryConfig::POST_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                ->leftJoin(ReferencesConfig::REFERENCE_TBL . ' as reference', 'reference.id', '=', 'posts.type_article')
+                ->leftJoin(MediaPostConfig::GALLERY_POST_TBL . ' as gallery_images_tbl', 'posts.id', '=', 'gallery_images_tbl.post_id')
+                ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'gallery_images_tbl.media_id')
+                ->leftJoin(UsersConfig::USERS_TBL . ' as users', 'users.id', '=', 'posts.created_by')
+                ->groupBy('posts.id', 'reference.value', 'users.username', 'users.avatar_link')
+                ->where('posts.is_publish', '=', true);
 
-        if ($isHomepage)
-            $query = $query->where('posts.at_homepage', '=', true);
+            if ($isHomepage)
+                $query = $query->where('posts.at_homepage', '=', true);
 
-        if ($categoryId)
-            $query = $query->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
-                            ->where('relation.cate_id', '=', $categoryId);
+            if ($categoryId)
+                $query = $query->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                    ->where('relation.cate_id', '=', $categoryId);
 
-        return $query->orderBy('created_at', 'desc')->get();
+            return $query->orderBy('created_at', 'desc')->get();
+        }
+        catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * @param $dataGet
+     * @param string $attributeGet
+     * @return mixed
+     */
+    public function getNextPrevPost($dataGet, $attributeGet = "created_at") {
+        try {
+            return $this->model->select('id', 'name', 'slug', 'created_at');
+//                                ->where($attributeGet, '');
+        }
+        catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

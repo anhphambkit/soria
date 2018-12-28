@@ -50,19 +50,17 @@
 @section('content-page')
     @component('client.ogato-personal.components.article-detail')
         @slot('typeArticle', strtolower($post['type_post']))
+        @slot('imageFeature', $post['image_feature'])
         @slot('medias', $post['medias'])
-        @slot('categories', $post['categories'])
-        @slot('avatar_link', $post['avatar_link'])
-        @slot('created_at', $post['created_at'])
-        @slot('title', $post['name'])
-        @slot('desc', $post['desc'])
-        @slot('linkPost', $post['slug'] . "." . $post['id'])
+        @slot('content', $post['content'])
+        @slot('avatarLink', $post['avatar_link'])
+        @slot('createdAt', $post['created_at'])
         @slot('author', $post['author'])
     @endcomponent
 
     <div class="clearfix"></div>
 
-    @include('client.ogato-personal.partials.comment-section')
+    {{--@include('client.ogato-personal.partials.comment-section')--}}
 @endsection
 
 @section('content')

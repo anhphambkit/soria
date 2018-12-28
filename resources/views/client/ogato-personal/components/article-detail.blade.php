@@ -6,25 +6,44 @@
  * Time: 21:49
  */
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
+$avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
+$imageFeature = isset($imageFeature) ? $imageFeature : [];
+$medias = isset($medias) ? $medias : [];
+$author = isset($author) ? $author : "Admin";
 ?>
 <article>
     <div class="entry_header_small">
         <div class="row">
             <div class="col-lg-12">
                 <div class="entry_header">
-                    @if($typeArticle === 'gallery' || $typeArticle === 'slide')
+                    @if($typeArticle === 'gallery')
                         <div class="post_media mb-50">
                             <a href="#">
-                                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/demo-image-1.jpg') }}" alt="">
+                                <img src="{{ asset($imageFeature['path_org']) }}" alt="{{ $imageFeature['filename'] }}">
                             </a>
-                            <figcaption>Travel and change of place impart new vigor to the mind. </figcaption>
+                            @if(isset($imageFeature['caption']) && !empty($imageFeature['caption']))
+                                <figcaption>{{ $imageFeature['caption'] }}</figcaption>
+                            @endif
+                        </div>
+                    @elseif($typeArticle === 'slide')
+                        <div class="post_banner post_banner_gallery_cur">
+                            <div class="owl-carousel owl-theme">
+                                @foreach($medias as $item)
+                                    <div class="item">
+                                        <div class="gallery_image_1">
+                                            <a href="#">
+                                                <img src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     @elseif($typeArticle === 'audio')
                         <div class="post_media audio  mb-50">
                             <iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/533305992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
-                            <figcaption>Travel and change of place impart new vigor to the
-                                mind. </figcaption>
+                            <figcaption>Travel and change of place impart new vigor to the mind. </figcaption>
                         </div>
                     @elseif($typeArticle === 'video')
                         <div class="post_media post_media_video  mb-50">
@@ -46,54 +65,34 @@ $typeArticle = isset($typeArticle) ? $typeArticle : '';
                                     <i class="fas fa-play"></i>
                                 </div>
                             </a>
-                            <figcaption>Travel and change of place impart new vigor to the
-                                mind. </figcaption>
+                            <figcaption>Travel and change of place impart new vigor to the mind. </figcaption>
                         </div>
                     @endif
                 </div>
             </div>
 
             <div class="col-lg-12 content-article">
-                <p class="post_excerpt">Producing creative, fresh projects is the key
-                    to standing out.<a href="#">voluptatem</a> Unique side projects are
-                    the best place to innovate, but balancing commercially and
-                    creatively lucrative work is tricky. So, this article looks at how
-                    to make side projects work and why they’re worthwhile, drawing on
-                    lessons learned from our development of the ux ompanion app.</p>
-
-                <blockquote class="mb-30">
-                    <p>At vero eos et accusamus et iusto odio dignissimos duci
-                        Curabitur accumsan, arcu ac volu tpat laoreet, elit orci
-                        pulvinar massa, quis ullamcorper purus Curabitur accumsan, arcu
-                        ac volutpat laoreet, elit orci pulvinar assa, quis ullamcorper</p>
-                </blockquote>
-
-                <p class="post_excerpt">Producing creative, fresh projects is the key
-                    to standing out.<a href="#">voluptatem</a> Unique side projects are
-                    the best place to innovate, but balancing commercially and
-                    creatively lucrative work is tricky. So, this article looks at how
-                    to make side projects work and why they’re worthwhile, drawing on
-                    lessons learned from our development of the ux ompanion app.</p>
+                {!! $content !!}
             </div>
 
             <div class="col-lg-12 bottom-article">
-                <div class="tagcloud clearfix">
-                    <a href="#">creative</a>
-                    <a href="#" rel="tag">image</a>
-                </div>
+                {{--<div class="tagcloud clearfix">--}}
+                    {{--<a href="#">creative</a>--}}
+                    {{--<a href="#" rel="tag">image</a>--}}
+                {{--</div>--}}
 
                 <div class="post_bottom_meta">
                     <div class="half_width">
                         <ul class="post_meta">
                             <li>
                                 <span class="author">
-                                    <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" class="avatar" alt="">By
-                                    <a href="#">admin</a>
+                                    <img src="{{ asset($avatarLink) }}" class="avatar" alt="$author">By
+                                    <a href="#">{{ $author }}</a>
                                 </span>
                             </li>
                             <li>
                                 <span class="date">
-                                    <a href="#">6 September, 2018</a>
+                                    <a href="#">{{ $createdAt }}</a>
                                 </span>
                             </li>
                         </ul>
