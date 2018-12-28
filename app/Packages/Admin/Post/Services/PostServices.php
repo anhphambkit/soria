@@ -40,4 +40,11 @@ interface PostServices {
      * @return mixed
      */
     public function getAllPostsByCategory(int $categoryId = null, bool $isHomepage = false);
+
+    /**
+     * @param $dataGet
+     * @param string $attributeGet
+     * @return mixed
+     */
+    public function getNextPrevPost($dataGet, $attributeGet = "created_at");
 }

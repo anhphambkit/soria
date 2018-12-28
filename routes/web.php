@@ -17,4 +17,10 @@
  *********************************************************/
 Route::domain('{mainDomain}')->group(function () {
     Route::get('/', 'ClientController@index')->name('client.page.home');
+
+    /************ Router Post ************** */
+    Route::prefix('post')->group(function () {
+        // Post Category:
+        Route::get('/detail/{titlePost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
+    });
 });

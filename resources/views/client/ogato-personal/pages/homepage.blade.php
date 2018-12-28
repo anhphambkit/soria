@@ -49,11 +49,14 @@
         @component('client.ogato-personal.components.article')
             @slot('typeArticle', strtolower($post->type_post))
             @slot('medias', $post->medias)
+            @slot('medias', $post->medias)
             @slot('categories', $post->categories)
-            @slot('avatar_link', $post->avatar_link)
-            @slot('created_at', $post->created_at)
-            @slot('name', $post->name)
+            @slot('avatarLink', $post->avatar_link)
+            @slot('createdAt', $post->created_at)
+            @slot('title', $post->name)
             @slot('desc', $post->desc)
+            @slot('linkPost', $post->slug . "." . $post->id)
+            @slot('author', $post->author)
         @endcomponent
     @endforeach
     {{--@include('client.ogato-personal.partials.pagination')--}}

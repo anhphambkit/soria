@@ -5,12 +5,12 @@
  * Date: 12/18/18
  * Time: 15:23
  */
+$domain['titlePost'] = $linkPost;
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $medias = isset($medias) ? $medias : [];
-//dd($categories);
 $categories = isset($categories) ? $categories : [];
-$avatar_link = isset($avatar_link) ? $avatar_link : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
-$username = isset($username) ? $username : "Admin";
+$avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
+$author = isset($author) ? $author : "Admin";
 $featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
 $secondaryImage = "assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg";
 if (sizeof($medias) > 0)
@@ -109,9 +109,9 @@ switch ($typeArticle) {
             <span class="post_meta_item post_author">
                 <a href="#">
                     <span class="post_author_img">
-                        <img src="{{ asset($avatar_link) }}" alt="">
+                        <img src="{{ asset($avatarLink) }}" alt="">
                     </span>
-                    <span class="post_author_info">by : {{ $username }} </span>
+                    <span class="post_author_info">by : {{ $author }} </span>
                 </a>
             </span>
 
@@ -127,12 +127,12 @@ switch ($typeArticle) {
             </a>
 
             <a href="#">
-                <span class="post_meta_item meta_item_date">{{ $created_at }}</span>
+                <span class="post_meta_item meta_item_date">{{ $createdAt }}</span>
             </a>
         </div>
 
         <div class="post_header">
-            <h3><a href="#">{{ $name }}</a></h3>
+            <h3><a href="{{ route('client.post.detail', $domain) }}">{{ $title }}</a></h3>
         </div>
 
         <div class="post_info_wrapper">

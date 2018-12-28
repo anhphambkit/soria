@@ -137,7 +137,6 @@ class ImplementPostServices implements PostServices {
     public function getDetailPost($postCategoryId) {
         // TODO: Implement getDetailPost() method.
         $post = $this->repository->getDetailPost($postCategoryId);
-        $post = collect($post);
         if (sizeof($post['medias']) > 0) {
             $wherePostTypes = [
                 ['type', '=', ReferencesConfig::POST_TYPE],
@@ -146,17 +145,18 @@ class ImplementPostServices implements PostServices {
             $galleryPostType = $postTypes->where('value', '=', ReferencesConfig::GALLERY_POST_TYPE)->first();
             $slidePostType = $postTypes->where('value', '=', ReferencesConfig::SLIDE_POST_TYPE)->first();
             $normalPostType = $postTypes->where('value', '=', ReferencesConfig::NORMAL_POST_TYPE)->first();
-            $post->put("image_feature", [$post['medias'][0]]);
-            switch ((int)$post['type_article']) {
-                case $galleryPostType->id:
-                    // get image secondary:
-                    $post->put("image_secondary", array_slice($post['medias'], 1));
-                    break;
-                case $slidePostType->id:
-                    // get image slide:
-                    $post->put("image_slide", array_slice($post['medias'], 1));
-                    break;
-            }
+
+            $post["image_feature"] = array_shift($post['medias']);
+//            switch ((int)$post['type_article']) {
+//                case $galleryPostType->id:
+//                    // get image secondary:
+//                    $post["image_secondary"] = array_pop($post['medias']);
+//                    break;
+//                case $slidePostType->id:
+//                    // get image slide:
+//                    $post["image_slide"] = array_pop($post['medias']);
+//                    break;
+//            }
         }
 
         return $post;
@@ -259,5 +259,14 @@ class ImplementPostServices implements PostServices {
     public function getAllPostsByCategory(int $categoryId = null, bool $isHomepage = false) {
         // TODO: Implement getAllPosts() method.
         return $this->repository->getAllPostsByCategory($categoryId);
+    }
+
+    /**
+     * @param $dataGet
+     * @param string $attributeGet
+     * @return mixed
+     */
+    public function getNextPrevPost($dataGet, $attributeGet = "created_at") {
+        return $this->repository->getNextPrevPost($dataGet);
     }
 }
