@@ -54,6 +54,8 @@
             @slot('created_at', $post->created_at)
             @slot('name', $post->name)
             @slot('desc', $post->desc)
+            @slot('linkPost', $post->slug . "." . $post->id)
+            @slot('author', $post->author)
         @endcomponent
     @endforeach
     {{--@include('client.ogato-personal.partials.pagination')--}}

@@ -12,14 +12,12 @@ $typeArticle = isset($typeArticle) ? $typeArticle : '';
         <div class="row">
             <div class="col-lg-12">
                 <div class="entry_header">
-                    <h1 class="entry_title">Integer Maecenas Eget Viverra</h1>
                     @if($typeArticle === 'gallery' || $typeArticle === 'slide')
                         <div class="post_media mb-50">
                             <a href="#">
                                 <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/demo-image-1.jpg') }}" alt="">
                             </a>
-                            <figcaption>Travel and change of place impart new vigor to the
-                                mind. </figcaption>
+                            <figcaption>Travel and change of place impart new vigor to the mind. </figcaption>
                         </div>
                     @elseif($typeArticle === 'audio')
                         <div class="post_media audio  mb-50">

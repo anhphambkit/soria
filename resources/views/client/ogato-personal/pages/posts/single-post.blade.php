@@ -39,7 +39,7 @@
 @endsection
 
 @section('main-header-page')
-    @include('client.ogato-personal.partials.header-page')
+    @include('client.ogato-personal.partials.header-page', [ 'categories' => $post['categories'], 'title' => $post['name'], 'createdDate' => $post['created_at'], 'author' => $post['author'] ])
 @endsection
 
 @section('related-posts')
@@ -49,7 +49,15 @@
 {{--content page must define before section content--}}
 @section('content-page')
     @component('client.ogato-personal.components.article-detail')
-        @slot('typePost', 'image')
+        @slot('typeArticle', strtolower($post['type_post']))
+        @slot('medias', $post['medias'])
+        @slot('categories', $post['categories'])
+        @slot('avatar_link', $post['avatar_link'])
+        @slot('created_at', $post['created_at'])
+        @slot('title', $post['name'])
+        @slot('desc', $post['desc'])
+        @slot('linkPost', $post['slug'] . "." . $post['id'])
+        @slot('author', $post['author'])
     @endcomponent
 
     <div class="clearfix"></div>
