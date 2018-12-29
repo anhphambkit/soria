@@ -62,8 +62,9 @@ postForm.handleCancel();
 // postForm.beforeSubmit = () => {
 // };
 
-// postForm.afterDone = () => {
-// };
+postForm.afterDone = () => {
+    refreshManagePostTable();
+};
 
 window.closeModal = function() {
     if ($('#modal-create-post').length) $('#modal-create-post').modal('hide')

@@ -28,6 +28,12 @@ interface PostRepository {
 
     /**
      * @param $postId
+     * @return mixed
+     */
+    public function getDetailPostForAdminUpdate($postId);
+
+    /**
+     * @param $postId
      * @param $data
      * @return mixed
      */

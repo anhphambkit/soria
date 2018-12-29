@@ -43,7 +43,7 @@ class PostController extends CoreAjaxController
      */
     public function getDetailPost(Request $request) {
         $postId = $request->get('id');
-        $result = $this->postServices->getDetailPost($postId);
+        $result = $this->postServices->getDetailPostForAdminUpdate($postId);
         $this->response($result);
     }
 
