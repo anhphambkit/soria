@@ -38,6 +38,7 @@ modules.forEach(function (module) {
     if (fs.existsSync('resources/assets/client/' + module + '/plugins')) {
         mix.copyDirectory('resources/assets/client/' + module + '/plugins', 'public/assets/client/' + module.toLowerCase() + '/assets/plugins');
     }
+
     if (fs.existsSync('resources/assets/client/' + module + '/fonts')) {
         mix.copyDirectory('resources/assets/client/' + module + '/fonts', 'public/assets/client/' + module.toLowerCase() + '/assets/fonts');
     }
@@ -47,9 +48,54 @@ modules.forEach(function (module) {
         mix.copyDirectory('./resources/assets/client/' + module + '/app-assets', 'public/assets/client/' + module.toLowerCase() + '/app-assets');
     }
 
+    // Publish app-assets theme:
+    if (fs.existsSync('./resources/assets/client/' + module + '/app-assets/sass')) {
+        // Mix JS/CSS:
+        let cssPackageRoot = './resources/assets/client/' + module + '/app-assets/sass';
+        let allCssPackageFilePaths = [];
+
+        // Create an empty variable to be accesible in the closure
+        let resultCssPackageAllPaths;
+
+        try {
+            resultCssPackageAllPaths = klawSync(cssPackageRoot);
+        } catch (err) {
+            console.error(err);
+        }
+
+        if (resultCssPackageAllPaths !== undefined) {
+            resultCssPackageAllPaths.forEach(function (resultPath) {
+                if(fs.lstatSync(resultPath.path).isFile()) {
+                    let asset = resultPath.path;
+                    let isSCSS = asset.substr(asset.length - 5) === '.scss';
+                    if (isSCSS) {
+                        let arrayPath = asset.split('/');
+                        let fileName = arrayPath[arrayPath.length - 1];
+                        let indexChar = fileName.indexOf("_");
+                        if (indexChar === -1) {
+                            allCssPackageFilePaths.push(
+                                resultPath.path
+                            );
+                        }
+                    }
+                }
+            });
+        }
+
+        if (allCssPackageFilePaths.length > 0) {
+            allCssPackageFilePaths.forEach(function (cssFile) {
+                let cssFileName = cssFile.split('resources/assets/client/' + module + '/app-assets/sass/');
+                let cssAsset = cssFileName[1];
+                cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
+                let buildCssTo = path.resolve('public/assets/client/' + module + '/app-assets/css/', cssAsset);
+                mix.sass(cssFile, buildCssTo);
+            });
+        }
+    }
+
     // Mix JS/CSS:
-    let jsRoot = './resources/assets/client/' + module + '/js';
-    let cssRoot = './resources/assets/client/' + module + '/scss';
+    let jsRoot = './resources/assets/client/' + module + '/assets/js';
+    let cssRoot = './resources/assets/client/' + module + '/assets/scss';
     let allJsFilePaths = [];
     let allCssFilePaths = [];
 
@@ -99,18 +145,18 @@ modules.forEach(function (module) {
 
     if (allJsFilePaths.length > 0) {
         allJsFilePaths.forEach(function (jsFile) {
-            let jsFileName = jsFile.split('resources/assets/');
-            let buildJsTo = path.resolve('public/assets', jsFileName[1]);
+            let jsFileName = jsFile.split('resources/assets/client/' + module + '/assets/js/');
+            let buildJsTo = path.resolve('public/assets/client/' + module + '/assets/js/', jsFileName[1]);
             mix.js(jsFile, buildJsTo).sourceMaps();
         });
     }
 
     if (allCssFilePaths.length > 0) {
         allCssFilePaths.forEach(function (cssFile) {
-            let cssFileName = cssFile.split('resources/assets/client/scss/');
+            let cssFileName = cssFile.split('resources/assets/client/' + module + '/assets/scss/');
             let cssAsset = cssFileName[1];
             cssAsset = cssAsset.substr(0, cssAsset.length - 4) + 'css';
-            let buildCssTo = path.resolve('public/assets/client/css', cssAsset);
+            let buildCssTo = path.resolve('public/assets/client/' + module + '/assets/css/', cssAsset);
             mix.sass(cssFile, buildCssTo);
         });
     }

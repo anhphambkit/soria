@@ -71,7 +71,7 @@ $author = isset($author) ? $author : config('setting.default_admin');
                 </div>
             </div>
 
-            <div class="col-lg-12 content-article">
+            <div class="col-lg-12 content-article bb-content-format">
                 {!! $content !!}
             </div>
 

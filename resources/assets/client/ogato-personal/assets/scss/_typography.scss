@@ -1,0 +1,22 @@
+/* -------------------------------------------------------
+                   typography
+-------------------------------------------------------- */
+.bb-content-format {
+	font-weight: $paragraph-base-font-weight;
+	font-size: $font-size-base;
+	line-height: $paragraph-base-line-height;
+	color: $paragraph-content-color;
+	font-family: $paragraph-base-font;
+	margin-bottom: $paragraph-margin-bottom;
+	-webkit-font-smoothing: subpixel-antialiased;
+
+	p {
+		font-weight: $paragraph-base-font-weight;
+		font-size: $font-size-base;
+		line-height: $paragraph-base-line-height;
+		color: $paragraph-content-color;
+		font-family: $paragraph-base-font;
+		margin-bottom: $paragraph-margin-bottom;
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
+}
