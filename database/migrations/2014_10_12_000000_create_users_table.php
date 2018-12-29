@@ -33,10 +33,10 @@ class CreateUsersTable extends Migration
         $now = \Carbon\Carbon::now();
         $users = [
             [
-                'username'  => 'admin',
-                'email' => 'admin@drsori.vn',
-                'first_name'    => 'Admin',
-                'last_name'    => 'Drsori',
+                'username'  => 'drlinhlinh',
+                'email' => 'phamtuananh.bkit@gmail.com',
+                'first_name'    => 'Linh',
+                'last_name'    => 'Dr',
                 'role_id'   => 1,
                 'password'  => \Illuminate\Support\Facades\Hash::make(env('DEFAULT_USER_PASSWORD', '123')),
                 'updated_at' => $now,
