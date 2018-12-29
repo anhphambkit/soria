@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="comment_block">
-                        <h4 class="comntr_title">admin </h4>
+                        <h4 class="comntr_title">{{ config('setting.default_admin') }} </h4>
                         <h6 class="comntr_time"><span>10:32 am .</span> 12 September, 2018</h6>
                         <p>Sed ut perspiciatis unde omnis iste error sit voluptatem
                             accusadoloreLorem Ipsum is simply type setting Ipsum is simply
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="comment_block">
-                        <h4 class="comntr_title">admin </h4>
+                        <h4 class="comntr_title">{{ config('setting.default_admin') }} </h4>
                         <h6 class="comntr_time"><span>10:32 am .</span> 12 September, 2018</h6>
                         <p>Sed ut perspiciatis unde omnis iste error sit voluptatem
                             accusadoloreLorem Ipsum is simply type setting Ipsum is simply
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="comment_block">
-                        <h4 class="comntr_title">admin </h4>
+                        <h4 class="comntr_title">{{ config('setting.default_admin') }} </h4>
                         <h6 class="comntr_time"><span>10:32 am .</span> 12 September, 2018</h6>
                         <p>Sed ut perspiciatis unde omnis iste error sit voluptatem
                             accusadoloreLorem Ipsum is simply type setting Ipsum is simply

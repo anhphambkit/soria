@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 20:52
  */
-$author = isset($author) ? $author : "Admin";
+$author = isset($author) ? $author : config('setting.default_admin');
 ?>
 <header class="site_header_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/header-image.jpg') }}"  data-overlay="5">
     <div class="container">

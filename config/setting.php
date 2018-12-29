@@ -10,5 +10,7 @@ return [
     'theme' => [
         'system' => 'backend.modern-admin',
         'client' => 'client.ogato-personal'
-    ]
+    ],
+
+    'default_admin' => env('DEFAULT_ADMIN', 'drlinhlinh'),
 ];

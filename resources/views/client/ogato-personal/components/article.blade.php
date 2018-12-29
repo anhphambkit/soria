@@ -10,7 +10,7 @@ $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
-$author = isset($author) ? $author : "Admin";
+$author = isset($author) ? $author : config('setting.default_admin');
 $featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
 $secondaryImage = "assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg";
 if (sizeof($medias) > 0)

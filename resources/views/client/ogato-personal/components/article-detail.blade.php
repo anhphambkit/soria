@@ -9,7 +9,7 @@ $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
 $imageFeature = isset($imageFeature) ? $imageFeature : [];
 $medias = isset($medias) ? $medias : [];
-$author = isset($author) ? $author : "Admin";
+$author = isset($author) ? $author : config('setting.default_admin');
 ?>
 <article>
     <div class="entry_header_small">
