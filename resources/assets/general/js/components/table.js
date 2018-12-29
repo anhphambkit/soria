@@ -11,6 +11,7 @@ class Table {
             "processing": true,
             "serverSide": false,
             "searching":true,
+            "aaSorting": []
         };
 
         if ($(window).width() < 692) {
