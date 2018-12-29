@@ -6,8 +6,9 @@
  * Time: 20:52
  */
 $author = isset($author) ? $author : config('setting.default_admin');
+$headerImage = isset($headerImage) ? $headerImage : 'storage/general/background/header-image.jpg';
 ?>
-<header class="site_header_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/header-image.jpg') }}"  data-overlay="5">
+<header class="site_header_image cover-bg" data-image-src="{{ asset($headerImage) }}"  data-overlay="5">
     <div class="container">
         <div class="post-categories">
             @for($i=0; $i < sizeof($categories); $i++)
