@@ -13,10 +13,10 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) http://ckeditor.com/builder/95bd0588d33d31fb5112a4b569a1593a
+ * (2) http://ckeditor.com/builder/cb38f7767d508666ff96c9a4c5f97dcd
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) http://ckeditor.com/builder/download/95bd0588d33d31fb5112a4b569a1593a
+ * (3) http://ckeditor.com/builder/download/cb38f7767d508666ff96c9a4c5f97dcd
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -25,7 +25,7 @@
  */
 
 var CKBUILDER_CONFIG = {
-	skin: 'icy_orange',
+	skin: 'office2013',
 	preset: 'full',
 	ignore: [
 		'.DS_Store',
@@ -78,6 +78,7 @@ var CKBUILDER_CONFIG = {
 		'htmlwriter' : 1,
 		'iframe' : 1,
 		'image' : 1,
+		'image2' : 1,
 		'indentblock' : 1,
 		'indentlist' : 1,
 		'justify' : 1,
