@@ -44,6 +44,6 @@ managePost.init();
 managePost.handleSearchBtn();
 managePost.handleClearBtn();
 
-window.refreshTable = function() {
+window.refreshManagePostTable = function() {
     managePost.refreshTable()
 }

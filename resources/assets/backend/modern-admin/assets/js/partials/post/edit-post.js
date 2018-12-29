@@ -59,8 +59,9 @@ editPostForm.switchBtn = editPostForm.wrapperModal + ' [data-action="switch-mode
 editPostForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Post']);
 editPostForm.url = URL.UPDATE_POST;
 editPostForm.method = "PATCH";
-// editPostForm.afterDone = (data) => {
-// };
+editPostForm.afterDone = (data) => {
+    refreshManagePostTable();
+};
 
 let isClicked = false;
 window.editPost = function(element) {

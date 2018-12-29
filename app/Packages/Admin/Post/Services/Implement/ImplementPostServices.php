@@ -163,6 +163,39 @@ class ImplementPostServices implements PostServices {
     }
 
     /**
+     * @param $postCategoryId
+     * @return mixed
+     */
+    public function getDetailPostForAdminUpdate($postCategoryId) {
+        // TODO: Implement getDetailPost() method.
+        $post = $this->repository->getDetailPostForAdminUpdate($postCategoryId);
+        $post = collect($post);
+        if (sizeof($post['medias']) > 0) {
+            $wherePostTypes = [
+                ['type', '=', ReferencesConfig::POST_TYPE],
+            ];
+            $postTypes = $this->referenceRepository->getReferenceFromAttribute(ReferencesConfig::REFERENCE_TBL, $wherePostTypes);
+            $galleryPostType = $postTypes->where('value', '=', ReferencesConfig::GALLERY_POST_TYPE)->first();
+            $slidePostType = $postTypes->where('value', '=', ReferencesConfig::SLIDE_POST_TYPE)->first();
+            $normalPostType = $postTypes->where('value', '=', ReferencesConfig::NORMAL_POST_TYPE)->first();
+            $post->put("image_feature", [$post['medias'][0]]);
+            switch ((int)$post['type_article']) {
+                case $galleryPostType->id:
+                    // get image secondary:
+                    $post->put("image_secondary", array_slice($post['medias'], 1));
+                    break;
+                case $slidePostType->id:
+                    // get image slide:
+                    $post->put("image_slide", array_slice($post['medias'], 1));
+                    break;
+            }
+
+        }
+
+        return $post;
+    }
+
+    /**
      * @param $postId
      * @param $data
      * @return mixed
