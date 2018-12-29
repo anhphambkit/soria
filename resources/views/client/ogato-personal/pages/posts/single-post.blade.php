@@ -27,7 +27,7 @@
 @endsection
 
 @section('theme-css')
-    <link href="{{ asset('assets/client/ogato-personal/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/general/css/typography-content/style.css') }}" rel="stylesheet">
 @endsection
 
 @section('plugin-css')

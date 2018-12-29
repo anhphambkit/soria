@@ -67,3 +67,38 @@
 		text-align: -webkit-match-parent !important;
 	}
 }
+
+.bb-site-header-custom.site_header_image {
+	text-transform: capitalize !important;
+	font-family: $paragraph-base-font !important;
+	font-size: 20px !important;
+
+	.post-categories {
+		text-transform: capitalize !important;
+		font-family: $paragraph-base-font !important;
+		font-size: 20px !important;
+	}
+
+	h1 {
+		position: relative;
+		color: #fff;
+		margin: 0 auto;
+		max-width: 700px;
+		margin-bottom: 0;
+		padding-left: 15px;
+		padding-right: 15px;
+		text-align: center;
+		font-weight: 500;
+		font-size: 47px;
+		text-transform: capitalize;
+		font-family: $paragraph-base-font !important;
+	}
+
+	.post-subtitle-container {
+		.post-author {
+			text-transform: capitalize !important;
+			font-family: $paragraph-base-font !important;
+			font-size: 20px !important;
+		}
+	}
+}

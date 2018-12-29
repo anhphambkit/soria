@@ -92,7 +92,7 @@ $author = isset($author) ? $author : config('setting.default_admin');
                             </li>
                             <li>
                                 <span class="date">
-                                    <a href="#">{{ $createdAt }}</a>
+                                    <a href="#">{{ date("d/m/Y", strtotime($createdAt)) }}</a>
                                 </span>
                             </li>
                         </ul>

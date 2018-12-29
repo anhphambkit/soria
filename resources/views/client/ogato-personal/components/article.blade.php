@@ -127,7 +127,7 @@ switch ($typeArticle) {
             </a>
 
             <a href="#">
-                <span class="post_meta_item meta_item_date">{{ $createdAt }}</span>
+                <span class="post_meta_item meta_item_date">{{ date("d/m/Y", strtotime($createdAt)) }}</span>
             </a>
         </div>
 
