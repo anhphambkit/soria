@@ -56,6 +56,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- ========== START THEME CSS ========== -->
         <link href="{{ asset('assets/client/ogato-personal/app-assets/css/plugins.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/client/ogato-personal/app-assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/client/ogato-personal/assets/css/custom-theme.css') }}" rel="stylesheet">
         @yield('theme-css')
         <!-- ========== END THEME CSS ========== -->
 

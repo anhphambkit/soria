@@ -48,7 +48,7 @@ switch ($typeArticle) {
         <div class="post_banner post_banner_gallery">
             <div class="gallery_image_1">
                 <a href="#">
-                    <img src="{{ asset($featureImage) }}" alt="">
+                    <img class="bb-img-feature-custom center" src="{{ asset($featureImage) }}" alt="">
                 </a>
             </div>
 
@@ -61,8 +61,8 @@ switch ($typeArticle) {
         </div>
     @elseif($typeArticle === 'video')
         <div class="post_banner">
-            <div class="gallery_image_1" data-overlay='1'>
-                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p3.jpg') }}" alt="">
+            <div class="gallery_image_1 center" data-overlay='1'>
+                <img class="bb-img-feature-custom" src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p3.jpg') }}" alt="">
 
                 <a class="vid" href="https://vimeo.com/127203262">
                     <div class="play-button">
@@ -80,7 +80,7 @@ switch ($typeArticle) {
             </div>
         </div>
     @elseif($typeArticle === 'audio')
-        <div class="post_banner">
+        <div class="post_banner center">
             <iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/533305992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
         </div>
     @elseif($typeArticle === 'slide')
@@ -88,9 +88,9 @@ switch ($typeArticle) {
             <div class="owl-carousel owl-theme">
                @foreach($medias as $item)
                     <div class="item">
-                        <div class="gallery_image_1">
+                        <div class="gallery_image_1 center">
                             <a href="#">
-                                <img src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
+                                <img class="bb-img-feature-custom" src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
                             </a>
                         </div>
                     </div>
@@ -98,9 +98,9 @@ switch ($typeArticle) {
             </div>
         </div>
     @else
-        <div class="gallery_image_1">
+        <div class="gallery_image_1 center">
             <a href="#">
-                <img src="{{ asset($featureImage) }}" alt="">
+                <img class="bb-img-feature-custom" src="{{ asset($featureImage) }}" alt="">
             </a>
         </div>
     @endif
