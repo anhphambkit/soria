@@ -90,7 +90,7 @@ switch ($typeArticle) {
                     <div class="item">
                         <div class="gallery_image_1 center">
                             <a href="#">
-                                <img class="bb-img-feature-custom" src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
+                                <img src="{{ asset($item['path_org']) }}" alt="{{ $item['filename'] }}">
                             </a>
                         </div>
                     </div>
