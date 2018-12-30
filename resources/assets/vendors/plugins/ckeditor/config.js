@@ -13,4 +13,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.filebrowserUploadUrl = '/assets/vendors/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
     config.filebrowserImageUploadUrl = '/assets/vendors/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
     config.filebrowserFlashUploadUrl = '/assets/vendors/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+
+    // All content will be pasted as plain text.
+    config.forcePasteAsPlainText = true;
 };
