@@ -35,7 +35,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>Soria - @yield('title')</title>
+        <title>@yield('title') - drlinhlinh.com</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset('assets/general/images/ico/favicon.ico') }}">

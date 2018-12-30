@@ -19,6 +19,7 @@
 @endsection
 
 @section('title')
+    Homepage
 @endsection
 
 @section('fonts')
