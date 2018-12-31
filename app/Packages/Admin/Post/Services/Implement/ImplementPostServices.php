@@ -131,12 +131,19 @@ class ImplementPostServices implements PostServices {
     }
 
     /**
-     * @param $postCategoryId
+     * @param $postId
      * @return mixed
      */
-    public function getDetailPost($postCategoryId) {
+    public function getDetailPost($postId) {
         // TODO: Implement getDetailPost() method.
-        $post = $this->repository->getDetailPost($postCategoryId);
+        $post = $this->repository->getDetailPost($postId);
+//        dd($post);
+        $post->medias = json_decode($post->medias, true);
+        $post->categories = json_decode($post->categories, true);
+        $post->prev = json_decode($post->prev, true);
+        $post->next = json_decode($post->next, true);
+        $post = json_decode(json_encode($post), true);
+
         if (sizeof($post['medias']) > 0) {
             $wherePostTypes = [
                 ['type', '=', ReferencesConfig::POST_TYPE],
@@ -146,7 +153,7 @@ class ImplementPostServices implements PostServices {
             $slidePostType = $postTypes->where('value', '=', ReferencesConfig::SLIDE_POST_TYPE)->first();
             $normalPostType = $postTypes->where('value', '=', ReferencesConfig::NORMAL_POST_TYPE)->first();
 
-            $post["image_feature"] = array_shift($post['medias']);
+            $post['image_feature'] = array_shift($post['medias']);
 //            switch ((int)$post['type_article']) {
 //                case $galleryPostType->id:
 //                    // get image secondary:
