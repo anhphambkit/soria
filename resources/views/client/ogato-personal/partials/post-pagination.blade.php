@@ -16,25 +16,24 @@ $next = [
     <div class="container">
         <nav class="navigation post-navigation">
             <div class="nav-links">
-                @if($post['prev']['name'])
-                    <div class="nav-previous">
+                <div class="nav-previous">
+                    @if($post['prev']['name'])
                         <a href="{{ route('client.post.detail', array_merge($previous, $domain)) }}">
                             <span class="meta-nav">Previous post</span>
                             <h5 class="post-title">{{ $post['prev']['name'] }}</h5>
                         </a>
                         <i class="jam jam-angle-left"></i>
-                    </div>
-                @endif
-
-                @if($post['next']['name'])
-                    <div class="nav-next">
+                    @endif
+                </div>
+                <div class="nav-next">
+                    @if($post['next']['name'])
                         <a href="{{ route('client.post.detail', array_merge($next, $domain)) }}">
                             <span class="meta-nav">Next post</span>
                             <h5 class="post-title">{{ $post['next']['name'] }}</h5>
                         </a>
                         <i class="jam jam-angle-right"></i>
-                    </div>
-                @endif
+                    @endif
+                </div>
             </div>
         </nav>
     </div>
