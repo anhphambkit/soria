@@ -9,7 +9,8 @@
 return [
     'theme' => [
         'system' => 'backend.modern-admin',
-        'client' => 'client.ogato-personal'
+        'blog' => 'client.ogato-personal',
+        'shop' => 'client.wookie',
     ],
 
     'default_admin' => env('DEFAULT_ADMIN', 'drlinhlinh'),

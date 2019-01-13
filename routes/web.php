@@ -23,4 +23,11 @@ Route::domain('{mainDomain}')->group(function () {
         // Post Category:
         Route::get('/detail/{titlePost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
     });
+
+
+    /************ Router Shop ************** */
+    Route::prefix('shop')->group(function () {
+        // Post Category:
+        Route::get('/', 'Shop\ShopController@index')->name('client.shop.index');
+    });
 });
