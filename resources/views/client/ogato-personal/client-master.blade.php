@@ -23,7 +23,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="keyword" content="@yield('keywords')">
+        <meta name="keywords" content="@yield('keywords')">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="author" content="bipham">
@@ -72,7 +72,7 @@ $classBodyPage .= $classBodyCustom;
     </head>
     <body class="{{ $classBodyPage }}">
         <!-- ========== START LOADER ========== -->
-        @include('client.ogato-personal.partials.preloader')
+        @include('client.ogato-personal.partials.loader')
         <!-- ========== END LOADER ========== -->
 
         <!-- ========== START SIDEBAR MENU ========== -->

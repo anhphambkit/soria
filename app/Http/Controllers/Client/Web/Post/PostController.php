@@ -24,6 +24,21 @@ class PostController extends Controller {
         $this->postServices = $postServices;
     }
 
+    /**
+     * List Posts.
+     *
+     * @return
+     */
+    public function index() {
+        $posts = $this->postServices->getAllPostsByCategory(null, true);
+        return view(config('setting.theme.blog') . '.pages.homepage', compact('posts'));
+    }
+
+    /**
+     * @param $domain
+     * @param $titlePost
+     * @return mixed
+     */
     public function viewDetailPost($domain, $titlePost) {
         $postId = $this->helperServices->getIdFromUrl($titlePost);
         if (!$postId) {
@@ -32,6 +47,6 @@ class PostController extends Controller {
 
         $post = $this->postServices->getDetailPost($postId);
 //        dd($post);
-        return view(config('setting.theme.client') . '.pages.posts.single-post', compact('post'));
+        return view(config('setting.theme.blog') . '.pages.posts.single-post', compact('post'));
     }
 }

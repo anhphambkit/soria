@@ -34,7 +34,7 @@ class ClientController extends Controller
      */
     public function index() {
         $posts = $this->postServices->getAllPostsByCategory(null, true);
-        return view(config('setting.theme.client') . '.pages.homepage', compact('posts'));
+        return view(config('setting.theme.blog') . '.pages.homepage', compact('posts'));
     }
 }
 
