@@ -128,12 +128,12 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.third-party.file-upload')
                 @slot('title', trans('product.image_feature'))
                 @slot('name', 'feature_images')
-                @slot('idWrap', 'feature_images')
-                @slot('idCardUpload', 'bb-widget-attachments-images-feature')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature')
-                @slot('idBtnUpload', 'bb-file-upload-images-feature')
+                @slot('idWrap', 'feature_images'.$suffixEdit)
+                @slot('idCardUpload', 'bb-widget-attachments-images-feature'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-feature'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-images-feature'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.media_product.image_feature', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature', 'data-name-file-item' => 'imgFeatures' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-feature'.$suffixEdit, 'data-name-file-item' => 'imgFeatures' ])
             @endcomponent
         </div>
     </div>
@@ -142,12 +142,12 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
             @component('components.third-party.file-upload')
                 @slot('title', trans('product.image_gallery'))
                 @slot('name', 'gallery_images')
-                @slot('idWrap', 'gallery_images')
-                @slot('idCardUpload', 'bb-widget-attachments-images-gallery')
-                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery')
-                @slot('idBtnUpload', 'bb-file-upload-images-gallery')
+                @slot('idWrap', 'gallery_images'.$suffixEdit)
+                @slot('idCardUpload', 'bb-widget-attachments-images-gallery'.$suffixEdit)
+                @slot('idDropZoneArea', 'bb-file-upload-dropzone-images-gallery'.$suffixEdit)
+                @slot('idBtnUpload', 'bb-file-upload-images-gallery'.$suffixEdit)
                 @slot('urlUpload', route('admin_ajax.media_product.image_gallery', $domain))
-                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery', 'data-name-file-item' => 'imgGalleries' ])
+                @slot('attributes', [ 'data-wrap-plugin' => '#bb-widget-attachments-images-gallery'.$suffixEdit, 'data-name-file-item' => 'imgGalleries' ])
             @endcomponent
         </div>
     </div>

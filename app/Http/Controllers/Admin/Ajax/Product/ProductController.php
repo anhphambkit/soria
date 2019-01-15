@@ -48,10 +48,10 @@ class ProductController extends CoreAjaxController
     }
 
     /**
-     * @param Request $request
+     * @param CreateProductRequest $request
      * Function update product
      */
-    public function updateProduct(Request $request) {
+    public function updateProduct(CreateProductRequest $request) {
         $data = $request->all();
         $productId = $data['id'];
         unset($data['id']);

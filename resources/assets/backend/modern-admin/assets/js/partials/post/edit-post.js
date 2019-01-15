@@ -1,6 +1,7 @@
 import ViewEditModal from '@componentResources/view-edit-modal';
 import message from '@helper/config/messages';
 import JSLib from '@helper/util/js-lib';
+import Slug from "@/general/js/support/auto-slug";
 
 $('document').ready(function () {
     $('#type_article-edit').change(function() {
@@ -87,3 +88,11 @@ window.editPost = function(element) {
         editPostForm.handleCancel();
     }
 }
+
+// Define Slug
+let slugEditPost = new Slug();
+// U must define correct wrapper whenever use this
+slugEditPost.wrapper = '#slug-edit[data-type="slug"]';
+// Data generate auto from input:
+slugEditPost.fromInput = '#name-edit[data-type="source-slug"]';
+slugEditPost.init();

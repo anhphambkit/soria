@@ -14,8 +14,10 @@ $title = isset($title) ? $title : env('APP_NAME');
 $isLargeModal = isset($isLargeModal) ? $isLargeModal : true;
 $hasViewEditMode = isset($hasViewEditMode) ? $hasViewEditMode : false;
 $classModalCustom = isset($classModalCustom) ? $classModalCustom : '';
+$dataKeyboard = isset($dataKeyboard) ? $dataKeyboard : "false";
+$dataBackdrop = isset($dataBackdrop) ? $dataBackdrop : "static";
 ?>
-<div @if(isset($id)) id="{{ $id }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif">
+<div @if(isset($id)) id="{{ $id }}" @endif class="modal fade modal-custom {{ $classModal }} @if($hasViewEditMode) modal-edit-custom @endif" data-backdrop="{{ $dataBackdrop }}"  data-keyboard="{{ $dataKeyboard }}">
     <div class="modal-dialog @if($isLargeModal) modal-lg @endif {{ $classModalCustom }}">
         <div class="modal-content">
             <div class="modal-header">

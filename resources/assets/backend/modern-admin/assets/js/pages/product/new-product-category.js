@@ -15,5 +15,9 @@ categoryForm.afterDone = () => {
 };
 
 // Define Slug
-let slug = new Slug();
-slug.init();
+let slugProductCategory = new Slug();
+// U must define correct wrapper whenever use this
+slugProductCategory.wrapper = '#slug[data-type="slug"]';
+// Data generate auto from input:
+slugProductCategory.fromInput = '#name[data-type="source-slug"]';
+slugProductCategory.init();

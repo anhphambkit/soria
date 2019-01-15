@@ -178,6 +178,10 @@
         core.initBindDropDrag();
         core.initFileUploadWidget('#bb-widget-attachments-images-feature', 'imgFeatures');
         core.initFileUploadWidget('#bb-widget-attachments-images-gallery', 'imgGalleries');
+
+        //Edit:
+        core.initFileUploadWidget('#bb-widget-attachments-images-feature-edit', 'imgFeatures');
+        core.initFileUploadWidget('#bb-widget-attachments-images-gallery-edit', 'imgGalleries');
     </script>
 @endsection
 

@@ -1,6 +1,7 @@
 import ViewEditModal from '@componentResources/view-edit-modal';
 import message from '@helper/config/messages';
 import JSLib from '@helper/util/js-lib';
+import Slug from "@/general/js/support/auto-slug";
 
 let editProductCategoryForm = new ViewEditModal();
 editProductCategoryForm.wrapper = '#edit-product-category';
@@ -26,9 +27,12 @@ window.editProductCategory = function(element) {
     }
     // editProductCategoryForm.elementLoading = editProductCategoryForm.wrapper;
     // Handle event on form
-    editProductCategoryForm.clearForm();
-    editProductCategoryForm.cancel(true);
-    editProductCategoryForm.switchMode(false);
+    editProductCategoryForm.switchMode(true);
+    editProductCategoryForm.clearForm(false, false);
+    editProductCategoryForm.cancel(true).then(() => {
+        editProductCategoryForm.switchMode(false);
+    });
+
     if (!isClicked) {
         isClicked = true;
         editProductCategoryForm.handleSwitchBtn();
@@ -37,3 +41,10 @@ window.editProductCategory = function(element) {
     }
 }
 
+// Define Slug
+let slugEditProductCategory = new Slug();
+// U must define correct wrapper whenever use this
+slugEditProductCategory.wrapper = '#slug-edit[data-type="slug"]';
+// Data generate auto from input:
+slugEditProductCategory.fromInput = '#name-edit[data-type="source-slug"]';
+slugEditProductCategory.init();

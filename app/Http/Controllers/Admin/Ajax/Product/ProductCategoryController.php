@@ -49,10 +49,10 @@ class ProductCategoryController extends CoreAjaxController
 
     /**
      * Update Product Category
-     * @param Request $request
+     * @param CreateProductCategoryRequest $request
      * Function update product category
      */
-    public function updateProductCategory(Request $request) {
+    public function updateProductCategory(CreateProductCategoryRequest $request) {
         $data = $request->all();
         $productCategoryId = $data['id'];
         unset($data['id']);
