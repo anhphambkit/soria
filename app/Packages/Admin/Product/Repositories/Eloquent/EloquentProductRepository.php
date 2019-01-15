@@ -47,6 +47,42 @@ class EloquentProductRepository implements ProductRepository {
     }
 
     /**
+     * @param int|null $categoryId
+     * @param bool $isHomepage
+     * @return mixed
+     */
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false)
+    {
+        try {
+            $query = $this->model
+                ->select('products.id', 'products.name', 'products.slug', 'products.desc', 'products.rating',
+                    'products.price', 'products.sale_price', 'products.created_at', 'products.updated_at',
+                    'products.meta_keywords', 'products.meta_title', 'products.meta_description',
+                    DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                    array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                )
+                ->leftJoin(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL . ' as relation', 'relation.product_id', '=', 'products.id')
+                ->leftJoin(CategoryProductConfig::PRODUCT_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                ->leftJoin(MediaProductConfig::FEATURE_PRODUCT_TBL . ' as feature_product_tbl', 'products.id', '=', 'feature_product_tbl.product_id')
+                ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'feature_product_tbl.media_id')
+                ->groupBy('products.id')
+                ->where('products.is_publish', '=', true);
+
+            if ($isHomepage)
+                $query = $query->where('products.is_feature', '=', true);
+
+            if ($categoryId)
+                $query = $query->leftJoin(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL . ' as relation', 'relation.product_id', '=', 'products.id')
+                    ->where('relation.cate_id', '=', $categoryId);
+
+            return $query->orderBy('created_at', 'desc')->get();
+        }
+        catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
      * @param $data
      * @return mixed
      */

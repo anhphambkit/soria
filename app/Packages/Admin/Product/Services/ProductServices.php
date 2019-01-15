@@ -22,6 +22,13 @@ interface ProductServices {
     public function getAllProducts();
 
     /**
+     * @param int|null $categoryId
+     * @param bool $isHomepage
+     * @return mixed
+     */
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false);
+
+    /**
      * @param $productId
      * @return mixed
      */
