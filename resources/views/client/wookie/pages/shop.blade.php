@@ -60,15 +60,18 @@
             </div>
         </div>
     </div>
-    <div class="container-indent">
-        <div class="container container-fluid-custom-mobile-padding">
-            @component('client.wookie.components.block-title')
-            @endcomponent
-            @component('client.wookie.components.carousel-products')
-                @slot('products', $products)
-            @endcomponent
+    @foreach($productGroups as $categoryName => $productGroup)
+        <div class="container-indent">
+            <div class="container container-fluid-custom-mobile-padding">
+                @component('client.wookie.components.block-title')
+                    @slot('title', strtoupper($categoryName))
+                @endcomponent
+                @component('client.wookie.components.carousel-products')
+                    @slot('products', $productGroup)
+                @endcomponent
+            </div>
         </div>
-    </div>
+    @endforeach
     <div class="container-indent">
         <div class="container">
             <div class="row tt-layout-promo-box">

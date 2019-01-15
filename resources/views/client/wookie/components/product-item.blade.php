@@ -76,8 +76,12 @@ $rating = isset($rating) ? $rating : null;
         </div>
         <h2 class="tt-title"><a href="product.html">{{ $name }}</a></h2>
         <div class="tt-price">
-            <span class="new-price">{{ $salePrice }}</span>
-            <span class="old-price">{{ $price }}</span>
+            @if($salePrice !== null && $salePrice > 0)
+            <span class="new-price">{{ number_format($salePrice, 0, ",", ".") }} đ</span>
+            <span class="old-price">{{ number_format($price, 0, ",", ".") }} đ</span>
+            @else
+                <span class="new-price">{{ number_format($price, 0, ",", ".") }} đ</span>
+            @endif
         </div>
         @if(sizeof($options) > 0)
             <div class="tt-option-block">
