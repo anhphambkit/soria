@@ -53,7 +53,7 @@ class CreatePostRequest extends CoreFormRequest
             'slug' => 'required',
             'desc' => 'required',
             'content' => 'required',
-            'keywords' => 'required',
+            'meta_keywords' => 'required',
             'category_id' => 'required',
             'type_article' => 'required|numeric',
             'is_publish' => 'required',

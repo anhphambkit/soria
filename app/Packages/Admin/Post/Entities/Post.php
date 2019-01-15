@@ -23,7 +23,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'desc', 'content', 'image_feature', 'is_publish', 'at_homepage', 'rating', 'view', 'keywords', 'type_article'
+        'name', 'slug', 'desc', 'content', 'image_feature', 'is_publish', 'at_homepage', 'rating', 'view', 'meta_title', 'meta_keywords', 'meta_description', 'type_article'
     ];
 
     public $timestamps = true;

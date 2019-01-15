@@ -27,7 +27,7 @@ class Product extends Model
         'name', 'slug', 'sku', 'desc', 'long_desc',
         'is_publish', 'is_feature', 'is_best_seller', 'is_free_ship',
         'price', 'sale_price', 'in_stock', 'manager_stock',
-        'allow_order', 'rating', 'keywords'
+        'allow_order', 'rating', 'meta_title', 'meta_keywords', 'meta_description'
     ];
 
     public $timestamps = true;
