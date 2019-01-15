@@ -35,6 +35,7 @@ class CreateProductRequest extends CoreFormRequest
             'slug' => 'required',
             'sku' => 'required',
             'desc' => 'required',
+            'meta_keywords' => 'required',
             'is_publish' => 'required',
             'is_feature' => 'required',
             'is_best_seller' => 'required',

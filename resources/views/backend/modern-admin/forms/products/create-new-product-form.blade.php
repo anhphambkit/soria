@@ -124,6 +124,34 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
     </div>
     <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.elements.field')
+                @slot('title', trans('product.meta_title'))
+                @slot('id', 'meta_title'.$suffixEdit)
+                @slot('name', 'meta_title')
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.elements.field')
+                @slot('title', trans('product.meta_keyword'))
+                @slot('name', 'meta_keywords')
+                @slot('id', 'meta_keywords'.$suffixEdit)
+            @endcomponent
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.elements.field')
+                @slot('title', trans('product.meta_desc'))
+                @slot('id', 'meta_description'.$suffixEdit)
+                @slot('name', 'meta_description')
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.third-party.file-upload')
                 @slot('title', trans('product.image_feature'))

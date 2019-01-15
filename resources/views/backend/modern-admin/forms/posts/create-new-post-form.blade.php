@@ -98,7 +98,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-3">
+        <div class="col-md-6">
             @component('components.elements.field')
                 @slot('title', trans('post.viewed'))
                 @slot('name', 'view')
@@ -107,7 +107,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             @component('components.elements.field')
                 @slot('title', trans('post.rating'))
                 @slot('name', 'rating')
@@ -116,13 +116,34 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('attributes', [ 'min' => '0', 'max' => '5' ])
             @endcomponent
         </div>
-        <div class="col-md-6 form-custom-validate-js">
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
             @component('components.elements.field')
-                @slot('title', trans('post.keyword'))
-                @slot('name', 'keywords')
-                @slot('id', "keywords".$suffixEdit)
-                @slot('class', 'keywords')
+                @slot('title', trans('post.meta_title'))
+                @slot('id', 'meta_title'.$suffixEdit)
+                @slot('name', 'meta_title')
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.elements.field')
+                @slot('title', trans('post.meta_keyword'))
+                @slot('name', 'meta_keywords')
+                @slot('id', 'meta_keywords'.$suffixEdit)
+                @slot('class', 'meta_keywords')
                 @slot('required', true)
+            @endcomponent
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            @component('components.elements.field')
+                @slot('title', trans('post.meta_desc'))
+                @slot('id', 'meta_description'.$suffixEdit)
+                @slot('name', 'meta_description')
             @endcomponent
         </div>
     </div>
