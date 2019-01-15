@@ -51,4 +51,14 @@ class Product extends Model
     {
         return json_decode($value, true);
     }
+
+    public function getCategoriesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getMediasAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

@@ -26,11 +26,10 @@ class ShopController extends Controller {
 
     /**
      * List Posts.
-     *
      * @return
      */
     public function index() {
-        $products = $this->productServices->getAllProducts();
+        $products = $this->productServices->getAllProductsByCategory(null, true);
         return view(config('setting.theme.shop') . '.pages.shop', compact('products'));
     }
 

@@ -77,12 +77,25 @@ class ImplementProductServices implements ProductServices {
     }
 
     /**
+     * @param int|null $categoryId
+     * @param bool $isHomepage
      * @return mixed
      */
     public function getAllProducts()
     {
         // TODO: Implement getAllProducts() method.
         return $this->repository->getAllProducts();
+    }
+
+    /**
+     * @param int|null $categoryId
+     * @param bool $isHomepage
+     * @return mixed
+     */
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false)
+    {
+        // TODO: Implement getAllProducts() method.
+        return $this->repository->getAllProductsByCategory($categoryId, $isHomepage);
     }
 
     /**

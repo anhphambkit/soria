@@ -5,6 +5,7 @@
  * Date: 1/12/19
  * Time: 14:27
  */
+//dd($products);
 ?>
 @extends('client.wookie.master')
 
@@ -64,7 +65,7 @@
             @component('client.wookie.components.block-title')
             @endcomponent
             @component('client.wookie.components.carousel-products')
-                @slot('products', [1,2,3,4,5,6,7,8])
+                @slot('products', $products)
             @endcomponent
         </div>
     </div>
