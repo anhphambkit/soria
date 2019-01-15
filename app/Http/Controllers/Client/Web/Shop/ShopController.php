@@ -30,7 +30,17 @@ class ShopController extends Controller {
      */
     public function index() {
         $products = $this->productServices->getAllProductsByCategory(null, true);
-        return view(config('setting.theme.shop') . '.pages.shop', compact('products'));
+//        dd($products);
+        $result = [];
+        $productGroups = $products->mapWithKeys(function ($item) use (&$result) {
+            foreach ($item['categories'] as $category) {
+                if (!isset($result[$category['name']]))
+                    $result[$category['name']] = [];
+                array_push($result[$category['name']], $item);
+            }
+            return $result;
+        });
+        return view(config('setting.theme.shop') . '.pages.shop', compact('productGroups'));
     }
 
     /**
