@@ -74,7 +74,7 @@
         <!-- ========== END FOOTER ========== -->
 
         <!-- ========== START BACK TO TOP ========== -->
-        @include('client.wookie.components.back-to-top')
+        @include('client.wookie.partials.back-to-top')
         <!-- ========== END BACK TO TOP ========== -->
 
         <!-- ========== START MODAL ADD TO CART ========== -->

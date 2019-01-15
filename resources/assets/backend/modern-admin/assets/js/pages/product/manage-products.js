@@ -37,9 +37,7 @@ manageProduct.columns = [
         title: "Publish",
         data: 'is_publish',
         render(data) {
-            Helper.renderPublishStatus(data);
-            Helper.renderPublishStatus(data);
-            return;
+            return Helper.renderPublishStatus(data);
         }
     },
     {
@@ -67,6 +65,6 @@ manageProduct.init();
 manageProduct.handleSearchBtn();
 manageProduct.handleClearBtn();
 
-window.refreshTable = function() {
+window.refreshProductsTable = function() {
     manageProduct.refreshTable()
 }

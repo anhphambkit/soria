@@ -48,10 +48,10 @@ class PostCategoryController extends CoreAjaxController
     }
 
     /**
-     * @param Request $request
+     * @param CreatePostCategoryRequest $request
      * Function update post category
      */
-    public function updatePostCategory(Request $request) {
+    public function updatePostCategory(CreatePostCategoryRequest $request) {
         $data = $request->all();
         $postCategoryId = $data['id'];
         unset($data['id']);

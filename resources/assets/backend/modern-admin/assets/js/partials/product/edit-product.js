@@ -1,6 +1,7 @@
 import ViewEditModal from '@componentResources/view-edit-modal';
 import message from '@helper/config/messages';
 import JSLib from '@helper/util/js-lib';
+import Slug from "@/general/js/support/auto-slug";
 
 let editProductForm = new ViewEditModal();
 editProductForm.wrapper = '#edit-product';
@@ -11,8 +12,9 @@ editProductForm.switchBtn = editProductForm.wrapperModal + ' [data-action="switc
 editProductForm.successMessage = (new JSLib).format(message.UPDATE_SUCCESS, ['Product']);
 editProductForm.url = URL.UPDATE_PRODUCT;
 editProductForm.method = "PATCH";
-// editProductForm.afterDone = (data) => {
-// };
+editProductForm.afterDone = (data) => {
+    refreshProductsTable();
+};
 
 let isClicked = false;
 window.editProduct = function(element) {
@@ -25,9 +27,12 @@ window.editProduct = function(element) {
     }
     // editProductForm.elementLoading = editProductForm.wrapper;
     // Handle event on form
+    editProductForm.switchMode(true);
     editProductForm.clearForm(false, false);
-    editProductForm.cancel(true);
-    editProductForm.switchMode(false);
+    editProductForm.cancel(true).then(() => {
+        editProductForm.switchMode(false);
+    });
+
     if (!isClicked) {
         isClicked = true;
         editProductForm.handleSwitchBtn();
@@ -35,3 +40,11 @@ window.editProduct = function(element) {
         editProductForm.handleCancel();
     }
 }
+
+// Define Slug
+let slugEditProduct = new Slug();
+// U must define correct wrapper whenever use this
+slugEditProduct.wrapper = '#slug-edit[data-type="slug"]';
+// Data generate auto from input:
+slugEditProduct.fromInput = '#name-edit[data-type="source-slug"]';
+slugEditProduct.init();

@@ -64,6 +64,7 @@ postForm.handleCancel();
 
 postForm.afterDone = () => {
     refreshManagePostTable();
+    if ($('#modal-create-post').length) $('#modal-create-post').modal('hide')
 };
 
 window.closeModal = function() {
@@ -71,5 +72,9 @@ window.closeModal = function() {
 }
 
 // Define Slug
-let slug = new Slug();
-slug.init();
+let slugPost = new Slug();
+// U must define correct wrapper whenever use this
+slugPost.wrapper = '#slug[data-type="slug"]';
+// Data generate auto from input:
+slugPost.fromInput = '#name[data-type="source-slug"]';
+slugPost.init();

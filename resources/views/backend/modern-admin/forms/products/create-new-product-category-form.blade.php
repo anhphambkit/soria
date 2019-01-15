@@ -9,6 +9,7 @@
 $categories = (isset($categories)) ? $categories : [];
 $isModal = (isset($isModal)) ? $isModal : false;
 $isUpdateMode = (isset($isUpdateMode)) ? $isUpdateMode : false;
+$suffixEdit = ($isUpdateMode) ? '-edit' : '';
 $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
 ?>
 <form role="form" id="{{ $idForm }}">
@@ -17,7 +18,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
             @component('components.elements.field')
                 @slot('title', trans('category.name'))
                 @slot('name', 'name')
-                @slot('id', 'name')
+                @slot('id', 'name'.$suffixEdit)
                 @slot('class', 'category_name')
                 @slot('attributes', [ 'data-type' => 'source-slug'])
                 @slot('required', true)
@@ -27,7 +28,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
             @component('components.elements.field')
                 @slot('title', trans('category.slug'))
                 @slot('name', 'slug')
-                @slot('id', 'slug')
+                @slot('id', 'slug'.$suffixEdit)
                 @slot('class', 'category_slug')
                 @slot('attributes', [ 'data-type' => 'slug'])
                 @slot('required', true)
@@ -37,7 +38,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
             @component('components.elements.field')
                 @slot('title', trans('category.category_parent'))
                 @slot('name', 'parent_id')
-                @slot('id', 'parent_id')
+                @slot('id', 'parent_id'.$suffixEdit)
                 @slot('type', 'dropdown')
                 <?php
                     $dropdown[0] = trans('category.default_select_parent_category');
@@ -55,7 +56,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
             @component('components.elements.field')
                 @slot('title', trans('category.desc'))
                 @slot('name', 'desc')
-                @slot('id', 'desc')
+                @slot('id', 'desc'.$suffixEdit)
             @endcomponent
         </div>
     </div>
@@ -65,7 +66,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
                 @slot('title', trans('category.order'))
                 @slot('type', 'number')
                 @slot('name', 'order')
-                @slot('id', 'order')
+                @slot('id', 'order'.$suffixEdit)
                 @slot('attributes', ['step' => 1, 'min' => "1"])
             @endcomponent
         </div>
@@ -74,7 +75,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         <div class="col-md-12">
             @component('components.elements.field')
                 @slot('title', trans('category.meta_title'))
-                @slot('id', 'meta_title')
+                @slot('id', 'meta_title'.$suffixEdit)
                 @slot('name', 'meta_title')
             @endcomponent
         </div>
@@ -84,7 +85,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
             @component('components.elements.field')
                 @slot('title', trans('category.meta_keyword'))
                 @slot('name', 'meta_keywords')
-                @slot('id', 'meta_keywords')
+                @slot('id', 'meta_keywords'.$suffixEdit)
             @endcomponent
 
         </div>
@@ -93,7 +94,7 @@ $idForm = (isset($idForm)) ? $idForm : 'form-crud-item';
         <div class="col-md-12">
             @component('components.elements.field')
                 @slot('title', trans('category.meta_desc'))
-                @slot('id', 'meta_description')
+                @slot('id', 'meta_description'.$suffixEdit)
                 @slot('name', 'meta_description')
             @endcomponent
         </div>

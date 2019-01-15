@@ -48,10 +48,10 @@ class PostController extends CoreAjaxController
     }
 
     /**
-     * @param Request $request
+     * @param CreatePostRequest $request
      * Function update post
      */
-    public function updatePost(Request $request) {
+    public function updatePost(CreatePostRequest $request) {
         $data = $request->all();
         $postId = $data['id'];
         unset($data['id']);
