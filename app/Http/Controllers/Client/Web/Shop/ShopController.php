@@ -48,14 +48,15 @@ class ShopController extends Controller {
      * @param $url
      * @return mixed
      */
-    public function viewDetailProduct($domain, $url) {
-        $productId = $this->helperServices->getIdFromUrl($url);
+    public function viewDetailProduct($domain, $urlProduct) {
+        $productId = $this->helperServices->getIdFromUrl($urlProduct);
         if (!$productId) {
             return abort(404);
         }
 
         $product = $this->productServices->getDetailProduct($productId);
-//        dd($product);
-        return view(config('setting.theme.shop') . '.pages.products.single-product', compact('product'));
+        $relatedProducts = $this->productServices->getRelatedProductByCategories($product->categories);
+//        dd($relatedProducts);
+        return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts'));
     }
 }

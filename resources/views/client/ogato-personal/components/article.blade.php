@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 15:23
  */
-$domain['titlePost'] = $linkPost;
+$domain['urlPost'] = $linkPost;
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];

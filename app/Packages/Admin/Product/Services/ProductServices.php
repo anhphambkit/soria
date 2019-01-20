@@ -35,6 +35,12 @@ interface ProductServices {
     public function getDetailProduct($productId);
 
     /**
+     * @param $categories
+     * @return mixed
+     */
+    public function getRelatedProductByCategories($categories);
+
+    /**
      * @param $productId
      * @param $data
      * @return mixed

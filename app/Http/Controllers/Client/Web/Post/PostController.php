@@ -39,8 +39,8 @@ class PostController extends Controller {
      * @param $titlePost
      * @return mixed
      */
-    public function viewDetailPost($domain, $titlePost) {
-        $postId = $this->helperServices->getIdFromUrl($titlePost);
+    public function viewDetailPost($domain, $urlPost) {
+        $postId = $this->helperServices->getIdFromUrl($urlPost);
         if (!$postId) {
             return abort(404);
         }

@@ -45,6 +45,7 @@ class ImplementMediaServices implements MediaServices{
             'filename' => $fileNameExt,
             'path_org' => str_replace('public/', 'storage/', $path),
             'mime_type' => $file->getClientOriginalExtension(),
+            'type' => $type,
             'file_size' => $fileSize . ' KB',
             'folder_id' => 1,
         ]);

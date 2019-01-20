@@ -7,7 +7,7 @@
  */
 //dd($products);
 ?>
-@extends('client.wookie.master')
+@extends('client.wookie.master', [ 'isHomePage' => true ])
 
 @section('keywords')
 @endsection
@@ -66,7 +66,7 @@
                 @component('client.wookie.components.block-title')
                     @slot('title', strtoupper($categoryName))
                 @endcomponent
-                @component('client.wookie.components.carousel-products')
+                @component('client.wookie.components.product.carousel-products')
                     @slot('products', $productGroup)
                 @endcomponent
             </div>

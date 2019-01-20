@@ -108,6 +108,19 @@ class ImplementProductServices implements ProductServices {
     }
 
     /**
+     * @param $categories
+     * @return mixed
+     */
+    public function getRelatedProductByCategories($categories) {
+        $relatedProducts = [];
+        foreach ($categories as $category) {
+            $productOfCategory = $this->repository->getAllProductsByCategory($category['id']);
+            $relatedProducts = array_merge($relatedProducts, $productOfCategory->toArray());
+        }
+        return $relatedProducts;
+    }
+
+    /**
      * @param $productId
      * @param $data
      * @return mixed
