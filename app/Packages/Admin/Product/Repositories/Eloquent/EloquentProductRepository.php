@@ -72,8 +72,7 @@ class EloquentProductRepository implements ProductRepository {
                 $query = $query->where('products.is_feature', '=', true);
 
             if ($categoryId)
-                $query = $query->leftJoin(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL . ' as relation', 'relation.product_id', '=', 'products.id')
-                    ->where('relation.cate_id', '=', $categoryId);
+                $query = $query->where('relation.cate_id', '=', $categoryId);
 
             return $query->orderBy('created_at', 'desc')->get();
         }
@@ -103,7 +102,7 @@ class EloquentProductRepository implements ProductRepository {
         try {
             return $this->model->select(
                 DB::raw('products.*,
-                                array_to_json(array_remove(array_agg(DISTINCT category.id), null)) as category_id,
+                                array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
                                 array_to_json(array_remove(array_agg(DISTINCT media_feature_tbl.*), null)) as feature_images,
                                 array_to_json(array_remove(array_agg(DISTINCT media_gallery_tbl.*), null)) as gallery_images')
                 )
@@ -115,6 +114,7 @@ class EloquentProductRepository implements ProductRepository {
                 ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_gallery_tbl', 'media_gallery_tbl.id', '=', 'gallery_images_tbl.media_id')
                 ->groupBy('products.id')
                 ->where('products.id', $productId)
+                ->where('products.is_publish', true)
                 ->first();
         }
         catch (Exception $e) {

@@ -194,8 +194,7 @@ class EloquentPostRepository implements PostRepository {
                 $query = $query->where('posts.at_homepage', '=', true);
 
             if ($categoryId)
-                $query = $query->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
-                    ->where('relation.cate_id', '=', $categoryId);
+                $query = $query->where('relation.cate_id', '=', $categoryId);
 
             return $query->orderBy('created_at', 'desc')->get();
         }

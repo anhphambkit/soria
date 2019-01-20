@@ -21,7 +21,7 @@ Route::domain('{mainDomain}')->group(function () {
     /************ Router Post ************** */
     Route::prefix('post')->group(function () {
         // Post Category:
-        Route::get('/detail/{titlePost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
+        Route::get('/detail/{urlPost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
     });
 
 
@@ -29,5 +29,11 @@ Route::domain('{mainDomain}')->group(function () {
     Route::prefix('shop')->group(function () {
         // Post Category:
         Route::get('/', 'Shop\ShopController@index')->name('client.shop.index');
+
+        /************ Router Product ************** */
+        Route::prefix('product')->group(function () {
+            // Product Detail:
+            Route::get('/detail/{urlProduct}', 'Shop\ShopController@viewDetailProduct')->name('client.product.detail');
+        });
     });
 });

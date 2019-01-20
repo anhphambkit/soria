@@ -5,6 +5,7 @@
  * Date: 1/13/19
  * Time: 21:13
  */
+$domain['urlProduct'] = $linkProduct;
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $options = isset($options) ? $options : [];
@@ -24,7 +25,7 @@ $rating = isset($rating) ? $rating : null;
         <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
         <a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
         <a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
-        <a href="product.html">
+        <a href="{{ route('client.product.detail', $domain) }}">
             <span class="tt-img">
                 <img src="{{ asset($featureImage) }}" alt="">
             </span>
@@ -74,7 +75,7 @@ $rating = isset($rating) ? $rating : null;
                 </div>
             @endif
         </div>
-        <h2 class="tt-title"><a href="product.html">{{ $name }}</a></h2>
+        <h2 class="tt-title"><a href="{{ route('client.product.detail', $domain) }}">{{ $name }}</a></h2>
         <div class="tt-price">
             @if($salePrice !== null && $salePrice > 0)
             <span class="new-price">{{ number_format($salePrice, 0, ",", ".") }} đ</span>

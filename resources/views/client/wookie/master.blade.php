@@ -5,6 +5,7 @@
  * Date: 1/12/19
  * Time: 14:27
  */
+$isHomePage = isset($isHomePage) ? $isHomePage : false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +65,12 @@
         <!-- ========== START HEADER ========== -->
         @include('client.wookie.partials.header-menu')
         <!-- ========== END HEADER ========== -->
+
+        <!-- ========== START BREADCRUMB ========== -->
+        @if(!$isHomePage)
+            @include('client.wookie.partials.breadcrumb')
+        @endif
+        <!-- ========== END BREADCRUMB ========== -->
 
         <!-- ========== START CONTENT PAGE ========== -->
         @include('client.wookie.partials.content-page')
