@@ -45,17 +45,7 @@
     <div class="container-indent nomargin">
         <div class="container-fluid">
             <div class="row no-gutter">
-                @component('client.wookie.components.banner-full-width')
-                @endcomponent
-            </div>
-        </div>
-    </div>
-    <div class="container-indent">
-        <div class="container">
-            <div class="row tt-layout-promo-box">
-                @component('client.wookie.components.banner-block')
-                @endcomponent
-                @component('client.wookie.components.banner-block')
+                @component('client.wookie.components.slider-banner')
                 @endcomponent
             </div>
         </div>
@@ -84,31 +74,6 @@
             </div>
         </div>
     @endforeach
-    <div class="container-indent">
-        <div class="container">
-            <div class="row tt-layout-promo-box">
-                @component('client.wookie.components.banner-block')
-                    @slot('classBanner', 'col-sm-6 col-md-4')
-                @endcomponent
-                @component('client.wookie.components.banner-block')
-                    @slot('classBanner', 'col-sm-6 col-md-4')
-                @endcomponent
-                @component('client.wookie.components.banner-block')
-                    @slot('classBanner', 'col-sm-6 col-md-4')
-                @endcomponent
-            </div>
-        </div>
-    </div>
-    <div class="container-indent">
-        <div class="container-fluid">
-            @component('client.wookie.components.block-title')
-            @endcomponent
-            <div class="row">
-                @component('client.wookie.components.instagram')
-                @endcomponent
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('core-footer-scripts')
