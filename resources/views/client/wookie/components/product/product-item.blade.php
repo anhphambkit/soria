@@ -93,7 +93,7 @@ $rating = isset($rating) ? $rating : null;
         @endif
         <div class="tt-product-inside-hover">
             <div class="tt-row-btn">
-                <a href="#" onclick="addToCart({{ $product['id'] }})" class="tt-btn-addtocart thumbprod-button-bg add-to-cart-animation" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+                <span onclick="addToCart({{ $product['id'] }})" class="tt-btn-addtocart thumbprod-button-bg add-to-cart-animation">ADD TO CART</span>
             </div>
             <div class="tt-row-btn">
                 <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>

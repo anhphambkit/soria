@@ -53,7 +53,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END PLUGINS CSS ========== -->
 
         <!-- ========== START PAGE CSS ========== -->
-        {{--<link href="{{ asset('assets/client/wookie/assets/css/custom-shop.css') }}" rel="stylesheet">--}}
+        <link href="{{ asset('assets/client/wookie/assets/css/custom-shop.css') }}" rel="stylesheet">
         @yield('page-css')
         <!-- ========== END PAGE CSS ========== -->
 

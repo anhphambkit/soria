@@ -3,5 +3,6 @@
     "/assets/client/ogato-personal/app-assets/css/style.css": "/assets/client/ogato-personal/app-assets/css/style.css",
     "/assets/client/ogato-personal/assets/css/custom-theme.css": "/assets/client/ogato-personal/assets/css/custom-theme.css",
     "/assets/client/wookie/assets/css/custom-shop.css": "/assets/client/wookie/assets/css/custom-shop.css",
+    "/assets/client/wookie/assets/js/local-storage.js": "/assets/client/wookie/assets/js/local-storage.js",
     "/assets/client/wookie/assets/js/shop.js": "/assets/client/wookie/assets/js/shop.js"
 }

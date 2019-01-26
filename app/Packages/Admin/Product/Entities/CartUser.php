@@ -28,4 +28,34 @@ class CartUser extends Model
     ];
 
     public $timestamps = true;
+
+    public function getCategoryNameAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getCategoryIdAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getFeatureImagesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getGalleryImagesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getCategoriesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getMediasAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

@@ -60,6 +60,18 @@
             </div>
         </div>
     </div>
+
+    <div class="container-indent">
+        <div class="container container-fluid-custom-mobile-padding">
+            @component('client.wookie.components.block-title')
+                @slot('title', "BEST SELLER")
+            @endcomponent
+            @component('client.wookie.components.product.carousel-products')
+                @slot('products', $bestSellerProducts)
+            @endcomponent
+        </div>
+    </div>
+
     @foreach($productGroups as $categoryName => $productGroup)
         <div class="container-indent">
             <div class="container container-fluid-custom-mobile-padding">

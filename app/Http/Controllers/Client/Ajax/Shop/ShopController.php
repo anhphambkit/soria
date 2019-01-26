@@ -30,17 +30,22 @@ class ShopController extends CoreAjaxController {
     }
 
     /**
-     * Add To Cart
-     * @return mixed
+     * @param Request $request
      */
     public function addToCart(Request $request) {
+        $products = $request->get('products');
         if (Auth::check()) {
-            $products = $request->get('products');
-            $result = $this->cartUserServices->addProductsToCartOfUser($products, Auth::id());
-            $this->response($result);
+            $userId = Auth::id();
+            $this->cartUserServices->addProductsToCartOfUser($products, $userId);
+            $basicInfoCart = $this->cartUserServices->getBasicInfoCartOfUser($userId);
+            $this->response($basicInfoCart);
             return;
         }
-        $this->response([], Response::STATUS_CUSTOM_ERROR, "UserNotLogin");
-        return;
+        else {
+            $cart = $request->get('cart');
+            $basicInfoCart = $this->cartUserServices->getBasicInfoCartFromClient($products, $cart);
+            $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin");
+            return;
+        }
     }
 }

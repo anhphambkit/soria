@@ -10,5 +10,5 @@ namespace App\Packages\Admin\Product\Constants;
 
 interface ProductConfig
 {
-
+    CONST PRODUCT_TBL = 'products';
 }
