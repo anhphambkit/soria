@@ -5,29 +5,28 @@
  * Date: 1/13/19
  * Time: 21:13
  */
-$domain['urlProduct'] = $linkProduct;
-$medias = isset($medias) ? $medias : [];
-$categories = isset($categories) ? $categories : [];
+$domain['urlProduct'] = $product['slug'] . "." . $product['id'];
+$medias = isset($product['medias']) ? $product['medias'] : [];
+$categories = isset($product['categories']) ? $product['categories'] : [];
 $options = isset($options) ? $options : [];
 $featureImage = "assets/client/wookie/app-assets/images/skin-lingerie/product/product-08.jpg";
 $hoverImage = null;
 if (sizeof($medias) > 0)
     $featureImage = reset($medias)['path_org'];
-
 if (sizeof($medias) > 1)
     $hoverImage = end($medias)['path_org'];
 
 $countdown = isset($countdown) ? $countdown : null;
 $rating = isset($rating) ? $rating : null;
 ?>
-<div class="tt-product thumbprod-center">
+<div class="tt-product thumbprod-center bb-product-item">
     <div class="tt-image-box">
         <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
         <a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
         <a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
         <a href="{{ route('client.product.detail', $domain) }}">
             <span class="tt-img">
-                <img src="{{ asset($featureImage) }}" alt="">
+                <img class="bb-img-feature-product" src="{{ asset($featureImage) }}" alt="">
             </span>
             @if($hoverImage !== null)
                 <span class="tt-img-roll-over">
@@ -75,13 +74,13 @@ $rating = isset($rating) ? $rating : null;
                 </div>
             @endif
         </div>
-        <h2 class="tt-title"><a href="{{ route('client.product.detail', $domain) }}">{{ $name }}</a></h2>
+        <h2 class="tt-title bb-product-title"><a href="{{ route('client.product.detail', $domain) }}">{{ ucwords($product['name']) }}</a></h2>
         <div class="tt-price">
-            @if($salePrice !== null && $salePrice > 0)
-            <span class="new-price">{{ number_format($salePrice, 0, ",", ".") }} đ</span>
-            <span class="old-price">{{ number_format($price, 0, ",", ".") }} đ</span>
+            @if($product['sale_price'] !== null && $product['sale_price'] > 0)
+            <span class="new-price">{{ number_format($product['sale_price'], 0, ",", ".") }} đ</span>
+            <span class="old-price">{{ number_format($product['price'], 0, ",", ".") }} đ</span>
             @else
-                <span class="new-price">{{ number_format($price, 0, ",", ".") }} đ</span>
+                <span class="new-price">{{ number_format($product['price'], 0, ",", ".") }} đ</span>
             @endif
         </div>
         @if(sizeof($options) > 0)
@@ -94,7 +93,7 @@ $rating = isset($rating) ? $rating : null;
         @endif
         <div class="tt-product-inside-hover">
             <div class="tt-row-btn">
-                <a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+                <span onclick="addToCart({{ $product['id'] }})" class="tt-btn-addtocart thumbprod-button-bg add-to-cart-animation">ADD TO CART</span>
             </div>
             <div class="tt-row-btn">
                 <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>

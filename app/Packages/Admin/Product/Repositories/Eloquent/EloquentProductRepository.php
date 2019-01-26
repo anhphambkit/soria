@@ -15,7 +15,6 @@ use App\Packages\Admin\Product\Entities\ProductCategoryRelation;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
 use App\Packages\SystemGeneral\Constants\MediaConfig;
 use Illuminate\Support\Facades\DB;
-use Mockery\Exception;
 
 class EloquentProductRepository implements ProductRepository {
 
@@ -29,6 +28,7 @@ class EloquentProductRepository implements ProductRepository {
 
     /**
      * @return mixed
+     * @throws \Exception
      */
     public function getAllProducts()
     {
@@ -41,17 +41,19 @@ class EloquentProductRepository implements ProductRepository {
                 ->orderBy('id', 'desc')
                 ->get();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
     /**
      * @param int|null $categoryId
      * @param bool $isHomepage
+     * @param bool $isBestSeller
      * @return mixed
+     * @throws \Exception
      */
-    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false)
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false, bool $isBestSeller = false)
     {
         try {
             $query = $this->model
@@ -65,7 +67,7 @@ class EloquentProductRepository implements ProductRepository {
                 ->leftJoin(CategoryProductConfig::PRODUCT_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
                 ->leftJoin(MediaProductConfig::FEATURE_PRODUCT_TBL . ' as feature_product_tbl', 'products.id', '=', 'feature_product_tbl.product_id')
                 ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'feature_product_tbl.media_id')
-                ->groupBy('products.id')
+                ->groupBy('products.id', 'category.order')
                 ->where('products.is_publish', '=', true);
 
             if ($isHomepage)
@@ -74,29 +76,34 @@ class EloquentProductRepository implements ProductRepository {
             if ($categoryId)
                 $query = $query->where('relation.cate_id', '=', $categoryId);
 
-            return $query->orderBy('created_at', 'desc')->get();
+            if ($isBestSeller)
+                $query = $query->where('products.is_best_seller', '=', true);
+
+            return $query->orderBy('category.order', 'asc')->get();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
     /**
      * @param $data
      * @return mixed
+     * @throws \Exception
      */
     public function createProduct($data) {
         try {
             return $this->model->create($data);
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
     /**
      * @param $productId
      * @return mixed
+     * @throws \Exception
      */
     public function getDetailProduct($productId) {
         try {
@@ -117,8 +124,8 @@ class EloquentProductRepository implements ProductRepository {
                 ->where('products.is_publish', true)
                 ->first();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -126,13 +133,55 @@ class EloquentProductRepository implements ProductRepository {
      * @param $productId
      * @param $data
      * @return mixed
+     * @throws \Exception
      */
     public function updateProduct($productId, $data) {
         try {
             return $this->model->where('id',$productId)->update($data);
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $productId
+     * @return mixed
+     * @throws \Exception
+     */
+    public function checkProductPublish(int $productId) {
+        try {
+            return $this->model->where('id', $productId)->exists();
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param array $productIds
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getProductsInCartFromProductIds(array $productIds) {
+        try {
+            $query = $this->model->select('products.id', 'products.name', 'products.slug',
+                                        'products.price', 'products.sale_price',
+                                        DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                                                                    array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                                    )
+                                    ->leftJoin(CategoryProductConfig::CATEGORY_PRODUCT_RELATION_TBL . ' as relation', 'relation.product_id', '=', 'products.id')
+                                    ->leftJoin(CategoryProductConfig::PRODUCT_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                                    ->leftJoin(MediaProductConfig::FEATURE_PRODUCT_TBL . ' as feature_product_tbl', 'products.id', '=', 'feature_product_tbl.product_id')
+                                    ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'feature_product_tbl.media_id')
+                                    ->groupBy('products.id')
+                                    ->where('products.is_publish', true)
+                                    ->whereIn('products.id', $productIds)
+                                    ->get();
+            return $query;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 }

@@ -12,12 +12,7 @@ $products = isset($products) ? $products : [];
     @foreach($products as $product)
         <div class="col-2 col-md-4 col-lg-3">
             @component('client.wookie.components.product.product-item')
-                @slot('name', ucwords($product['name']))
-                @slot('medias', $product['medias'])
-                @slot('categories', $product['categories'])
-                @slot('salePrice', $product['sale_price'])
-                @slot('price', $product['price'])
-                @slot('linkProduct', $product['slug'] . "." . $product['id'])
+                @slot('product', $product)
             @endcomponent
         </div>
     @endforeach

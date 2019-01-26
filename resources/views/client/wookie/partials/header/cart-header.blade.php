@@ -6,11 +6,11 @@
  * Time: 16:30
  */
 ?>
-<div class="tt-desctop-parent-cart tt-parent-box">
+<div class="tt-desctop-parent-cart tt-parent-box bb-cart-box">
     <div class="tt-cart tt-dropdown-obj" data-tooltip="Cart" data-tposition="bottom">
         <button class="tt-dropdown-toggle">
             <i class="icon-f-39"></i>
-            <span class="tt-badge-cart">3</span>
+            <span class="tt-badge-cart cart-header-items"></span>
         </button>
         <div class="tt-dropdown-menu">
             <div class="tt-mobile-add">

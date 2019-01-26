@@ -90,12 +90,31 @@ class ImplementProductServices implements ProductServices {
     /**
      * @param int|null $categoryId
      * @param bool $isHomepage
+     * @param bool $isBestSeller
      * @return mixed
+     * @throws \Exception
      */
-    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false)
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false, bool $isBestSeller = false)
     {
-        // TODO: Implement getAllProducts() method.
-        return $this->repository->getAllProductsByCategory($categoryId, $isHomepage);
+        try {
+            $products = $this->repository->getAllProductsByCategory($categoryId, $isHomepage, $isBestSeller);
+            if (!$isBestSeller) {
+                $result = [];
+                $productGroups = $products->mapWithKeys(function ($item) use (&$result) {
+                    foreach ($item['categories'] as $category) {
+                        if (!isset($result[$category['name']]))
+                            $result[$category['name']] = [];
+                        array_push($result[$category['name']], $item);
+                    }
+                    return $result;
+                });
+                return $productGroups;
+            }
+            return $products->unique();
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
     }
 
     /**
@@ -172,5 +191,38 @@ class ImplementProductServices implements ProductServices {
         unset($data['imgFeatures']);
         unset($data['imgGalleries']);
         return $this->repository->updateProduct($productId, $data);
+    }
+
+    /**
+     * @param int $productId
+     * @return mixed
+     */
+    public function checkProductPublish(int $productId) {
+        return $this->repository->checkProductPublish($productId);
+    }
+
+    /**
+     * @param array $productIds
+     * @param array $quantityProducts
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getProductsInCartFromProductIds(array $productIds, array $quantityProducts = []) {
+        try {
+            $products = $this->repository->getProductsInCartFromProductIds($productIds); // Get products info
+            $products->map(function($product) use ($quantityProducts) { // Update quantity for each product
+                if (array_key_exists($product->id, $quantityProducts)) {
+                    $product['quantity'] = $quantityProducts[$product->id];
+                }
+                else {
+                    $product['quantity'] = 1; // Default quantity 1
+                }
+                return $product;
+            });
+            return $products;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
     }
 }

@@ -24,9 +24,10 @@ interface ProductServices {
     /**
      * @param int|null $categoryId
      * @param bool $isHomepage
+     * @param bool $isBestSeller
      * @return mixed
      */
-    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false);
+    public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false, bool $isBestSeller = false);
 
     /**
      * @param $productId
@@ -46,4 +47,17 @@ interface ProductServices {
      * @return mixed
      */
     public function updateProduct($productId, $data);
+
+    /**
+     * @param int $productId
+     * @return mixed
+     */
+    public function checkProductPublish(int $productId);
+
+    /**
+     * @param array $productIds
+     * @param array $quantityProducts
+     * @return mixed
+     */
+    public function getProductsInCartFromProductIds(array $productIds, array $quantityProducts = []);
 }
