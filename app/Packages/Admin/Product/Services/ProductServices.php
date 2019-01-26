@@ -46,4 +46,10 @@ interface ProductServices {
      * @return mixed
      */
     public function updateProduct($productId, $data);
+
+    /**
+     * @param int $productId
+     * @return mixed
+     */
+    public function checkProductPublish(int $productId);
 }

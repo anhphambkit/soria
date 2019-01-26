@@ -10,12 +10,16 @@ use App\Packages\Admin\Post\Services\Implement\ImplementPostCategoryServices;
 use App\Packages\Admin\Post\Services\Implement\ImplementPostServices;
 use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
+use App\Packages\Admin\Product\Repositories\CartUserRepository;
+use App\Packages\Admin\Product\Repositories\Eloquent\EloquentCartUserRepository;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentMediaProductRepository;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductCategoryRepository;
 use App\Packages\Admin\Product\Repositories\Eloquent\EloquentProductRepository;
 use App\Packages\Admin\Product\Repositories\MediaProductRepositoroy;
 use App\Packages\Admin\Product\Repositories\ProductCategoryRepository;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
+use App\Packages\Admin\Product\Services\CartUserServices;
+use App\Packages\Admin\Product\Services\Implement\ImplementCartUserServices;
 use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServices;
 use App\Packages\Admin\Product\Services\Implement\ImplementProductServices;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
@@ -63,6 +67,9 @@ class AppServiceProvider extends ServiceProvider
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);
         $this->app->singleton(ProductRepository::class, EloquentProductRepository::class);
+
+        $this->app->singleton(CartUserServices::class, ImplementCartUserServices::class);
+        $this->app->singleton(CartUserRepository::class, EloquentCartUserRepository::class);
 
         $this->app->singleton(ProductCategoryServices::class, ImplementProductCategoryServices::class);
         $this->app->singleton(ProductCategoryRepository::class, EloquentProductCategoryRepository::class);

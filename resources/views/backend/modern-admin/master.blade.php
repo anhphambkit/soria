@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/app-assets/css/core/colors/palette-gradient.css') }}">
     <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/vendors/css/toastr/toastr.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendors/css/toastr/toastr.min.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/vendors/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/vendors/plugins/DataTables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/vendors/css/switchery.min.css') }}">

@@ -8,15 +8,11 @@
 
 namespace App\Core\Controllers;
 
+use App\Core\Response\Response;
 use Illuminate\Routing\Controller;
 
 class CoreWebController extends Controller
 {
-    const STATUS_SUCCESS = 0;
-    const STATUS_VALIDATION_ERROR = 1;
-    const STATUS_NOT_FOUND_ERROR = 2; // Not found something
-    const STATUS_UNEXPECTED_ERROR = 99;
-
     protected function removeNullParams()
     {
         $all = request()->all();
@@ -31,15 +27,15 @@ class CoreWebController extends Controller
     protected function response($data, $status = 0, $message = null)
     {
         $httpCode = 200;
-        if ($status == self::STATUS_SUCCESS) {
+        if ($status == Response::STATUS_SUCCESS) {
             $message = 'Success';
-        } elseif ($status == self::STATUS_VALIDATION_ERROR) {
+        } elseif ($status == Response::STATUS_VALIDATION_ERROR) {
             $message = 'Validation error';
             $httpCode = 433;
-        } elseif ($status == self::STATUS_NOT_FOUND_ERROR) {
+        } elseif ($status == Response::STATUS_NOT_FOUND_ERROR) {
             $message = 'Not found';
             $httpCode = 403;
-        } elseif ($status == self::STATUS_UNEXPECTED_ERROR) {
+        } elseif ($status == Response::STATUS_UNEXPECTED_ERROR) {
             $message = 'Unexpected error';
             $httpCode = 500;
         }

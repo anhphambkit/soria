@@ -37,6 +37,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- END FONTS-->
 
         <!-- ========== START CORE SCRIPTS ========== -->
+        <link href="{{ asset('assets/vendors/css/toastr/toastr.min.css')}}" rel="stylesheet" />
         @yield('core-scripts')
         <!-- ========== START CORE SCRIPTS ========== -->
 
@@ -52,6 +53,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END PLUGINS CSS ========== -->
 
         <!-- ========== START PAGE CSS ========== -->
+        {{--<link href="{{ asset('assets/client/wookie/assets/css/custom-shop.css') }}" rel="stylesheet">--}}
         @yield('page-css')
         <!-- ========== END PAGE CSS ========== -->
 
@@ -95,6 +97,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->
         <script src="{{ asset('assets/client/wookie/app-assets/external/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
         @yield('core-footer-scripts')
         <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
@@ -116,6 +119,9 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <script src="{{ asset('assets/client/wookie/app-assets/external/form/jquery.form.js') }}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/form/jquery.validate.min.js') }}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/form/jquery.form-init.js') }}"></script>
+
+        <!-- Default Options -->
+        <script src="{{ asset('assets/general/js/default-configs/toast-default.js')}}"></script>
         @yield('theme-scripts')
         <!-- ========== END THEME SCRIPTS ========== -->
 
@@ -123,6 +129,13 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END PLUGINS SCRIPTS ========== -->
 
         <!-- ========== START PAGE SCRIPTS ========== -->
+        <script>
+            const API_SHOP = {
+                ADD_TO_CART : "{{ route('ajax.shop.add_to_cart', $domain) }}",
+            };
+        </script>
+
+        <script src="{{ asset('assets/client/wookie/assets/js/shop.js') }}"></script>
         @yield('page-scripts')
         <!-- ========== END PAGE SCRIPTS ========== -->
 

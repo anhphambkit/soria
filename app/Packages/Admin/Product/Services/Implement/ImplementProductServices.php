@@ -173,4 +173,12 @@ class ImplementProductServices implements ProductServices {
         unset($data['imgGalleries']);
         return $this->repository->updateProduct($productId, $data);
     }
+
+    /**
+     * @param int $productId
+     * @return mixed
+     */
+    public function checkProductPublish(int $productId) {
+        return $this->repository->checkProductPublish($productId);
+    }
 }

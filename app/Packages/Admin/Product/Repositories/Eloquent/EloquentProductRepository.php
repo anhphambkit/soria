@@ -15,7 +15,6 @@ use App\Packages\Admin\Product\Entities\ProductCategoryRelation;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
 use App\Packages\SystemGeneral\Constants\MediaConfig;
 use Illuminate\Support\Facades\DB;
-use Mockery\Exception;
 
 class EloquentProductRepository implements ProductRepository {
 
@@ -29,6 +28,7 @@ class EloquentProductRepository implements ProductRepository {
 
     /**
      * @return mixed
+     * @throws \Exception
      */
     public function getAllProducts()
     {
@@ -41,8 +41,8 @@ class EloquentProductRepository implements ProductRepository {
                 ->orderBy('id', 'desc')
                 ->get();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -50,6 +50,7 @@ class EloquentProductRepository implements ProductRepository {
      * @param int|null $categoryId
      * @param bool $isHomepage
      * @return mixed
+     * @throws \Exception
      */
     public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false)
     {
@@ -76,27 +77,29 @@ class EloquentProductRepository implements ProductRepository {
 
             return $query->orderBy('created_at', 'desc')->get();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
     /**
      * @param $data
      * @return mixed
+     * @throws \Exception
      */
     public function createProduct($data) {
         try {
             return $this->model->create($data);
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
     /**
      * @param $productId
      * @return mixed
+     * @throws \Exception
      */
     public function getDetailProduct($productId) {
         try {
@@ -117,8 +120,8 @@ class EloquentProductRepository implements ProductRepository {
                 ->where('products.is_publish', true)
                 ->first();
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 
@@ -126,13 +129,28 @@ class EloquentProductRepository implements ProductRepository {
      * @param $productId
      * @param $data
      * @return mixed
+     * @throws \Exception
      */
     public function updateProduct($productId, $data) {
         try {
             return $this->model->where('id',$productId)->update($data);
         }
-        catch (Exception $e) {
-            return $e->getMessage();
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $productId
+     * @return mixed
+     * @throws \Exception
+     */
+    public function checkProductPublish(int $productId) {
+        try {
+            return $this->model->where('id', $productId)->exists();
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
     }
 }
