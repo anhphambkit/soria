@@ -11,17 +11,36 @@ namespace App\Http\Controllers\Client\Web\Shop;
 
 use App\Http\Controllers\SystemGeneral\Web\Controller;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\View;
 
 class ShopController extends Controller {
 
     protected $helperServices;
     protected $productServices;
-    public function __construct(HelperServices $helperServices, ProductServices $productServices)
+    protected $shoppingCartServices;
+    public function __construct(HelperServices $helperServices, ProductServices $productServices, ShoppingCartServices $shoppingCartServices)
     {
         parent::__construct();
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
+        $this->shoppingCartServices = $shoppingCartServices;
+        $isGuest = true;
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $isGuest = false;
+        }
+        else
+            $userId = Cookie::get('guest_id');
+
+        if (!empty($userId) && $userId > 0)
+            $totalItems = $this->shoppingCartServices->getTotalItemsInCart($userId, $isGuest);
+        else
+            $totalItems = 0;
+        View::share("totalItems", $totalItems);
     }
 
     /**
@@ -31,7 +50,6 @@ class ShopController extends Controller {
     public function index() {
         $productGroups = $this->productServices->getAllProductsByCategory(null, true);
         $bestSellerProducts = $this->productServices->getAllProductsByCategory(null, true, true);
-//        dd($bestSellerProducts);
         return view(config('setting.theme.shop') . '.pages.shop', compact('productGroups', 'bestSellerProducts'));
     }
 
@@ -48,7 +66,6 @@ class ShopController extends Controller {
 
         $product = $this->productServices->getDetailProduct($productId);
         $relatedProducts = $this->productServices->getRelatedProductByCategories($product->categories);
-//        dd($relatedProducts);
         return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts'));
     }
 }

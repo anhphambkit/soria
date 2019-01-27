@@ -25,6 +25,35 @@
             })
         };
 
+        c.manualOpen = function (e) {
+            $(".soria-loading-plugin.soria-manual").remove();
+            var element = "body";
+            if (e) {
+                if (e.hasOwnProperty("element")) {
+                    element = e.element;
+                }
+            }
+            var g = "";
+            g = '<div class="custom-loader">' +
+                '<img src="/storage/general/loading/loading.svg" id="loading-indicator" />' +
+                '</div>';
+
+            if (element == 'body') var d = "<div class=\"page-loader soria-manual soria-loading-plugin soria-loading-page-loader loader-fullpage\"> " + g + " </div>";else var d = "<div class=\"page-loader soria-manual soria-loading-plugin\"> " + g + " </div>";
+            $(d).appendTo(element).fadeIn(300);
+        };
+        c.manualClose = function (e) {
+            if (e) {
+                if (e.hasOwnProperty("element")) {
+                    return $(e.element).find('.soria-loading-plugin.soria-manual').fadeOut(300, function () {
+                        $(this).remove();
+                    });
+                }
+            }
+            $(".soria-loading-plugin.soria-manual").fadeOut(300, function () {
+                $(this).remove();
+            });
+        };
+
         return c
     }
     if (typeof(SORIALoading) === "undefined") {
@@ -60,3 +89,28 @@ window.pageLoaded = function()
         }
     }
 }
+
+// Manual
+window.LoadingElementManual = false;
+window.CountElementLoadingManual = 0;
+
+window.manualLoading = function () {
+    if (LoadingElementManual) {
+        CountElementLoadingManual += 1;
+        var options = {
+            element: LoadingElementManual
+        };
+        SORIALoading.manualOpen(options);
+    }
+};
+
+window.manualLoaded = function () {
+    if (LoadingElementManual) {
+        CountElementLoadingManual -= 1;
+        if (CountElementLoadingManual == 0) {
+            SORIALoading.manualClose();
+            LoadingElementManual = false;
+            CountElementLoadingManual = 0;
+        }
+    }
+};

@@ -86,7 +86,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-md-3 form-custom-validate-js">
+        <div class="col-md-6 form-custom-validate-js">
             @component('components.elements.field')
                 @slot('title', trans('product.price'))
                 @slot('name', 'price')
@@ -95,7 +95,7 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             @component('components.elements.field')
                 @slot('title', trans('product.sale_price'))
                 @slot('name', 'sale_price')
@@ -104,7 +104,9 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
         </div>
-        <div class="col-md-3">
+    </div>
+    <div class="form-group row">
+        <div class="col-md-4">
             @component('components.elements.field')
                 @slot('title', trans('product.in_stock'))
                 @slot('name', 'in_stock')
@@ -113,13 +115,22 @@ $suffixEdit = ($isUpdateMode) ? '-edit' : '';
                 @slot('attributes', [ 'min' => '0' ])
             @endcomponent
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             @component('components.elements.field')
                 @slot('title', trans('product.rating'))
                 @slot('name', 'rating')
                 @slot('id', "rating".$suffixEdit)
                 @slot('type', 'number')
                 @slot('attributes', [ 'min' => '0' ])
+            @endcomponent
+        </div>
+        <div class="col-md-4">
+            @component('components.elements.field')
+                @slot('title', trans('product.order'))
+                @slot('type', 'number')
+                @slot('name', 'order')
+                @slot('id', 'order'.$suffixEdit)
+                @slot('attributes', ['step' => 1, 'min' => "1"])
             @endcomponent
         </div>
     </div>

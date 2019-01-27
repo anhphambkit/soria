@@ -22,40 +22,44 @@ class PostController extends CoreAjaxController
 
     /**
      * Function get all posts
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getAllPosts() {
         $result = $this->postServices->getAllPosts();
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Function create new post
      * @param CreatePostRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createPost(CreatePostRequest $request) {
         $result = $this->postServices->createPost($request->all());
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param Request $request
      * Function get detail post
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getDetailPost(Request $request) {
         $postId = $request->get('id');
         $result = $this->postServices->getDetailPostForAdminUpdate($postId);
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param CreatePostRequest $request
      * Function update post
+     * @param CreatePostRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function updatePost(CreatePostRequest $request) {
         $data = $request->all();
         $postId = $data['id'];
         unset($data['id']);
         $result = $this->postServices->updatePost($postId, $data);
-        $this->response($result);
+        return $this->response($result);
     }
 }

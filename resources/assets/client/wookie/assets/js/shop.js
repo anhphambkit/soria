@@ -1,34 +1,46 @@
+import { Handlebars, HandlebarRender } from '@incResources/handlebarForm';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-$(document).ready(function () {
-    let totalItems = JSON.parse(localStorage.getItem('totalItems')); // Get current totalItems
-    if (totalItems !== undefined && totalItems !== null && totalItems > 0) { // Check total items
-        $('.cart-header-items').text(totalItems);
-        $('.cart-header-items').removeClass('d-none');
-    }
-    else {
-        $('.cart-header-items').addClass('d-none');
-    }
-})
+window.viewCartHeader = function () {
+    LoadingElementManual = '#cart-header-content';
+    manualLoading();
+
+    let request = axios.get(API_SHOP.VIEW_CART_HEADER);
+    request
+        .then(function(data){
+            if (data.data.status === 0 || data.data.status === 1412) {
+                cartHeaderClass.setData(data.data.data);
+                cartHeaderClass.parseTemplate();
+                manualLoaded();
+            }
+            else { // Custom Error
+                toastr.error(data.data.message)
+            }
+        })
+        .catch(function(error){
+            toastr.error(error)
+        })
+        .then(function(data){ // Finally
+            $('#loader-wrapper').removeClass('loader-custom');
+            $('body').addClass('loaded');
+        });
+}
 
 window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true) {
+    $('#loader-wrapper').addClass('loader-custom');
+    $('body').removeClass('loaded');
+
     let products = {};
     let newProduct = {};
     newProduct[productId] = quantity;
     products = Object.assign(products, newProduct);
 
-    let cart = JSON.parse(localStorage.getItem('cart')); // Get current cart
-    cart = (cart === undefined || cart === null) ? {} : cart;
-
-    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products, 'cart' : cart });
-    $('#loader-wrapper').addClass('loader-custom');
-    $('body').removeClass('loaded');
+    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products });
     request
         .then(function(data){
             if (data.data.status === 0 || data.data.status === 1412) {
-                toastr.success("Added to cart successfully!");
                 let products = data.data.data.products;
                 let totalItems = data.data.data.total_items;
                 let totalPrice = data.data.data.total_price;
@@ -36,6 +48,8 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
 
                 if (isShowModalCartInfo) { // Show modal info cart
                     $('#modalAddToCartProduct').modal('show');
+                    LoadingElementManual = '#modalAddToCartProduct .modal-content';
+                    manualLoading();
 
                     $('#modalAddToCartProduct').on('shown.bs.modal', function (e) {
                         // Update Modal Cart Info:
@@ -47,56 +61,29 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                         }
 
                         $('.preview-product-title').text(productDetail.name);
-                        // $('.preview-product-title').attr('href', productDetail.name);
+                        $('.preview-product-title').attr('href', `/shop/product/detail/${productDetail.slug}.${productDetail.id}`);
                         $('.preview-product-title').text(productDetail.name);
-                        $('.preview-product-quantity').text(productDetail.quantity);
+                        $('.preview-product-quantity').text(quantity);
                         $('.preview-product-price').text(currencyFormat(productDetail.price));
                         $('.modal-cart-info-total-items').text(totalItems);
                         $('.cart-header-items').text(totalItems);
                         $('.cart-header-items').removeClass('d-none');
                         $('.modal-cart-info-total-price').text(currencyFormat(totalPrice));
-
-                        $('#loader-wrapper').removeClass('loader-custom');
-                        $('body').addClass('loaded');
+                        manualLoaded();
                     })
-                }
-
-                if (data.data.status === 1412 && localStorage) { // Update/save data to local storage
-                    // LocalStorage is supported
-                    updateCart(productId, totalItems);
                 }
             }
             else { // Custom Error
                 toastr.error(data.data.message)
-                $('#loader-wrapper').removeClass('loader-custom');
-                $('body').addClass('loaded');
             }
         })
         .catch(function(error){
-            toastr.error("Please contact IT Admin to help!")
-            $('#loader-wrapper').removeClass('loader-custom');
-            $('body').addClass('loaded');
+            toastr.error(error)
         })
         .then(function(data){ // Finally
+            $('#loader-wrapper').removeClass('loader-custom');
+            $('body').addClass('loaded');
         });
-}
-
-window.updateCart = function (productId, totalItems) {
-    let cart = JSON.parse(localStorage.getItem('cart')); // Get current cart
-    let newProduct = {};
-    if (cart === undefined || cart === null) { // Check cart
-        newProduct[productId] = 1;
-        cart = {};
-    } else{
-        if (!(productId in cart)) {
-            newProduct[productId] = 1;
-        }
-        else {
-            cart[productId]++;
-        }
-    }
-    localStorage.setItem('cart', JSON.stringify(Object.assign(cart, newProduct)));
-    localStorage.setItem('totalItems', totalItems);
 }
 
 window.currencyFormat = function (num) {
@@ -107,3 +94,34 @@ window.currencyFormat = function (num) {
             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' đ'
     ) // use . as a separator
 }
+
+// Handle bar:
+Handlebars.registerHelper("featureProduct", function(medias) {
+    return medias[0].path_org;
+});
+
+Handlebars.registerHelper("formatCurrency", function(number) {
+    return currencyFormat(number);
+});
+
+Handlebars.registerHelper("urlProduct", function(slug, id) {
+    return `/shop/product/detail/${slug}.${id}`;
+});
+
+/* register handlebar */
+let cartHeaderClass = new HandlebarRender();
+cartHeaderClass.setSourceElement('#template-cart-header');
+cartHeaderClass.setTemplateElement('#cart-header-content');
+
+cartHeaderClass.beforeParseTemplate = () => {
+
+};
+
+cartHeaderClass.afterParseTemplate = () => {
+    $('[data-toggle="tooltip"]').tooltip();
+};
+
+// Loaded Dom:
+$(document).ready(function () {
+   
+});

@@ -10,6 +10,7 @@ namespace App\Core\Controllers;
 
 use App\Core\Response\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Cookie;
 
 class CoreAjaxController extends Controller
 {
@@ -37,10 +38,11 @@ class CoreAjaxController extends Controller
             $message = 'Unexpected error';
             $httpCode = 500;
         }
+
         return response()->json([
             'status'    => $status,
             'message'   => $message,
             'data'      => $data,
-        ], $httpCode)->send();
+        ], $httpCode);
     }
 }

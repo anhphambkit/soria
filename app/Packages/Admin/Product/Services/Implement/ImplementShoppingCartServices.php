@@ -8,27 +8,27 @@
 
 namespace App\Packages\Admin\Product\Services\Implement;
 
-use App\Packages\Admin\Product\Repositories\CartUserRepository;
-use App\Packages\Admin\Product\Services\CartUserServices;
+use App\Packages\Admin\Product\Repositories\ShoppingCartRepository;
+use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use Illuminate\Database\Eloquent\Collection;
 
-class ImplementCartUserServices implements CartUserServices {
+class ImplementShoppingCartServices implements ShoppingCartServices {
 
-    private $repository;
+    private $cartUserRepository;
     private $coreDBRepository;
     private $productServices;
 
     /**
      * ImplementProductCategoryServices constructor.
-     * @param CartUserRepository $cartUserRepository
+     * @param ShoppingCartRepository $cartUserRepository
      * @param CoreDBRepository $coreDBRepository
      * @param ProductServices $productServices
      */
-    public function __construct(CartUserRepository $cartUserRepository, CoreDBRepository $coreDBRepository, ProductServices $productServices)
+    public function __construct(ShoppingCartRepository $cartUserRepository, CoreDBRepository $coreDBRepository, ProductServices $productServices)
     {
-        $this->repository = $cartUserRepository;
+        $this->cartUserRepository = $cartUserRepository;
         $this->coreDBRepository = $coreDBRepository;
         $this->productServices = $productServices;
     }
@@ -36,14 +36,15 @@ class ImplementCartUserServices implements CartUserServices {
     /**
      * @param array $products
      * @param int $userId
+     * @param bool $isGuest
      * @return mixed|void
      * @throws \Exception
      */
-    public function addProductsToCartOfUser(array $products, int $userId = 0) {
+    public function addProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true) {
         try {
             foreach ($products as $productId => $quantity) {
                 $quantity = intval($quantity) > 0 ? intval($quantity) : 1;
-                $this->repository->addToCartOfUser(intval($productId), $quantity, $userId);
+                $this->cartUserRepository->addToCartOfUser(intval($productId), $quantity, $userId, $isGuest);
             }
             return;
         }
@@ -54,12 +55,13 @@ class ImplementCartUserServices implements CartUserServices {
 
     /**
      * @param int $userId
-     * @return mixed
+     * @param bool $isGuest
+     * @return array|mixed
      * @throws \Exception
      */
-    public function getBasicInfoCartOfUser(int $userId) {
+    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true) {
         try {
-            $products = $this->repository->getBasicInfoCartOfUser($userId);
+            $products = $this->cartUserRepository->getBasicInfoCartOfUser($userId, $isGuest);
             $totalItems = $products->sum('quantity');
             $totalPrice = $this->calculatorTotalPrice($products);
             return [
@@ -132,6 +134,23 @@ class ImplementCartUserServices implements CartUserServices {
                 }
             }
             return $cart;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $userId
+     * @param bool $isGuest
+     * @return array|mixed
+     * @throws \Exception
+     */
+    public function getTotalItemsInCart(int $userId, bool $isGuest = true)
+    {
+        try {
+            $totalItems = $this->cartUserRepository->getTotalItemsInCart($userId, $isGuest);
+            return $totalItems;
         }
         catch (\Exception $e) {
             throw new \Exception($e->getMessage());

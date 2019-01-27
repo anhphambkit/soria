@@ -2,21 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 11/7/18
- * Time: 03:37
+ * Date: 1/26/19
+ * Time: 12:26
  */
 
 namespace App\Packages\Admin\Product\Entities;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class UserShoppingCart extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'products';
+    protected $table = 'user_shopping_cart';
 
     /**
      * The attributes that are mass assignable.
@@ -24,11 +24,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'sku', 'desc', 'long_desc',
-        'is_publish', 'is_feature', 'is_best_seller', 'is_free_ship',
-        'price', 'sale_price', 'in_stock', 'manager_stock',
-        'allow_order', 'rating', 'meta_title', 'meta_keywords', 'meta_description',
-        'order'
+        'user_id', 'product_id', 'quantity', 'order'
     ];
 
     public $timestamps = true;

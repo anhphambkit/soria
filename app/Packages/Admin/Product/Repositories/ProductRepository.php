@@ -29,10 +29,12 @@ interface ProductRepository {
     public function createProduct($data);
 
     /**
-     * @param $productId
+     * @param int $productId
+     * @param bool $isPublish
      * @return mixed
+     * @throws \Exception
      */
-    public function getDetailProduct($productId);
+    public function getDetailProduct(int $productId, bool $isPublish = true);
 
     /**
      * @param $productId
