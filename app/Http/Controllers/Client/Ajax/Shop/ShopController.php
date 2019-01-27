@@ -48,4 +48,22 @@ class ShopController extends CoreAjaxController {
             return;
         }
     }
+
+    /**
+     * @param Request $request
+     */
+    public function viewCartHeader(Request $request) {
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $basicInfoCart = $this->cartUserServices->getBasicInfoCartOfUser($userId);
+            $this->response($basicInfoCart);
+            return;
+        }
+        else {
+            $cart = json_decode($request->get('cart'), true);
+            $basicInfoCart = $this->cartUserServices->getBasicInfoCartFromClient([], $cart);
+            $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin");
+            return;
+        }
+    }
 }

@@ -55,6 +55,9 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
 
         <!-- ========== START PAGE CSS ========== -->
         <link href="{{ asset('assets/client/wookie/assets/css/custom-shop.css') }}" rel="stylesheet">
+        <script src="{{ asset('assets/client/wookie/app-assets/external/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/general/js/loading/soria-loading.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/general/js/loading/loaded.js') }}" type="text/javascript"></script>
         @yield('page-css')
         <!-- ========== END PAGE CSS ========== -->
 
@@ -96,7 +99,6 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END MODAL QUICK VIEW ========== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->
-        <script src="{{ asset('assets/client/wookie/app-assets/external/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
         @yield('core-footer-scripts')
@@ -133,7 +135,12 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <script>
             const API_SHOP = {
                 ADD_TO_CART : "{{ route('ajax.shop.add_to_cart', $domain) }}",
+                VIEW_CART_HEADER : "{{ route('ajax.shop.view_cart_header', $domain) }}",
             };
+        </script>
+
+        <script id="template-cart-header" type="text/x-handlebars-template">
+            @include('client.wookie.handle-bar.view-cart-header')
         </script>
 
         <script src="{{ asset('assets/client/wookie/assets/js/shop.js') }}"></script>

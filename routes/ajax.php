@@ -23,6 +23,8 @@ Route::domain('{mainDomain}')->group(function () {
     Route::prefix('shop')->group(function () {
         Route::post('/add-to-cart', 'Shop\ShopController@addToCart')->name('ajax.shop.add_to_cart');
 
+        Route::get('/view-cart-header', 'Shop\ShopController@viewCartHeader')->name('ajax.shop.view_cart_header');
+
         /************ Router Product ************** */
 //        Route::prefix('product')->group(function () {
 //            // Product Detail:

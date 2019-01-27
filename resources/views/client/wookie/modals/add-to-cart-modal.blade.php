@@ -38,7 +38,7 @@
                             </div>
                             <div class="tt-product-total">
                                 <div class="tt-total">
-                                    TOTAL: <span class="tt-price preview-product-price">$324</span>
+                                    Price: <span class="tt-price preview-product-price">$324</span>
                                 </div>
                             </div>
                         </div>
