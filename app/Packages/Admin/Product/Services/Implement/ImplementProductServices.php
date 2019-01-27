@@ -118,12 +118,14 @@ class ImplementProductServices implements ProductServices {
     }
 
     /**
-     * @param $productId
+     * @param int $productId
+     * @param bool $isPublish
      * @return mixed
+     * @throws \Exception
      */
-    public function getDetailProduct($productId) {
+    public function getDetailProduct(int $productId, bool $isPublish = true) {
         // TODO: Implement getDetailProduct() method.
-        return $this->repository->getDetailProduct($productId);
+        return $this->repository->getDetailProduct($productId, $isPublish);
     }
 
     /**

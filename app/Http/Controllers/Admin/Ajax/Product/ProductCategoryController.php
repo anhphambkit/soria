@@ -22,51 +22,55 @@ class ProductCategoryController extends CoreAjaxController
 
     /**
      * Function get all product categories
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getAllProductCategory() {
         $result = $this->productCategoryServices->getAllProductCategory();
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Function create new product category
      * @param CreateProductCategoryRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createProductCategory(CreateProductCategoryRequest $request) {
         $result = $this->productCategoryServices->createProductCategory($request->all());
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param Request $request
      * Function get detail product category
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getDetailProductCategory(Request $request) {
         $productCategoryId = $request->get('id');
         $result = $this->productCategoryServices->getDetailProductCategory($productCategoryId);
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Update Product Category
      * @param CreateProductCategoryRequest $request
-     * Function update product category
+     * @return \Illuminate\Http\JsonResponse
      */
     public function updateProductCategory(CreateProductCategoryRequest $request) {
         $data = $request->all();
         $productCategoryId = $data['id'];
         unset($data['id']);
         $result = $this->productCategoryServices->updateProductCategory($productCategoryId, $data);
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Delete product category
      * @param Request $request
+     * @return mixed
      */
     public function deleteProductCategory(Request $request) {
         $data = $request->all();
         $productCategoryId = $data['id'];
-        $result = $this->productCategoryServices->deleteProductCategory($productCategoryId);
+        return $this->productCategoryServices->deleteProductCategory($productCategoryId);
     }
 }

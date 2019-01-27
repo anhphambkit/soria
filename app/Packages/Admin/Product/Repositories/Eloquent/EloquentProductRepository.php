@@ -79,7 +79,7 @@ class EloquentProductRepository implements ProductRepository {
             if ($isBestSeller)
                 $query = $query->where('products.is_best_seller', '=', true);
 
-            return $query->orderBy('category.order', 'asc')->get();
+            return $query->orderBy('category.order', 'asc')->orderBy('products.order', 'asc')->get();
         }
         catch (\Exception $e) {
             throw new \Exception($e->getMessage());
@@ -101,13 +101,14 @@ class EloquentProductRepository implements ProductRepository {
     }
 
     /**
-     * @param $productId
+     * @param int $productId
+     * @param bool $isPublish
      * @return mixed
      * @throws \Exception
      */
-    public function getDetailProduct($productId) {
+    public function getDetailProduct(int $productId, bool $isPublish = true) {
         try {
-            return $this->model->select(
+            $query = $this->model->select(
                 DB::raw('products.*,
                                 array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
                                 array_to_json(array_remove(array_agg(DISTINCT media_feature_tbl.*), null)) as feature_images,
@@ -120,9 +121,12 @@ class EloquentProductRepository implements ProductRepository {
                 ->leftJoin(MediaProductConfig::GALLERY_PRODUCT_TBL . ' as gallery_images_tbl', 'products.id', '=', 'gallery_images_tbl.product_id')
                 ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_gallery_tbl', 'media_gallery_tbl.id', '=', 'gallery_images_tbl.media_id')
                 ->groupBy('products.id')
-                ->where('products.id', $productId)
-                ->where('products.is_publish', true)
-                ->first();
+                ->where('products.id', $productId);
+
+            if ($isPublish)
+                $query = $query->where('products.is_publish', $isPublish);
+
+            return $query->first();
         }
         catch (\Exception $e) {
             throw new \Exception($e->getMessage());

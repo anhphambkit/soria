@@ -116,8 +116,8 @@ class EloquentPostRepository implements PostRepository {
                    left join \"references\" as \"reference\" on \"reference\".\"id\" = \"x\".\"type_article\"
                     where x.id = {$postId}
                     GROUP BY x.id, x.name, x.slug, x.created_at, x.is_publish, x.desc, x.content, x.at_homepage, x.rating, x.view,
-                             x.keywords, x.type_article, x.updated_at, x.created_by, x.prev_id, x.prev_name, x.prev_slug,
-                             x.prev_created_at, x.next_id, x.next_name, x.next_slug, x.next_created_at,
+                             x.meta_keywords, x.type_article, x.updated_at, x.created_by, x.prev_id, x.prev_name, x.prev_slug,
+                             x.prev_created_at, x.next_id, x.next_name, x.next_slug, x.next_created_at, x.meta_title, x.meta_description,
                              users.username, users.avatar_link, reference.value;";
 
             $result = DB::select($sql);

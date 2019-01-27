@@ -7,10 +7,7 @@ window.viewCartHeader = function () {
     LoadingElementManual = '#cart-header-content';
     manualLoading();
 
-    let cart = JSON.parse(localStorage.getItem('cart')); // Get current cart
-    cart = (cart === undefined || cart === null) ? {} : cart;
-
-    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : [], 'cart' : cart });
+    let request = axios.get(API_SHOP.VIEW_CART_HEADER);
     request
         .then(function(data){
             if (data.data.status === 0 || data.data.status === 1412) {
@@ -40,10 +37,7 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
     newProduct[productId] = quantity;
     products = Object.assign(products, newProduct);
 
-    let cart = JSON.parse(localStorage.getItem('cart')); // Get current cart
-    cart = (cart === undefined || cart === null) ? {} : cart;
-
-    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products, 'cart' : cart });
+    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products });
     request
         .then(function(data){
             if (data.data.status === 0 || data.data.status === 1412) {
@@ -78,11 +72,6 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                         manualLoaded();
                     })
                 }
-
-                if (data.data.status === 1412 && localStorage) { // Update/save data to local storage
-                    // LocalStorage is supported
-                    updateCart(productId, totalItems);
-                }
             }
             else { // Custom Error
                 toastr.error(data.data.message)
@@ -95,24 +84,6 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
             $('#loader-wrapper').removeClass('loader-custom');
             $('body').addClass('loaded');
         });
-}
-
-window.updateCart = function (productId, totalItems) {
-    let cart = JSON.parse(localStorage.getItem('cart')); // Get current cart
-    let newProduct = {};
-    if (cart === undefined || cart === null) { // Check cart
-        newProduct[productId] = 1;
-        cart = {};
-    } else{
-        if (!(productId in cart)) {
-            newProduct[productId] = 1;
-        }
-        else {
-            cart[productId]++;
-        }
-    }
-    localStorage.setItem('cart', JSON.stringify(Object.assign(cart, newProduct)));
-    localStorage.setItem('totalItems', totalItems);
 }
 
 window.currencyFormat = function (num) {
@@ -152,12 +123,5 @@ cartHeaderClass.afterParseTemplate = () => {
 
 // Loaded Dom:
 $(document).ready(function () {
-    let totalItems = JSON.parse(localStorage.getItem('totalItems')); // Get current totalItems
-    if (totalItems !== undefined && totalItems !== null && totalItems > 0) { // Check total items
-        $('.cart-header-items').text(totalItems);
-        $('.cart-header-items').removeClass('d-none');
-    }
-    else {
-        $('.cart-header-items').addClass('d-none');
-    }
+   
 });

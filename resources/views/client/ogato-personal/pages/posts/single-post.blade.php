@@ -9,7 +9,7 @@
 @extends('client.ogato-personal.client-master')
 
 @section('keywords')
-    {{  $post['keywords'] }}
+    {{  $post['meta_keywords'] }}
 @endsection
 
 @section('desc')

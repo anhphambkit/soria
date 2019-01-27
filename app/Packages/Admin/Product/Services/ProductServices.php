@@ -30,10 +30,11 @@ interface ProductServices {
     public function getAllProductsByCategory(int $categoryId = null, bool $isHomepage = false, bool $isBestSeller = false);
 
     /**
-     * @param $productId
+     * @param int $productId
+     * @param bool $isPublish
      * @return mixed
      */
-    public function getDetailProduct($productId);
+    public function getDetailProduct(int $productId, bool $isPublish = true);
 
     /**
      * @param $categories

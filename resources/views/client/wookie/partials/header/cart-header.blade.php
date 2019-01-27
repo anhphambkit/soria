@@ -10,7 +10,7 @@
     <div class="tt-cart tt-dropdown-obj">
         <button class="tt-dropdown-toggle" data-tooltip="Cart" data-tposition="bottom">
             <i class="icon-f-39"></i>
-            <span class="tt-badge-cart cart-header-items"></span>
+            <span class="tt-badge-cart cart-header-items @if($totalItems <= 0) d-none @endif">{{ $totalItems }}</span>
         </button>
         <div class="tt-dropdown-menu">
             <div class="tt-mobile-add">

@@ -10,6 +10,7 @@ namespace App\Core\Controllers;
 
 use App\Core\Response\Response;
 use Illuminate\Routing\Controller;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class CoreWebController extends Controller
 {
@@ -43,6 +44,6 @@ class CoreWebController extends Controller
             'status' => $status,
             'message' => $message,
             'data' => $data,
-        ], $httpCode)->send();
+        ], $httpCode);
     }
 }

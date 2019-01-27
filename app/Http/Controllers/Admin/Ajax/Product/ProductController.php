@@ -22,40 +22,44 @@ class ProductController extends CoreAjaxController
 
     /**
      * Function get all products
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getAllProducts() {
         $result = $this->productServices->getAllProducts();
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Function create new product
      * @param CreateProductRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createProduct(CreateProductRequest $request) {
         $result = $this->productServices->createProduct($request->all());
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param Request $request
      * Function get detail product
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getDetailProduct(Request $request) {
         $productId = $request->get('id');
-        $result = $this->productServices->getDetailProduct($productId);
-        $this->response($result);
+        $result = $this->productServices->getDetailProduct($productId, false);
+        return $this->response($result);
     }
 
     /**
-     * @param CreateProductRequest $request
      * Function update product
+     * @param CreateProductRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function updateProduct(CreateProductRequest $request) {
         $data = $request->all();
         $productId = $data['id'];
         unset($data['id']);
         $result = $this->productServices->updateProduct($productId, $data);
-        $this->response($result);
+        return $this->response($result);
     }
 }

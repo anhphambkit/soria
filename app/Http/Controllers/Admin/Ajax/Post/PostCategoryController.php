@@ -25,37 +25,40 @@ class PostCategoryController extends CoreAjaxController
      */
     public function getAllPostCategory() {
         $result = $this->postCategoryServices->getAllPostCategory();
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
      * Function create new post category
      * @param CreatePostCategoryRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function createPostCategory(CreatePostCategoryRequest $request) {
         $result = $this->postCategoryServices->createPostCategory($request->all());
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param Request $request
      * Function get detail post category
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getDetailPostCategory(Request $request) {
         $postCategoryId = $request->get('id');
         $result = $this->postCategoryServices->getDetailPostCategory($postCategoryId);
-        $this->response($result);
+        return $this->response($result);
     }
 
     /**
-     * @param CreatePostCategoryRequest $request
      * Function update post category
+     * @param CreatePostCategoryRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function updatePostCategory(CreatePostCategoryRequest $request) {
         $data = $request->all();
         $postCategoryId = $data['id'];
         unset($data['id']);
         $result = $this->postCategoryServices->updatePostCategory($postCategoryId, $data);
-        $this->response($result);
+        return $this->response($result);
     }
 }
