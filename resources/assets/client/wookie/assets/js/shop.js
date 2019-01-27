@@ -1,4 +1,5 @@
-import { Handlebars, HandlebarRender } from '@incResources/handlebarForm';
+import { HandlebarRender } from '@incResources/handlebarForm';
+import { Handlebars, helperShop } from './helper/helper-shop';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -64,11 +65,11 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                         $('.preview-product-title').attr('href', `/shop/product/detail/${productDetail.slug}.${productDetail.id}`);
                         $('.preview-product-title').text(productDetail.name);
                         $('.preview-product-quantity').text(quantity);
-                        $('.preview-product-price').text(currencyFormat(productDetail.price));
+                        $('.preview-product-price').text(helperShop.currencyFormat(productDetail.price));
                         $('.modal-cart-info-total-items').text(totalItems);
                         $('.cart-header-items').text(totalItems);
                         $('.cart-header-items').removeClass('d-none');
-                        $('.modal-cart-info-total-price').text(currencyFormat(totalPrice));
+                        $('.modal-cart-info-total-price').text(helperShop.currencyFormat(totalPrice));
                         manualLoaded();
                     })
                 }
@@ -86,40 +87,10 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
         });
 }
 
-window.currencyFormat = function (num) {
-    return (
-        num
-            .toFixed(0) // always two decimal digits
-            .replace('.', ',') // replace decimal point character with ,
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' đ'
-    ) // use . as a separator
-}
-
-// Handle bar:
-Handlebars.registerHelper("featureProduct", function(medias) {
-    return medias[0].path_org;
-});
-
-Handlebars.registerHelper("formatCurrency", function(number) {
-    return currencyFormat(number);
-});
-
-Handlebars.registerHelper("urlProduct", function(slug, id) {
-    return `/shop/product/detail/${slug}.${id}`;
-});
-
 /* register handlebar */
 let cartHeaderClass = new HandlebarRender();
 cartHeaderClass.setSourceElement('#template-cart-header');
 cartHeaderClass.setTemplateElement('#cart-header-content');
-
-cartHeaderClass.beforeParseTemplate = () => {
-
-};
-
-cartHeaderClass.afterParseTemplate = () => {
-    $('[data-toggle="tooltip"]').tooltip();
-};
 
 // Loaded Dom:
 $(document).ready(function () {

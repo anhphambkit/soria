@@ -88,3 +88,9 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-list .tt-item:last-chi
 header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
   width: 50%;
 }
+
+@media (min-width: 790px) {
+  .cart-table-subtotal-product {
+    width: 120px !important;
+  }
+}

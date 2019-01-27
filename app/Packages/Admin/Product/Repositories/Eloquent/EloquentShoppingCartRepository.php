@@ -67,12 +67,12 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
     }
 
     /**
-     * @param int $userId
+     * @param int|null $userId
      * @param bool $isGuest
      * @return mixed
      * @throws \Exception
      */
-    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true) {
+    public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true) {
         try {
             $model = $this->setCurrentRepository($isGuest);
 
@@ -125,7 +125,6 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
 
             $query = $model->select("{$model->getTable()}.quantity")
                             ->leftJoin(ProductConfig::PRODUCT_TBL . ' as products', "{$model->getTable()}.product_id", '=', 'products.id')
-                            ->groupBy("{$model->getTable()}.quantity")
                             ->where($whereCondition)
                             ->where('products.is_publish', true)
                             ->get();

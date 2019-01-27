@@ -27,8 +27,11 @@ Route::domain('{mainDomain}')->group(function () {
 
     /************ Router Shop ************** */
     Route::prefix('shop')->group(function () {
-        // Post Category:
+        // Shop Home:
         Route::get('/', 'Shop\ShopController@index')->name('client.shop.index');
+
+        // Cart Page
+        Route::get('/cart', 'Shop\ShopController@cart')->name('client.shop.cart');
 
         /************ Router Product ************** */
         Route::prefix('product')->group(function () {

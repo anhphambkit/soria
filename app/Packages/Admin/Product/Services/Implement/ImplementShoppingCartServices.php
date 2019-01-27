@@ -54,12 +54,12 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
     }
 
     /**
-     * @param int $userId
+     * @param int|null $userId
      * @param bool $isGuest
      * @return array|mixed
      * @throws \Exception
      */
-    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true) {
+    public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true) {
         try {
             $products = $this->cartUserRepository->getBasicInfoCartOfUser($userId, $isGuest);
             $totalItems = $products->sum('quantity');

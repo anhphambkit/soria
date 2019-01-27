@@ -5,7 +5,6 @@
  * Date: 1/12/19
  * Time: 14:27
  */
-//dd($products);
 ?>
 @extends('client.wookie.master', [ 'isHomePage' => true ])
 
