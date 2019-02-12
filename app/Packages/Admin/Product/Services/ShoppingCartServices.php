@@ -15,9 +15,10 @@ interface ShoppingCartServices {
      * @param array $products
      * @param int $userId
      * @param bool $isGuest
-     * @return mixed
+     * @param bool $isUpdate
+     * @throws \Exception
      */
-    public function addProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true);
+    public function addOrUpdateProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
 
     /**
      * @param int|null $userId

@@ -24,8 +24,7 @@ window.viewCartHeader = function () {
             toastr.error(error)
         })
         .then(function(data){ // Finally
-            $('#loader-wrapper').removeClass('loader-custom');
-            $('body').addClass('loaded');
+
         });
 }
 
@@ -38,7 +37,7 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
     newProduct[productId] = quantity;
     products = Object.assign(products, newProduct);
 
-    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products });
+    let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products, 'is_update_product' : false });
     request
         .then(function(data){
             if (data.data.status === 0 || data.data.status === 1412) {
@@ -67,8 +66,7 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                         $('.preview-product-quantity').text(quantity);
                         $('.preview-product-price').text(helperShop.currencyFormat(productDetail.price));
                         $('.modal-cart-info-total-items').text(totalItems);
-                        $('.cart-header-items').text(totalItems);
-                        $('.cart-header-items').removeClass('d-none');
+                        helperShop.updataBasicInfoCartHeader(totalItems); // Update UI cart number
                         $('.modal-cart-info-total-price').text(helperShop.currencyFormat(totalPrice));
                         manualLoaded();
                     })

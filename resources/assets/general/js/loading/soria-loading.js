@@ -35,7 +35,7 @@
             }
             var g = "";
             g = '<div class="custom-loader">' +
-                '<img src="/storage/general/loading/loading.svg" id="loading-indicator" />' +
+                '<img src="/storage/general/loading/loading-soria.svg" id="loading-indicator" />' +
                 '</div>';
 
             if (element == 'body') var d = "<div class=\"page-loader soria-manual soria-loading-plugin soria-loading-page-loader loader-fullpage\"> " + g + " </div>";else var d = "<div class=\"page-loader soria-manual soria-loading-plugin\"> " + g + " </div>";

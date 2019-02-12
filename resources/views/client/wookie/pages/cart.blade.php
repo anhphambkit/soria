@@ -42,7 +42,7 @@
 {{--content page must define before section content--}}
 @section('content-page')
     @if($cart['total_items'] > 0)
-        <div id="tt-pageContent">
+        <div id="content-cart-page">
             <div class="container-indent">
                 <div class="container">
                     <h1 class="tt-title-subpages noborder">SHOPPING CART</h1>
@@ -78,7 +78,7 @@
             </div>
         </div>
     @else
-        <div id="tt-pageContent">
+        <div id="content-cart-page">
             <div class="container-indent nomargin">
                 <div class="tt-empty-cart">
                     <span class="tt-icon icon-f-39"></span>
@@ -92,6 +92,11 @@
 @endsection
 
 @section('core-footer-scripts')
+    <script id="template-shop-cart-table" type="text/x-handlebars-template">
+        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
+    </script>
+
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 @section('theme-scripts')
@@ -101,6 +106,7 @@
 @endsection
 
 @section('page-scripts')
+
 @endsection
 
 

@@ -14,9 +14,10 @@ interface ShoppingCartRepository {
      * @param int $quantity
      * @param int $userId
      * @param bool $isGuest
+     * @param bool $isUpdate
      * @return mixed
      */
-    public function addToCartOfUser(int $productId, int $quantity = 1, int $userId = 0, bool $isGuest = true);
+    public function addOrUpdateProductsToCartOfUser(int $productId, int $quantity = 1, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
 
     /**
      * @param int|null $userId

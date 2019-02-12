@@ -62,11 +62,12 @@ class ShopController extends CoreAjaxController {
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function addToCart(Request $request) {
+    public function addOrUpdateProductsToCartOfUser(Request $request) {
+        $isUpdate = $request->get('is_update_product');
         $this->userId = $this->checkUserId($request, $this->userId);
 
         $products = $request->get('products');
-        $this->shoppingCartServices->addProductsToCartOfUser($products, $this->userId, $this->isGuest);
+        $this->shoppingCartServices->addOrUpdateProductsToCartOfUser($products, $this->userId, $this->isGuest, $isUpdate);
         $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         if ($this->isGuest)
             return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));

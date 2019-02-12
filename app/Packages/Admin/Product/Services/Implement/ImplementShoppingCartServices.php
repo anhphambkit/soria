@@ -37,14 +37,14 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
      * @param array $products
      * @param int $userId
      * @param bool $isGuest
-     * @return mixed|void
+     * @param bool $isUpdate
      * @throws \Exception
      */
-    public function addProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true) {
+    public function addOrUpdateProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true, bool $isUpdate = true) {
         try {
             foreach ($products as $productId => $quantity) {
                 $quantity = intval($quantity) > 0 ? intval($quantity) : 1;
-                $this->cartUserRepository->addToCartOfUser(intval($productId), $quantity, $userId, $isGuest);
+                $this->cartUserRepository->addOrUpdateProductsToCartOfUser(intval($productId), $quantity, $userId, $isGuest, $isUpdate);
             }
             return;
         }

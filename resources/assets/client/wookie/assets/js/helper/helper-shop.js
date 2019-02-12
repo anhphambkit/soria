@@ -21,6 +21,13 @@ let helperShop = {
                 .replace('.', ',') // replace decimal point character with ,
                 .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' đ'
         ) // use . as a separator
+    },
+
+    updataBasicInfoCartHeader : function (data) {
+        if (data > 0) {
+            $('.cart-header-items').text(data);
+            $('.cart-header-items').removeClass('d-none');
+        }
     }
 }
 

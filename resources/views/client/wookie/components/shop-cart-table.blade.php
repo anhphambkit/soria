@@ -65,7 +65,7 @@
                     <div class="detach-quantity-desctope">
                         <div class="tt-input-counter style-01">
                             <span class="minus-btn"></span>
-                            <input type="text" value="{{ $product['quantity'] }}" size="5">
+                            <input type="text" class="input-quantity-product cart-page" value="{{ $product['quantity'] }}" size="9999" data-product-id="{{ $product['id'] }}">
                             <span class="plus-btn"></span>
                         </div>
                     </div>
