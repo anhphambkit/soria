@@ -102,6 +102,7 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
                                 ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'feature_product_tbl.media_id')
                                 ->groupBy('products.id', "{$model->getTable()}.quantity")
                                 ->where($whereCondition)
+                                ->where("{$model->getTable()}.quantity", ">", 0)
                                 ->where('products.is_publish', true)
                                 ->get();
             return $query;

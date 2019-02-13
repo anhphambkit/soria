@@ -55,4 +55,13 @@ interface ShoppingCartServices {
      * @return mixed
      */
     public function getTotalItemsInCart(int $userId, bool $isGuest = true);
+
+    /**
+     * @param int $productId
+     * @param int $userId
+     * @param bool $isGuest
+     * @param bool $isUpdate
+     * @return mixed
+     */
+    public function deleteProductInCart(int $productId, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
 }

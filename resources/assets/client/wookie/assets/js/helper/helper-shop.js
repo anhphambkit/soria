@@ -28,6 +28,10 @@ let helperShop = {
             $('.cart-header-items').text(data);
             $('.cart-header-items').removeClass('d-none');
         }
+        else {
+            $('.cart-header-items').text("");
+            $('.cart-header-items').addClass('d-none');
+        }
     }
 }
 

@@ -87,4 +87,15 @@ class ShopController extends CoreAjaxController {
         else
             return $this->response($basicInfoCart);
     }
+
+    public function deleteProductInCart(Request $request) {
+        $productId = $request->get('product_id');
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->shoppingCartServices->deleteProductInCart($productId, $this->userId, $this->isGuest);
+        $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response($basicInfoCart);
+    }
 }

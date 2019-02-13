@@ -16,9 +16,9 @@
                     <table>
                         <tbody>
                         @{{#each products }}
-                            <tr>
+                            <tr class="row-product" data-product-id="@{{ id }}">
                                 <td>
-                                    <a href="#" class="tt-btn-close"></a>
+                                    <a href="#" class="tt-btn-close btn-remove-product-in-cart"></a>
                                 </td>
                                 <td>
                                     <div class="tt-product-img">
@@ -40,7 +40,7 @@
                                     <div class="detach-quantity-desctope">
                                         <div class="tt-input-counter style-01">
                                             <span class="minus-btn"></span>
-                                            <input class="input-quantity-product cart-page" type="text" value="@{{ quantity }}" size="9999" data-product-id="@{{ id }}">
+                                            <input class="input-quantity-product cart-page" type="text" value="@{{ quantity }}" size="9999">
                                             <span class="plus-btn"></span>
                                         </div>
                                     </div>

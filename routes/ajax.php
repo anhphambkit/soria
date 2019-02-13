@@ -22,6 +22,7 @@ Route::domain('{mainDomain}')->group(function () {
     /************ Router Shop ************** */
     Route::prefix('shop')->group(function () {
         Route::post('/add-to-cart', 'Shop\ShopController@addOrUpdateProductsToCartOfUser')->name('ajax.shop.add_to_cart');
+        Route::post('/delete-product-in-cart', 'Shop\ShopController@deleteProductInCart')->name('ajax.shop.delete_product_in_cart');
 
         Route::get('/view-cart-header', 'Shop\ShopController@viewCartHeader')->name('ajax.shop.view_cart_header');
 

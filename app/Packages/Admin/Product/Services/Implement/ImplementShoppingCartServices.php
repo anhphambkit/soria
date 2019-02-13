@@ -156,4 +156,21 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $productId
+     * @param int $userId
+     * @param bool $isGuest
+     * @param bool $isUpdate
+     * @return mixed
+     * @throws \Exception
+     */
+    public function deleteProductInCart(int $productId, int $userId = 0, bool $isGuest = true, bool $isUpdate = true) {
+        try {
+            return $this->cartUserRepository->addOrUpdateProductsToCartOfUser($productId, 0, $userId, $isGuest, $isUpdate);
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

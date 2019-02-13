@@ -32,9 +32,9 @@
                     $price = $product['price'];
                 }
             ?>
-            <tr>
+            <tr class="row-product" data-product-id="{{ $product['id'] }}">
                 <td>
-                    <a href="#" class="tt-btn-close"></a>
+                    <a href="#" class="tt-btn-close btn-remove-product-in-cart"></a>
                 </td>
                 <td>
                     <div class="tt-product-img">
@@ -65,7 +65,7 @@
                     <div class="detach-quantity-desctope">
                         <div class="tt-input-counter style-01">
                             <span class="minus-btn"></span>
-                            <input type="text" class="input-quantity-product cart-page" value="{{ $product['quantity'] }}" size="9999" data-product-id="{{ $product['id'] }}">
+                            <input type="text" class="input-quantity-product cart-page" value="{{ $product['quantity'] }}" size="9999">
                             <span class="plus-btn"></span>
                         </div>
                     </div>
