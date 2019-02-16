@@ -15,16 +15,17 @@ interface ShoppingCartServices {
      * @param array $products
      * @param int $userId
      * @param bool $isGuest
-     * @return mixed
+     * @param bool $isUpdate
+     * @throws \Exception
      */
-    public function addProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true);
+    public function addOrUpdateProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
 
     /**
-     * @param int $userId
+     * @param int|null $userId
      * @param bool $isGuest
      * @return mixed
      */
-    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true);
+    public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true);
 
     /**
      * @param array $products
@@ -54,4 +55,13 @@ interface ShoppingCartServices {
      * @return mixed
      */
     public function getTotalItemsInCart(int $userId, bool $isGuest = true);
+
+    /**
+     * @param int $productId
+     * @param int $userId
+     * @param bool $isGuest
+     * @param bool $isUpdate
+     * @return mixed
+     */
+    public function deleteProductInCart(int $productId, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
 }

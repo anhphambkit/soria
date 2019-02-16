@@ -46,10 +46,11 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
      * @param int $quantity
      * @param int $userId
      * @param bool $isGuest
+     * @param bool $isUpdate
      * @return mixed
      * @throws \Exception
      */
-    public function addToCartOfUser(int $productId, int $quantity = 1, int $userId = 0, bool $isGuest = true) {
+    public function addOrUpdateProductsToCartOfUser(int $productId, int $quantity = 1, int $userId = 0, bool $isGuest = true, bool $isUpdate = true) {
         try {
             $model = $this->setCurrentRepository($isGuest);
 
@@ -58,7 +59,12 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
                 $dataFindOrCreate = ['user_id' => $userId, 'product_id' => $productId];
 
             $productInCart = $model->firstOrNew($dataFindOrCreate);
-            $productInCart->quantity = ($productInCart->quantity + $quantity);
+
+            if ($isUpdate) // Mode update
+                $productInCart->quantity = $quantity;
+            else
+                $productInCart->quantity = ($productInCart->quantity + $quantity);
+
             return $productInCart->save();
         }
         catch (\Exception $e) {
@@ -67,12 +73,12 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
     }
 
     /**
-     * @param int $userId
+     * @param int|null $userId
      * @param bool $isGuest
      * @return mixed
      * @throws \Exception
      */
-    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true) {
+    public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true) {
         try {
             $model = $this->setCurrentRepository($isGuest);
 
@@ -96,6 +102,7 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
                                 ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'feature_product_tbl.media_id')
                                 ->groupBy('products.id', "{$model->getTable()}.quantity")
                                 ->where($whereCondition)
+                                ->where("{$model->getTable()}.quantity", ">", 0)
                                 ->where('products.is_publish', true)
                                 ->get();
             return $query;
@@ -125,7 +132,6 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
 
             $query = $model->select("{$model->getTable()}.quantity")
                             ->leftJoin(ProductConfig::PRODUCT_TBL . ' as products', "{$model->getTable()}.product_id", '=', 'products.id')
-                            ->groupBy("{$model->getTable()}.quantity")
                             ->where($whereCondition)
                             ->where('products.is_publish', true)
                             ->get();

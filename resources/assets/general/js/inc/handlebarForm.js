@@ -65,7 +65,9 @@ class HandlebarRender {
     /**
      * hook after parse template
      */
-    afterParseTemplate(){}
+    afterParseTemplate(){
+        $('[data-toggle="tooltip"]').tooltip();
+    }
 
     /**
      * Parse template

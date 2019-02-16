@@ -16,7 +16,7 @@ class ModifyProductTable extends Migration
         if(Schema::hasTable('products')) {
             if(!Schema::hasColumn('products', 'order')) {
                 Schema::table('products', function (Blueprint $table) {
-                    $table->integer('order')->default(0)->comment('Order Product');
+                    $table->integer('order')->default(1)->comment('Order Product');
                 });
             }
         }

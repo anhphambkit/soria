@@ -37,14 +37,14 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
      * @param array $products
      * @param int $userId
      * @param bool $isGuest
-     * @return mixed|void
+     * @param bool $isUpdate
      * @throws \Exception
      */
-    public function addProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true) {
+    public function addOrUpdateProductsToCartOfUser(array $products, int $userId = 0, bool $isGuest = true, bool $isUpdate = true) {
         try {
             foreach ($products as $productId => $quantity) {
                 $quantity = intval($quantity) > 0 ? intval($quantity) : 1;
-                $this->cartUserRepository->addToCartOfUser(intval($productId), $quantity, $userId, $isGuest);
+                $this->cartUserRepository->addOrUpdateProductsToCartOfUser(intval($productId), $quantity, $userId, $isGuest, $isUpdate);
             }
             return;
         }
@@ -54,12 +54,12 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
     }
 
     /**
-     * @param int $userId
+     * @param int|null $userId
      * @param bool $isGuest
      * @return array|mixed
      * @throws \Exception
      */
-    public function getBasicInfoCartOfUser(int $userId, bool $isGuest = true) {
+    public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true) {
         try {
             $products = $this->cartUserRepository->getBasicInfoCartOfUser($userId, $isGuest);
             $totalItems = $products->sum('quantity');
@@ -151,6 +151,23 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
         try {
             $totalItems = $this->cartUserRepository->getTotalItemsInCart($userId, $isGuest);
             return $totalItems;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $productId
+     * @param int $userId
+     * @param bool $isGuest
+     * @param bool $isUpdate
+     * @return mixed
+     * @throws \Exception
+     */
+    public function deleteProductInCart(int $productId, int $userId = 0, bool $isGuest = true, bool $isUpdate = true) {
+        try {
+            return $this->cartUserRepository->addOrUpdateProductsToCartOfUser($productId, 0, $userId, $isGuest, $isUpdate);
         }
         catch (\Exception $e) {
             throw new \Exception($e->getMessage());

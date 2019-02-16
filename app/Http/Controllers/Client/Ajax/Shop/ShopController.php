@@ -25,6 +25,8 @@ class ShopController extends CoreAjaxController {
     protected $productServices;
     protected $shoppingCartServices;
     protected $guestInfoServices;
+    protected $userId;
+    protected $isGuest;
     public function __construct(HelperServices $helperServices, ProductServices $productServices,
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices)
     {
@@ -32,6 +34,27 @@ class ShopController extends CoreAjaxController {
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
+        $this->isGuest = true;
+        if (Auth::check()) {
+            $this->userId = Auth::id();
+            $this->isGuest = false;
+        }
+        else {
+            $this->userId = Cookie::get('guest_id');
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param int|null $userId
+     * @return int|mixed
+     */
+    public function checkUserId(Request $request, int $userId = null) {
+        if (empty($userId)) {
+            $ip = $request->ip();
+            $userId = $this->guestInfoServices->createGuest($ip);
+        }
+        return $userId;
     }
 
     /**
@@ -39,25 +62,15 @@ class ShopController extends CoreAjaxController {
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function addToCart(Request $request) {
-        $products = $request->get('products');
-        $isGuest = true;
-        if (Auth::check()) {
-            $userId = Auth::id();
-            $isGuest = false;
-        }
-        else {
-            $userId = Cookie::get('guest_id');
-            if (empty($userId)) {
-                $ip = $request->ip();
-                $userId = $this->guestInfoServices->createGuest($ip);
-            }
-        }
-        $this->shoppingCartServices->addProductsToCartOfUser($products, $userId, $isGuest);
-        $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($userId, $isGuest);
+    public function addOrUpdateProductsToCartOfUser(Request $request) {
+        $isUpdate = $request->get('is_update_product');
+        $this->userId = $this->checkUserId($request, $this->userId);
 
-        if ($isGuest)
-            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $userId));
+        $products = $request->get('products');
+        $this->shoppingCartServices->addOrUpdateProductsToCartOfUser($products, $this->userId, $this->isGuest, $isUpdate);
+        $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
         else
             return $this->response($basicInfoCart);
 
@@ -68,19 +81,21 @@ class ShopController extends CoreAjaxController {
      * @return ShopController|\Illuminate\Http\JsonResponse
      */
     public function viewCartHeader(Request $request) {
-        if (Auth::check()) {
-            $userId = Auth::id();
-            $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($userId, false);
+        $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin");
+        else
             return $this->response($basicInfoCart);
-        }
-        else {
-            $guestId = Cookie::get('guest_id');
-            if (empty($guestId)) {
-                $ip = $request->ip();
-                $guestId = $this->guestInfoServices->createGuest($ip);
-            }
-            $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($guestId);
-            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $guestId));
-        }
+    }
+
+    public function deleteProductInCart(Request $request) {
+        $productId = $request->get('product_id');
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->shoppingCartServices->deleteProductInCart($productId, $this->userId, $this->isGuest);
+        $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response($basicInfoCart);
     }
 }
