@@ -27,7 +27,7 @@
                                 </td>
                                 <td>
                                     <h2 class="tt-title">
-                                        <a href="#">@{{ name }}</a>
+                                        <a href="@{{ urlProduct slug id }}">@{{ name }}</a>
                                     </h2>
                                     <div class="tt-price">
                                         Price:

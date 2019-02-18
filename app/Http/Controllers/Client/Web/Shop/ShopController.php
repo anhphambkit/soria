@@ -13,6 +13,7 @@ use App\Http\Controllers\SystemGeneral\Web\Controller;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
+use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,17 +26,20 @@ class ShopController extends Controller {
     protected $productServices;
     protected $shoppingCartServices;
     protected $guestInfoServices;
+    protected $addressGeneralInfoService;
     protected $userId;
     protected $isGuest;
     protected $totalItems;
-    public function __construct(HelperServices $helperServices, ProductServices $productServices, ShoppingCartServices $shoppingCartServices,
-                                GuestInfoServices $guestInfoServices)
+    public function __construct(HelperServices $helperServices, ProductServices $productServices,
+                                ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
+                                AddressGeneralInfoService $addressGeneralInfoService)
     {
         parent::__construct();
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
+        $this->addressGeneralInfoService = $addressGeneralInfoService;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -79,9 +83,23 @@ class ShopController extends Controller {
         return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function cart() {
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
 //        dd($basicInfoCart);
         return view(config('setting.theme.shop') . '.pages.cart', compact('cart'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function checkoutShipping() {
+        $provincesCities = $this->addressGeneralInfoService->getProvincesCitiesByCountryId();
+//        dd($provincesCities);
+        $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+//        dd($basicInfoCart);
+        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities'));
     }
 }

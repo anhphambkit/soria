@@ -28,11 +28,15 @@ use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServic
 use App\Packages\Admin\Product\Services\Implement\ImplementProductServices;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\SystemGeneral\Repositories\AddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
+use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentAddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentCoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentReferenceRepository;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
+use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\HelperServices;
+use App\Packages\SystemGeneral\Services\Implement\ImplementAddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\Implement\ImplementHelperServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
 use App\Packages\SystemGeneral\Services\MediaServices;
@@ -70,6 +74,10 @@ class AppServiceProvider extends ServiceProvider
         // Bind Core DB:
         $this->app->singleton(CoreDBRepository::class, EloquentCoreDBRepository::class);
         $this->app->singleton(ReferenceRepository::class, EloquentReferenceRepository::class);
+
+        // Bind Address General:
+        $this->app->singleton(AddressGeneralInfoService::class, ImplementAddressGeneralInfoService::class);
+        $this->app->singleton(AddressGeneralInfoRepository::class, EloquentAddressGeneralInfoRepository::class);
 
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);

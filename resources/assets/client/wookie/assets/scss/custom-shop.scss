@@ -94,3 +94,79 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
     width: 120px !important;
   }
 }
+
+.tt-shopcart-table.tt-list-overview-products table td:nth-child(2) {
+  width: unset;
+  padding: 20px 0 20px 10px;
+}
+
+.tt-shopcart-table.tt-list-overview-products .tt-title a {
+  color: #2498FF;
+}
+
+.tt-price.cart-table-total-price {
+  margin-left: 24px;
+  color: #EE2247;
+  margin-right: 0 !important;
+}
+
+.title-total-list {
+  color: black;
+  font-weight: 800;
+}
+
+.tt-shopcart-table.tt-list-overview-products tr.row-total {
+  border-bottom: none !important;
+}
+
+.tt-shopcart-table.tt-list-overview-products {
+  border: 1px solid #ddd;
+  padding: 0 10px;
+
+  .over-list {
+    padding: 10px;
+    font-size: 15px;
+    line-height: 31px;
+    color: #6F6F6F;
+    font-weight: 500;
+
+    .edit-cart-btn {
+      float: right;
+
+      .edit-cart-button {
+        position: relative;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .title-edit-cart-btn {
+        margin-left: 5px;
+        font-size: 15px;
+      }
+
+      .icon-edit-custom {
+        bottom: 2px;
+        position: relative;
+      }
+    }
+  }
+}
+
+.custom-col {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.address-account-form {
+  border: 1px solid #f25a94;
+  padding: 20px;
+}
+
+.custom-select2 .select2-container .select2-selection--single {
+  height: 38px !important;
+  padding: 6px 0 !important;
+}
+
+.custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 5px !important;
+}

@@ -33,6 +33,12 @@ Route::domain('{mainDomain}')->group(function () {
         // Cart Page
         Route::get('/cart', 'Shop\ShopController@cart')->name('client.shop.cart');
 
+        // Check out:
+        Route::prefix('checkout')->group(function () {
+            Route::get('/shipping', 'Shop\ShopController@checkoutShipping')->name('client.shop.checkout_shipping');
+        });
+
+
         /************ Router Product ************** */
         Route::prefix('product')->group(function () {
             // Product Detail:

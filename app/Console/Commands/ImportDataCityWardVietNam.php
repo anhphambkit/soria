@@ -15,7 +15,7 @@ class ImportDataCityWardVietNam extends Command
      *
      * @var string
      */
-    protected $signature = 'command:import-city-ward-vn';
+    protected $signature = 'import:city-ward-vn';
 
     /**
      * The console command description.

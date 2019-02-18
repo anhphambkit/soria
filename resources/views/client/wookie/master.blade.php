@@ -33,6 +33,8 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- APP FAVICON -->
 
         <!-- Font Google -->
+        <link href="{{ asset('assets/vendors/plugins/fontawesome/css/all.min.css') }}"
+              rel="stylesheet">
         @yield('fonts')
         <!-- END FONTS-->
 
@@ -99,6 +101,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END MODAL QUICK VIEW ========== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->
+        <script src="{{ asset('assets/vendors/plugins/fontawesome/js/all.min.js')}}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
         @yield('core-footer-scripts')
@@ -129,6 +132,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END THEME SCRIPTS ========== -->
 
         <!-- ========== START PLUGINS SCRIPTS ========== -->
+        @yield('plugin-scripts')
         <!-- ========== END PLUGINS SCRIPTS ========== -->
 
         <!-- ========== START PAGE SCRIPTS ========== -->
