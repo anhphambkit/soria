@@ -128,7 +128,7 @@
     <!-- ========== END PAGE SCRIPTS ========== -->
 
     <!-- ========== START CONSTANT HTTP CODE SCRIPTS ========== -->
-    @include('backend.modern-admin.layouts.constant')
+    @include('generals.constant')
     <!-- ========== END CONSTANT HTTP CODE SCRIPTS ========== -->
 </body>
 </html>

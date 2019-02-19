@@ -31,5 +31,6 @@ Route::domain('{mainDomain}')->group(function () {
 //            // Product Detail:
 //            Route::get('/detail/{urlProduct}', 'Shop\ShopController@viewDetailProduct')->name('client.product.detail');
 //        });
+        Route::post('/create-address-shipping-default', 'Shop\ShopController@createAddressShippingDefault')->name('ajax.shop.create_address_shipping_default');
     });
 });

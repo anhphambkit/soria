@@ -37,7 +37,7 @@ class AddressController extends CoreAjaxController
      */
     public function getWardsByDistrict(Request $request) {
         $districtId = (int) $request->get('district_code');
-        $wards = $this->addressGeneralInfoService->getDistrictsByCityId($districtId);
+        $wards = $this->addressGeneralInfoService->getWardsByDistrictId($districtId);
         return $this->response($wards);
     }
 }

@@ -27,5 +27,5 @@ return [
     'select_province_city' => 'Select Province/City',
     'select_district' => 'Select District',
     'select_ward' => 'Select Ward',
-
+    'address_name' => "Name Of Address"
 ];

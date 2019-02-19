@@ -74,11 +74,14 @@
 @endsection
 
 @section('theme-scripts')
+
 @endsection
 
 @section('plugin-scripts')
+    <script src="{{ asset('assets/vendors/js/jquery.serializejson.min.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/jquery.buttonLoader.min.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/select2.min.js')}}"></script>
-    {{--<script src="{{ asset('assets/vendors/js/jquery.core.js')}}"></script>--}}
+    <script src="{{ asset('assets/vendors/plugins/mask/jquery.mask.min.js')}}"></script>
 @endsection
 
 @section('page-scripts')
@@ -87,9 +90,13 @@
             REFRESH_DISTRICTS : "{{ route('general_ajax.address.refresh_districts', $domain) }}",
             REFRESH_WARDS : "{{ route('general_ajax.address.refresh_wards', $domain) }}",
         };
+        const API_CHECKOUT = {
+            CREATE_DEFAULT_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping_default', $domain) }}",
+        }
     </script>
 
     <script src="{{ asset('assets/client/wookie/assets/js/helper/address-form.js')}}"></script>
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/checkout-shipping.js')}}"></script>
 @endsection
 
 

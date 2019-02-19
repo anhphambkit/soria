@@ -255,7 +255,7 @@ $disabled = isset($disabled) ? $disabled : false;
 
 
 @if($jsValidate)
-    <ul class="" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
+    <ul class="validate-error" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
 @endif
 
 @if($parseErrorLaravel)

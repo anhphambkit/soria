@@ -8,6 +8,7 @@ class AddressForm {
         this.wrapperProvinceCity = '#province_city';
         this.wrapperDistrict = '#district';
         this.wrapperWard = '#ward';
+        this.wrapperMobilePhone = '#mobile_phone';
         this.dataDistrict = [];
         this.dataWard = [];
         this.apiRefreshDistricts = "#";
@@ -48,11 +49,13 @@ class AddressForm {
 
         return request
         .then(function(data){
+            $(element).empty();
             $(element).select2({
                 width: '100%',
                 placeholder: "Select a pill",
                 data: data.data.data
             });
+            $(element).trigger('change')
             return data;
         })
         .catch(function(data){
@@ -141,11 +144,11 @@ class AddressForm {
         $(document).ready(function() {
             let config = Object.assign(defaults);
             $(addressForm.wrapperProvinceCity).select2(config);
-            // $(addressForm.wrapperProvinceCity).val(null).trigger('change');
         });
-
         this.handleDistrictData();
         this.handleWardData();
+        $(this.wrapperProvinceCity).trigger('change');
+        $(this.wrapperMobilePhone).mask("(000) 000-0000");
     }
 }
 export default AddressForm;

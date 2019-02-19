@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Client\Ajax\Shop;
 
 use App\Core\Controllers\CoreAjaxController;
 use App\Core\Response\Response;
+use App\Http\Requests\Shop\CreateAddressShipingRequest;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
@@ -88,6 +89,10 @@ class ShopController extends CoreAjaxController {
             return $this->response($basicInfoCart);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deleteProductInCart(Request $request) {
         $productId = $request->get('product_id');
         $this->userId = $this->checkUserId($request, $this->userId);
@@ -97,5 +102,13 @@ class ShopController extends CoreAjaxController {
             return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
         else
             return $this->response($basicInfoCart);
+    }
+
+    /**
+     * @param CreateAddressShipingRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createAddressShippingDefault(CreateAddressShipingRequest $request) {
+        return $this->response($request->all());
     }
 }

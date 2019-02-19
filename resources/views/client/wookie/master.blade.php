@@ -40,6 +40,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
 
         <!-- ========== START CORE SCRIPTS ========== -->
         <link href="{{ asset('assets/vendors/css/toastr/toastr.min.css')}}" rel="stylesheet" />
+        <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         @yield('core-scripts')
         <!-- ========== START CORE SCRIPTS ========== -->
@@ -104,6 +105,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <script src="{{ asset('assets/vendors/plugins/fontawesome/js/all.min.js')}}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
+        <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert.min.js')}}"></script>
         @yield('core-footer-scripts')
         <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
@@ -153,7 +155,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END PAGE SCRIPTS ========== -->
 
         <!-- ========== START CONSTANT HTTP CODE SCRIPTS ========== -->
-        {{--@include('client.ogato-personal.layouts.constant')--}}
+        @include('generals.constant')
         <!-- ========== END CONSTANT HTTP CODE SCRIPTS ========== -->
     </body>
 </html>

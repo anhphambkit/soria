@@ -68,7 +68,7 @@ class EloquentAddressGeneralInfoRepository implements AddressGeneralInfoReposito
      */
     public function getWardsByDistrictId(int $districtId) {
         try {
-            return $this->provinceCityModel->select("code as id", "name as text")
+            return $this->wardModel->select("code as id", "name as text")
                 ->where("district_code", $districtId)
                 ->get();
         }
