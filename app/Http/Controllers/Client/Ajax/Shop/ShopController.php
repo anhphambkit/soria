@@ -15,6 +15,7 @@ use App\Http\Requests\Shop\CreateAddressShipingRequest;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,19 +23,22 @@ use Illuminate\Support\Facades\Cookie;
 
 class ShopController extends CoreAjaxController {
 
-    protected $helperServices;
-    protected $productServices;
-    protected $shoppingCartServices;
-    protected $guestInfoServices;
+    private $helperServices;
+    private $productServices;
+    private $shoppingCartServices;
+    private $guestInfoServices;
+    private $addressBookServices;
     protected $userId;
     protected $isGuest;
     public function __construct(HelperServices $helperServices, ProductServices $productServices,
-                                ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices)
+                                ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
+                                AddressBookServices $addressBookServices)
     {
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
+        $this->addressBookServices = $addressBookServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -109,6 +113,8 @@ class ShopController extends CoreAjaxController {
      * @return \Illuminate\Http\JsonResponse
      */
     public function createAddressShippingDefault(CreateAddressShipingRequest $request) {
-        return $this->response($request->all());
+        $data = $request->all();
+        $addressBookId = $this->addressBookServices->createNewAddressBook($data);
+        return $this->response($addressBookId);
     }
 }

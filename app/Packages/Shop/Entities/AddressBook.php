@@ -18,7 +18,7 @@ class AddressBook extends Model
      *
      * @var string
      */
-    protected $table = 'guest_info';
+    protected $table = 'address_book';
 
     /**
      * The attributes that are mass assignable.

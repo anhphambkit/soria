@@ -28,6 +28,10 @@ use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServic
 use App\Packages\Admin\Product\Services\Implement\ImplementProductServices;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\Shop\Repositories\AddressBookRepository;
+use App\Packages\Shop\Repositories\Eloquent\EloquentAddressBookRepository;
+use App\Packages\Shop\Services\AddressBookServices;
+use App\Packages\Shop\Services\Implement\ImplementAddressBookServices;
 use App\Packages\SystemGeneral\Repositories\AddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentAddressGeneralInfoRepository;
@@ -78,6 +82,10 @@ class AppServiceProvider extends ServiceProvider
         // Bind Address General:
         $this->app->singleton(AddressGeneralInfoService::class, ImplementAddressGeneralInfoService::class);
         $this->app->singleton(AddressGeneralInfoRepository::class, EloquentAddressGeneralInfoRepository::class);
+
+        // Bind Address Shop:
+        $this->app->singleton(AddressBookServices::class, ImplementAddressBookServices::class);
+        $this->app->singleton(AddressBookRepository::class, EloquentAddressBookRepository::class);
 
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);
