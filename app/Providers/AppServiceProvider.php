@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
         //
 //        $this->register();
         $this->publishes([
-            base_path('App/Packages/SystemGeneral/Data') => storage_path('app/public')
+            base_path('app/Packages/SystemGeneral/Data') => storage_path('app/public')
         ], 'storage');
     }
 
