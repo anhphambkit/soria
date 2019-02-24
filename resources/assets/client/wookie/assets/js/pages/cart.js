@@ -11,7 +11,6 @@ cartPageClass.setSourceElement('#template-shop-cart-table');
 cartPageClass.setTemplateElement('#content-cart-page');
 cartPageClass.afterParseTemplate(() => {
     $('[data-toggle="tooltip"]').tooltip();
-    ttInputCounter();
 });
 
 // Loaded Dom:

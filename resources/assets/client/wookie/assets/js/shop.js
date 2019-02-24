@@ -11,7 +11,7 @@ window.viewCartHeader = function () {
     let request = axios.get(API_SHOP.VIEW_CART_HEADER);
     request
         .then(function(data){
-            if (data.data.status === 0 || data.data.status === 1412) {
+            if (data.data.status === 0) {
                 cartHeaderClass.setData(data.data.data);
                 cartHeaderClass.parseTemplate();
                 manualLoaded();
@@ -40,11 +40,12 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
     let request = axios.post(API_SHOP.ADD_TO_CART, { 'products' : products, 'is_update_product' : false });
     request
         .then(function(data){
-            if (data.data.status === 0 || data.data.status === 1412) {
+            if (data.data.status === 0) {
                 let products = data.data.data.products;
                 let totalItems = data.data.data.total_items;
                 let totalPrice = data.data.data.total_price;
                 let productDetail = products.find(product => product.id === productId);
+                helperShop.updataBasicInfoCartHeader(totalItems); // Update UI cart number
 
                 if (isShowModalCartInfo) { // Show modal info cart
                     $('#modalAddToCartProduct').modal('show');
@@ -66,7 +67,6 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                         $('.preview-product-quantity').text(quantity);
                         $('.preview-product-price').text(helperShop.currencyFormat(productDetail.price));
                         $('.modal-cart-info-total-items').text(totalItems);
-                        helperShop.updataBasicInfoCartHeader(totalItems); // Update UI cart number
                         $('.modal-cart-info-total-price').text(helperShop.currencyFormat(totalPrice));
                         manualLoaded();
                     })
