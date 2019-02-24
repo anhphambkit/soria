@@ -12,14 +12,12 @@
             Order ({{ $totalItems }} products)
         </span>
         <span class="edit-cart-btn">
-            <button class="btn btn-info btn-small edit-cart-button">
+             <a href="{{ route('client.shop.cart', $domain) }}" class="btn btn-info btn-small edit-cart-button">
                 <i class="far fa-edit icon-edit-custom"></i>
                 <span class="title-edit-cart-btn">
-                    <a href="{{ route('client.shop.cart', $domain) }}">
-                        {{ trans('generals.edit') }}
-                    </a>
+                    {{ trans('generals.edit') }}
                 </span>
-            </button>
+             </a>
         </span>
     </div>
     <table>
