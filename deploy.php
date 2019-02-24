@@ -43,6 +43,8 @@ task('deploy:git', function(){ // Install vendors by composer
     try {
         $path = get('deploy_path');
         run("cd \"{$path}\" && git checkout .");
+//        run("cd \"{$path}\" && git add .");
+//        run("cd \"{$path}\" && git commit -m \"auto-commit-by-deployer\" ");
         run("cd \"{$path}\" && git pull origin master");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
