@@ -183,4 +183,23 @@ class EloquentAddressBookRepository implements AddressBookRepository
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getDetailAddressShippingSelected(int $userId, bool $isGuest = true) {
+        try {
+            return $this->addressBookView
+                ->select('*')
+                ->where('user_id', $userId)
+                ->where('is_guest', $isGuest)
+                ->where('is_shipping', true)
+                ->first();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

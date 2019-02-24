@@ -123,4 +123,18 @@ class ImplementAddressBookServices implements AddressBookServices
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getDetailAddressShippingSelected(int $userId, bool $isGuest = true) {
+        try {
+            return $this->addressBookRepository->getDetailAddressShippingSelected($userId, $isGuest);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

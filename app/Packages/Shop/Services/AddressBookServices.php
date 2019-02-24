@@ -57,4 +57,11 @@ interface AddressBookServices
      * @return mixed
      */
     public function shipToThisAddress(int $addressId, int $userId, bool $isGuest = true);
+
+    /**
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     */
+    public function getDetailAddressShippingSelected(int $userId, bool $isGuest = true);
 }

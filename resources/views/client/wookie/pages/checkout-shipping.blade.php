@@ -48,13 +48,6 @@
                 <h1 class="tt-title-subpages noborder">{{ trans('address-form.checkout_shipping') }}</h1>
                 <div class="row">
                     <div class="col-sm-12 col-xl-6 custom-col">
-                        <div class="title-address-guide">
-                            <h3>2. {{ trans('address-form.shipping_address') }}</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-xl-6 custom-col">
                         <div id="shipping-address-area">
                             @if($addressBooks->isNotEmpty())
                                 <h5>{{ trans('address-form.select_shipping_address') }}:</h5>

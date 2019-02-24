@@ -1,6 +1,6 @@
 <?php
-$parseErrorLaravel = !empty($parseErrorLaravel) ? $parseErrorLaravel : false;
-$jsValidate = !empty($jsValidate) ? $jsValidate : true;
+$parseErrorLaravel = isset($parseErrorLaravel) ? $parseErrorLaravel : false;
+$jsValidate = isset($jsValidate) ? $jsValidate : true;
 $type = isset($type) ? $type : 'text';
 $class = isset($class) ? $class : '';
 $pattern = isset($pattern) ? $pattern : '';
@@ -250,6 +250,18 @@ $disabled = isset($disabled) ? $disabled : false;
                 </div>
             @endforeach
         </div>
+    </div>
+
+@elseif($type === 'radio-single')
+    <div class="radio-btn-custom {{ $class }}">
+        <input id="{{ $id }}" class="radio-custom" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="radio" {{ $checked ? 'checked' : '' }}
+        @foreach($attributes as $key => $val)
+            {{ $key. '='. $val }}
+                @endforeach
+        >
+        <label for="{{ $id }}" class="label-checkbox label-default-custom label-custom-radio">
+            {{ $title }}
+        </label>
     </div>
 @endif
 

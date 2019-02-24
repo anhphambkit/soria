@@ -107,4 +107,13 @@ class ShopController extends Controller {
         $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
         return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities', 'addressBooks'));
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function checkoutPayment() {
+        $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        $addressShipping = $this->addressBookServices->getDetailAddressShippingSelected($this->userId, $this->isGuest);
+        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping'));
+    }
 }

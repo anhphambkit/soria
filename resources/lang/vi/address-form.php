@@ -33,7 +33,7 @@ return [
     'ship_to_address' => "Ship to address",
     'shipping_address' => "Shipping Address",
     'select_shipping_address' => "Select Shipping Address",
-    'select_payment' => "Select Method Payment",
+    'select_method_payment' => "Select Method Payment",
     'do_you_want_ship_to_other_address' => "Do You Want Ship To Other Address?",
     'add_new_shipping_address' => "Add New Shipping Address",
     'edit_shipping_address' => "Edit Shipping Address",
@@ -43,6 +43,6 @@ return [
     'payments' => "Payments",
     'preview_order' => "Preview Order",
     'standard_shipping' => "Standard Shipping",
-    'cod' => "Cash On Delivery (COD)",
-    'order' => "Order",
+    'cod' => "Thanh toán tiền mặt khi nhận hàng (COD)",
+    'order' => "Đặt Mua",
 ];

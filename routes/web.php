@@ -36,6 +36,7 @@ Route::domain('{mainDomain}')->group(function () {
         // Check out:
         Route::prefix('checkout')->group(function () {
             Route::get('/shipping', 'Shop\ShopController@checkoutShipping')->name('client.shop.checkout_shipping');
+            Route::get('/payment', 'Shop\ShopController@checkoutPayment')->name('client.shop.checkout_payment');
         });
 
 
