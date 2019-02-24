@@ -50,21 +50,21 @@
             <div class="col-item">
                 <div class="tt-input-counter style-01">
                     <span class="minus-btn"></span>
-                    <input type="text" value="1" size="5">
+                    <input type="text" value="1" size="9999" class="quantity-product-detail">
                     <span class="plus-btn"></span>
                 </div>
             </div>
             <div class="col-item">
-                <a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+                <a href="#" onclick="addToCartFromDetail({{ $productId }})" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
             </div>
         </div>
     </div>
-    <div class="tt-wrapper">
-        <ul class="tt-list-btn">
-            <li><a class="btn-link" href="#"><i class="icon-n-072"></i>ADD TO WISH LIST</a></li>
-            <li><a class="btn-link" href="#"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>
-        </ul>
-    </div>
+    {{--<div class="tt-wrapper">--}}
+        {{--<ul class="tt-list-btn">--}}
+            {{--<li><a class="btn-link" href="#"><i class="icon-n-072"></i>ADD TO WISH LIST</a></li>--}}
+            {{--<li><a class="btn-link" href="#"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
     {{--<div class="tt-wrapper">--}}
         {{--<div class="tt-add-info">--}}
             {{--<ul>--}}

@@ -55,6 +55,7 @@
                 @slot('salePrice', $product['sale_price'])
                 @slot('categories', $product['categories'])
                 @slot('rating', $product['rating'])
+                @slot('productId', $product['id'])
             @endcomponent
         </div>
 
@@ -98,6 +99,7 @@
     <script src="{{ asset('assets/client/wookie/app-assets/external/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/client/wookie/app-assets/external/panelmenu/panelmenu.js') }}"></script>
     <script src="{{ asset('assets/client/wookie/app-assets/external/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/detail-product.js') }}"></script>
 @endsection
 
 
