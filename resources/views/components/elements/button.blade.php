@@ -22,7 +22,7 @@ $type }}" data-control="{{ $control }}" id="{{ $id }}" class="btn has-spinner wa
 >
     <span class="button-label">
     @if($control ==='cancel')
-        {{trans('theme::theme.action.cancel')}}
+        {{trans('generals.cancel')}}
     @else
         <?php echo $label; ?>
     @endif

@@ -50,7 +50,7 @@ $disabled = isset($disabled) ? $disabled : false;
 </div>
 
 @elseif(isset($type) && $type === 'checkbox')
-<div class="checkbox checkbox-custom checkbox-circle">
+<div class="checkbox checkbox-custom checkbox-circle {{ $class }}">
     <input id="{{ $id }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="checkbox" {{ $checked ? 'checked' : '' }}
     @foreach($attributes as $key => $val)
         {{ $key. '='. $val }}

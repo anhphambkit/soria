@@ -16,6 +16,8 @@ class CreateTableAddressBook extends Migration
         Schema::create('address_book', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_address_book');
+            $table->integer('user_id');
+            $table->boolean('is_guest')->default(true);
             $table->string('full_name');
             $table->string('mobile_phone');
             $table->integer('province_city_code');
@@ -23,6 +25,7 @@ class CreateTableAddressBook extends Migration
             $table->integer('ward_code');
             $table->string('address');
             $table->boolean('is_home')->default(true);
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
     }

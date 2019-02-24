@@ -24,7 +24,7 @@ class UserShoppingCart extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'product_id', 'quantity', 'order'
+        'user_id', 'product_id', 'quantity', 'order', 'is_guest'
     ];
 
     public $timestamps = true;

@@ -19,9 +19,9 @@ class Form {
         this.method = 'POST';
         this.methodCancel = 'GET';
         // Url to send submit
-        this.url = '//google.com';
+        this.url = '#';
         // Url to send cancel (restore old data)
-        this.urlCancel = '//google.com';
+        this.urlCancel = '#';
         // Has alert when update/create success/fail:
         this.hasSwal = true;
         // Has toastr when update/create success/fail:
@@ -216,7 +216,7 @@ class Form {
                 self.data[name] = CKEDITOR.instances[idElement].getData();
             }
 
-            if ($(this).data('plugin') === 'switchery') {
+            if ($(this).data('plugin') === 'switchery' || $(this).attr('type') === 'checkbox') {
                 self.data[name] = $('#' + idElement)[0].checked;
             }
 

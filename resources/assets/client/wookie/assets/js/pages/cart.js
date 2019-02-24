@@ -1,5 +1,5 @@
 import { HandlebarRender } from '@incResources/handlebarForm';
-import { Handlebars, helperShop } from './../helper/helper-shop';
+import { Handlebars, helperShop } from '@/client/wookie/assets/js/helper/helper-shop';
 import { initFunctions } from '@supportResources/init-functions';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
@@ -33,7 +33,7 @@ $(document).on('change', '.input-quantity-product.cart-page', function(e) {
 
     request
         .then(function(data){
-            if (data.data.status === 0 || data.data.status === 1412) {
+            if (data.data.status === 0) {
                 helperShop.updataBasicInfoCartHeader(data.data.data.total_items);
                 cartPageClass.setData(data.data.data);
                 cartPageClass.parseTemplate();
@@ -59,7 +59,7 @@ $(document).on('click', '.btn-remove-product-in-cart', function(e) {
     let request = axios.post(API_SHOP.DELETE_PRODUCT_IN_CART, { 'product_id' : productId });
     request
         .then(function(data){
-            if (data.data.status === 0 || data.data.status === 1412) {
+            if (data.data.status === 0) {
                 helperShop.updataBasicInfoCartHeader(data.data.data.total_items);
                 cartPageClass.setData(data.data.data);
                 cartPageClass.parseTemplate();

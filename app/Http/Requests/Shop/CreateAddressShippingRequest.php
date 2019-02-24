@@ -11,7 +11,7 @@ namespace App\Http\Requests\Shop;
 
 use App\Core\Requests\CoreFormRequest;
 
-class CreateAddressShipingRequest extends CoreFormRequest
+class CreateAddressShippingRequest extends CoreFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

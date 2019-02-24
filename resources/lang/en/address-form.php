@@ -27,5 +27,14 @@ return [
     'select_province_city' => 'Select Province/City',
     'select_district' => 'Select District',
     'select_ward' => 'Select Ward',
-    'address_name' => "Name Of Address"
+    'address_name' => "Name Of Address",
+    'set_default_address' => "Set Default Address",
+    'receiver' => "Receiver",
+    'ship_to_address' => "Ship to address",
+    'shipping_address' => "Shipping Address",
+    'select_shipping_address' => "Select Shipping Address",
+    'do_you_want_ship_to_other_address' => "Do You Want Ship To Other Address?",
+    'add_new_shipping_address' => "Add New Shipping Address",
+    'checkout_shipping' => "Checkout Shipping",
+    'preview_order' => "Preview Order",
 ];

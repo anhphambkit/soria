@@ -11,7 +11,7 @@ namespace App\Http\Controllers\Client\Ajax\Shop;
 
 use App\Core\Controllers\CoreAjaxController;
 use App\Core\Response\Response;
-use App\Http\Requests\Shop\CreateAddressShipingRequest;
+use App\Http\Requests\Shop\CreateAddressShippingRequest;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
@@ -70,14 +70,13 @@ class ShopController extends CoreAjaxController {
     public function addOrUpdateProductsToCartOfUser(Request $request) {
         $isUpdate = $request->get('is_update_product');
         $this->userId = $this->checkUserId($request, $this->userId);
-
         $products = $request->get('products');
         $this->shoppingCartServices->addOrUpdateProductsToCartOfUser($products, $this->userId, $this->isGuest, $isUpdate);
         $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         if ($this->isGuest)
-            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.update_cart_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
         else
-            return $this->response($basicInfoCart);
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.update_cart_success'));
 
     }
 
@@ -86,11 +85,12 @@ class ShopController extends CoreAjaxController {
      * @return ShopController|\Illuminate\Http\JsonResponse
      */
     public function viewCartHeader(Request $request) {
+        $this->userId = $this->checkUserId($request, $this->userId);
         $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         if ($this->isGuest)
-            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin");
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.success'));
         else
-            return $this->response($basicInfoCart);
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.success'));
     }
 
     /**
@@ -103,18 +103,80 @@ class ShopController extends CoreAjaxController {
         $this->shoppingCartServices->deleteProductInCart($productId, $this->userId, $this->isGuest);
         $basicInfoCart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         if ($this->isGuest)
-            return $this->response($basicInfoCart, Response::STATUS_CUSTOM_ERROR, "UserNotLogin")->withCookie(Cookie::forever('guest_id', $this->userId));
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.delete_product_in_cart_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
         else
-            return $this->response($basicInfoCart);
+            return $this->response($basicInfoCart, Response::STATUS_SUCCESS, trans('generals.delete_product_in_cart_success'));
     }
 
     /**
-     * @param CreateAddressShipingRequest $request
+     * @param CreateAddressShippingRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function createAddressShippingDefault(CreateAddressShipingRequest $request) {
+    public function createAddressShipping(CreateAddressShippingRequest $request) {
         $data = $request->all();
-        $addressBookId = $this->addressBookServices->createNewAddressBook($data);
-        return $this->response($addressBookId);
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->addressBookServices->createNewAddressBook($data, $this->userId, $this->isGuest);
+        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.create_address_shipping_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.create_address_shipping_success'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteAddressShipping(Request $request) {
+        $addressId = $request->get('address_id');
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->addressBookServices->deleteAddressShipping($addressId, $this->userId, $this->isGuest);
+        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.delete_address_shipping_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.delete_address_shipping_success'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateAddressShipping(Request $request) {
+        $data = $request->all();
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->addressBookServices->updateAddressBook($data, $this->userId, $this->isGuest);
+        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.update_address_shipping_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response([
+                'addressBooks' => $addressBooks
+            ], Response::STATUS_SUCCESS, trans('generals.update_address_shipping_success'));
+    }
+
+    public function shipToThisAddress(Request $request) {
+//        $data = $request->all();
+//        $this->userId = $this->checkUserId($request, $this->userId);
+//        $this->addressBookServices->updateAddressBook($data, $this->userId, $this->isGuest);
+//        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+//        if ($this->isGuest)
+//            return $this->response([
+//                'addressBooks' => $addressBooks
+//            ], Response::STATUS_CUSTOM_ERROR, trans('generals.update_cart_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+//        else
+//            return $this->response([
+//                'addressBooks' => $addressBooks
+//            ], Response::STATUS_CUSTOM_ERROR, trans('generals.update_cart_success'));
     }
 }

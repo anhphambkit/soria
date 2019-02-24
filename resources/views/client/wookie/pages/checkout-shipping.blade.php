@@ -45,14 +45,61 @@
     <div id="content-cart-page">
         <div class="container-indent">
             <div class="container">
-                <h1 class="tt-title-subpages noborder">CHECKOUT SHIPPING</h1>
+                <h1 class="tt-title-subpages noborder">{{ trans('address-form.checkout_shipping') }}</h1>
                 <div class="row">
                     <div class="col-sm-12 col-xl-6 custom-col">
-                        @component('client.wookie.forms.address-account')
-                            @slot('provincesCities', $provincesCities)
-                        @endcomponent
+                        <div class="title-address-guide">
+                            <h3>2. {{ trans('address-form.shipping_address') }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xl-6 custom-col">
+                        <div id="shipping-address-area">
+                            @if($addressBooks->isNotEmpty())
+                                <h5>{{ trans('address-form.select_shipping_address') }}:</h5>
+                            @endif
+                            <div class="list-address-shipping">
+                                @if($addressBooks->isNotEmpty())
+                                    @foreach($addressBooks as $addressBook)
+                                        @component('client.wookie.components.card-address')
+                                            @slot('address', $addressBook)
+                                        @endcomponent
+                                    @endforeach
+                                @else
+                                    @component('client.wookie.forms.address-account')
+                                        @slot('provincesCities', $provincesCities)
+                                        @slot('isDefault', true)
+                                    @endcomponent
+                                @endif
+                            </div>
+                            @if($addressBooks->isNotEmpty())
+                                <div class="action-address-shipping-area">
+                                <span class="guide-custom">
+                                    {{ trans('address-form.do_you_want_ship_to_other_address') }}
+                                </span>
+                                    <span class="action-custom">
+                                    <a href="#" class="btn-link new-shipping-address-action">{{ trans('address-form.add_new_shipping_address') }}</a>
+                                </span>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="crud-form-area">
+                            <div class="new-form-area" style="display: none">
+                                @component('client.wookie.forms.address-account')
+                                    @slot('provincesCities', $provincesCities)
+                                @endcomponent
+                            </div>
+                            <div class="edit-form-area" style="display: none">
+                                @component('client.wookie.forms.address-account')
+                                    @slot('provincesCities', $provincesCities)
+                                    @slot('isUpdate', true)
+                                @endcomponent
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-12 col-xl-6 custom-col">
+                        <h5>{{ trans('address-form.preview_order') }}:</h5>
                         @component('client.wookie.components.cart-list-products')
                             @slot('products', $cart['products'])
                             @slot('totalPrice', $cart['total_price'])
@@ -66,11 +113,6 @@
 @endsection
 
 @section('core-footer-scripts')
-    <script id="template-shop-cart-table" type="text/x-handlebars-template">
-        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
-    </script>
-
-    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 @section('theme-scripts')
@@ -91,12 +133,22 @@
             REFRESH_WARDS : "{{ route('general_ajax.address.refresh_wards', $domain) }}",
         };
         const API_CHECKOUT = {
-            CREATE_DEFAULT_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping_default', $domain) }}",
+            CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping', $domain) }}",
+            DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping', $domain) }}",
+            UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping', $domain) }}",
         }
     </script>
 
-    <script src="{{ asset('assets/client/wookie/assets/js/helper/address-form.js')}}"></script>
+    <script id="template-checkout-shipping-address" type="text/x-handlebars-template">
+        @include('client.wookie.handle-bar.checkout-shipping-address')
+    </script>
+
     <script src="{{ asset('assets/client/wookie/assets/js/pages/checkout-shipping.js')}}"></script>
+    <script src="{{ asset('assets/client/wookie/assets/js/partials/new-shipping-address.js')}}"></script>
+    <script src="{{ asset('assets/client/wookie/assets/js/partials/edit-shipping-address.js')}}"></script>
+    @if($addressBooks->isEmpty())
+        <script src="{{ asset('assets/client/wookie/assets/js/partials/new-default-shipping-address.js')}}"></script>
+    @endif
 @endsection
 
 

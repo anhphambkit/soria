@@ -2,23 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: AnhPham
- * Date: 2/19/19
- * Time: 08:32
+ * Date: 2/23/19
+ * Time: 01:32
  */
 
-namespace App\Packages\Admin\Shop\Entities;
+namespace App\Packages\Shop\Entities;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-class AddressBook extends Model
+class AddressBookView extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'address_book';
+    protected $table = 'address_book_view';
 
     /**
      * The attributes that are mass assignable.
@@ -35,7 +35,10 @@ class AddressBook extends Model
         'address',
         'is_home',
         'is_guest',
-        'user_id'
+        'user_id',
+        'district_name',
+        'province_city_name',
+        'ward_name'
     ];
 
     public $timestamps = true;

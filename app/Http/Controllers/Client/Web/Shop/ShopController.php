@@ -13,6 +13,7 @@ use App\Http\Controllers\SystemGeneral\Web\Controller;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
+use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Http\Request;
@@ -27,12 +28,16 @@ class ShopController extends Controller {
     protected $shoppingCartServices;
     protected $guestInfoServices;
     protected $addressGeneralInfoService;
+    protected $addressBookServices;
     protected $userId;
     protected $isGuest;
     protected $totalItems;
-    public function __construct(HelperServices $helperServices, ProductServices $productServices,
+    public function __construct(
+                                HelperServices $helperServices, ProductServices $productServices,
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
-                                AddressGeneralInfoService $addressGeneralInfoService)
+                                AddressGeneralInfoService $addressGeneralInfoService,
+                                AddressBookServices $addressBookServices
+                                )
     {
         parent::__construct();
         $this->helperServices = $helperServices;
@@ -40,6 +45,7 @@ class ShopController extends Controller {
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
         $this->addressGeneralInfoService = $addressGeneralInfoService;
+        $this->addressBookServices = $addressBookServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -97,9 +103,8 @@ class ShopController extends Controller {
      */
     public function checkoutShipping() {
         $provincesCities = $this->addressGeneralInfoService->getProvincesCitiesByCountryId();
-//        dd($provincesCities);
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
-//        dd($basicInfoCart);
-        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities'));
+        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities', 'addressBooks'));
     }
 }

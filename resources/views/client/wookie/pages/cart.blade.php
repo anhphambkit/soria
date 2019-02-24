@@ -92,11 +92,7 @@
 @endsection
 
 @section('core-footer-scripts')
-    <script id="template-shop-cart-table" type="text/x-handlebars-template">
-        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
-    </script>
 
-    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 @section('theme-scripts')
@@ -106,7 +102,11 @@
 @endsection
 
 @section('page-scripts')
+    <script id="template-shop-cart-table" type="text/x-handlebars-template">
+        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
+    </script>
 
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 

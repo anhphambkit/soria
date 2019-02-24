@@ -189,5 +189,83 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
   }
 }
 
+.card-address.card-custom {
+  margin-bottom: 20px;
 
+  .card-header {
+    background: #f7f8fa;
+    color: #333;
+    font-weight: 600;
+    padding: 10px 15px 5px 15px;
+  }
 
+  .card-body {
+    padding: 15px;
+
+    .card-text.phone {
+      margin: 0 0 5px 0;
+      .phone {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .card-action {
+    margin-right: 10px;
+  }
+
+}
+
+.border-dashed-custom {
+  border: 2px dashed #f15c95;
+}
+
+.title-custom {
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-custom-shop {
+  padding: 5px 15px !important;
+  border: 1px solid #ccc;
+  outline-color: #ccc;
+}
+
+.btn-edit-shop {
+  color: #333;
+  background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f7f7f7));
+  background: linear-gradient(#fff,#f7f7f7);
+}
+
+.btn-black-custom {
+  background: #555649 !important;
+  &:hover {
+    background: rgba(234,30,99,0.75) !important;
+  }
+}
+
+.status-address {
+  max-width: 100px;
+  float: right;
+  padding: 5px 10px 3px 10px;
+}
+
+.title-address {
+  width: calc(100% - 100px);
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.action-address-shipping-area {
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-cancel-custom {
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}

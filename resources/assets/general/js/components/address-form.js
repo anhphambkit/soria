@@ -132,6 +132,10 @@ class AddressForm {
         // $(addressForm.wrapperWard).val(null).trigger('change');
     }
 
+    resetDefaultData() {
+        $(this.wrapperProvinceCity).val($(this.wrapperProvinceCity + ' option:eq(0)').val()).trigger('change');
+    }
+
     /**
      *  Init function:
      */
