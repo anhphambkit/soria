@@ -79,7 +79,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
                 // Insert products in cart to order:
                 $this->productsInOrderServices->insertProductsInOrder($productsInOder['products']);
                 // Delete products in cart:
-//                $this->shoppingCartServices->deleteListProductInCart($productsInOder['id_products'], $userId, $isGuest);
+                $this->shoppingCartServices->deleteListProductInCart($productsInOder['id_products'], $userId, $isGuest);
                 return $orderId;
             }, 3);
         } catch (\Exception $e) {
