@@ -17,19 +17,19 @@ return [
     |
     */
 
-    'header_create_new_post' => 'Create New Post',
-    'header_edit_post' => 'Edit Post',
-    'header_manage_posts' => 'Manage Posts',
-    'post_name' => 'Post',
+    'header_create_new_post' => 'Tạo bài viết mới',
+    'header_edit_post' => 'Sửa bài viết',
+    'header_manage_posts' => 'Quản lý bài viết',
+    'post_name' => 'Tên bài viết',
 
     //Language for create new category:
-    'name' => 'Name',
+    'name' => 'Tên',
     'slug' => 'Slug',
     'sku' => 'SKU',
-    'short_desc' => 'Short Description',
-    'long_desc' => 'Long Description',
-    'content' => 'Content',
-    'order' => 'Order',
+    'short_desc' => 'Mô tả ngắn',
+    'long_desc' => 'Chi tiết',
+    'content' => 'Nội dung',
+    'order' => 'Thứ tự',
     'publish' => 'Publish',
     'feature' => 'Feature',
     'show_at_homepage' => 'Show At Homepage',

@@ -17,23 +17,23 @@ return [
     |
     */
 
-    'header_create_new_category' => 'Create New Category',
-    'header_edit_category' => 'Edit Category',
-    'header_manage_categories' => 'Manage Categories',
-    'category_name' => 'Category',
+    'header_create_new_category' => 'Tạo danh mục mới',
+    'header_edit_category' => 'Sửa danh mục',
+    'header_manage_categories' => 'Quản lý danh mục',
+    'category_name' => 'Danh mục',
 
     //Language for create new category:
-    'name' => 'Name',
+    'name' => 'Tên',
     'slug' => 'Slug',
-    'desc' => 'Description',
-    'order' => 'Order',
+    'desc' => 'Mô tả',
+    'order' => 'Đơn hàng',
     'meta_title' => 'Meta title',
     'meta_keyword' => 'Meta keyword',
     'meta_desc' => 'Meta Description',
-    'category_parent' => 'Category Parent',
-    'default_select_parent_category' => 'Select parent category',
+    'category_parent' => 'Danh mục cha',
+    'default_select_parent_category' => 'Chọn làm danh mục cha',
 
     // Filter Search:
-    'title_filter' => 'Search Category',
-    'add_new' => 'New Category'
+    'title_filter' => 'Tìm kiếm danh mục',
+    'add_new' => 'Danh mục mới'
 ];

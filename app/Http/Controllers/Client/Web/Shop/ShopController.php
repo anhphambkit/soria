@@ -116,4 +116,8 @@ class ShopController extends Controller {
         $addressShipping = $this->addressBookServices->getDetailAddressShippingSelected($this->userId, $this->isGuest);
         return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping'));
     }
+
+    public function completeOrder() {
+        return view(config('setting.theme.shop') . '.pages.complete-order');
+    }
 }

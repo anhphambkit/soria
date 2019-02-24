@@ -50,8 +50,8 @@
                                 </div>
                             </a>
                             <a href="#" class="btn btn-border btn-close-popup">CONTINUE SHOPPING</a>
-                            <a href="shopping_cart_02.html" class="btn btn-border">VIEW CART</a>
-                            <a href="#" class="btn">PROCEED TO CHECKOUT</a>
+                            <a href="{{ route('client.shop.cart', $domain) }}" class="btn btn-border">VIEW CART</a>
+                            <a href="{{ route('client.shop.checkout_shipping', $domain) }}" class="btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

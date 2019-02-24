@@ -32,6 +32,7 @@ Route::domain('{mainDomain}')->group(function () {
 
         // Cart Page
         Route::get('/cart', 'Shop\ShopController@cart')->name('client.shop.cart');
+        Route::get('/complete-order', 'Shop\ShopController@completeOrder')->name('client.shop.complete_order');
 
         // Check out:
         Route::prefix('checkout')->group(function () {

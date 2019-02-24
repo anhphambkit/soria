@@ -30,8 +30,16 @@ use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Shop\Repositories\AddressBookRepository;
 use App\Packages\Shop\Repositories\Eloquent\EloquentAddressBookRepository;
+use App\Packages\Shop\Repositories\Eloquent\EloquentInvoiceOrderRepository;
+use App\Packages\Shop\Repositories\Eloquent\EloquentProductsInOrderRepository;
+use App\Packages\Shop\Repositories\InvoiceOrderRepository;
+use App\Packages\Shop\Repositories\ProductsInOrderRepository;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\Shop\Services\Implement\ImplementAddressBookServices;
+use App\Packages\Shop\Services\Implement\ImplementInvoiceOrderServices;
+use App\Packages\Shop\Services\Implement\ImplementProductsInOrderServices;
+use App\Packages\Shop\Services\InvoiceOrderServices;
+use App\Packages\Shop\Services\ProductsInOrderServices;
 use App\Packages\SystemGeneral\Repositories\AddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentAddressGeneralInfoRepository;
@@ -86,6 +94,12 @@ class AppServiceProvider extends ServiceProvider
         // Bind Address Shop:
         $this->app->singleton(AddressBookServices::class, ImplementAddressBookServices::class);
         $this->app->singleton(AddressBookRepository::class, EloquentAddressBookRepository::class);
+
+        // Bind Order Shop:
+        $this->app->singleton(InvoiceOrderServices::class, ImplementInvoiceOrderServices::class);
+        $this->app->singleton(InvoiceOrderRepository::class, EloquentInvoiceOrderRepository::class);
+        $this->app->singleton(ProductsInOrderServices::class, ImplementProductsInOrderServices::class);
+        $this->app->singleton(ProductsInOrderRepository::class, EloquentProductsInOrderRepository::class);
 
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);

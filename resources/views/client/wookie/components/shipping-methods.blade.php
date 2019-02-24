@@ -10,6 +10,7 @@
     <div class="shipping-item">
         @component('components.elements.field')
             @slot('title', trans('address-form.standard_shipping'))
+            @slot('value', trans('address-form.standard_shipping'))
             @slot('name', 'shipping_method')
             @slot('id', 'shipping-basic')
             @slot('required', true)

@@ -6,7 +6,7 @@
  * Time: 09:17
  */
 ?>
-@extends('client.wookie.master')
+@extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
 @section('keywords')
 @endsection
@@ -42,10 +42,12 @@
 
 {{--content page must define before section content--}}
 @section('content-page')
-    <div id="content-cart-page">
+    <div id="content-payment-page">
         <div class="container-indent">
+            @component('client.wookie.components.header-image')
+                @slot('headerImage', trans('address-form.checkout_payment'))
+            @endcomponent
             <div class="container">
-                <h1 class="tt-title-subpages noborder">{{ trans('address-form.checkout_payment') }}</h1>
                 <div class="row">
                     <div class="col-sm-12 col-xl-6 custom-col">
                         <div class="shipping-area custom-area">
@@ -99,25 +101,13 @@
 
 @section('page-scripts')
     <script>
-        const API_ADDRESS = {
-            REFRESH_DISTRICTS : "{{ route('general_ajax.address.refresh_districts', $domain) }}",
-            REFRESH_WARDS : "{{ route('general_ajax.address.refresh_wards', $domain) }}",
-        };
         const API_CHECKOUT = {
-            CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping', $domain) }}",
-            DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping', $domain) }}",
-            UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping', $domain) }}",
-            DETAIL_ADDRESS_SHIPPING : "{{ route('ajax.shop.get_detail_address_shipping', $domain) }}",
-            SHIP_TO_THIS_ADDRESS : "{{ route('ajax.shop.ship_to_this_address', $domain) }}",
+            ORDER : "{{ route('ajax.shop.checkout_new_order', $domain) }}",
         }
     </script>
 
-    <script id="template-checkout-shipping-address" type="text/x-handlebars-template">
-        @include('client.wookie.handle-bar.checkout-shipping-address')
-    </script>
 
-    <script src="{{ asset('assets/client/wookie/assets/js/pages/checkout-shipping.js')}}"></script>
-    <script src="{{ asset('assets/client/wookie/assets/js/partials/new-shipping-address.js')}}"></script>
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/checkout-payment.js')}}"></script>
 @endsection
 
 

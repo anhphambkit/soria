@@ -31,7 +31,7 @@
                 <!-- /tt-account -->
 
                 <!-- tt-langue and tt-currency -->
-                @include('client.wookie.partials.header.other-settings-header')
+                {{--@include('client.wookie.partials.header.other-settings-header')--}}
                 <!-- /tt-langue and tt-currency -->
             </div>
         </div>

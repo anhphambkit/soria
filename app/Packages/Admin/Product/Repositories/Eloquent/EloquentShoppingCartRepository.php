@@ -66,7 +66,7 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
      */
     public function getBasicInfoCartOfUser(int $userId = null, bool $isGuest = true) {
         try {
-            $query = $this->userShoppingCart->select('products.id', 'products.name', 'products.slug',
+            $query = $this->userShoppingCart->select('products.id', 'products.name', 'products.slug', 'products.sku',
                                             'products.price', 'products.sale_price', "quantity",
                                             DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
                                                             array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
@@ -108,5 +108,24 @@ class EloquentShoppingCartRepository implements ShoppingCartRepository {
         catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
+    }
+
+    /**
+     * @param array $idProducts
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function deleteListProductInCart(array $idProducts, int $userId = null, bool $isGuest = true) {
+//        try {
+            return $this->userShoppingCart
+                        ->where("user_id", $userId)
+                        ->where("is_guest", $isGuest)
+                        ->whereIn('product_id', $idProducts)
+                        ->delete();
+//        } catch (\Exception $e) {
+//            throw new \Exception($e->getMessage());
+//        }
     }
 }

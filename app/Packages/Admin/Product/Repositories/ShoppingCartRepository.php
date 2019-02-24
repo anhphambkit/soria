@@ -32,4 +32,13 @@ interface ShoppingCartRepository {
      * @return mixed
      */
     public function getTotalItemsInCart(int $userId, bool $isGuest = true);
+
+    /**
+     * @param array $idProducts
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function deleteListProductInCart(array $idProducts, int $userId = null, bool $isGuest = true);
 }

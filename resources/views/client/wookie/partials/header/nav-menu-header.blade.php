@@ -11,13 +11,13 @@
         <nav>
             <ul>
                 <li class="dropdown tt-megamenu-col-02 selected">
-                    <a href="index.html">HOME</a>
+                    <a href="{{ route('client.page.home', $domain) }}">HOME</a>
                 </li>
                 <li class="dropdown megamenu">
-                    <a href="listing-collection.html">SHOP</a>
+                    <a href="{{ route('client.shop.index', $domain) }}">SHOP</a>
                 </li>
                 <li class="dropdown tt-megamenu-col-01">
-                    <a href="blog-listing-without-col.html">BLOG</a>
+                    <a href="{{ route('client.page.home', $domain) }}">BLOG</a>
                 </li>
             </ul>
         </nav>

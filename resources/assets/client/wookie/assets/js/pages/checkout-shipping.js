@@ -36,16 +36,15 @@ $(document).on('click', '.btn-ship-to-this-address', function(e) {
 
     axios.post(API_CHECKOUT.SHIP_TO_THIS_ADDRESS, data).then( (res) => {
         if (res.data.status === 0) {
-            window.location.href = "/";
-            toastr.success(res.data.message);
+            window.location.href = "/shop/checkout/payment";
         }
         else {
             toastr.error(res.data.message);
         }
     }).catch(function(error){
         toastr.error(error)
-    }).then(function(){
         manualLoaded();
+    }).then(function(){
     });
 });
 

@@ -17,6 +17,6 @@ return [
     |
     */
 
-    'ship_to_this_address' => 'Ship To This Address',
+    'ship_to_this_address' => 'Giao hàng tới địa chỉ này',
 
 ];

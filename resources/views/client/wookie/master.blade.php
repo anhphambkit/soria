@@ -6,6 +6,7 @@
  * Time: 14:27
  */
 $isHomePage = isset($isHomePage) ? $isHomePage : false;
+$isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +77,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END HEADER ========== -->
 
         <!-- ========== START BREADCRUMB ========== -->
-        @if(!$isHomePage)
+        @if(!$isHomePage && $isShowBreadcrumb)
             @include('client.wookie.partials.breadcrumb')
         @endif
         <!-- ========== END BREADCRUMB ========== -->

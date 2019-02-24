@@ -7,6 +7,7 @@
     "/assets/client/wookie/assets/js/helper/helper-shop.js": "/assets/client/wookie/assets/js/helper/helper-shop.js",
     "/assets/client/wookie/assets/js/local-storage.js": "/assets/client/wookie/assets/js/local-storage.js",
     "/assets/client/wookie/assets/js/pages/cart.js": "/assets/client/wookie/assets/js/pages/cart.js",
+    "/assets/client/wookie/assets/js/pages/checkout-payment.js": "/assets/client/wookie/assets/js/pages/checkout-payment.js",
     "/assets/client/wookie/assets/js/pages/checkout-shipping.js": "/assets/client/wookie/assets/js/pages/checkout-shipping.js",
     "/assets/client/wookie/assets/js/partials/new-default-shipping-address.js": "/assets/client/wookie/assets/js/partials/new-default-shipping-address.js",
     "/assets/client/wookie/assets/js/partials/new-shipping-address.js": "/assets/client/wookie/assets/js/partials/new-shipping-address.js",

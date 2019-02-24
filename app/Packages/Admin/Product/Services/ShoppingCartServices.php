@@ -64,4 +64,19 @@ interface ShoppingCartServices {
      * @return mixed
      */
     public function deleteProductInCart(int $productId, int $userId = 0, bool $isGuest = true, bool $isUpdate = true);
+
+    /**
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return mixed
+     */
+    public function getProductsInCartToOrder(int $userId = null, bool $isGuest = true);
+
+    /**
+     * @param array $idProducts
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return mixed
+     */
+    public function deleteListProductInCart(array $idProducts, int $userId = null, bool $isGuest = true);
 }

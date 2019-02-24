@@ -10,6 +10,7 @@
     <div class="payment-item">
         @component('components.elements.field')
             @slot('title', trans('address-form.cod'))
+            @slot('value', trans('address-form.cod'))
             @slot('name', 'payment_method')
             @slot('id', 'payment-basic')
             @slot('required', true)

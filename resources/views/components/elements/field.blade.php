@@ -254,7 +254,7 @@ $disabled = isset($disabled) ? $disabled : false;
 
 @elseif($type === 'radio-single')
     <div class="radio-btn-custom {{ $class }}">
-        <input id="{{ $id }}" class="radio-custom" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="radio" {{ $checked ? 'checked' : '' }}
+        <input id="{{ $id }}" class="radio-custom" value="{{ $value }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="radio" {{ $checked ? 'checked' : '' }}
         @foreach($attributes as $key => $val)
             {{ $key. '='. $val }}
                 @endforeach

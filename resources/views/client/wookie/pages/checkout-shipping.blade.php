@@ -6,7 +6,7 @@
  * Time: 11:19
  */
 ?>
-@extends('client.wookie.master')
+@extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
 @section('keywords')
 @endsection
@@ -44,8 +44,10 @@
 @section('content-page')
     <div id="content-cart-page">
         <div class="container-indent">
+            @component('client.wookie.components.header-image')
+                @slot('headerImage', trans('address-form.checkout_shipping'))
+            @endcomponent
             <div class="container">
-                <h1 class="tt-title-subpages noborder">{{ trans('address-form.checkout_shipping') }}</h1>
                 <div class="row">
                     <div class="col-sm-12 col-xl-6 custom-col">
                         <div id="shipping-address-area">

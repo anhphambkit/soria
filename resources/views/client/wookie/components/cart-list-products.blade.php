@@ -14,7 +14,11 @@
         <span class="edit-cart-btn">
             <button class="btn btn-info btn-small edit-cart-button">
                 <i class="far fa-edit icon-edit-custom"></i>
-                <span class="title-edit-cart-btn">{{ trans('generals.edit') }}</span>
+                <span class="title-edit-cart-btn">
+                    <a href="{{ route('client.shop.cart', $domain) }}">
+                        {{ trans('generals.edit') }}
+                    </a>
+                </span>
             </button>
         </span>
     </div>

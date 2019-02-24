@@ -18,6 +18,7 @@ use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Shop\Services\AddressBookServices;
+use App\Packages\Shop\Services\InvoiceOrderServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,17 +31,19 @@ class ShopController extends CoreAjaxController {
     private $shoppingCartServices;
     private $guestInfoServices;
     private $addressBookServices;
+    private $invoiceOrderServices;
     protected $userId;
     protected $isGuest;
     public function __construct(HelperServices $helperServices, ProductServices $productServices,
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
-                                AddressBookServices $addressBookServices)
+                                AddressBookServices $addressBookServices, InvoiceOrderServices $invoiceOrderServices)
     {
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
         $this->addressBookServices = $addressBookServices;
+        $this->invoiceOrderServices = $invoiceOrderServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -193,5 +196,15 @@ class ShopController extends CoreAjaxController {
             return $this->response([], Response::STATUS_SUCCESS, trans('generals.success'))->withCookie(Cookie::forever('guest_id', $this->userId));
         else
             return $this->response([], Response::STATUS_SUCCESS, trans('generals.success'));
+    }
+
+    public function checkoutNewOrder(Request $request) {
+        $dataCheckouts =  $request->all();
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $orderId = $this->invoiceOrderServices->createNewInvoiceOrder($dataCheckouts, $this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($orderId, Response::STATUS_SUCCESS, trans('generals.success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response($orderId, Response::STATUS_SUCCESS, trans('generals.success'));
     }
 }
