@@ -93,4 +93,34 @@ class ImplementAddressBookServices implements AddressBookServices
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getDetailAddressShipping(int $addressId, int $userId, bool $isGuest = true) {
+        try {
+            return $this->addressBookRepository->getDetailAddressShipping($addressId, $userId, $isGuest);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function shipToThisAddress(int $addressId, int $userId, bool $isGuest = true) {
+        try {
+            return $this->addressBookRepository->shipToThisAddress($addressId, $userId, $isGuest);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

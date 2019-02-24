@@ -41,4 +41,20 @@ interface AddressBookServices
      * @return mixed
      */
     public function updateAddressBook(array $data, int $userId, bool $isGuest);
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     */
+    public function getDetailAddressShipping(int $addressId, int $userId, bool $isGuest = true);
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     */
+    public function shipToThisAddress(int $addressId, int $userId, bool $isGuest = true);
 }

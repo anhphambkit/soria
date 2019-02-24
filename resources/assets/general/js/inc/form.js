@@ -324,6 +324,11 @@ class Form {
             let ctl = $(reuseForm.wrapper + ' ' + '[name="' + field + '"]');
             if(ctl.length > 0){
                 ctl.val(_data[field]);
+                // Check ctl is type checkbox:
+                let typeCtl = ctl.attr("type");
+                if (typeCtl === "checkbox")
+                    ctl.prop('checked', _data[field]);
+
                 let idElement = ctl.attr('id');
                 switch (ctl.data('plugin')) {
                     case 'ckeditor':

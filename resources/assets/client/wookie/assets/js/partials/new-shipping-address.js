@@ -24,8 +24,8 @@ newAddressForm.cancel = () => {
     newAddressForm.resetErrors();
     newAddressForm.clearForm();
     addressNewRegister.resetDefaultData();
-    $("#shipping-address-area").fadeIn();
     $(".new-form-area").fadeOut();
+    $("#shipping-address-area").fadeIn();
 };
 newAddressForm.handleSubmit();
 newAddressForm.handleCancel();

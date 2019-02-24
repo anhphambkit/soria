@@ -35,6 +35,7 @@ return [
     'select_shipping_address' => "Select Shipping Address",
     'do_you_want_ship_to_other_address' => "Do You Want Ship To Other Address?",
     'add_new_shipping_address' => "Add New Shipping Address",
+    'edit_shipping_address' => "Edit Shipping Address",
     'checkout_shipping' => "Checkout Shipping",
     'preview_order' => "Preview Order",
 ];

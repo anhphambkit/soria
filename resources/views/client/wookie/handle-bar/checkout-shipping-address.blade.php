@@ -9,7 +9,7 @@
 <h5>Select Shipping Address:</h5>
 <div class="list-address-shipping">
     @{{#each addressBooks}}
-        <div class="card card-address card-custom @{{#if is_default }} border-dashed-custom @{{/if}}" data-address-id="@{{ id }}">
+        <div class="card card-address card-custom @{{#if is_shipping }} border-dashed-custom @{{/if}}" data-address-id="@{{ id }}">
             <div class="card-header">
                 <span class="title-address">
                     @{{ name_address_book }}
@@ -47,10 +47,10 @@
                 </div>
                 <div class="card-btn-area">
                     <span class="card-action">
-                        <a href="#" class="btn btn-small btn-custom-shop @{{#unless is_default }} btn-black-custom @{{/unless}}">Ship To Address</a>
+                        <a href="#" class="btn btn-small btn-custom-shop btn-ship-to-this-address @{{#unless is_shipping }} btn-black-custom @{{/unless}}">Ship To Address</a>
                     </span>
                     <span class="card-action">
-                        <a href="#" class="btn btn-small btn-edit-shop btn-custom-shop">Edit</a>
+                        <a href="#" class="btn btn-small btn-edit-shop btn-custom-shop btn-edit-shipping-address">Edit</a>
                     </span>
                     @{{#unless is_default }}
                         <span class="card-action">

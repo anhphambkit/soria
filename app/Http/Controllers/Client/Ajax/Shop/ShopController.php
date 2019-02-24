@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Client\Ajax\Shop;
 use App\Core\Controllers\CoreAjaxController;
 use App\Core\Response\Response;
 use App\Http\Requests\Shop\CreateAddressShippingRequest;
+use App\Http\Requests\Shop\DeleteOrDetailAddressShippingRequest;
+use App\Http\Requests\Shop\UpdateAddressShippingRequest;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\ProductServices;
@@ -128,10 +130,10 @@ class ShopController extends CoreAjaxController {
     }
 
     /**
-     * @param Request $request
+     * @param DeleteOrDetailAddressShippingRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function deleteAddressShipping(Request $request) {
+    public function deleteAddressShipping(DeleteOrDetailAddressShippingRequest $request) {
         $addressId = $request->get('address_id');
         $this->userId = $this->checkUserId($request, $this->userId);
         $this->addressBookServices->deleteAddressShipping($addressId, $this->userId, $this->isGuest);
@@ -147,10 +149,10 @@ class ShopController extends CoreAjaxController {
     }
 
     /**
-     * @param Request $request
+     * @param UpdateAddressShippingRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateAddressShipping(Request $request) {
+    public function updateAddressShipping(UpdateAddressShippingRequest $request) {
         $data = $request->all();
         $this->userId = $this->checkUserId($request, $this->userId);
         $this->addressBookServices->updateAddressBook($data, $this->userId, $this->isGuest);
@@ -165,18 +167,31 @@ class ShopController extends CoreAjaxController {
             ], Response::STATUS_SUCCESS, trans('generals.update_address_shipping_success'));
     }
 
-    public function shipToThisAddress(Request $request) {
-//        $data = $request->all();
-//        $this->userId = $this->checkUserId($request, $this->userId);
-//        $this->addressBookServices->updateAddressBook($data, $this->userId, $this->isGuest);
-//        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
-//        if ($this->isGuest)
-//            return $this->response([
-//                'addressBooks' => $addressBooks
-//            ], Response::STATUS_CUSTOM_ERROR, trans('generals.update_cart_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
-//        else
-//            return $this->response([
-//                'addressBooks' => $addressBooks
-//            ], Response::STATUS_CUSTOM_ERROR, trans('generals.update_cart_success'));
+    /**
+     * @param DeleteOrDetailAddressShippingRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getDetailAddressShipping(DeleteOrDetailAddressShippingRequest $request){
+        $addressId = $request->get('address_id');
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $address = $this->addressBookServices->getDetailAddressShipping($addressId, $this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response($address, Response::STATUS_SUCCESS, trans('generals.success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response($address, Response::STATUS_SUCCESS, trans('generals.success'));
+    }
+
+    /**
+     * @param DeleteOrDetailAddressShippingRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function shipToThisAddress(DeleteOrDetailAddressShippingRequest $request) {
+        $addressId = $request->get('address_id');
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->addressBookServices->shipToThisAddress($addressId, $this->userId, $this->isGuest);
+        if ($this->isGuest)
+            return $this->response([], Response::STATUS_SUCCESS, trans('generals.success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response([], Response::STATUS_SUCCESS, trans('generals.success'));
     }
 }

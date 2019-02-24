@@ -6,7 +6,7 @@
  * Time: 01:49
  */
 ?>
-<div class="card card-address card-custom @if($address['is_default']) border-dashed-custom @endif" data-address-id="{{ $address['id'] }}">
+<div class="card card-address card-custom @if($address['is_shipping']) border-dashed-custom @endif" data-address-id="{{ $address['id'] }}">
     <div class="card-header">
         <span class="title-address">
             {{ $address['name_address_book'] }}
@@ -44,7 +44,7 @@
         </div>
         <div class="card-btn-area">
             <span class="card-action">
-                <a href="#" class="btn btn-small btn-custom-shop @if(!$address['is_default']) btn-black-custom @endif">{{ trans('address-form.ship_to_address') }}</a>
+                <a href="#" class="btn btn-small btn-custom-shop btn-ship-to-this-address @if(!$address['is_shipping']) btn-black-custom @endif">{{ trans('address-form.ship_to_address') }}</a>
             </span>
             <span class="card-action">
                 <a href="#" class="btn btn-small btn-edit-shop btn-custom-shop btn-edit-shipping-address">{{ trans('generals.edit') }}</a>

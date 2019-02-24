@@ -65,7 +65,7 @@ class EloquentAddressBookRepository implements AddressBookRepository
                 ->select('*')
                 ->where('user_id', $userId)
                 ->where('is_guest', $isGuest)
-                ->orderBy('is_default', 'desc')
+                ->orderBy('is_shipping', 'desc')
                 ->get();
         }
         catch (\Exception $e) {
@@ -86,7 +86,6 @@ class EloquentAddressBookRepository implements AddressBookRepository
                                     ->select('*')
                                     ->where('user_id', $userId)
                                     ->where('is_guest', $isGuest)
-                                    ->where('id', $addressId)
                                     ->count();
             if ($numberAddressBooks > 1) {
                 return $this->addressBookModel
@@ -114,8 +113,8 @@ class EloquentAddressBookRepository implements AddressBookRepository
             return DB::transaction(function () use ($data, $userId, $isGuest) {
                 if ($data['is_default']) // Unset default other address book
                     $this->addressBookModel
-                        ->where('user_id', $data['user_id'])
-                        ->where('is_guest', $data['is_guest'])
+                        ->where('user_id', $userId)
+                        ->where('is_guest', $isGuest)
                         ->update([
                             'is_default' => false
                         ]);
@@ -126,6 +125,59 @@ class EloquentAddressBookRepository implements AddressBookRepository
                     ->where('is_guest', $isGuest)
                     ->where('id', $data['id'])
                     ->update($data);
+            }, 3);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getDetailAddressShipping(int $addressId, int $userId, bool $isGuest = true) {
+        try {
+            return $this->addressBookView
+                    ->select('*')
+                    ->where('user_id', $userId)
+                    ->where('is_guest', $isGuest)
+                    ->where('id', $addressId)
+                    ->first();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $addressId
+     * @param int $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function shipToThisAddress(int $addressId, int $userId, bool $isGuest = true) {
+        try {
+            return DB::transaction(function () use ($addressId, $userId, $isGuest) {
+                // Unset last address shipping of user
+                $this->addressBookModel
+                    ->where('user_id', $userId)
+                    ->where('is_guest', $isGuest)
+                    ->update([
+                        'is_shipping' => false
+                    ]);
+
+                // Update last address shipping
+                return $this->addressBookModel
+                    ->select('*')
+                    ->where('user_id', $userId)
+                    ->where('is_guest', $isGuest)
+                    ->where('id', $addressId)
+                    ->update([
+                        'is_shipping' => true
+                    ]);
             }, 3);
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());

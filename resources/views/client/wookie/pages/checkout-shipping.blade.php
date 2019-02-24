@@ -67,6 +67,7 @@
                                         @endcomponent
                                     @endforeach
                                 @else
+                                    <h5>{{ trans('address-form.add_new_shipping_address') }}:</h5>
                                     @component('client.wookie.forms.address-account')
                                         @slot('provincesCities', $provincesCities)
                                         @slot('isDefault', true)
@@ -86,11 +87,13 @@
                         </div>
                         <div class="crud-form-area">
                             <div class="new-form-area" style="display: none">
+                                <h5>{{ trans('address-form.add_new_shipping_address') }}:</h5>
                                 @component('client.wookie.forms.address-account')
                                     @slot('provincesCities', $provincesCities)
                                 @endcomponent
                             </div>
                             <div class="edit-form-area" style="display: none">
+                                <h5>{{ trans('address-form.edit_shipping_address') }}:</h5>
                                 @component('client.wookie.forms.address-account')
                                     @slot('provincesCities', $provincesCities)
                                     @slot('isUpdate', true)
@@ -136,6 +139,8 @@
             CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping', $domain) }}",
             DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping', $domain) }}",
             UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping', $domain) }}",
+            DETAIL_ADDRESS_SHIPPING : "{{ route('ajax.shop.get_detail_address_shipping', $domain) }}",
+            SHIP_TO_THIS_ADDRESS : "{{ route('ajax.shop.ship_to_this_address', $domain) }}",
         }
     </script>
 
@@ -145,7 +150,6 @@
 
     <script src="{{ asset('assets/client/wookie/assets/js/pages/checkout-shipping.js')}}"></script>
     <script src="{{ asset('assets/client/wookie/assets/js/partials/new-shipping-address.js')}}"></script>
-    <script src="{{ asset('assets/client/wookie/assets/js/partials/edit-shipping-address.js')}}"></script>
     @if($addressBooks->isEmpty())
         <script src="{{ asset('assets/client/wookie/assets/js/partials/new-default-shipping-address.js')}}"></script>
     @endif

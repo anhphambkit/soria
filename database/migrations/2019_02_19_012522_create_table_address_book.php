@@ -26,6 +26,7 @@ class CreateTableAddressBook extends Migration
             $table->string('address');
             $table->boolean('is_home')->default(true);
             $table->boolean('is_default')->default(false);
+            $table->boolean('is_shipping')->default(false);
             $table->timestamps();
         });
     }
