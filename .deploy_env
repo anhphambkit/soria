@@ -1,0 +1,10 @@
+DEPLOY_ENV=production
+DEPLOY_HOST=13.250.41.32
+DEPLOY_PORT=22
+DEPLOY_USER=ec2-user
+DEPLOY_PATH=/home/projects/drsori/
+DEPLOY_PERMISSION=ec2-user:ec2-user
+DEPLOY_CERTIFICATE=/Users/anhpham/Documents/Personal/vps/bb-aws.pem
+DEPLOY_APPLICATION=Soria
+DEPLOY_TIMEOUT=2000
+DEPLOY_PATH_LOCAL=/Users/anhpham/Documents/workspace/php/drsori/

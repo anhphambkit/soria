@@ -6,6 +6,7 @@
  * Time: 14:27
  */
 $isHomePage = isset($isHomePage) ? $isHomePage : false;
+$isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,11 +34,14 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- APP FAVICON -->
 
         <!-- Font Google -->
+        <link href="{{ asset('assets/vendors/plugins/fontawesome/css/all.min.css') }}"
+              rel="stylesheet">
         @yield('fonts')
         <!-- END FONTS-->
 
         <!-- ========== START CORE SCRIPTS ========== -->
         <link href="{{ asset('assets/vendors/css/toastr/toastr.min.css')}}" rel="stylesheet" />
+        <link href="{{ asset('assets/vendors/css/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         @yield('core-scripts')
         <!-- ========== START CORE SCRIPTS ========== -->
@@ -73,7 +77,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END HEADER ========== -->
 
         <!-- ========== START BREADCRUMB ========== -->
-        @if(!$isHomePage)
+        @if(!$isHomePage && $isShowBreadcrumb)
             @include('client.wookie.partials.breadcrumb')
         @endif
         <!-- ========== END BREADCRUMB ========== -->
@@ -99,8 +103,10 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END MODAL QUICK VIEW ========== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->
+        <script src="{{ asset('assets/vendors/plugins/fontawesome/js/all.min.js')}}"></script>
         <script src="{{ asset('assets/client/wookie/app-assets/external/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/toastr/toastr.min.js')}}"></script>
+        <script src="{{ asset('assets/vendors/js/sweet-alert/sweetalert.min.js')}}"></script>
         @yield('core-footer-scripts')
         <!-- ========== END CORE FOOTER SCRIPTS ========== -->
 
@@ -129,6 +135,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END THEME SCRIPTS ========== -->
 
         <!-- ========== START PLUGINS SCRIPTS ========== -->
+        @yield('plugin-scripts')
         <!-- ========== END PLUGINS SCRIPTS ========== -->
 
         <!-- ========== START PAGE SCRIPTS ========== -->
@@ -149,7 +156,7 @@ $isHomePage = isset($isHomePage) ? $isHomePage : false;
         <!-- ========== END PAGE SCRIPTS ========== -->
 
         <!-- ========== START CONSTANT HTTP CODE SCRIPTS ========== -->
-        {{--@include('client.ogato-personal.layouts.constant')--}}
+        @include('generals.constant')
         <!-- ========== END CONSTANT HTTP CODE SCRIPTS ========== -->
     </body>
 </html>

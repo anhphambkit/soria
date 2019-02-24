@@ -27,15 +27,15 @@ class CoreAjaxController extends Controller
     protected function response($data, $status = 0, $message = null){
         $httpCode = 200;
         if($status == Response::STATUS_SUCCESS){
-            $message = 'Success';
+            $message = !empty($message) ? $message : 'Success';
         } elseif ($status == Response::STATUS_VALIDATION_ERROR){
-            $message = 'Validation error';
+            $message = !empty($message) ? $message : 'Validation error';
             $httpCode = 433;
         }  elseif ($status == Response::STATUS_NOT_FOUND_ERROR){
-            $message = 'Not found';
+            $message = !empty($message) ? $message : 'Not found';
             $httpCode = 403;
         } elseif ($status == Response::STATUS_UNEXPECTED_ERROR){
-            $message = 'Unexpected error';
+            $message = !empty($message) ? $message : 'Unexpected error';
             $httpCode = 500;
         }
 

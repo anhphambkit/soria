@@ -143,6 +143,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- ========== END THEME SCRIPTS ========== -->
 
         <!-- ========== START PLUGINS SCRIPTS ========== -->
+        @yield('plugin-scripts')
         <!-- ========== END PLUGINS SCRIPTS ========== -->
 
         <!-- ========== START PAGE SCRIPTS ========== -->

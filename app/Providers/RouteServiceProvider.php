@@ -87,6 +87,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAjaxRoutes()
     {
+        Route::prefix('ajax-general')
+            ->namespace($this->namespace. "\Ajax")
+            ->group(base_path('routes/general/ajax.php'));
+
         Route::prefix('ajax')
              ->namespace($this->namespaceClient. "\Ajax")
              ->group(base_path('routes/ajax.php'));

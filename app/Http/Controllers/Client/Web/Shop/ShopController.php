@@ -13,6 +13,8 @@ use App\Http\Controllers\SystemGeneral\Web\Controller;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
+use App\Packages\Shop\Services\AddressBookServices;
+use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,17 +27,25 @@ class ShopController extends Controller {
     protected $productServices;
     protected $shoppingCartServices;
     protected $guestInfoServices;
+    protected $addressGeneralInfoService;
+    protected $addressBookServices;
     protected $userId;
     protected $isGuest;
     protected $totalItems;
-    public function __construct(HelperServices $helperServices, ProductServices $productServices, ShoppingCartServices $shoppingCartServices,
-                                GuestInfoServices $guestInfoServices)
+    public function __construct(
+                                HelperServices $helperServices, ProductServices $productServices,
+                                ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
+                                AddressGeneralInfoService $addressGeneralInfoService,
+                                AddressBookServices $addressBookServices
+                                )
     {
         parent::__construct();
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->guestInfoServices = $guestInfoServices;
+        $this->addressGeneralInfoService = $addressGeneralInfoService;
+        $this->addressBookServices = $addressBookServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -79,9 +89,35 @@ class ShopController extends Controller {
         return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function cart() {
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
 //        dd($basicInfoCart);
         return view(config('setting.theme.shop') . '.pages.cart', compact('cart'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function checkoutShipping() {
+        $provincesCities = $this->addressGeneralInfoService->getProvincesCitiesByCountryId();
+        $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
+        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities', 'addressBooks'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function checkoutPayment() {
+        $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
+        $addressShipping = $this->addressBookServices->getDetailAddressShippingSelected($this->userId, $this->isGuest);
+        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping'));
+    }
+
+    public function completeOrder() {
+        return view(config('setting.theme.shop') . '.pages.complete-order');
     }
 }

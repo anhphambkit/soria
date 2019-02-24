@@ -20,6 +20,7 @@ class CreateTableProvinceCity extends Migration
             $table->string('english_name')->nullable();
             $table->integer('country_code')->default(0);
             $table->string('type_level');
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

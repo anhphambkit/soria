@@ -173,4 +173,104 @@ class ImplementShoppingCartServices implements ShoppingCartServices {
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return array|mixed
+     * @throws \Exception
+     */
+    public function getProductsInCartToOrder(int $userId = null, bool $isGuest = true) {
+        try {
+            $products = $this->cartUserRepository->getBasicInfoCartOfUser($userId, $isGuest);
+            $totalItems = $products->sum('quantity');
+            $totalPrice = $this->calculatorTotalPrice($products);
+            $subTotal = $this->calculatorTotalOriginalPrice($products);
+            $salePrice = $this->calculatorTotalSalePrice($products);
+            return [
+                'products' => $products,
+                'total_items' => $totalItems,
+                'total_price' => $totalPrice,
+                'sub_total' => $subTotal,
+                'discount_on_products' => $salePrice,
+            ];
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param Collection $products
+     * @return mixed
+     * @throws \Exception
+     */
+    public function calculatorTotalOriginalPrice(Collection $products) {
+        try {
+            $total = $products->sum(function ($product) {
+                return $product->price*$product->quantity;
+            });
+            return $total;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param Collection $products
+     * @return mixed
+     * @throws \Exception
+     */
+    public function calculatorTotalSalePrice(Collection $products) {
+        try {
+            $total = $products->sum(function ($product) {
+                $price = ($product->sale_price) ? $product->sale_price : 0;
+                return $price*$product->quantity;
+            });
+            return $total;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * Not Work
+     * @param Collection $products
+     * @return mixed
+     * @throws \Exception
+     */
+    public function calculatorAllPrice(Collection $products) {
+        try {
+            $total = $products->sum(function ($product) {
+                $salePrice = ($product->sale_price) ? $product->sale_price : 0;
+                $price = ($product->sale_price) ? $product->sale_price : $product->price;
+                return [
+                    "sub_total" => $product->price*$product->quantity,
+                    'total_price' => $price*$product->quantity,
+                    'discount_on_products' => $salePrice*$product->quantity,
+                ];
+            });
+            return $total;
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param array $idProducts
+     * @param int|null $userId
+     * @param bool $isGuest
+     * @return mixed
+     * @throws \Exception
+     */
+    public function deleteListProductInCart(array $idProducts, int $userId = null, bool $isGuest = true) {
+//        try {
+            return $this->cartUserRepository->deleteListProductInCart($idProducts, $userId, $isGuest);
+//        } catch (\Exception $e) {
+//            throw new \Exception($e->getMessage());
+//        }
+    }
 }

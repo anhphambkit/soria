@@ -6,7 +6,7 @@
  * Time: 22:22
  */
 ?>
-@extends('client.wookie.master')
+@extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
 @section('keywords')
 @endsection
@@ -39,13 +39,14 @@
 @section('styles')
 @endsection
 
-{{--content page must define before section content--}}
 @section('content-page')
     @if($cart['total_items'] > 0)
         <div id="content-cart-page">
             <div class="container-indent">
+                @component('client.wookie.components.header-image')
+                    @slot('headerImage', "Shopping Cart")
+                @endcomponent
                 <div class="container">
-                    <h1 class="tt-title-subpages noborder">SHOPPING CART</h1>
                     <div class="row">
                         <div class="col-sm-12 col-xl-8">
                             @component('client.wookie.components.shop-cart-table')
@@ -69,7 +70,7 @@
                                         </tr>
                                         </tfoot>
                                     </table>
-                                    <a href="#" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+                                    <a href="{{ route('client.shop.checkout_shipping', $domain) }}" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +85,7 @@
                     <span class="tt-icon icon-f-39"></span>
                     <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
                     <p>You have no items in your shopping cart.</p>
-                    <a href="#" class="btn">CONTINUE SHOPPING</a>
+                    <a href="{{ route('client.shop.index', $domain) }}" class="btn">CONTINUE SHOPPING</a>
                 </div>
             </div>
         </div>
@@ -92,11 +93,7 @@
 @endsection
 
 @section('core-footer-scripts')
-    <script id="template-shop-cart-table" type="text/x-handlebars-template">
-        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
-    </script>
 
-    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 @section('theme-scripts')
@@ -106,7 +103,11 @@
 @endsection
 
 @section('page-scripts')
+    <script id="template-shop-cart-table" type="text/x-handlebars-template">
+        @include('client.wookie.handle-bar.shop-cart-table-handle-bar')
+    </script>
 
+    <script src="{{ asset('assets/client/wookie/assets/js/pages/cart.js') }}"></script>
 @endsection
 
 

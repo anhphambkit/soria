@@ -1,8 +1,9 @@
 <?php
-$parseErrorLaravel = !empty($parseErrorLaravel) ? $parseErrorLaravel : false;
-$jsValidate = !empty($jsValidate) ? $jsValidate : true;
+$parseErrorLaravel = isset($parseErrorLaravel) ? $parseErrorLaravel : false;
+$jsValidate = isset($jsValidate) ? $jsValidate : true;
 $type = isset($type) ? $type : 'text';
 $class = isset($class) ? $class : '';
+$pattern = isset($pattern) ? $pattern : '';
 $attributes = isset($attributes) ? $attributes : [];
 $isCkEditor = isset($isCkEditor) ? $isCkEditor : true;
 $isTinyEditor = isset($isTinyEditor) ? $isTinyEditor : false;
@@ -29,6 +30,7 @@ $disabled = isset($disabled) ? $disabled : false;
                 required
                 @endif
                 class="form-control float-control {{$class}}" id="{{ $id }}"
+                pattern="{{ $pattern }}"
 
                 @if(isset($placeholder))
                 placeholder="{{ $placeholder }}"
@@ -41,17 +43,17 @@ $disabled = isset($disabled) ? $disabled : false;
                 @endif
 
                 @foreach($attributes as $key => $val)
-                    {{ $key. '='. $val. ' ' }}
+                    {{ $key. '='. $val }}
                 @endforeach
         />
     </div>
 </div>
 
 @elseif(isset($type) && $type === 'checkbox')
-<div class="checkbox checkbox-custom checkbox-circle">
+<div class="checkbox checkbox-custom checkbox-circle {{ $class }}">
     <input id="{{ $id }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="checkbox" {{ $checked ? 'checked' : '' }}
     @foreach($attributes as $key => $val)
-        {{ $key. '='. $val. ' ' }}
+        {{ $key. '='. $val }}
     @endforeach
     >
     <label for="{{ $id }}" class="label-checkbox label-default-custom">
@@ -82,9 +84,8 @@ $disabled = isset($disabled) ? $disabled : false;
                 @endif
 
                 @foreach($attributes as $key => $val)
-                    {{ $key. '='. $val. ' ' }}
+                    {{ $key. '='. $val }}
                 @endforeach
-
             >
                 @foreach($values as $key => $val)
                     <?php
@@ -131,7 +132,7 @@ $disabled = isset($disabled) ? $disabled : false;
                 @endif
 
                 @foreach($attributes as $key => $val)
-                    {{ $key. '='. $val. ' ' }}
+                    {{ $key. '='. $val }}
                 @endforeach
             />
             <div class="input-group-append">
@@ -169,7 +170,7 @@ $disabled = isset($disabled) ? $disabled : false;
                 @endif
 
                 @foreach($attributes as $key => $val)
-                    {{ $key. '='. $val. ' ' }}
+                    {{ $key. '='. $val }}
                 @endforeach
             />
             <div class="input-group-append">
@@ -227,11 +228,9 @@ $disabled = isset($disabled) ? $disabled : false;
                 @endif
 
         @foreach($attributes as $key => $val)
-            {{ $key. '='. $val. ' ' }}
+            {{ $key. '='. $val }}
                 @endforeach
-        >
-                @if(isset($value)){{ $value }}@endif
-            </textarea>
+        >@if(isset($value)){{ $value }}@endif</textarea>
     </div>
 @elseif($type === 'radio')
     <div class="{{ $classWrap }}">
@@ -252,11 +251,23 @@ $disabled = isset($disabled) ? $disabled : false;
             @endforeach
         </div>
     </div>
+
+@elseif($type === 'radio-single')
+    <div class="radio-btn-custom {{ $class }}">
+        <input id="{{ $id }}" class="radio-custom" value="{{ $value }}" name="{{ $name }}" data-size="small" data-color="#27B5C4"  type="radio" {{ $checked ? 'checked' : '' }}
+        @foreach($attributes as $key => $val)
+            {{ $key. '='. $val }}
+                @endforeach
+        >
+        <label for="{{ $id }}" class="label-checkbox label-default-custom label-custom-radio">
+            {{ $title }}
+        </label>
+    </div>
 @endif
 
 
 @if($jsValidate)
-    <ul class="" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
+    <ul class="validate-error" data-validation="data-validation" data-field="{{ isset($validateName) ? $validateName : $name }}"></ul>
 @endif
 
 @if($parseErrorLaravel)

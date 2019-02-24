@@ -23,7 +23,8 @@ class ProvincesCitiesImport implements ToModel, WithProgressBar, WithHeadingRow
             'name'          => $row['name'],
             'english_name'  => $row['english_name'],
 //            'country_code'  => $row[''],
-            'type_level'    => $row['level']
+            'type_level'    => $row['level'],
+            'order'    => $row['order'],
         ]);
     }
 }

@@ -32,6 +32,14 @@ Route::domain('{mainDomain}')->group(function () {
 
         // Cart Page
         Route::get('/cart', 'Shop\ShopController@cart')->name('client.shop.cart');
+        Route::get('/complete-order', 'Shop\ShopController@completeOrder')->name('client.shop.complete_order');
+
+        // Check out:
+        Route::prefix('checkout')->group(function () {
+            Route::get('/shipping', 'Shop\ShopController@checkoutShipping')->name('client.shop.checkout_shipping');
+            Route::get('/payment', 'Shop\ShopController@checkoutPayment')->name('client.shop.checkout_payment');
+        });
+
 
         /************ Router Product ************** */
         Route::prefix('product')->group(function () {

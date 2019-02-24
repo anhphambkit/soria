@@ -30,7 +30,8 @@ class ProvinceCity extends Model
         'name',
         'english_name',
         'country_code',
-        'type_level'
+        'type_level',
+        'order'
     ];
 
     public $timestamps = true;

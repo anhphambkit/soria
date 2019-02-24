@@ -27,7 +27,7 @@
                                 </td>
                                 <td>
                                     <h2 class="tt-title">
-                                        <a href="#">@{{ name }}</a>
+                                        <a href="@{{ urlProduct slug id }}">@{{ name }}</a>
                                     </h2>
                                     <div class="tt-price">
                                         Price:
@@ -56,7 +56,7 @@
                     </table>
                     <div class="tt-shopcart-btn">
                         <div class="col-left">
-                            <a class="btn-link" href="#"><i class="icon-e-19"></i>CONTINUE SHOPPING</a>
+                            <a class="btn-link" href="/shop"><i class="icon-e-19"></i>CONTINUE SHOPPING</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                             </tr>
                             </tfoot>
                         </table>
-                        <a href="#" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+                        <a href="/shop/checkout-shipping" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <span class="tt-icon icon-f-39"></span>
         <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
         <p>You have no items in your shopping cart.</p>
-        <a href="#" class="btn">CONTINUE SHOPPING</a>
+        <a href="/shop" class="btn">CONTINUE SHOPPING</a>
     </div>
 </div>
 @{{/if}}

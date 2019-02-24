@@ -43,7 +43,7 @@
                 </td>
                 <td>
                     <h2 class="tt-title">
-                        <a href="#">{{ $product['name'] }}</a>
+                        <a href="{{ route('client.product.detail', $domain) }}">{{ $product['name'] }}</a>
                     </h2>
                     @if($product['sale_price'] !== null && $product['sale_price'] > 0)
                         <div class="tt-price">

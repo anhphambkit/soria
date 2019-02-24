@@ -26,11 +26,11 @@
     </div>
     <div class="tt-cart-btn">
         <div class="tt-item">
-            <a href="#" class="btn">PROCEED TO CHECKOUT</a>
+            <a href="/shop/checkout/shipping" class="btn">PROCEED TO CHECKOUT</a>
         </div>
         <div class="tt-item">
-            <a href="shopping_cart_02.html" class="btn-link-02 tt-hidden-mobile">View Cart</a>
-            <a href="shopping_cart_02.html" class="btn btn-border tt-hidden-desctope">VIEW CART</a>
+            <a href="/shop/cart" class="btn-link-02 tt-hidden-mobile">View Cart</a>
+            <a href="/shop/cart" class="btn btn-border tt-hidden-desctope">VIEW CART</a>
         </div>
     </div>
 @{{else}}

@@ -94,3 +94,254 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
     width: 120px !important;
   }
 }
+
+.tt-shopcart-table.tt-list-overview-products table td:nth-child(2) {
+  width: unset;
+  padding: 20px 0 20px 10px;
+}
+
+.tt-shopcart-table.tt-list-overview-products .tt-title a {
+  color: #2498FF;
+}
+
+.tt-price.cart-table-total-price {
+  margin-left: 24px;
+  color: #EE2247;
+  margin-right: 0 !important;
+}
+
+.title-total-list {
+  color: black;
+  font-weight: 800;
+}
+
+.tt-shopcart-table.tt-list-overview-products tr.row-total {
+  border-bottom: none !important;
+}
+
+.tt-shopcart-table.tt-list-overview-products {
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  margin-right: 0;
+
+  .over-list {
+    padding: 10px;
+    font-size: 15px;
+    line-height: 31px;
+    color: #6F6F6F;
+    font-weight: 500;
+
+    .edit-cart-btn {
+      float: right;
+
+      .edit-cart-button {
+        position: relative;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .title-edit-cart-btn {
+        margin-left: 5px;
+        font-size: 15px;
+      }
+
+      .icon-edit-custom {
+        bottom: 2px;
+        position: relative;
+      }
+    }
+  }
+}
+
+.custom-col {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.address-account-form {
+  border: 1px solid #f25a94;
+  padding: 20px;
+}
+
+.custom-select2 .select2-container .select2-selection--single {
+  height: 38px !important;
+  padding: 6px 0 !important;
+}
+
+.custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 5px !important;
+}
+
+.has-error {
+  .form-control {
+    border: 1px solid #ef5350;
+  }
+
+  ul.validate-error {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 10px;
+    color: #ef5350;
+  }
+
+  .select2-selection {
+    border: 1px solid #ef5350;
+  }
+}
+
+.card-address.card-custom {
+  margin-bottom: 20px;
+
+  .card-header {
+    background: #f7f8fa;
+    color: #333;
+    font-weight: 600;
+    padding: 10px 15px 5px 15px;
+  }
+
+  .card-body {
+    padding: 15px;
+
+    .card-text.phone {
+      margin: 0 0 5px 0;
+      .phone {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .card-action {
+    margin-right: 10px;
+  }
+
+}
+
+.border-dashed-custom {
+  border: 2px dashed #f15c95;
+}
+
+.title-custom {
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-custom-shop {
+  padding: 5px 15px !important;
+  border: 1px solid #ccc;
+  outline-color: #ccc;
+}
+
+.btn-edit-shop {
+  color: #333;
+  background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f7f7f7));
+  background: linear-gradient(#fff,#f7f7f7);
+}
+
+.btn-black-custom {
+  background: #555649 !important;
+  &:hover {
+    background: rgba(234,30,99,0.75) !important;
+  }
+}
+
+.status-address {
+  max-width: 100px;
+  float: right;
+  padding: 5px 10px 3px 10px;
+}
+
+.change-address {
+  max-width: 100px;
+  float: right;
+}
+
+.title-payment-card {
+  top: 7px;
+  position: relative;
+}
+
+.title-address {
+  width: calc(100% - 100px);
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.action-address-shipping-area {
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-cancel-custom {
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.radio-custom {
+  height: 30px;
+  width: 30px;
+}
+
+.label-custom-radio {
+  bottom: 9px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.custom-area {
+  margin-bottom: 20px;
+}
+
+.method-area {
+  padding: 15px 15px 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.btn-large-custom {
+  background: #EF3959;
+  padding: 25px 50px 20px 50px !important;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.icon-success {
+  font-size: 200px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.title-edit-cart-btn a {
+  color: white !important;
+}
+
+.header-image-parallax-custom {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  background-image: url(/storage/general/background/header-image.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 50px;
+
+  .tt-description {
+    padding: 0 !important;
+    h1 {
+      padding: 0 !important;
+      color: white;
+      text-align: center;
+      font-weight: 500;
+      font-size: 55px;
+      text-transform: capitalize;
+    }
+  }
+}

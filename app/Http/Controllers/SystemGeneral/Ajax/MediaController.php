@@ -15,7 +15,7 @@ use App\Packages\SystemGeneral\Services\MediaServices;
 
 class MediaController extends CoreAjaxController
 {
-    private $mediaServices;
+    protected $mediaServices;
 
     public function __construct(MediaServices $mediaServices) {
         $this->mediaServices = $mediaServices;
