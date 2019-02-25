@@ -9,11 +9,11 @@
 namespace App\Http\Controllers\Client\Web\Post;
 
 
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseBlogController;
 use App\Packages\Admin\Post\Services\PostServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 
-class PostController extends Controller {
+class PostController extends BaseBlogController {
 
     protected $helperServices;
     protected $postServices;

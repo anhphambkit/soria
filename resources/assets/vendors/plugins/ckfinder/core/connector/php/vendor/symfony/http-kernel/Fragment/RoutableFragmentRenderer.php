@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\EventListener\FragmentListener;
 
 /**
- * Adds the possibility to generate a fragment URI for a given Controller.
+ * Adds the possibility to generate a fragment URI for a given AdminController.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -83,7 +83,7 @@ abstract class RoutableFragmentRenderer implements FragmentRendererInterface
             if (is_array($value)) {
                 $this->checkNonScalar($value);
             } elseif (!is_scalar($value) && null !== $value) {
-                throw new \LogicException(sprintf('Controller attributes cannot contain non-scalar/non-null values (value for key "%s" is not a scalar or null).', $key));
+                throw new \LogicException(sprintf('AdminController attributes cannot contain non-scalar/non-null values (value for key "%s" is not a scalar or null).', $key));
             }
         }
     }

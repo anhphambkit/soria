@@ -36,4 +36,10 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
         Route::get('/category/list', 'Post\PostCategoryController@indexCategoryPost')->name('admin.post.category.index');
         Route::get('/category/new', 'Post\PostCategoryController@newCategoryPost')->name('admin.post.category.new');
     });
+
+    /************ Router Setting ************** */
+    Route::prefix('setting')->group(function () {
+        // Post Category:
+        Route::get('/blog-setting', 'General\BlogSettingController@blogSettings')->name('admin.setting.blog');
+    });
 });

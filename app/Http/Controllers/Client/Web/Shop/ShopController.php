@@ -9,19 +9,18 @@
 namespace App\Http\Controllers\Client\Web\Shop;
 
 
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseShopController;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\HelperServices;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;
 
-class ShopController extends Controller {
+class ShopController extends BaseShopController {
 
     protected $helperServices;
     protected $productServices;

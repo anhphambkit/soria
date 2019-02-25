@@ -46,6 +46,9 @@ $id = isset($id) ? $id : '';
                             @case('close')
                                 <li><a data-action="close"><i class="ft-x"></i></a></li>
                                 @break
+                            @case('edit')
+                                <li><a data-action="edit"><i class="far fa-edit"></i></a></li>
+                                @break
                         @endswitch
                     @endforeach
                 </ul>

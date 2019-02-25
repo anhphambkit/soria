@@ -12,9 +12,9 @@ use App\Packages\Admin\Post\Services\PostServices;
 use App\Packages\SystemGeneral\Constants\ReferencesConfig;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseAdminController;
 
-class PostController extends Controller
+class PostController extends BaseAdminController
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $postServices;
