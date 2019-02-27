@@ -10,11 +10,11 @@
     <div class="tt-desctop-menu tt-menu-small">
         <nav>
             <ul>
-                <li class="dropdown tt-megamenu-col-02">
-                    <a class="tt-logo tt-logo-alignment logo-stuck" href="{{ route('client.page.home', $domain) }}">
-                        <img src="{{ asset($shopSettings['shop_logo_secondary']) }}" alt="">
-                    </a>
-                </li>
+                {{--<li class="dropdown tt-megamenu-col-02">--}}
+                    {{--<a class="tt-logo tt-logo-alignment logo-stuck" href="{{ route('client.page.home', $domain) }}">--}}
+                        {{--<img src="{{ asset($shopSettings['shop_logo_secondary']) }}" alt="">--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 <li class="dropdown tt-megamenu-col-02 selected">
                     <a href="{{ route('client.page.home', $domain) }}">HOME</a>
                 </li>

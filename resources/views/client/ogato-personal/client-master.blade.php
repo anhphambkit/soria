@@ -35,11 +35,11 @@ $classBodyPage .= $classBodyCustom;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title') - drlinhlinh.com</title>
+        <title>@yield('title') - {{ $blogSettings['website_name'] }}</title>
 
         <!-- START APP FAVICON -->
-        <link rel="apple-touch-icon" href="{{ asset('assets/general/images/ico/favicon.ico') }}">
-        <link rel="shortcut icon" href="{{ asset('assets/general/images/ico/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset($blogSettings['blog_favicon']) }}">
+        <link rel="shortcut icon" href="{{ asset($blogSettings['blog_favicon']) }}">
         <!-- APP FAVICON -->
 
         <!-- Font Google -->

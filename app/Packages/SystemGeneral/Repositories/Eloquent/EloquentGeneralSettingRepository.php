@@ -9,6 +9,7 @@
 namespace App\Packages\SystemGeneral\Repositories\Eloquent;
 
 
+use App\Packages\SystemGeneral\Constants\SettingConfig;
 use App\Packages\SystemGeneral\Entities\GeneralSetting;
 use App\Packages\SystemGeneral\Repositories\GeneralSettingRepository;
 
@@ -54,6 +55,7 @@ class EloquentGeneralSettingRepository implements GeneralSettingRepository
             return $this->generalSettingModel
                 ->select('slug', 'value')
                 ->where('apply_for', $typeApply)
+                ->orWhere('apply_for', SettingConfig::ALL)
                 ->where('is_publish', true)
                 ->get()
                 ->mapWithKeys(function ($item){

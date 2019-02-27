@@ -228,19 +228,19 @@ function scrollEffect() {
             if (bodyScroll > lastScrollTop) {
                 if (header.hasClass(fixDown)) {
                     header.removeClass(fixDown).addClass(fixUp);
-                    $('.navbar-brand img').attr('src','assets/client/ogato-personal/app-assets/img/logo-dark.png');
+                    $('.navbar-brand img').attr('src','/storage/settings/logo/logo-primary.png');
                  
                 }
             } else {
                 if (!header.hasClass(fixDown)) {
                     header.removeClass(fixUp).addClass(fixDown);
-                    $('.navbar-brand img').attr('src','assets/client/ogato-personal/app-assets/img/logo-dark.png');
+                    $('.navbar-brand img').attr('src','/storage/settings/logo/logo-primary.png');
                 }
             }
         } else {
             header.removeClass(fixUp).removeClass(fixDown);
             if (!header.find('#nav').hasClass('nav-overlay')){
-                $('.navbar-brand img').attr('src','assets/img/logo-light.png');
+                $('.navbar-brand img').attr('src','/storage/settings/logo/logo-primary.png');
             }
             
 

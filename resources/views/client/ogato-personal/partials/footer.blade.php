@@ -7,77 +7,20 @@
  */
 ?>
 <footer class="footer">
-    <div id="footer_instagram">
-        <h2 class="widget_title">ogato @ Instagram</h2>
-        <div class="footer_instagram">
-            <ul class="instagram_pics">
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/1lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/2lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/3lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/4lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/5lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/instagram/6lg.jpg') }}" alt="">
-                        <div class="instagram-overlay"></div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <div class="footer_bottom section-padding text-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
 
                     <a href="#" class="footer_logo">
-                        <img src="{{ asset('assets/client/ogato-personal/app-assets/img/logo-light.png') }}" alt="">
+                        <img src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="{{ $blogSettings['website_name'] }}">
                     </a>
 
                     <div class="box_scoial_icon">
                         <div class="scoial-icon">
-                            <a href="#0">
+                            <a href="{{ $blogSettings['blog_facebook'] }}">
                                 <i class="fab fa-facebook-f"></i>
                                 <span>Facebook</span>
-                            </a>
-
-                            <a href="#0">
-                                <i class="fab fa-twitter"></i>
-                                <span>twitter</span>
-                            </a>
-
-                            <a href="#0">
-                                <i class="fab fa-instagram"></i>
-                                <span>instagram</span>
                             </a>
 
                         </div>
@@ -104,7 +47,7 @@
                     </div>
 
                     <div class="disclaimer">
-                        <p>© 2018 <a href="#">Design Grid</a>. All Rights Reserved.</p>
+                        <p>{!! $blogSettings['blog_signature'] !!}</p>
                     </div>
 
 

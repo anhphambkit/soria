@@ -9,8 +9,8 @@ $domain['urlPost'] = $linkPost;
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
-$avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
-$author = isset($author) ? $author : config('setting.default_admin');
+$avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
+$author = $blogSettings['blog_name_author'];
 $featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
 $secondaryImage = "assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg";
 if (sizeof($medias) > 0)
@@ -99,7 +99,7 @@ switch ($typeArticle) {
         </div>
     @else
         <div class="gallery_image_1 center">
-            <a href="#">
+            <a href="{{ route('client.post.detail', $domain) }}">
                 <img class="bb-img-feature-custom" src="{{ asset($featureImage) }}" alt="">
             </a>
         </div>
@@ -141,12 +141,12 @@ switch ($typeArticle) {
 
         <div class="post_bottom_meta">
             <div class="half_width">
-                <span class="meta meta_comment">
-                    <a href="#"><span class="jam jam-message"></span> 3 Comments</a>
-                </span>
+                {{--<span class="meta meta_comment">--}}
+                    {{--<a href="#"><span class="jam jam-message"></span> 3 Comments</a>--}}
+                {{--</span>--}}
 
                 <div class="post_more">
-                    <a href="#">
+                    <a href="{{ route('client.post.detail', $domain) }}">
                         <span class="icon1">Load More</span>
                         <span class="icon2 jam jam-arrow-right"></span>
                     </a>
@@ -160,10 +160,6 @@ switch ($typeArticle) {
                     <div class="socials-text">Post share</div>
                     <ul class="socials">
                         <li><a href="#" target="_blank"><span class="jam jam-facebook"></span></a></li>
-                        <li><a href="#" target="_blank"><span class="jam jam-twitter"></span></a></li>
-                        <li><a href="#" target="_blank"><span class="jam jam-google-plus"></span></a></li>
-                        <li><a href="#" target="_blank"><span class="jam jam-pinterest"></span></a>
-                        </li>
                     </ul>
                 </div>
             </div>

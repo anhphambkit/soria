@@ -33,6 +33,16 @@ class CreateTableSettingGenerals extends Migration
         $defaultSettings = [
             // Setting for blog:
             [
+                'main_type' => SettingConfig::WEB_INFO_TYPE,
+                'sub_type' => null,
+                'value' => "Soria Beauty",
+                'name' => "Website Name",
+                'slug' => "website_name",
+                'type_data' => SettingConfig::TEXT_TYPE_DATA,
+                'apply_for' => SettingConfig::ALL,
+                'is_publish' => true,
+            ],
+            [
                 'main_type' => SettingConfig::BLOG_INFO_TYPE,
                 'sub_type' => null,
                 'value' => "storage/settings/logo/logo-primary.png",
@@ -85,6 +95,16 @@ class CreateTableSettingGenerals extends Migration
             [
                 'main_type' => SettingConfig::BLOG_AUTHOR_INFO_TYPE,
                 'sub_type' => null,
+                'value' => "Soria Nguyễn",
+                'name' => "Blog Name Author",
+                'slug' => "blog_name_author",
+                'type_data' => SettingConfig::TEXT_TYPE_DATA,
+                'apply_for' => SettingConfig::BLOG,
+                'is_publish' => true,
+            ],
+            [
+                'main_type' => SettingConfig::BLOG_AUTHOR_INFO_TYPE,
+                'sub_type' => null,
                 'value' => "Xin chào! Tôi là Soria Nguyễn",
                 'name' => "Blog Hi Sentence",
                 'slug' => "blog_hi_sentence",
@@ -105,7 +125,7 @@ class CreateTableSettingGenerals extends Migration
             [
                 'main_type' => SettingConfig::BLOG_AUTHOR_INFO_TYPE,
                 'sub_type' => null,
-                'value' => "<p>Don’t worry if your job is small, </p><br /><p>And your rewards are few.</p><br /><p>Remember that the mighty oak,</p><br /><p>Was once a nut like you.</p><br />",
+                'value' => "<p>Don’t worry if your job is small, </p><p>And your rewards are few.</p><p>Remember that the mighty oak,</p><p>Was once a nut like you.</p>",
                 'name' => "Blog Short About",
                 'slug' => "blog_short_about",
                 'type_data' => SettingConfig::TEXT_TYPE_DATA,

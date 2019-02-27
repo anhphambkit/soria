@@ -15,6 +15,7 @@ interface SettingConfig
     CONST SHOP = 'shop';
     CONST BLOG = 'blog';
     CONST ALL = 'all';
+    CONST WEB_INFO_TYPE = 'web_info';
     CONST BLOG_INFO_TYPE = 'blog_info';
     CONST BLOG_AUTHOR_INFO_TYPE = 'blog_author_info';
     CONST BLOG_SOCIALS_TYPE = 'blog_socials';

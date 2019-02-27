@@ -21,7 +21,7 @@ Route::domain('{mainDomain}')->group(function () {
     /************ Router Post ************** */
     Route::prefix('blog')->group(function () {
         // Blog page:
-        Route::get('/', 'ClientController@index')->name('client.blog.home');
+        Route::get('/', 'Post\PostController@index')->name('client.blog.home');
 
         Route::prefix('post')->group(function () {
             // Post Category:
