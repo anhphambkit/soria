@@ -30,7 +30,8 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 task('deploy:dev', [
     'deploy:maintenance-start',
     'deploy:git',
-//    'deploy:migrate',
+    'deploy:migrate',
+//    'deploy:storage-link',
 //    'deploy:vendors',
 //    'deploy:node',
     'deploy:build',
@@ -46,6 +47,16 @@ task('deploy:git', function(){ // Install vendors by composer
 //        run("cd \"{$path}\" && git add .");
 //        run("cd \"{$path}\" && git commit -m \"auto-commit-by-deployer\" ");
         run("cd \"{$path}\" && git pull origin master");
+    } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
+        writeln($e->getMessage());
+    }
+});
+
+task('deploy:storage-link', function(){ // Install vendors by composer
+    try {
+        $path = get('deploy_path');
+        run("cd \"{$path}\" && rm -rf public/storage");
+        run("cd \"{$path}\" && php artisan storage:link");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
     }

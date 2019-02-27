@@ -65,7 +65,7 @@ class CreateTableSettingGenerals extends Migration
             [
                 'main_type' => SettingConfig::BLOG_INFO_TYPE,
                 'sub_type' => null,
-                'value' => "storage/settings/blog/logo-fav.png",
+                'value' => "storage/settings/logo/logo-fav.png",
                 'name' => "Blog Favicon",
                 'slug' => "blog_favicon",
                 'type_data' => SettingConfig::IMAGE_TYPE_DATA,
