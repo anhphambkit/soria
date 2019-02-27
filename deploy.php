@@ -32,7 +32,7 @@ task('deploy:dev', [
     'deploy:git',
 //    'deploy:migrate-rollback',
     'deploy:migrate',
-//    'deploy:storage-link',
+    'deploy:storage-link',
 //    'deploy:vendors',
 //    'deploy:node',
     'deploy:build',
@@ -63,7 +63,7 @@ task('deploy:storage-link', function(){ // Install vendors by composer
     }
 });
 
-task('deploy::migrate-rollback', function(){ // Install vendors by composer
+task('deploy:migrate-rollback', function(){ // Install vendors by composer
     try {
         $path = get('deploy_path');
         run("cd \"{$path}\" && php artisan migrate:rollback");
