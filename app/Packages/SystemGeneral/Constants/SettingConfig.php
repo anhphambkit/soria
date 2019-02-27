@@ -28,4 +28,7 @@ interface SettingConfig
     CONST PHONE_TYPE = 'phone';
     CONST ADDRESS_TYPE = 'address';
     CONST EMAIL_TYPE = 'email';
+    CONST IMAGE_TYPE_DATA = 'image';
+    CONST TEXT_TYPE_DATA = 'text';
+    CONST BOOLEAN_TYPE_DATA = 'bool';
 }

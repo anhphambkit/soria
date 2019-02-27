@@ -88,9 +88,9 @@
                     @slot('id', 'card-general-blog')
                     @slot('title', 'Generals Blog')
                     @slot('content')
-                        @include('backend.modern-admin.forms.posts.create-new-post-category-form',
+                        @include('backend.modern-admin.forms.settings.setting-form',
                             [
-                                'idForm' => 'form-create-new-category'
+                                'idForm' => 'form-blog-setting'
                             ])
                     @endslot
                     @slot('controls', ['reload', 'edit'])

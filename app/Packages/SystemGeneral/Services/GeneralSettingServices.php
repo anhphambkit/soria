@@ -11,5 +11,9 @@ namespace App\Packages\SystemGeneral\Services;
 
 interface GeneralSettingServices
 {
-
+    /**
+     * @param string $typeApply
+     * @return mixed
+     */
+    public function getAllSettingsByTypeWeb(string $typeApply = "all");
 }

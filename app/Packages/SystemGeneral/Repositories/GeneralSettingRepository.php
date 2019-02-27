@@ -11,5 +11,10 @@ namespace App\Packages\SystemGeneral\Repositories;
 
 interface GeneralSettingRepository
 {
-
+    /**
+     * @param string $typeApply
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllSettingsByTypeWeb(string $typeApply = "all");
 }

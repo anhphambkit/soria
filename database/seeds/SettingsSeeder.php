@@ -88,7 +88,7 @@ class SettingsSeeder extends Seeder
                 'is_publish' => true,
             ],
             [
-                'main_type' => SettingConfig::BLOG_INFO_TYPE,
+                'main_type' => SettingConfig::BLOG_SOCIALS_TYPE,
                 'sub_type' => SettingConfig::INSTAGRAM_TYPE,
                 'value' => "instagram.com",
                 'name' => "Blog Instagram",
@@ -97,7 +97,7 @@ class SettingsSeeder extends Seeder
                 'is_publish' => true,
             ],
             [
-                'main_type' => SettingConfig::BLOG_INFO_TYPE,
+                'main_type' => SettingConfig::BLOG_SOCIALS_TYPE,
                 'sub_type' => SettingConfig::TWITTER_TYPE,
                 'value' => "twitter.com",
                 'name' => "Blog Twitter",
@@ -171,7 +171,7 @@ class SettingsSeeder extends Seeder
                 'is_publish' => true,
             ],
             [
-                'main_type' => SettingConfig::SHOP_CONTACT_TYPE,
+                'main_type' => SettingConfig::SHOP_SOCIALS_TYPE,
                 'sub_type' => SettingConfig::FACEBOOK_TYPE,
                 'value' => "facebook.com",
                 'name' => "Shop Facebook",
@@ -180,7 +180,7 @@ class SettingsSeeder extends Seeder
                 'is_publish' => true,
             ],
             [
-                'main_type' => SettingConfig::SHOP_CONTACT_TYPE,
+                'main_type' => SettingConfig::SHOP_SOCIALS_TYPE,
                 'sub_type' => SettingConfig::INSTAGRAM_TYPE,
                 'value' => "instagram.com",
                 'name' => "Shop Instagram",
@@ -189,7 +189,7 @@ class SettingsSeeder extends Seeder
                 'is_publish' => true,
             ],
             [
-                'main_type' => SettingConfig::SHOP_CONTACT_TYPE,
+                'main_type' => SettingConfig::SHOP_SOCIALS_TYPE,
                 'sub_type' => SettingConfig::TWITTER_TYPE,
                 'value' => "twitter.com",
                 'name' => "Shop Twitter",

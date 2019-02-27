@@ -9,9 +9,32 @@
 namespace App\Packages\SystemGeneral\Services\Implement;
 
 
+use App\Packages\SystemGeneral\Repositories\GeneralSettingRepository;
 use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 
 class ImplementGeneralSettingServices implements GeneralSettingServices
 {
+    private $generalSettingRepository;
 
+    /**
+     * ImplementGeneralSettingServices constructor.
+     * @param GeneralSettingRepository $generalSettingRepository
+     */
+    public function __construct(GeneralSettingRepository $generalSettingRepository)
+    {
+        $this->generalSettingRepository = $generalSettingRepository;
+    }
+
+    /**
+     * @param string $typeApply
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllSettingsByTypeWeb(string $typeApply = "all") {
+        try {
+            return $this->generalSettingRepository->getAllSettingsByTypeWeb($typeApply);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }
