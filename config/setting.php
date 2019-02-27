@@ -13,5 +13,5 @@ return [
         'shop' => 'client.wookie',
     ],
 
-    'default_admin' => env('DEFAULT_ADMIN', 'drlinhlinh'),
+    'default_admin' => env('DEFAULT_ADMIN', 'Soria Nguyễn'),
 ];

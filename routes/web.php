@@ -16,12 +16,17 @@
  *
  *********************************************************/
 Route::domain('{mainDomain}')->group(function () {
-    Route::get('/', 'ClientController@index')->name('client.page.home');
+    Route::get('/', 'Shop\ShopController@index')->name('client.page.home');
 
     /************ Router Post ************** */
-    Route::prefix('post')->group(function () {
-        // Post Category:
-        Route::get('/detail/{urlPost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
+    Route::prefix('blog')->group(function () {
+        // Blog page:
+        Route::get('/', 'Post\PostController@index')->name('client.blog.home');
+
+        Route::prefix('post')->group(function () {
+            // Post Category:
+            Route::get('/detail/{urlPost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
+        });
     });
 
 

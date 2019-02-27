@@ -32,7 +32,7 @@
         <div class="row">
             <div class="tt-logo-container">
                 <!-- mobile logo -->
-                <a class="tt-logo tt-logo-alignment" href="index.html"><img src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/logo.png') }}" alt=""></a>
+                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home', $domain) }}"><img src="{{ $shopSettings['shop_logo_primary'] }}" alt=""></a>
                 <!-- /mobile logo -->
             </div>
         </div>

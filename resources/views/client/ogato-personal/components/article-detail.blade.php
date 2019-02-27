@@ -6,10 +6,10 @@
  * Time: 21:49
  */
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
-$avatarLink = isset($avatarLink) ? $avatarLink : "assets/client/ogato-personal/app-assets/img/authors/1.jpg";
+$avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
 $imageFeature = isset($imageFeature) ? $imageFeature : [];
 $medias = isset($medias) ? $medias : [];
-$author = isset($author) ? $author : config('setting.default_admin');
+$author = $blogSettings['blog_name_author'];
 ?>
 <article>
     <div class="entry_header_small">
@@ -106,9 +106,6 @@ $author = isset($author) ? $author : config('setting.default_admin');
                             <div class="socials-text">Share Post</div>
                             <ul class="socials">
                                 <li><a href="#" target="_blank"><span class="jam jam-facebook"></span></a></li>
-                                <li><a href="#" target="_blank"><span class="jam jam-twitter"></span></a></li>
-                                <li><a href="#" target="_blank"><span class="jam jam-google-plus"></span></a></li>
-                                <li><a href="#" target="_blank"><span class="jam jam-pinterest"></span></a></li>
                             </ul>
                         </div>
                     </div>

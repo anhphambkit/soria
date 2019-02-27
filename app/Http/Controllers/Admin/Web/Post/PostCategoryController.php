@@ -10,9 +10,9 @@ namespace App\Http\Controllers\Admin\Web\Post;
 
 use App\Packages\Admin\Post\Services\PostCategoryServices;
 use Illuminate\Http\Request;
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseAdminController;
 
-class PostCategoryController extends Controller
+class PostCategoryController extends BaseAdminController
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $postCategoryServices;

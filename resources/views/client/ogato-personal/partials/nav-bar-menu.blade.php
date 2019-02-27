@@ -23,120 +23,25 @@ $classHeaderNavBarSection .= $classNavBarMenuCustom;
     <div class="container">
         <nav id="nav" class="navbar navbar-expand-lg {{ $classNavBarSection }}">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/logo-dark.png') }}" alt="logo" class="logo-1">
+                <img src="{{ asset($blogSettings['blog_logo_primary']) }}" alt="{{ $blogSettings['website_name'] }}" class="logo-1">
             </a>
 
             <div class="collapse navbar-collapse ">
                 <ul class="navbar-nav ml-auto">
                     <li class="dropdown nav-item">
-                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Home</a>
-
-                        <ul class="dropdown-menu ">
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="" class="nav-link dropdown-toggle">Main Demo</a>
-
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li class="nav-item">
-                                        <a href="index.html" class="dropdown-item">Sidebar Light</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="demo-sidebardark.html" class="dropdown-item">Sidebar Dark</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="demo-fullwidth.html" class="dropdown-item">Demo Full width</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                        </ul>
-
-
+                        <a href="#" class="nav-link dropdown-toggle">Home</a>
                     </li>
+
+                    @foreach($blogCategories as $blogCategory)
+                        <li class="dropdown nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">{{ $blogCategory->name }}</a>
+                        </li>
+                    @endforeach
+
 
                     <li class="dropdown nav-item">
-                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pages</a>
-
-                        <ul class="dropdown-menu ">
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="author.html" class="nav-link">Author</a>
-                            </li>
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="category.html" class="nav-link">archive</a>
-                            </li>
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="contact.html" class="nav-link">Contact</a>
-                            </li>
-                        </ul>
-
+                        <a href="#" class="nav-link dropdown-toggle">Life Style</a>
                     </li>
-
-                    <li class="dropdown nav-item">
-                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Post
-                            Formats</a>
-
-                        <ul class="dropdown-menu ">
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="" class="nav-link dropdown-toggle">Image Post</a>
-
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li class="nav-item">
-                                        <a href="image-cover-sidebar.html" class="dropdown-item">Sidebar</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="image-cover.html" class="dropdown-item">Full wight</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="" class="nav-link dropdown-toggle">video Post</a>
-
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li class="nav-item">
-                                        <a href="single-post-video.html" class="dropdown-item">Sidebar</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="single-post-video-fullwidth.html" class="dropdown-item">Full
-                                            wight</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li class="dropdown nav-item dropdown-item">
-                                <a href="" class="nav-link dropdown-toggle">Audio</a>
-
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li class="nav-item">
-                                        <a href="single-post-audio.html" class="dropdown-item">Sidebar</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="single-post-audiofullwidth.html" class="dropdown-item">Full
-                                            wight</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </li>
-
                 </ul>
             </div>
 

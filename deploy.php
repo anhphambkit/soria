@@ -30,9 +30,9 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 task('deploy:dev', [
     'deploy:maintenance-start',
     'deploy:git',
-    'deploy:migrate',
-    'deploy:vendors',
-    'deploy:node',
+//    'deploy:migrate',
+//    'deploy:vendors',
+//    'deploy:node',
     'deploy:build',
     'deploy:clear-cache',
 //    'deploy:permission',

@@ -9,9 +9,9 @@ namespace App\Http\Controllers\Admin\Web\Product;
 
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseAdminController;
 
-class ProductController extends Controller
+class ProductController extends BaseAdminController
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $productServices;

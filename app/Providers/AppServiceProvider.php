@@ -44,11 +44,15 @@ use App\Packages\SystemGeneral\Repositories\AddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\CoreDBRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentAddressGeneralInfoRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentCoreDBRepository;
+use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentGeneralSettingRepository;
 use App\Packages\SystemGeneral\Repositories\Eloquent\EloquentReferenceRepository;
+use App\Packages\SystemGeneral\Repositories\GeneralSettingRepository;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementAddressGeneralInfoService;
+use App\Packages\SystemGeneral\Services\Implement\ImplementGeneralSettingServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementHelperServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
 use App\Packages\SystemGeneral\Services\MediaServices;
@@ -86,6 +90,10 @@ class AppServiceProvider extends ServiceProvider
         // Bind Core DB:
         $this->app->singleton(CoreDBRepository::class, EloquentCoreDBRepository::class);
         $this->app->singleton(ReferenceRepository::class, EloquentReferenceRepository::class);
+
+        // Bind Setting DB:
+        $this->app->singleton(GeneralSettingServices::class, ImplementGeneralSettingServices::class);
+        $this->app->singleton(GeneralSettingRepository::class, EloquentGeneralSettingRepository::class);
 
         // Bind Address General:
         $this->app->singleton(AddressGeneralInfoService::class, ImplementAddressGeneralInfoService::class);

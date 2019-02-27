@@ -9,17 +9,21 @@
 namespace App\Http\Controllers\Client\Web\Post;
 
 
-use App\Http\Controllers\SystemGeneral\Web\Controller;
+use App\Http\Controllers\SystemGeneral\Web\BaseBlogController;
+use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 
-class PostController extends Controller {
+class PostController extends BaseBlogController {
 
     protected $helperServices;
     protected $postServices;
-    public function __construct(HelperServices $helperServices, PostServices $postServices)
+    public function __construct(HelperServices $helperServices, PostServices $postServices,
+                                PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices
+    )
     {
-        parent::__construct();
+        parent::__construct($postCategoryServices, $generalSettingServices);
         $this->helperServices = $helperServices;
         $this->postServices = $postServices;
     }

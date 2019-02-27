@@ -400,7 +400,7 @@ var _isOpen,
 	_orientationChangeTimeout,
 
 
-	// Registers PhotoSWipe module (History, Controller ...)
+	// Registers PhotoSWipe module (History, AdminController ...)
 	_registerModule = function(name, module) {
 		framework.extend(self, module.publicMethods);
 		_modules.push(name);
@@ -2691,7 +2691,7 @@ var _showOrHideTimeout,
 /*>>items-controller*/
 /**
 *
-* Controller manages gallery items, their dimensions, and their content.
+* AdminController manages gallery items, their dimensions, and their content.
 * 
 */
 

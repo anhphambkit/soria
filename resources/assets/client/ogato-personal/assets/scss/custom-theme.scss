@@ -2,3 +2,12 @@
   max-height: 380px !important;
   width: auto !important;
 }
+
+.short-description-author p {
+  margin-bottom: 0px !important;
+}
+
+.short-description-author.sidebar-menu {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -74,7 +74,7 @@ class ControllerResolver implements ControllerResolverInterface
                 return $controller;
             }
 
-            throw new \InvalidArgumentException(sprintf('Controller "%s" for URI "%s" is not callable.', get_class($controller), $request->getPathInfo()));
+            throw new \InvalidArgumentException(sprintf('AdminController "%s" for URI "%s" is not callable.', get_class($controller), $request->getPathInfo()));
         }
 
         if (false === strpos($controller, ':')) {
@@ -88,7 +88,7 @@ class ControllerResolver implements ControllerResolverInterface
         $callable = $this->createController($controller);
 
         if (!is_callable($callable)) {
-            throw new \InvalidArgumentException(sprintf('Controller "%s" for URI "%s" is not callable.', $controller, $request->getPathInfo()));
+            throw new \InvalidArgumentException(sprintf('AdminController "%s" for URI "%s" is not callable.', $controller, $request->getPathInfo()));
         }
 
         return $callable;
@@ -144,7 +144,7 @@ class ControllerResolver implements ControllerResolverInterface
                     $repr = $controller;
                 }
 
-                throw new \RuntimeException(sprintf('Controller "%s" requires that you provide a value for the "$%s" argument (because there is no default value or because there is a non optional argument after this one).', $repr, $param->name));
+                throw new \RuntimeException(sprintf('AdminController "%s" requires that you provide a value for the "$%s" argument (because there is no default value or because there is a non optional argument after this one).', $repr, $param->name));
             }
         }
 
@@ -154,7 +154,7 @@ class ControllerResolver implements ControllerResolverInterface
     /**
      * Returns a callable for the given controller.
      *
-     * @param string $controller A Controller string
+     * @param string $controller A AdminController string
      *
      * @return callable A PHP callable
      *
