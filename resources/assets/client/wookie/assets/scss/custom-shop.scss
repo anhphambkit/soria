@@ -159,7 +159,7 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
 }
 
 .address-account-form {
-  border: 1px solid #f25a94;
+  border: 1px solid #fe5722;
   padding: 20px;
 }
 
@@ -218,7 +218,7 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
 }
 
 .border-dashed-custom {
-  border: 2px dashed #f15c95;
+  border: 2px dashed #fe5722;
 }
 
 .title-custom {
@@ -241,7 +241,7 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
 .btn-black-custom {
   background: #555649 !important;
   &:hover {
-    background: rgba(234,30,99,0.75) !important;
+    background: #fe5722 !important;
   }
 }
 
@@ -344,4 +344,14 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
       text-transform: capitalize;
     }
   }
+}
+
+.stuck .logo-stuck img {
+  max-width: 90px;
+  display: inline-block;
+  max-height: 30px;
+}
+
+.logo-stuck img {
+  display: none;
 }

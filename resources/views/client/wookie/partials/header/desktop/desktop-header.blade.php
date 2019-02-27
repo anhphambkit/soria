@@ -13,7 +13,7 @@
             <div class="tt-obj-logo obj-aligment-center">
                 <!-- logo -->
                 <a class="tt-logo tt-logo-alignment" href="{{ route('client.shop.index', $domain) }}">
-                    <img src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/logo.png') }}" alt="">
+                    <img src="{{ asset('assets/client/wookie/app-assets/settings/logo-honz.png') }}" alt="">
                 </a>
                 <!-- /logo -->
             </div>
