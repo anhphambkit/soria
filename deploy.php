@@ -30,6 +30,7 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 task('deploy:dev', [
     'deploy:maintenance-start',
     'deploy:git',
+//    'deploy:migrate-rollback',
     'deploy:migrate',
 //    'deploy:storage-link',
 //    'deploy:vendors',
@@ -57,6 +58,15 @@ task('deploy:storage-link', function(){ // Install vendors by composer
         $path = get('deploy_path');
         run("cd \"{$path}\" && rm -rf public/storage");
         run("cd \"{$path}\" && php artisan storage:link");
+    } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
+        writeln($e->getMessage());
+    }
+});
+
+task('deploy::migrate-rollback', function(){ // Install vendors by composer
+    try {
+        $path = get('deploy_path');
+        run("cd \"{$path}\" && php artisan migrate:rollback");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
     }
