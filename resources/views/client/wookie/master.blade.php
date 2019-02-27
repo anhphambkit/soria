@@ -29,8 +29,8 @@ $isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
         <title>@yield('title') - Soria Shop</title>
 
         <!-- START APP FAVICON -->
-        <link rel="apple-touch-icon" href="{{ asset('assets/client/wookie/app-assets/settings/fav.png') }}">
-        <link rel="shortcut icon" href="{{ asset('assets/client/wookie/app-assets/settings/fav.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset($shopSettings['shop_favicon']) }}">
+        <link rel="shortcut icon" href="{{ asset($shopSettings['shop_favicon']) }}">
         <!-- APP FAVICON -->
 
         <!-- Font Google -->

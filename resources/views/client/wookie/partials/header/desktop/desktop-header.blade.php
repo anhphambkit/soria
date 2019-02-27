@@ -12,8 +12,8 @@
         <div class="tt-header-holder">
             <div class="tt-obj-logo obj-aligment-center">
                 <!-- logo -->
-                <a class="tt-logo tt-logo-alignment" href="{{ route('client.shop.index', $domain) }}">
-                    <img src="{{ asset('assets/client/wookie/app-assets/settings/logo-honz.png') }}" alt="">
+                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home', $domain) }}">
+                    <img src="{{ $shopSettings['shop_logo_primary'] }}" alt="">
                 </a>
                 <!-- /logo -->
             </div>

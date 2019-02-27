@@ -37,4 +37,17 @@ class ImplementGeneralSettingServices implements GeneralSettingServices
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param string $typeApply
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllSettingsForRenderByTypeWeb(string $typeApply = "all") {
+        try {
+            return $this->generalSettingRepository->getAllSettingsForRenderByTypeWeb($typeApply);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

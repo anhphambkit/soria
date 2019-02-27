@@ -355,3 +355,17 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
 .logo-stuck img {
   display: none;
 }
+
+.custom-menu > li > a {
+  color: #141414;
+  font-size: 14px;
+}
+.custom-menu > li {
+  margin-bottom: 5px;
+}
+
+.dropdown-menu-custom {
+  width: auto !important;
+  max-width: 500px !important;
+  min-width: 300px !important;
+}

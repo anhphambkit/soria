@@ -11,10 +11,12 @@ namespace App\Http\Controllers\Client\Web\Shop;
 
 use App\Http\Controllers\SystemGeneral\Web\BaseShopController;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
+use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -35,10 +37,12 @@ class ShopController extends BaseShopController {
                                 HelperServices $helperServices, ProductServices $productServices,
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
                                 AddressGeneralInfoService $addressGeneralInfoService,
-                                AddressBookServices $addressBookServices
+                                AddressBookServices $addressBookServices, ProductCategoryServices $productCategoryServices,
+                                GeneralSettingServices $generalSettingServices
                                 )
     {
-        parent::__construct();
+        parent::__construct($productCategoryServices, $generalSettingServices);
+
         $this->helperServices = $helperServices;
         $this->productServices = $productServices;
         $this->shoppingCartServices = $shoppingCartServices;

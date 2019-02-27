@@ -25,15 +25,40 @@ class EloquentGeneralSettingRepository implements GeneralSettingRepository
         $this->generalSettingModel = $generalSettingModel;
     }
 
+    /**
+     * @param string $typeApply
+     * @return mixed
+     * @throws \Exception
+     */
     public function getAllSettingsByTypeWeb(string $typeApply = "all")
     {
         try {
             return $this->generalSettingModel
-//                        ->select()
                         ->where('apply_for', $typeApply)
                         ->where('is_publish', true)
                         ->get()
                         ->groupBy('main_type');
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param string $typeApply
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllSettingsForRenderByTypeWeb(string $typeApply = "all")
+    {
+        try {
+            return $this->generalSettingModel
+                ->select('slug', 'value')
+                ->where('apply_for', $typeApply)
+                ->where('is_publish', true)
+                ->get()
+                ->mapWithKeys(function ($item){
+                    return [$item->slug => $item->value];
+                });
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
