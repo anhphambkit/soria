@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\SystemGeneral\Web;
 
 use App\Packages\Admin\Post\Services\PostCategoryServices;
+use App\Packages\Admin\Post\Services\PostServices;
 use App\Packages\SystemGeneral\Constants\SettingConfig;
 use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -25,26 +26,31 @@ class BaseBlogController extends BaseController
 
     private $postCategoryServices;
     private $generalSettingServices;
+    private $postServices;
 
     /**
      * BaseBlogController constructor.
      * @param PostCategoryServices $postCategoryServices
      * @param GeneralSettingServices $generalSettingServices
+     * @param PostServices $postServices
      */
-    public function __construct(PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices) {
+    public function __construct(PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices, PostServices $postServices) {
         $domain = [
             'mainDomain' => Route::current()->parameter('mainDomain')
         ];
         $this->postCategoryServices = $postCategoryServices;
         $this->generalSettingServices = $generalSettingServices;
+        $this->postServices = $postServices;
 
         $blogSettings = $this->generalSettingServices->getAllSettingsForRenderByTypeWeb(SettingConfig::BLOG);
         $blogCategories = $this->postCategoryServices->getAllPostCategory();
-//        dd($blogSettings);
+        $blogNewPosts = $this->postServices->getNewPosts();
+//        dd($blogNewPosts);
         View::share([
             "domain" => $domain,
             "blogCategories" => $blogCategories,
             "blogSettings" => $blogSettings,
+            "blogNewPosts" => $blogNewPosts,
         ]);
     }
 }

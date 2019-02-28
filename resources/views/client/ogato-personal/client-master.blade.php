@@ -40,6 +40,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($blogSettings['blog_favicon']) }}">
         <link rel="shortcut icon" href="{{ asset($blogSettings['blog_favicon']) }}">
+
         <!-- APP FAVICON -->
 
         <!-- Font Google -->
