@@ -18,6 +18,9 @@ return [
     */
 
     'create' => 'Tạo',
+    'sign_up' => 'Đăng ký',
+    'newsletter_sign_up' => 'ĐĂNG KÝ TƯ VẤN BỞI CHUYÊN GIA',
+    'your_email_address' => 'Địa chỉ email của bạn',
     'edit' => 'Sửa',
     'delete' => 'Xóa',
     'cancel' => 'Hủy',

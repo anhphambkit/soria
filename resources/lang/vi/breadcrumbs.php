@@ -17,10 +17,10 @@ return [
     */
 
     // Title
-    'home' => 'Home',
-    'categories' => 'Categories',
-    'products' => 'Products',
-    'posts' => 'Posts',
-    'manage' => 'Manage',
-    'new' => 'New',
+    'home' => 'Trang chủ',
+    'categories' => 'Danh mục',
+    'products' => 'Sản phẩm',
+    'posts' => 'Bài Viết',
+    'manage' => 'Quản lý',
+    'new' => 'Mới',
 ];

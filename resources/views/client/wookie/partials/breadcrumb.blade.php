@@ -9,7 +9,7 @@
 <div class="tt-breadcrumb">
     <div class="container">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">{{ trans('breadcrumbs.home') }}</a></li>
             <li><a href="listing-left-column.html">Shop</a></li>
             <li>T-Shirt</li>
         </ul>

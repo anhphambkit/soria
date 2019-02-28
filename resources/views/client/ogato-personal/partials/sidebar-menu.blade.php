@@ -31,7 +31,7 @@
 
         <div class="about_widget">
             <h3 class="widget_title">
-                <span>About Me</span>
+                <span>{{ trans('blog.about_me') }}</span>
             </h3>
 
             <div class="avatar_author">

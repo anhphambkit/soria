@@ -19,6 +19,15 @@ class PostController extends BaseBlogController {
 
     protected $helperServices;
     protected $postServices;
+    protected $postCategoryServices;
+
+    /**
+     * PostController constructor.
+     * @param HelperServices $helperServices
+     * @param PostServices $postServices
+     * @param PostCategoryServices $postCategoryServices
+     * @param GeneralSettingServices $generalSettingServices
+     */
     public function __construct(HelperServices $helperServices, PostServices $postServices,
                                 PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices
     )
@@ -26,6 +35,7 @@ class PostController extends BaseBlogController {
         parent::__construct($postCategoryServices, $generalSettingServices, $postServices);
         $this->helperServices = $helperServices;
         $this->postServices = $postServices;
+        $this->postCategoryServices = $postCategoryServices;
     }
 
     /**
@@ -40,7 +50,7 @@ class PostController extends BaseBlogController {
 
     /**
      * @param $domain
-     * @param $titlePost
+     * @param $urlPost
      * @return mixed
      */
     public function viewDetailPost($domain, $urlPost) {
@@ -51,5 +61,21 @@ class PostController extends BaseBlogController {
         $post = $this->postServices->getDetailPost($postId);
         $randomPosts = $this->postServices->getRandomPosts();
         return view(config('setting.theme.blog') . '.pages.posts.single-post', compact('post', 'randomPosts'));
+    }
+
+    /**
+     * @param $domain
+     * @param $urlCategory
+     * @return mixed
+     */
+    public function viewCategoryPage($domain, $urlCategory) {
+        $categoryId = $this->helperServices->getIdFromUrl($urlCategory);
+        if (!$categoryId) {
+            return abort(404);
+        }
+        $category = $this->postCategoryServices->getDetailPostCategory($categoryId);
+        $categoryPosts = $this->postServices->getAllPostsByCategory($categoryId);
+//        dd($category);
+        return view(config('setting.theme.blog') . '.pages.category', compact('category', 'categoryPosts'));
     }
 }

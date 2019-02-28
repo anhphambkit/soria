@@ -27,13 +27,13 @@
                     </div>
 
                     <div class="newsletter">
-                        <h4>Sign up for our weekly newsletter</h4>
+                        <h4>{{ trans('generals.newsletter_sign_up') }}</h4>
 
                         <div>
                             <form action="#" method="post">
                                 <div class="newsletter_info"></div>
-                                <input placeholder="Your Email Address" type="text" class="email">
-                                <button class="btn" type="submit" name="submit">Sign Up</button>
+                                <input placeholder="{{ trans('generals.your_email_address') }}" type="text" class="email">
+                                <button class="btn" type="submit" name="submit">{{ trans('generals.sign_up') }}</button>
                             </form>
                         </div>
                     </div>

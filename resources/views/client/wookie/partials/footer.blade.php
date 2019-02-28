@@ -20,7 +20,7 @@
                                 <div class="tt-collapse-content">
                                     <form id="newsletterform" class="form-inline form-default" method="post" novalidate="novalidate" action="#">
                                         <div class="form-group">
-                                            <input type="text" name="email" class="form-control" placeholder="Enter your e-mail">
+                                            <input type="text" name="email" class="form-control" placeholder="{{ trans('generals.your_email_address') }}">
                                             <button type="submit" class="btn">JOIN US</button>
                                         </div>
                                     </form>
@@ -78,15 +78,12 @@
                     <div class="tt-newsletter">
                         <div class="tt-mobile-collapse">
                             <h4 class="tt-collapse-title">
-                                NEWSLETTER SIGNUP
+                                {{ trans('generals.newsletter_sign_up') }}
                             </h4>
                             <div class="tt-collapse-content">
-                                <p>
-                                    Sign up for our e-mail and be the first who know our special offers! Furthermore, we will give a 15% discount on the next order after you sign up.
-                                </p>
                                 <form id="newsletterform" class="form-inline form-default" method="post" novalidate="novalidate" action="#">
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control" placeholder="Enter your e-mail">
+                                        <input type="text" name="email" class="form-control" placeholder="{{ trans('generals.your_email_address') }}">
                                         <button type="submit" class="btn">JOIN US</button>
                                     </div>
                                 </form>

@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 <div class="part-f">
                     <div class="in-mail">
-                        <input type="email" name="EMAIL" placeholder="Enter Your Email"
+                        <input type="email" name="EMAIL" placeholder="{{ trans('generals.your_email_address') }}"
                                required="">
                     </div>
                     <input type="submit" value="">
