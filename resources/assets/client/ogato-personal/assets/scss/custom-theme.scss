@@ -10,4 +10,25 @@
 .short-description-author.sidebar-menu {
   margin-top: 20px;
   margin-bottom: 20px;
+
+  h6 {
+    margin-top: 10px;
+    font-weight: 400;
+  }
+}
+
+.post-card-thumbnail-custom {
+  height: 220px;
+  display: inline-block;
+
+  img {
+    height: 100% !important;
+  }
+}
+
+.post-thumbnail-smaill-custom {
+  height: 100px;
+  img {
+    height: 100% !important;
+  }
 }

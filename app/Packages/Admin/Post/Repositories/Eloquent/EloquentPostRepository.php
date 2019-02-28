@@ -217,4 +217,58 @@ class EloquentPostRepository implements PostRepository {
             return $e->getMessage();
         }
     }
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getNewPosts(int $numberPosts = 3) {
+        try {
+            return $this->model
+                ->select('posts.id', 'posts.name', 'posts.slug', 'posts.rating', 'posts.view', 'posts.created_at',
+                    DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                    array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                )
+                ->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                ->leftJoin(PostCategoryConfig::POST_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                ->leftJoin(MediaPostConfig::GALLERY_POST_TBL . ' as gallery_images_tbl', 'posts.id', '=', 'gallery_images_tbl.post_id')
+                ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'gallery_images_tbl.media_id')
+                ->leftJoin(UsersConfig::USERS_TBL . ' as users', 'users.id', '=', 'posts.created_by')
+                ->groupBy('posts.id', 'users.username', 'users.avatar_link')
+                ->where('posts.is_publish', '=', true)
+                ->latest()
+                ->take($numberPosts)
+                ->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getRandomPosts(int $numberPosts = 3) {
+        try {
+            return $this->model
+                ->select('posts.id', 'posts.name', 'posts.slug', 'posts.rating', 'posts.view', 'posts.created_at',
+                    DB::raw('array_to_json(array_remove(array_agg(DISTINCT category.*), null)) as categories,
+                                    array_to_json(array_remove(array_agg(DISTINCT media_tbl.*), null)) as medias')
+                )
+                ->leftJoin(PostCategoryConfig::CATEGORY_POST_RELATION_TBL . ' as relation', 'relation.post_id', '=', 'posts.id')
+                ->leftJoin(PostCategoryConfig::POST_CATEGORY_TBL . ' as category', 'category.id', '=', 'relation.cate_id')
+                ->leftJoin(MediaPostConfig::GALLERY_POST_TBL . ' as gallery_images_tbl', 'posts.id', '=', 'gallery_images_tbl.post_id')
+                ->leftJoin(MediaConfig::MEDIA_TBL . ' as media_tbl', 'media_tbl.id', '=', 'gallery_images_tbl.media_id')
+                ->leftJoin(UsersConfig::USERS_TBL . ' as users', 'users.id', '=', 'posts.created_by')
+                ->groupBy('posts.id', 'users.username', 'users.avatar_link')
+                ->where('posts.is_publish', '=', true)
+                ->inRandomOrder()
+                ->take($numberPosts)
+                ->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

@@ -16,7 +16,7 @@
         </button>
 
         <!-- Logo -->
-        <a class="header-logo" href="#">
+        <a class="header-logo" href="{{ route('client.page.home', $domain) }}">
             <img class="logo" src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="">
         </a>
         <!-- End Logo -->
@@ -46,33 +46,6 @@
                 <div class="scoial-icon">
                     <a href="{{ $blogSettings['blog_facebook'] }}"><span><i class="fab fa-facebook-f"></i></span></a>
                 </div>
-            </div>
-        </div>
-
-        <div class="categories_widget">
-            <h3 class="widget_title">
-                <span>Categories</span>
-            </h3>
-
-            <div class="categories_item">
-                <span class="category_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p2.jpg') }}"></span>
-                <span class="categories_title">Fashion</span>
-                <span class="categories_count">5 Posts</span>
-                <a href="#" class="categories_link"></a>
-            </div>
-
-            <div class="categories_item">
-                <span class="category_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p3.jpg') }}"></span>
-                <span class="categories_title">Hollywood</span>
-                <span class="categories_count">5 Posts</span>
-                <a href="#" class="categories_link"></a>
-            </div>
-
-            <div class="categories_item">
-                <span class="category_image cover-bg" data-image-src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p1.jpg') }}"></span>
-                <span class="categories_title">Tips & Tricks</span>
-                <span class="categories_count">6 Posts</span>
-                <a href="#" class="categories_link"></a>
             </div>
         </div>
     </div>

@@ -22,26 +22,23 @@ $classHeaderNavBarSection .= $classNavBarMenuCustom;
 <div class="header-controller {{ $classHeaderNavBarSection }}">
     <div class="container">
         <nav id="nav" class="navbar navbar-expand-lg {{ $classNavBarSection }}">
-            <a class="navbar-brand" href="#">
-                <img src="{{ asset($blogSettings['blog_logo_primary']) }}" alt="{{ $blogSettings['website_name'] }}" class="logo-1">
-            </a>
+            @section('logo-header')
+                <a class="navbar-brand" href="{{ route('client.page.home', $domain) }}">
+                    <img src="{{ asset($blogSettings['blog_logo_primary']) }}" alt="{{ $blogSettings['website_name'] }}" class="logo-1">
+                </a>
+            @show
 
             <div class="collapse navbar-collapse ">
                 <ul class="navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                        <a href="#" class="nav-link dropdown-toggle">Home</a>
+                    <li class="nav-item">
+                        <a href="{{ route('client.blog.home', $domain) }}" class="nav-link">Home</a>
                     </li>
 
                     @foreach($blogCategories as $blogCategory)
-                        <li class="dropdown nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">{{ $blogCategory->name }}</a>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">{{ $blogCategory->name }}</a>
                         </li>
                     @endforeach
-
-
-                    <li class="dropdown nav-item">
-                        <a href="#" class="nav-link dropdown-toggle">Life Style</a>
-                    </li>
                 </ul>
             </div>
 

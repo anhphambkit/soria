@@ -309,4 +309,20 @@ class ImplementPostServices implements PostServices {
     public function getNextPrevPost($dataGet, $attributeGet = "created_at") {
         return $this->repository->getNextPrevPost($dataGet);
     }
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     */
+    public function getNewPosts(int $numberPosts = 3) {
+        return $this->repository->getNewPosts($numberPosts);
+    }
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     */
+    public function getRandomPosts(int $numberPosts = 3) {
+        return $this->repository->getRandomPosts($numberPosts);
+    }
 }

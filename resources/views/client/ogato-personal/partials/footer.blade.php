@@ -13,7 +13,7 @@
                 <div class="col-12">
 
                     <a href="#" class="footer_logo">
-                        <img src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="{{ $blogSettings['website_name'] }}">
+                        <img src="{{ asset($blogSettings['blog_logo_light_secondary']) }}" alt="{{ $blogSettings['website_name'] }}">
                     </a>
 
                     <div class="box_scoial_icon">

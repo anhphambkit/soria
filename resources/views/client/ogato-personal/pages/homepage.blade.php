@@ -50,7 +50,6 @@
         @component('client.ogato-personal.components.article')
             @slot('typeArticle', strtolower($post->type_post))
             @slot('medias', $post->medias)
-            @slot('medias', $post->medias)
             @slot('categories', $post->categories)
             @slot('avatarLink', $post->avatar_link)
             @slot('createdAt', $post->created_at)

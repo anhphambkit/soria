@@ -53,4 +53,16 @@ interface PostServices {
      * @return mixed
      */
     public function getNextPrevPost($dataGet, $attributeGet = "created_at");
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     */
+    public function getNewPosts(int $numberPosts = 3);
+
+    /**
+     * @param int $numberPosts
+     * @return mixed
+     */
+    public function getRandomPosts(int $numberPosts = 3);
 }

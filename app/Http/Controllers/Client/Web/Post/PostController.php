@@ -23,7 +23,7 @@ class PostController extends BaseBlogController {
                                 PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices
     )
     {
-        parent::__construct($postCategoryServices, $generalSettingServices);
+        parent::__construct($postCategoryServices, $generalSettingServices, $postServices);
         $this->helperServices = $helperServices;
         $this->postServices = $postServices;
     }
@@ -48,9 +48,8 @@ class PostController extends BaseBlogController {
         if (!$postId) {
             return abort(404);
         }
-
         $post = $this->postServices->getDetailPost($postId);
-//        dd($post);
-        return view(config('setting.theme.blog') . '.pages.posts.single-post', compact('post'));
+        $randomPosts = $this->postServices->getRandomPosts();
+        return view(config('setting.theme.blog') . '.pages.posts.single-post', compact('post', 'randomPosts'));
     }
 }

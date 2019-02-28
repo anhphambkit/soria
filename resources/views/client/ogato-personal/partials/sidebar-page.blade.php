@@ -12,7 +12,7 @@
             <div class="widget_area area_about">
                 <div class="about">
                     <h3 class="widget_title">
-                        <span>About Me</span>
+                        <span>{{ trans('blog.about_me') }}</span>
                     </h3>
                     <img src="{{ asset($blogSettings['blog_avatar_author']) }}" alt="">
                     <div class="short-description-author">
@@ -23,56 +23,19 @@
 
             <div class="widget_area recent_posts">
                 <h3 class="widget_title">
-                    <span>Recent Posts</span>
+                    <span>{{ trans('blog.new_posts') }}</span>
                 </h3>
 
-                <article class="recent_post">
-                    <div class="post-media">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/1-min.jpg') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="post_info">
-                        <p>
-                            <a href="#">Hairstyles</a>
-                        </p>
-                        <h5>
-                            <a href="#">6 Hairstyle Ideas for Instant Refresh Look</a>
-                        </h5>
-                    </div>
-                </article>
-
-                <article class="recent_post">
-                    <div class="post-media">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/2-min.jpg') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="post_info">
-                        <p>
-                            <a href="#">Hairstyles</a>
-                        </p>
-                        <h5>
-                            <a href="#">6 Hairstyle Ideas for Instant Refresh Look</a>
-                        </h5>
-                    </div>
-                </article>
-
-                <article class="recent_post">
-                    <div class="post-media">
-                        <a href="#">
-                            <img src="{{ asset('assets/client/ogato-personal/app-assets/img/3-min.jpg') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="post_info">
-                        <p>
-                            <a href="#">Hairstyles</a>
-                        </p>
-                        <h5>
-                            <a href="#">6 Hairstyle Ideas for Instant Refresh Look</a>
-                        </h5>
-                    </div>
-                </article>
+                @foreach($blogNewPosts as $blogNewPost)
+                    @component('client.ogato-personal.components.article-small-view')
+                        @slot('medias', $blogNewPost->medias)
+                        @slot('categories', $blogNewPost->categories)
+                        @slot('avatarLink', $blogNewPost->avatar_link)
+                        @slot('title', $blogNewPost->name)
+                        @slot('linkPost', $blogNewPost->slug . "." . $blogNewPost->id)
+                        @slot('author', $blogNewPost->author)
+                    @endcomponent
+                @endforeach
 
             </div>
 

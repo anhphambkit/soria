@@ -240,7 +240,7 @@ function scrollEffect() {
         } else {
             header.removeClass(fixUp).removeClass(fixDown);
             if (!header.find('#nav').hasClass('nav-overlay')){
-                $('.navbar-brand img').attr('src','/storage/settings/logo/logo-primary.png');
+                $('.navbar-brand img').attr('src','/storage/settings/logo/logo-primary-light.png');
             }
             
 
