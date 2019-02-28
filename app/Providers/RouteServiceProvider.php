@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::pattern('mainDomain', '(www.drlinhlinh.com|drlinhlinh.com)');
+        Route::pattern('mainDomain', '(www.soriabeauty.com|soriabeauty.com)');
         Route::pattern('subDomain', '(admin)');
         parent::boot();
     }
