@@ -55,8 +55,8 @@
                 </h3>
 
                 <form action="#" method="post">
-                    <input placeholder="Your Email Address" type="text">
-                    <button class="btn" type="submit" name="submit">Sign Up</button>
+                    <input placeholder="{{ trans('generals.your_email_address') }}" type="text">
+                    <button class="btn" type="submit" name="submit">{{ trans('generals.sign_up') }}</button>
                 </form>
             </div>
         </div>

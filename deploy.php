@@ -31,13 +31,14 @@ task('deploy:dev', [
     'deploy:maintenance-start',
     'deploy:git',
 //    'deploy:migrate-rollback',
-    'deploy:migrate',
-    'deploy:storage-link',
+//    'deploy:migrate',
+//    'deploy:upload',
 //    'deploy:vendors',
 //    'deploy:node',
     'deploy:build',
     'deploy:clear-cache',
 //    'deploy:permission',
+//    'deploy:chmod',
     'deploy:maintenance-stop'
 ]);
 
@@ -48,16 +49,6 @@ task('deploy:git', function(){ // Install vendors by composer
 //        run("cd \"{$path}\" && git add .");
 //        run("cd \"{$path}\" && git commit -m \"auto-commit-by-deployer\" ");
         run("cd \"{$path}\" && git pull origin master");
-    } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
-        writeln($e->getMessage());
-    }
-});
-
-task('deploy:storage-link', function(){ // Install vendors by composer
-    try {
-        $path = get('deploy_path');
-        run("cd \"{$path}\" && rm -rf public/storage");
-        run("cd \"{$path}\" && php artisan storage:link");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
     }
@@ -109,6 +100,23 @@ task('deploy:build', function(){ // Build frontend
 		run("cd \"{$path}\" && npm run build-helper");
 		run("cd \"{$path}\" && npm run build");
 	}
+});
+
+task('deploy:upload', function(){
+    writeln('Upload...');
+    $path = get('deploy_path');
+    $uploads = [
+        "storage//app//public//test" => "{$path}//storage//app//public//test",
+    ];
+    foreach ($uploads as $rootPath => $upload) {
+        upload("{$rootPath}//", $upload);
+    }
+});
+
+task('deploy:chmod', function(){
+    writeln('Change Mod...');
+    $path = get('deploy_path');
+    run("sudo chmod -R 777 " . $path . "storage/app/public/");
 });
 
 task('deploy:permission', function(){

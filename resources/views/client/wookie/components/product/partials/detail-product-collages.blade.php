@@ -140,7 +140,7 @@
                         {{--</div>--}}
                         {{--<div class="form-group">--}}
                             {{--<label for="inputEmail" class="control-label">COUPONE E-MAIL *</label>--}}
-                            {{--<input type="password" class="form-control" id="inputEmail" placeholder="Enter your e-mail">--}}
+                            {{--<input type="password" class="form-control" id="inputEmail" placeholder="{{ trans('generals.your_email_address') }}">--}}
                         {{--</div>--}}
                         {{--<div class="form-group">--}}
                             {{--<label for="textarea" class="control-label">YOUR REVIEW *</label>--}}

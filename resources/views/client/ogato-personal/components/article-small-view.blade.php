@@ -23,12 +23,15 @@ if (sizeof($medias) > 0)
     <div class="post_info">
         <p>
             @for($i=0; $i < sizeof($categories); $i++)
-                <a href="#">
-                    {{ $categories[$i]['name'] }}
+                @php
+                    $linkCategory = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
+                    $domainForCategory = $domain;
+                    unset($domainForCategory['urlPost']);
+                    $domainForCategory['urlCategory'] = $linkCategory;
+                @endphp
+                <a href="{{ route('client.blog.category_page', $domainForCategory) }}">
+                    {{ $categories[$i]['name'] }}@if($i < sizeof($categories) - 1),@endif
                 </a>
-                @if($i < sizeof($categories) - 1)
-                    ,
-                @endif
             @endfor
         </p>
         <h5>

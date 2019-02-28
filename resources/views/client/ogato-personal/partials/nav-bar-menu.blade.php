@@ -31,12 +31,18 @@ $classHeaderNavBarSection .= $classNavBarMenuCustom;
             <div class="collapse navbar-collapse ">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="{{ route('client.blog.home', $domain) }}" class="nav-link">Home</a>
+                        <a href="{{ route('client.blog.home', $domain) }}" class="nav-link">{{ trans('breadcrumbs.home') }}</a>
                     </li>
 
                     @foreach($blogCategories as $blogCategory)
+                        @php
+                            $linkCategory = "{$blogCategory->slug}.{$blogCategory->id}";
+                            $domainForCategory = $domain;
+                            unset($domainForCategory['urlPost']);
+                            $domainForCategory['urlCategory'] = $linkCategory;
+                        @endphp
                         <li class="nav-item">
-                            <a href="#" class="nav-link">{{ $blogCategory->name }}</a>
+                            <a href="{{ route('client.blog.category_page', $domainForCategory) }}" class="nav-link">{{ $blogCategory->name }}</a>
                         </li>
                     @endforeach
                 </ul>

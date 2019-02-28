@@ -16,7 +16,7 @@
                     {{--</a>--}}
                 {{--</li>--}}
                 <li class="dropdown tt-megamenu-col-02 selected">
-                    <a href="{{ route('client.page.home', $domain) }}">HOME</a>
+                    <a href="{{ route('client.page.home', $domain) }}">{{ trans('breadcrumbs.home') }}</a>
                 </li>
                 <li class="dropdown megamenu tt-megamenu-col-02">
                     <a href="{{ route('client.shop.index', $domain) }}">SHOP</a>

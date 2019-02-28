@@ -9,7 +9,7 @@
 <nav class="panel-menu mobile-main-menu">
     <ul>
         <li>
-            <a href="{{ route('client.page.home', $domain) }}">HOME</a>
+            <a href="{{ route('client.page.home', $domain) }}">{{ trans('breadcrumbs.home') }}</a>
         </li>
         <li>
             <a href="{{ route('client.shop.index', $domain) }}">SHOP</a>

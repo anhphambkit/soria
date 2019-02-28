@@ -23,8 +23,11 @@ Route::domain('{mainDomain}')->group(function () {
         // Blog page:
         Route::get('/', 'Post\PostController@index')->name('client.blog.home');
 
+        // Post Category:
+        Route::get('/category/{urlCategory}', 'Post\PostController@viewCategoryPage')->name('client.blog.category_page');
+
         Route::prefix('post')->group(function () {
-            // Post Category:
+            // Post Detail
             Route::get('/detail/{urlPost}', 'Post\PostController@viewDetailPost')->name('client.post.detail');
         });
     });

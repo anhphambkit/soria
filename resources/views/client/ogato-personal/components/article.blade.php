@@ -115,16 +115,19 @@ switch ($typeArticle) {
                 </a>
             </span>
 
-            <a href="#">
-                <span class="post_meta_item post_cat">
-                    @for($i=0; $i < sizeof($categories); $i++)
-                        {{ $categories[$i]['name'] }}
-                        @if($i < sizeof($categories) - 1)
-                            ,
-                        @endif
-                    @endfor
-                </span>
-            </a>
+            @for($i=0; $i < sizeof($categories); $i++)
+                @php
+                    $linkCategory = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
+                    $domainForCategory = $domain;
+                    unset($domainForCategory['urlPost']);
+                    $domainForCategory['urlCategory'] = $linkCategory;
+                @endphp
+                <a href="{{ route('client.blog.category_page', $domainForCategory) }}">
+                    <span class="post_meta_item post_cat">
+                        {{ $categories[$i]['name'] }}@if($i < sizeof($categories) - 1),@endif
+                    </span>
+                </a>
+            @endfor
 
             <a href="#">
                 <span class="post_meta_item meta_item_date">{{ date("d/m/Y", strtotime($createdAt)) }}</span>
