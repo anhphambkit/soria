@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\ProductExistMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -45,6 +46,11 @@ class Kernel extends HttpKernel
 
         'shopAuth' => [
             'product_exist',
+        ],
+
+        'admin_portal' => [
+            'auth',
+            'admin'
         ]
     ];
 
@@ -66,6 +72,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         // Register more:
-        'product_exist' => ProductExistMiddleware::class
+        'product_exist' => ProductExistMiddleware::class,
+        'admin' => AdminMiddleware::class
     ];
 }

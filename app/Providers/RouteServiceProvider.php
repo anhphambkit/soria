@@ -54,13 +54,18 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespaceClient . "\Web")
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace . "\Web")
+            ->group(base_path('routes/general/web.php'));
+
+        // Register for client
+        Route::middleware('web')
+            ->namespace($this->namespaceClient . "\Web")
+            ->group(base_path('routes/client/web.php'));
 
         //Register for admin:
         Route::middleware('web')
-             ->namespace($this->namespaceAdmin . "\Web")
-             ->group(base_path('routes/admin/web.php'));
+            ->namespace($this->namespaceAdmin . "\Web")
+            ->group(base_path('routes/admin/web.php'));
     }
 
     /**
@@ -73,9 +78,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace . "\Api")
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace . "\Api")
+            ->group(base_path('routes/api.php'));
     }
 
     /**
@@ -92,8 +97,8 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/general/ajax.php'));
 
         Route::prefix('ajax')
-             ->namespace($this->namespaceClient. "\Ajax")
-             ->group(base_path('routes/ajax.php'));
+            ->namespace($this->namespaceClient. "\Ajax")
+            ->group(base_path('routes/client/ajax.php'));
 
         //Register for admin:
         Route::prefix('ajax-admin')
