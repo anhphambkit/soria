@@ -48,7 +48,7 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <h3 class="order-success-thanks">Thank you. Your order has been processed.</h3>
-                    <a href="{{ route('client.shop.index', $domain) }}" class="btn">CONTINUE SHOPPING</a>
+                    <a href="{{ route('client.shop.index') }}" class="btn">CONTINUE SHOPPING</a>
                 </div>
             </div>
         </div>

@@ -11,15 +11,15 @@
         <nav>
             <ul>
                 {{--<li class="dropdown tt-megamenu-col-02">--}}
-                    {{--<a class="tt-logo tt-logo-alignment logo-stuck" href="{{ route('client.page.home', $domain) }}">--}}
+                    {{--<a class="tt-logo tt-logo-alignment logo-stuck" href="{{ route('client.page.home') }}">--}}
                         {{--<img src="{{ asset($shopSettings['shop_logo_secondary']) }}" alt="">--}}
                     {{--</a>--}}
                 {{--</li>--}}
                 <li class="dropdown tt-megamenu-col-02 selected">
-                    <a href="{{ route('client.page.home', $domain) }}">{{ trans('breadcrumbs.home') }}</a>
+                    <a href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
                 </li>
                 <li class="dropdown megamenu tt-megamenu-col-02">
-                    <a href="{{ route('client.shop.index', $domain) }}">SHOP</a>
+                    <a href="{{ route('client.shop.index') }}">SHOP</a>
                     <div class="dropdown-menu dropdown-menu-custom">
                         <div class="row tt-col-list">
                             <div class="col-12">
@@ -38,7 +38,7 @@
                     </div>
                 </li>
                 <li class="dropdown tt-megamenu-col-01">
-                    <a href="{{ route('client.blog.home', $domain) }}">BLOG</a>
+                    <a href="{{ route('client.blog.home') }}">BLOG</a>
                 </li>
             </ul>
         </nav>

@@ -102,7 +102,7 @@
 @section('page-scripts')
     <script>
         const API_CHECKOUT = {
-            ORDER : "{{ route('ajax.shop.checkout_new_order', $domain) }}",
+            ORDER : "{{ route('ajax.shop.checkout_new_order') }}",
         }
     </script>
 

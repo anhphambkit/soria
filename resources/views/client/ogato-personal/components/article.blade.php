@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 15:23
  */
-$domain['urlPost'] = $linkPost;
+$urlPost['urlPost'] = $linkPost;
 $typeArticle = isset($typeArticle) ? $typeArticle : '';
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
@@ -99,7 +99,7 @@ switch ($typeArticle) {
         </div>
     @else
         <div class="gallery_image_1 center">
-            <a href="{{ route('client.post.detail', $domain) }}">
+            <a href="{{ route('client.post.detail', $urlPost) }}">
                 <img class="bb-img-feature-custom" src="{{ asset($featureImage) }}" alt="">
             </a>
         </div>
@@ -117,12 +117,9 @@ switch ($typeArticle) {
 
             @for($i=0; $i < sizeof($categories); $i++)
                 @php
-                    $linkCategory = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
-                    $domainForCategory = $domain;
-                    unset($domainForCategory['urlPost']);
-                    $domainForCategory['urlCategory'] = $linkCategory;
+                    $linkCategory['urlCategory'] = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
                 @endphp
-                <a href="{{ route('client.blog.category_page', $domainForCategory) }}">
+                <a href="{{ route('client.blog.category_page', $linkCategory) }}">
                     <span class="post_meta_item post_cat">
                         {{ $categories[$i]['name'] }}@if($i < sizeof($categories) - 1),@endif
                     </span>
@@ -135,7 +132,7 @@ switch ($typeArticle) {
         </div>
 
         <div class="post_header">
-            <h3><a href="{{ route('client.post.detail', $domain) }}">{{ $title }}</a></h3>
+            <h3><a href="{{ route('client.post.detail', $urlPost) }}">{{ $title }}</a></h3>
         </div>
 
         <div class="post_info_wrapper">
@@ -149,7 +146,7 @@ switch ($typeArticle) {
                 {{--</span>--}}
 
                 <div class="post_more">
-                    <a href="{{ route('client.post.detail', $domain) }}">
+                    <a href="{{ route('client.post.detail', $urlPost) }}">
                         <span class="icon1">Load More</span>
                         <span class="icon2 jam jam-arrow-right"></span>
                     </a>

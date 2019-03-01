@@ -141,9 +141,9 @@ $isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
         <!-- ========== START PAGE SCRIPTS ========== -->
         <script>
             const API_SHOP = {
-                ADD_TO_CART : "{{ route('ajax.shop.add_to_cart', $domain) }}",
-                VIEW_CART_HEADER : "{{ route('ajax.shop.view_cart_header', $domain) }}",
-                DELETE_PRODUCT_IN_CART : "{{ route('ajax.shop.delete_product_in_cart', $domain) }}",
+                ADD_TO_CART : "{{ route('ajax.shop.add_to_cart') }}",
+                VIEW_CART_HEADER : "{{ route('ajax.shop.view_cart_header') }}",
+                DELETE_PRODUCT_IN_CART : "{{ route('ajax.shop.delete_product_in_cart') }}",
             };
         </script>
 

@@ -5,12 +5,9 @@
  * Date: 12/18/18
  * Time: 20:53
  */
-$previous = [
-    'titlePost' => $post['prev']['slug'] . "." . $post['prev']['id']
+$previousLink['titlePost'] = $post['prev']['slug'] . "." . $post['prev']['id']
 ];
-$next = [
-    'titlePost' => $post['next']['slug'] . "." . $post['next']['id']
-];
+$nextLink = ['titlePost'] = $post['next']['slug'] . "." . $post['next']['id'];
 ?>
 <div class="post_navigation_area">
     <div class="container">
@@ -18,7 +15,7 @@ $next = [
             <div class="nav-links">
                 <div class="nav-previous">
                     @if($post['prev']['name'])
-                        <a href="{{ route('client.post.detail', array_merge($previous, $domain)) }}">
+                        <a href="{{ route('client.post.detail', $previousLink) }}">
                             <span class="meta-nav">Previous post</span>
                             <h5 class="post-title">{{ $post['prev']['name'] }}</h5>
                         </a>
@@ -27,7 +24,7 @@ $next = [
                 </div>
                 <div class="nav-next">
                     @if($post['next']['name'])
-                        <a href="{{ route('client.post.detail', array_merge($next, $domain)) }}">
+                        <a href="{{ route('client.post.detail', $nextLink) }}">
                             <span class="meta-nav">Next post</span>
                             <h5 class="post-title">{{ $post['next']['name'] }}</h5>
                         </a>

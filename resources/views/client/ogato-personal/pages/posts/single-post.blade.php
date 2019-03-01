@@ -9,7 +9,7 @@
 @extends('client.ogato-personal.client-master')
 
 @section('logo-header')
-    <a class="navbar-brand" href="{{ route('client.page.home', $domain) }}">
+    <a class="navbar-brand" href="{{ route('client.page.home', ) }}">
         <img src="{{ asset($blogSettings['blog_logo_light_primary']) }}" alt="{{ $blogSettings['website_name'] }}" class="logo-1">
     </a>
 @endsection

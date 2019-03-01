@@ -11,9 +11,7 @@
  *                  ROUTE FOR GENERAL
  *
  *********************************************************/
-Route::domain('{mainDomain}')->group(function () {
-    Route::prefix('address')->group(function () {
-        Route::get('/refresh-districts', 'AddressController@getDistrictsByCity')->name('general_ajax.address.refresh_districts');
-        Route::get('/refresh-wards', 'AddressController@getWardsByDistrict')->name('general_ajax.address.refresh_wards');
-    });
+Route::prefix('address')->group(function () {
+    Route::get('/refresh-districts', 'AddressController@getDistrictsByCity')->name('general_ajax.address.refresh_districts');
+    Route::get('/refresh-wards', 'AddressController@getWardsByDistrict')->name('general_ajax.address.refresh_wards');
 });

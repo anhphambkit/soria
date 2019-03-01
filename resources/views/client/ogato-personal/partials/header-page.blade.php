@@ -15,12 +15,9 @@ $isCategoryPage = isset($isCategoryPage) ? $isCategoryPage : false;
             <div class="post-categories">
                 @for($i=0; $i < sizeof($categories); $i++)
                     @php
-                        $linkCategory = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
-                        $domainForCategory = $domain;
-                        unset($domainForCategory['urlPost']);
-                        $domainForCategory['urlCategory'] = $linkCategory;
+                        $linkCategory['urlCategory'] = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
                     @endphp
-                    <a href="{{ route('client.blog.category_page', $domainForCategory) }}">
+                    <a href="{{ route('client.blog.category_page', $linkCategory) }}">
                         {{ $categories[$i]['name'] }}@if($i < sizeof($categories) - 1),@endif
                     </a>
                 @endfor

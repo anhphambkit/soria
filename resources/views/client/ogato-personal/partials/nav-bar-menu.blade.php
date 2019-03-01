@@ -23,7 +23,7 @@ $classHeaderNavBarSection .= $classNavBarMenuCustom;
     <div class="container">
         <nav id="nav" class="navbar navbar-expand-lg {{ $classNavBarSection }}">
             @section('logo-header')
-                <a class="navbar-brand" href="{{ route('client.page.home', $domain) }}">
+                <a class="navbar-brand" href="{{ route('client.page.home') }}">
                     <img src="{{ asset($blogSettings['blog_logo_primary']) }}" alt="{{ $blogSettings['website_name'] }}" class="logo-1">
                 </a>
             @show
@@ -31,18 +31,15 @@ $classHeaderNavBarSection .= $classNavBarMenuCustom;
             <div class="collapse navbar-collapse ">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="{{ route('client.blog.home', $domain) }}" class="nav-link">{{ trans('breadcrumbs.home') }}</a>
+                        <a href="{{ route('client.blog.home') }}" class="nav-link">{{ trans('breadcrumbs.home') }}</a>
                     </li>
 
                     @foreach($blogCategories as $blogCategory)
                         @php
-                            $linkCategory = "{$blogCategory->slug}.{$blogCategory->id}";
-                            $domainForCategory = $domain;
-                            unset($domainForCategory['urlPost']);
-                            $domainForCategory['urlCategory'] = $linkCategory;
+                            $linkCategory['urlCategory'] = "{$blogCategory->slug}.{$blogCategory->id}";
                         @endphp
                         <li class="nav-item">
-                            <a href="{{ route('client.blog.category_page', $domainForCategory) }}" class="nav-link">{{ $blogCategory->name }}</a>
+                            <a href="{{ route('client.blog.category_page', $linkCategory) }}" class="nav-link">{{ $blogCategory->name }}</a>
                         </li>
                     @endforeach
                 </ul>

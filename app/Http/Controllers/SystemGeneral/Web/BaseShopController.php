@@ -34,14 +34,10 @@ class BaseShopController extends BaseController
     public function __construct(ProductCategoryServices $categoryServices, GeneralSettingServices $generalSettingServices) {
         $this->productCategoryServices = $categoryServices;
         $this->generalSettingServices = $generalSettingServices;
-        $domain = [
-            'mainDomain' => Route::current()->parameter('mainDomain')
-        ];
         $shopSettings = $this->generalSettingServices->getAllSettingsForRenderByTypeWeb(SettingConfig::SHOP);
         $shopCategories = $this->productCategoryServices->getAllProductCategory();
 //        dd($shopSettings);
         View::share([
-            "domain" => $domain,
             "shopCategories" => $shopCategories,
             "shopSettings" => $shopSettings,
         ]);
