@@ -77,11 +77,10 @@ class ShopController extends BaseShopController {
     }
 
     /**
-     * @param $domain
-     * @param $url
+     * @param $urlProduct
      * @return mixed
      */
-    public function viewDetailProduct($domain, $urlProduct) {
+    public function viewDetailProduct($urlProduct) {
         $productId = $this->helperServices->getIdFromUrl($urlProduct);
         if (!$productId) {
             return abort(404);

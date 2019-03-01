@@ -11,7 +11,7 @@
         <tbody>
         @foreach($products as $product)
             <?php
-                $domain['urlProduct'] = $product['slug'] . "." . $product['id'];
+                $linkProduct['urlProduct'] = $product['slug'] . "." . $product['id'];
                 $medias = isset($product['medias']) ? $product['medias'] : [];
                 $categories = isset($product['categories']) ? $product['categories'] : [];
                 $options = isset($options) ? $options : [];
@@ -43,7 +43,7 @@
                 </td>
                 <td>
                     <h2 class="tt-title">
-                        <a href="{{ route('client.product.detail', $domain) }}">{{ $product['name'] }}</a>
+                        <a href="{{ route('client.product.detail', $linkProduct) }}">{{ $product['name'] }}</a>
                     </h2>
                     @if($product['sale_price'] !== null && $product['sale_price'] > 0)
                         <div class="tt-price">

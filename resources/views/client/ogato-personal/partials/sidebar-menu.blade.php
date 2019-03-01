@@ -16,7 +16,7 @@
         </button>
 
         <!-- Logo -->
-        <a class="header-logo" href="{{ route('client.page.home', $domain) }}">
+        <a class="header-logo" href="{{ route('client.page.home', ) }}">
             <img class="logo" src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="">
         </a>
         <!-- End Logo -->

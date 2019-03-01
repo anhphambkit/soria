@@ -70,7 +70,7 @@
                                         </tr>
                                         </tfoot>
                                     </table>
-                                    <a href="{{ route('client.shop.checkout_shipping', $domain) }}" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+                                    <a href="{{ route('client.shop.checkout_shipping') }}" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                     <span class="tt-icon icon-f-39"></span>
                     <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
                     <p>You have no items in your shopping cart.</p>
-                    <a href="{{ route('client.shop.index', $domain) }}" class="btn">CONTINUE SHOPPING</a>
+                    <a href="{{ route('client.shop.index') }}" class="btn">CONTINUE SHOPPING</a>
                 </div>
             </div>
         </div>

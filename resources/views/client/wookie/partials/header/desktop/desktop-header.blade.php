@@ -12,7 +12,7 @@
         <div class="tt-header-holder">
             <div class="tt-obj-logo obj-aligment-center">
                 <!-- logo -->
-                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home', $domain) }}">
+                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home') }}">
                     <img src="{{ $shopSettings['shop_logo_primary'] }}" alt="">
                 </a>
                 <!-- /logo -->

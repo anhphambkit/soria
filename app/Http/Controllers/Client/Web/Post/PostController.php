@@ -49,11 +49,10 @@ class PostController extends BaseBlogController {
     }
 
     /**
-     * @param $domain
      * @param $urlPost
      * @return mixed
      */
-    public function viewDetailPost($domain, $urlPost) {
+    public function viewDetailPost($urlPost) {
         $postId = $this->helperServices->getIdFromUrl($urlPost);
         if (!$postId) {
             return abort(404);
@@ -64,11 +63,10 @@ class PostController extends BaseBlogController {
     }
 
     /**
-     * @param $domain
      * @param $urlCategory
      * @return mixed
      */
-    public function viewCategoryPage($domain, $urlCategory) {
+    public function viewCategoryPage($urlCategory) {
         $categoryId = $this->helperServices->getIdFromUrl($urlCategory);
         if (!$categoryId) {
             return abort(404);

@@ -9,10 +9,10 @@
 <nav class="panel-menu mobile-main-menu">
     <ul>
         <li>
-            <a href="{{ route('client.page.home', $domain) }}">{{ trans('breadcrumbs.home') }}</a>
+            <a href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
         </li>
         <li>
-            <a href="{{ route('client.shop.index', $domain) }}">SHOP</a>
+            <a href="{{ route('client.shop.index') }}">SHOP</a>
             <ul>
                 <li>
                     <a href="#">Product Categories</a>
@@ -27,7 +27,7 @@
             </ul>
         </li>
         <li>
-            <a href="{{ route('client.blog.home', $domain) }}">BLOG</a>
+            <a href="{{ route('client.blog.home') }}">BLOG</a>
         </li>
     </ul>
     <div class="mm-navbtn-names">

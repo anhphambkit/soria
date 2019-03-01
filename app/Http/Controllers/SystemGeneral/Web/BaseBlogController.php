@@ -35,9 +35,6 @@ class BaseBlogController extends BaseController
      * @param PostServices $postServices
      */
     public function __construct(PostCategoryServices $postCategoryServices, GeneralSettingServices $generalSettingServices, PostServices $postServices) {
-        $domain = [
-            'mainDomain' => Route::current()->parameter('mainDomain')
-        ];
         $this->postCategoryServices = $postCategoryServices;
         $this->generalSettingServices = $generalSettingServices;
         $this->postServices = $postServices;
@@ -47,7 +44,6 @@ class BaseBlogController extends BaseController
         $blogNewPosts = $this->postServices->getNewPosts();
 //        dd($blogNewPosts);
         View::share([
-            "domain" => $domain,
             "blogCategories" => $blogCategories,
             "blogSettings" => $blogSettings,
             "blogNewPosts" => $blogNewPosts,

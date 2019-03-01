@@ -12,7 +12,7 @@
             {{ $address['name_address_book'] }}
         </span>
         <span class="change-address">
-            <a href="{{ route('client.shop.checkout_shipping', $domain) }}" class="btn btn-small btn-edit-shop btn-custom-shop btn-change-address">{{ trans('generals.edit') }}</a>
+            <a href="{{ route('client.shop.checkout_shipping') }}" class="btn btn-small btn-edit-shop btn-custom-shop btn-change-address">{{ trans('generals.edit') }}</a>
         </span>
     </div>
     <div class="card-body">

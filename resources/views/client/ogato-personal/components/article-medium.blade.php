@@ -5,7 +5,7 @@
  * Date: 2/28/19
  * Time: 20:25
  */
-$domain['urlPost'] = $linkPost;
+$urlPost['urlPost'] = $linkPost;
 $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
@@ -16,24 +16,21 @@ if (sizeof($medias) > 0)
 ?>
 <div class="col-lg-4">
     <div class="related_posts_item">
-        <a href="{{ route('client.post.detail', $domain) }}" class="post_card_thumbnail post-card-thumbnail-custom">
+        <a href="{{ route('client.post.detail', $urlPost) }}" class="post_card_thumbnail post-card-thumbnail-custom">
             <img src="{{ asset($featureImage) }}" alt="">
         </a>
         <div class="post_card_body">
             <h3 class="post_card_title">
-                <a href="{{ route('client.post.detail', $domain) }}">{{ $title }}</a>
+                <a href="{{ route('client.post.detail', $urlPost) }}">{{ $title }}</a>
             </h3>
 
             <div class="post_card_meta">
                 <span class="cat_links">
                     @for($i=0; $i < sizeof($categories); $i++)
                         @php
-                            $linkCategory = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
-                            $domainForCategory = $domain;
-                            unset($domainForCategory['urlPost']);
-                            $domainForCategory['urlCategory'] = $linkCategory;
+                            $linkCategory['urlCategory'] = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
                         @endphp
-                        <a href="{{ route('client.blog.category_page', $domainForCategory) }}">
+                        <a href="{{ route('client.blog.category_page', $linkCategory) }}">
                             {{ $categories[$i]['name'] }}@if($i < sizeof($categories) - 1),@endif
                         </a>
                     @endfor

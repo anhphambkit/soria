@@ -127,15 +127,15 @@
 @section('page-scripts')
     <script>
         const API_ADDRESS = {
-            REFRESH_DISTRICTS : "{{ route('general_ajax.address.refresh_districts', $domain) }}",
-            REFRESH_WARDS : "{{ route('general_ajax.address.refresh_wards', $domain) }}",
+            REFRESH_DISTRICTS : "{{ route('general_ajax.address.refresh_districts') }}",
+            REFRESH_WARDS : "{{ route('general_ajax.address.refresh_wards') }}",
         };
         const API_CHECKOUT = {
-            CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping', $domain) }}",
-            DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping', $domain) }}",
-            UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping', $domain) }}",
-            DETAIL_ADDRESS_SHIPPING : "{{ route('ajax.shop.get_detail_address_shipping', $domain) }}",
-            SHIP_TO_THIS_ADDRESS : "{{ route('ajax.shop.ship_to_this_address', $domain) }}",
+            CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping') }}",
+            DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping') }}",
+            UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping') }}",
+            DETAIL_ADDRESS_SHIPPING : "{{ route('ajax.shop.get_detail_address_shipping') }}",
+            SHIP_TO_THIS_ADDRESS : "{{ route('ajax.shop.ship_to_this_address') }}",
         }
     </script>
 
