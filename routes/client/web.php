@@ -16,6 +16,9 @@
  *
  *********************************************************/
 Route::domain('{mainDomain}')->group(function () {
+    /**
+     * Pages:
+     */
     Route::get('/', 'Shop\ShopController@index')->name('client.page.home');
 
     /************ Router Post ************** */
