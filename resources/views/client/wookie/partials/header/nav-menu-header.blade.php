@@ -28,8 +28,11 @@
                                 </h6>
                                 <ul class="tt-megamenu-submenu custom-menu">
                                     @foreach($shopCategories as $shopCategory)
+                                        @php
+                                            $linkCategory['urlCategory'] = "{$shopCategory->slug}.{$shopCategory->id}";
+                                        @endphp
                                         <li>
-                                            <a href="#">{{ $shopCategory->name }}</a>
+                                            <a href="{{ route('client.shop.category_page', $linkCategory) }}">{{ $shopCategory->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

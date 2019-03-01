@@ -26,12 +26,12 @@ use Illuminate\Support\Facades\Cookie;
 
 class ShopController extends CoreAjaxController {
 
-    private $helperServices;
-    private $productServices;
-    private $shoppingCartServices;
-    private $guestInfoServices;
-    private $addressBookServices;
-    private $invoiceOrderServices;
+    protected$helperServices;
+    protected$productServices;
+    protected$shoppingCartServices;
+    protected$guestInfoServices;
+    protected$addressBookServices;
+    protected$invoiceOrderServices;
     protected $userId;
     protected $isGuest;
     public function __construct(HelperServices $helperServices, ProductServices $productServices,

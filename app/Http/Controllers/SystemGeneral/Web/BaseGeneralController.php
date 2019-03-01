@@ -22,7 +22,7 @@ class BaseGeneralController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private $generalSettingServices;
+    protected$generalSettingServices;
 
     /**
      * BaseGeneralController constructor.

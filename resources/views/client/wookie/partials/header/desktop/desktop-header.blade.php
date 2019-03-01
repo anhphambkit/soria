@@ -27,7 +27,7 @@
                 <!-- /tt-cart -->
 
                 <!-- tt-account -->
-                @include('client.wookie.partials.header.account-header')
+{{--                @include('client.wookie.partials.header.account-header')--}}
                 <!-- /tt-account -->
 
                 <!-- tt-langue and tt-currency -->

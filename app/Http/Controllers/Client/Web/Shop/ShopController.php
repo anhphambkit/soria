@@ -119,7 +119,21 @@ class ShopController extends BaseShopController {
         return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function completeOrder() {
         return view(config('setting.theme.shop') . '.pages.complete-order');
+    }
+
+    public function viewCategoryPage($urlCategory) {
+        $categoryId = $this->helperServices->getIdFromUrl($urlCategory);
+        if (!$categoryId) {
+            return abort(404);
+        }
+        $category = $this->productCategoryServices->getDetailProductCategory($categoryId);
+        $categoryProducts = $this->productServices->getAllProductsOfCategoryById($categoryId);
+//        dd($categoryProducts);
+        return view(config('setting.theme.shop') . '.pages.category', compact('category', 'categoryProducts'));
     }
 }

@@ -15,7 +15,7 @@ use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 
 class BlogSettingController extends BaseAdminController
 {
-    private $generalSettingServices;
+    protected$generalSettingServices;
 
     /**
      * BlogSettingController constructor.
