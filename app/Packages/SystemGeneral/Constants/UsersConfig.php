@@ -10,4 +10,5 @@ namespace App\Packages\SystemGeneral\Constants;
 
 interface UsersConfig {
     const USERS_TBL = "users";
+    const ROOT_LEVEL = "ROOT";
 }
