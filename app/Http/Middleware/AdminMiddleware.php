@@ -8,7 +8,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Packages\SystemGeneral\Constants\UsersConfig;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminMiddleware
 {
@@ -21,7 +23,8 @@ class AdminMiddleware
     {
         if (!Auth::check()) redirect(route('login'));
         $isAdmin = Auth::user()->role_id;
-        if ($isAdmin != 1)
+        $roleAdmin = DB::table('roles')->where('name', UsersConfig::ROOT_LEVEL)->first();
+        if (empty($roleAdmin) || $roleAdmin->id != $isAdmin)
             return redirect()->to(route('login'));
         return $next($request);
     }
