@@ -61,4 +61,10 @@ interface ProductServices {
      * @return mixed
      */
     public function getProductsInCartFromProductIds(array $productIds, array $quantityProducts = []);
+
+    /**
+     * @param int $categoryId
+     * @return mixed
+     */
+    public function getAllProductsOfCategoryById(int $categoryId);
 }

@@ -50,6 +50,8 @@ Route::prefix('shop')->group(function () {
         Route::get('/payment', 'Shop\ShopController@checkoutPayment')->name('client.shop.checkout_payment');
     });
 
+    // Product category
+    Route::get('/category/{urlCategory}', 'Shop\ShopController@viewCategoryPage')->name('client.shop.category_page');
 
     /************ Router Product ************** */
     Route::prefix('product')->group(function () {

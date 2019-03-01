@@ -23,8 +23,8 @@ class BaseShopController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private $productCategoryServices;
-    private $generalSettingServices;
+    protected $productCategoryServices;
+    protected $generalSettingServices;
 
     /**
      * BaseShopController constructor.

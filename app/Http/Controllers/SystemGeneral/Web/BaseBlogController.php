@@ -24,9 +24,9 @@ class BaseBlogController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    private $postCategoryServices;
-    private $generalSettingServices;
-    private $postServices;
+    protected$postCategoryServices;
+    protected$generalSettingServices;
+    protected$postServices;
 
     /**
      * BaseBlogController constructor.

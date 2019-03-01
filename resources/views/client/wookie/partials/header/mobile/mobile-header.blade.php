@@ -21,7 +21,7 @@
             <div class="tt-mobile-parent-cart tt-parent-box"></div>
             <!-- /cart -->
             <!-- account -->
-            <div class="tt-mobile-parent-account tt-parent-box"></div>
+            {{--<div class="tt-mobile-parent-account tt-parent-box"></div>--}}
             <!-- /account -->
             <!-- currency -->
             <div class="tt-mobile-parent-multi tt-parent-box"></div>

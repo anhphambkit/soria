@@ -227,4 +227,20 @@ class ImplementProductServices implements ProductServices {
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * Function render product in page category
+     * @param int $categoryId
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllProductsOfCategoryById(int $categoryId)
+    {
+        try {
+            return $this->repository->getAllProductsByCategory($categoryId, false, false);
+        }
+        catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

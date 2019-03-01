@@ -18,8 +18,6 @@ use App\Packages\SystemGeneral\Services\HelperServices;
 class PostController extends BaseBlogController {
 
     protected $helperServices;
-    protected $postServices;
-    protected $postCategoryServices;
 
     /**
      * PostController constructor.
@@ -34,8 +32,6 @@ class PostController extends BaseBlogController {
     {
         parent::__construct($postCategoryServices, $generalSettingServices, $postServices);
         $this->helperServices = $helperServices;
-        $this->postServices = $postServices;
-        $this->postCategoryServices = $postCategoryServices;
     }
 
     /**

@@ -54,14 +54,15 @@ $rating = isset($rating) ? $rating : null;
         <div class="tt-row">
             <ul class="tt-add-info">
                 <li>
-                    <a href="#">
-                        @for($i=0; $i < sizeof($categories); $i++)
+                    @for($i=0; $i < sizeof($categories); $i++)
+                        @php
+                            $linkCategory['urlCategory'] = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
+                        @endphp
+                        <a href="{{ route('client.shop.category_page', $linkCategory) }}">
                             {{ strtoupper($categories[$i]['name']) }}
-                            @if($i < sizeof($categories) - 1)
-                                ,
-                            @endif
-                        @endfor
-                    </a>
+                        </a>
+                        {{ ($i < sizeof($categories) - 1) ? "," : "" }}
+                    @endfor
                 </li>
             </ul>
             @if($countdown !== null)
