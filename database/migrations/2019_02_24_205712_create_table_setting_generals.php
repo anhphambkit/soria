@@ -135,7 +135,7 @@ class CreateTableSettingGenerals extends Migration
             [
                 'main_type' => SettingConfig::BLOG_AUTHOR_INFO_TYPE,
                 'sub_type' => null,
-                'value' => "Tôi là 1 bác sĩ da liễu. Tôi viết blog chia sẻ những kiến thức về da liễu bệnh lý, da liễu thẩm mỹ và cách chăm sóc đối với từng vấn đề da khác nhau.",
+                'value' => "Tôi là 1 bác sĩ da liễu. Tôi viết blog chia sẻ những kiến thức về bệnh da, thẩm mỹ da và cách chăm sóc da.",
                 'name' => "Blog Introduce Of Author",
                 'slug' => "blog_introduce_author",
                 'type_data' => SettingConfig::TEXT_TYPE_DATA,

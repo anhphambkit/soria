@@ -3,8 +3,16 @@
   width: auto !important;
 }
 
-.short-description-author p {
-  margin-bottom: 0px !important;
+.short-description-author {
+  p {
+    margin-bottom: 0px !important;
+    color: black;
+  }
+
+  h6 {
+    color: #f66536;
+    margin-top: 10px;
+  }
 }
 
 .short-description-author.sidebar-menu {
@@ -14,6 +22,7 @@
   h6 {
     margin-top: 10px;
     font-weight: 400;
+    color: #f66536;
   }
 }
 

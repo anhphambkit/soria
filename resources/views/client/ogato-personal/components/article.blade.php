@@ -147,7 +147,7 @@ switch ($typeArticle) {
 
                 <div class="post_more">
                     <a href="{{ route('client.post.detail', $urlPost) }}">
-                        <span class="icon1">Load More</span>
+                        <span class="icon1">{{ trans('blog.detail') }}</span>
                         <span class="icon2 jam jam-arrow-right"></span>
                     </a>
                 </div>
@@ -157,7 +157,7 @@ switch ($typeArticle) {
                 <div class="socials-wrap">
                     <div class="socials-icon"><i class="fa fa-share-alt" aria-hidden="true"></i>
                     </div>
-                    <div class="socials-text">Post share</div>
+                    <div class="socials-text">{{ trans('blog.share') }}</div>
                     <ul class="socials">
                         <li><a href="#" target="_blank"><span class="jam jam-facebook"></span></a></li>
                     </ul>

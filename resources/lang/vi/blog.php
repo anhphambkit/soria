@@ -21,4 +21,9 @@ return [
     'about_me' => 'Về tôi',
     'random_post' => 'Bài viết ngẫu nhiên',
     'related_post' => 'Bài viết liên quan',
+    'load_more' => 'Tải thêm',
+    'detail' => 'Chi tiết',
+    'share' => 'Chia sẻ',
+    'add_friend_with_me' => 'Kết bạn với :author',
+    'newsletter_sign_up' => 'ĐĂNG KÝ TƯ VẤN',
 ];
