@@ -15,6 +15,7 @@ use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Services\AddressBookServices;
+use App\Packages\Shop\Services\MainFeatureServices;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
@@ -30,6 +31,7 @@ class ShopController extends BaseShopController {
     protected $guestInfoServices;
     protected $addressGeneralInfoService;
     protected $addressBookServices;
+    protected $mainFeatureServices;
     protected $userId;
     protected $isGuest;
     protected $totalItems;
@@ -38,7 +40,7 @@ class ShopController extends BaseShopController {
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
                                 AddressGeneralInfoService $addressGeneralInfoService,
                                 AddressBookServices $addressBookServices, ProductCategoryServices $productCategoryServices,
-                                GeneralSettingServices $generalSettingServices
+                                GeneralSettingServices $generalSettingServices, MainFeatureServices $mainFeatureServices
                                 )
     {
         parent::__construct($productCategoryServices, $generalSettingServices);
@@ -49,6 +51,7 @@ class ShopController extends BaseShopController {
         $this->guestInfoServices = $guestInfoServices;
         $this->addressGeneralInfoService = $addressGeneralInfoService;
         $this->addressBookServices = $addressBookServices;
+        $this->mainFeatureServices = $mainFeatureServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -88,7 +91,9 @@ class ShopController extends BaseShopController {
 
         $product = $this->productServices->getDetailProduct($productId);
         $relatedProducts = $this->productServices->getRelatedProductByCategories($product->categories);
-        return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts'));
+
+        $mainServices = $this->mainFeatureServices->getAllMainServices();
+        return view(config('setting.theme.shop') . '.pages.product-detail', compact('product', 'relatedProducts', 'mainServices'));
     }
 
     /**
@@ -133,7 +138,7 @@ class ShopController extends BaseShopController {
         }
         $category = $this->productCategoryServices->getDetailProductCategory($categoryId);
         $categoryProducts = $this->productServices->getAllProductsOfCategoryById($categoryId);
-//        dd($categoryProducts);
-        return view(config('setting.theme.shop') . '.pages.category', compact('category', 'categoryProducts'));
+        $mainServices = $this->mainFeatureServices->getAllMainServices();
+        return view(config('setting.theme.shop') . '.pages.category', compact('category', 'categoryProducts', 'mainServices'));
     }
 }
