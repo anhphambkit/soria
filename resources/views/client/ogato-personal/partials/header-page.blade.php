@@ -5,7 +5,7 @@
  * Date: 12/18/18
  * Time: 20:52
  */
-$author = isset($author) ? $author : config('setting.default_admin');
+$author = $blogSettings['blog_name_author'];
 $headerImage = isset($headerImage) ? $headerImage : 'storage/general/background/header-image.jpg';
 $isCategoryPage = isset($isCategoryPage) ? $isCategoryPage : false;
 ?>

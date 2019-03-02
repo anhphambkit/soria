@@ -56,6 +56,7 @@
                 @slot('categories', $product['categories'])
                 @slot('rating', $product['rating'])
                 @slot('productId', $product['id'])
+                @slot('mainServices', $mainServices)
             @endcomponent
         </div>
 
