@@ -41,7 +41,7 @@
 
             <div class="widget_area social_icons_area">
                 <h3 class="widget_title">
-                    <span>Follow Me</span>
+                    <span>{{ trans('blog.add_friend_with_me', [ 'author' => $blogSettings['blog_name_author'] ]) }}</span>
                 </h3>
 
                 <div class="scoial-icon">
@@ -51,7 +51,7 @@
 
             <div class="widget_area widget_newslleter">
                 <h3 class="widget_title">
-                    <span>Subscribe</span>
+                    <span>{{ trans('blog.newsletter_sign_up') }}</span>
                 </h3>
 
                 <form action="#" method="post">

@@ -25,7 +25,9 @@
                     <div class="scoial-icon mb-20">
                         <a href="#0"><span><i class="fab fa-facebook-f"></i></span></a>
                     </div>
-                    <p>{{ $blogSettings['blog_introduce_author'] }}</p>
+                    <div class="main-introduce-header">
+                        <p>{{ $blogSettings['blog_introduce_author'] }}</p>
+                    </div>
                 </div>
             </div>
         </div>
