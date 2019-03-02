@@ -5,9 +5,8 @@
  * Date: 12/18/18
  * Time: 20:53
  */
-$previousLink['titlePost'] = $post['prev']['slug'] . "." . $post['prev']['id']
-];
-$nextLink = ['titlePost'] = $post['next']['slug'] . "." . $post['next']['id'];
+$previousLink['titlePost'] = $post['prev']['slug'] . "." . $post['prev']['id'];
+$nextLink['titlePost'] = $post['next']['slug'] . "." . $post['next']['id'];
 ?>
 <div class="post_navigation_area">
     <div class="container">
