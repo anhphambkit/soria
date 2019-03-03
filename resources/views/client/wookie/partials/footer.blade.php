@@ -100,8 +100,8 @@
                 <div class="tt-col-left">
                     <div class="tt-col-item tt-logo-col">
                         <!-- logo -->
-                        <a class="tt-logo tt-logo-alignment" href="index.html">
-                            <img src="{{ $shopSettings['shop_logo_primary'] }}" alt="">
+                        <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home') }}">
+                            <img src="{{ asset($shopSettings['shop_logo_primary']) }}" alt="">
                         </a>
                         <!-- /logo -->
                     </div>

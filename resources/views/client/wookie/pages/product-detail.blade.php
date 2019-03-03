@@ -76,7 +76,7 @@
         <div class="container-indent">
             <div class="container container-fluid-custom-mobile-padding">
                 @component('client.wookie.components.block-title')
-                    @slot('title', "RELATED PRODUCTS")
+                    @slot('title', trans('shop.related_products'))
                 @endcomponent
                 @component('client.wookie.components.product.carousel-products')
                     @slot('products', $relatedProducts)

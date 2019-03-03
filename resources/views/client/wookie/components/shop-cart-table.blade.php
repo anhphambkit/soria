@@ -81,7 +81,7 @@
     </table>
     <div class="tt-shopcart-btn">
         <div class="col-left">
-            <a class="btn-link" href="#"><i class="icon-e-19"></i>CONTINUE SHOPPING</a>
+            <a class="btn-link" href="#"><i class="icon-e-19"></i>{{ trans('shop.continue_shopping') }}</a>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
 <div class="tt-shopcart-table tt-list-overview-products">
     <div class="over-list">
         <span class="number-items">
-            Order ({{ $totalItems }} products)
+            {{ trans('shop.order') }} ({{ $totalItems }} {{ trans('shop.product') }})
         </span>
         <span class="edit-cart-btn">
              <a href="{{ route('client.shop.cart') }}" class="btn btn-info btn-small edit-cart-button">
@@ -88,7 +88,7 @@
                 </td>
                 <td>
                     <span class="title-total-list">
-                        SUBTOTAL:
+                        {{ trans('shop.sub_total') }}:
                     </span>
                 </td>
                 <td>

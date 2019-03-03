@@ -9,7 +9,7 @@
 @{{#if total_items }}
 <div class="container-indent">
     <div class="container">
-        <h1 class="tt-title-subpages noborder">SHOPPING CART</h1>
+        <h1 class="tt-title-subpages noborder text-uppercase">Giỏ hàng</h1>
         <div class="row">
             <div class="col-sm-12 col-xl-8">
                 <div class="tt-shopcart-table">
@@ -30,7 +30,7 @@
                                         <a href="@{{ urlProduct slug id }}">@{{ name }}</a>
                                     </h2>
                                     <div class="tt-price">
-                                        Price:
+                                        Giá:
                                         <span class="cart-table-price-product">
                                             @{{ formatCurrency price }}
                                         </span>
@@ -56,7 +56,7 @@
                     </table>
                     <div class="tt-shopcart-btn">
                         <div class="col-left">
-                            <a class="btn-link" href="/shop"><i class="icon-e-19"></i>CONTINUE SHOPPING</a>
+                            <a class="btn-link" href="/shop"><i class="icon-e-19"></i>{{ trans('shop.continue_shopping') }}</a>
                         </div>
                     </div>
                 </div>
@@ -67,18 +67,18 @@
                         <table class="tt-shopcart-table01">
                             <tbody>
                             <tr>
-                                <th>SUBTOTAL</th>
+                                <th class="text-uppercase">Tạm tính</th>
                                 <td>@{{ formatCurrency total_price }}</td>
                             </tr>
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>GRAND TOTAL</th>
+                                <th class="text-uppercase">Tổng</th>
                                 <td>@{{ formatCurrency total_price }}</td>
                             </tr>
                             </tfoot>
                         </table>
-                        <a href="/shop/checkout-shipping" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+                        <a href="/shop/checkout/shipping" class="btn btn-lg text-uppercase full-width-btn-custom"><span class="icon icon-check_circle"></span>{{ trans('shop.proceed_to_checkout') }}</a>
                     </div>
                 </div>
             </div>
@@ -90,9 +90,9 @@
 <div class="container-indent nomargin">
     <div class="tt-empty-cart">
         <span class="tt-icon icon-f-39"></span>
-        <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
-        <p>You have no items in your shopping cart.</p>
-        <a href="/shop" class="btn">CONTINUE SHOPPING</a>
+        <h1 class="tt-title text-uppercase">Giỏ hàng rỗng</h1>
+        <p>Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+        <a href="/shop" class="btn text-uppercase">Tiếp tục mua sắm</a>
     </div>
 </div>
 @{{/if}}

@@ -18,7 +18,7 @@
 @endsection
 
 @section('title')
-    Check Out - Shipping
+    {{ trans('shop.checkout_shipping') }}
 @endsection
 
 @section('fonts')
