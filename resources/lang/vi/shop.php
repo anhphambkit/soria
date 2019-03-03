@@ -40,5 +40,5 @@ return [
     'shopping_cart' => 'Giỏ hàng',
     'checkout_shipping' => 'Địa chỉ giao hàng',
     'shopping_cart_is_empty' => 'Giỏ hàng trống',
-    'you_have_no_items_in_your_shopping_cart.' => 'Bạn chưa có sản phẩm nào trong giỏ hàng',
+    'you_have_no_items_in_your_shopping_cart' => 'Bạn chưa có sản phẩm nào trong giỏ hàng',
 ];

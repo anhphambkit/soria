@@ -10,6 +10,14 @@
 	margin-bottom: $paragraph-margin-bottom;
 	-webkit-font-smoothing: subpixel-antialiased;
 
+	a {
+		color: #007bff;
+		font-style: italic;
+		&:hover {
+			color: #f66536;
+		}
+	}
+
 	p {
 		font-weight: $paragraph-base-font-weight;
 		font-size: $font-size-base;

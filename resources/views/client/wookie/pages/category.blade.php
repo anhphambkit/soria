@@ -41,42 +41,43 @@
 
 {{--content page must define before section content--}}
 @section('content-page')
-    <div class="container-indent">
-        <div class="container">
-            <div class="row">
-                <h1 class="tt-title">
-                    {{ $category->name }} <span class="tt-title-total">({{ sizeof($categoryProducts) }} {{ trans('shop.product') }})</span>
-                </h1>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-lg-9 col-xl-9">
-                    <div class="content-indent container-fluid-custom-mobile-padding-02">
-                        <div class="tt-filters-options">
+    @component('client.wookie.components.header-image')
+        @slot('headerImage', $category->name)
+    @endcomponent
+    <div class="container">
+        {{--<div class="row">--}}
+            {{--<h1 class="tt-title">--}}
+                {{--{{  }} <span class="tt-title-total">({{ sizeof($categoryProducts) }} {{ trans('shop.product') }})</span>--}}
+            {{--</h1>--}}
+        {{--</div>--}}
+        <div class="row">
+            <div class="col-md-12 col-lg-9 col-xl-9">
+                <div class="content-indent container-fluid-custom-mobile-padding-02">
+                    <div class="tt-filters-options">
 
-                        </div>
-                        <div class="tt-product-listing row">
-                            @foreach($categoryProducts as $categoryProduct)
-                                <div class="col-6 col-md-4 tt-col-item">
-                                    @component('client.wookie.components.product.product-item')
-                                        @slot('product', $categoryProduct)
-                                    @endcomponent
-                                </div>
-                            @endforeach
-                        </div>
-                        {{--<div class="text-center tt_product_showmore">--}}
-                        {{--<a href="#" class="btn btn-border">{{ trans('blog.detail') }}</a>--}}
-                        {{--<div class="tt_item_all_js">--}}
-                        {{--<a href="#" class="btn btn-border01">NO MORE ITEM TO SHOW</a>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     </div>
-                </div>
-                <div class="col-md-12 col-lg-3 col-xl-3 custom-right-service-sidebar">
-                    <div class="tt-btn-col-close">
-                        <a href="#">Close</a>
+                    <div class="tt-product-listing row">
+                        @foreach($categoryProducts as $categoryProduct)
+                            <div class="col-6 col-md-4 tt-col-item">
+                                @component('client.wookie.components.product.product-item')
+                                    @slot('product', $categoryProduct)
+                                @endcomponent
+                            </div>
+                        @endforeach
                     </div>
-                    @include('client.wookie.components.product.partials.services-product')
+                    {{--<div class="text-center tt_product_showmore">--}}
+                    {{--<a href="#" class="btn btn-border">{{ trans('blog.detail') }}</a>--}}
+                    {{--<div class="tt_item_all_js">--}}
+                    {{--<a href="#" class="btn btn-border01">NO MORE ITEM TO SHOW</a>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                 </div>
+            </div>
+            <div class="col-md-12 col-lg-3 col-xl-3 custom-right-service-sidebar">
+                <div class="tt-btn-col-close">
+                    <a href="#">Close</a>
+                </div>
+                @include('client.wookie.components.product.partials.services-product')
             </div>
         </div>
     </div>

@@ -5,6 +5,18 @@
  * Date: 1/19/19
  * Time: 21:10
  */
+$breadcrumbs = [
+    trans('breadcrumbs.home') => route('client.page.home'),
+    trans('breadcrumbs.shop') => route('client.shop.index'),
+];
+
+if (!empty($product['categories'])) {
+    foreach ($product['categories'] as $category) {
+        $breadcrumbs[$category['name']] = route('client.shop.category_page', "{$category['slug']}.{$category['id']}");
+    }
+}
+
+$breadcrumbs[$product['name']] = route('client.product.detail', "{$product['slug']}.{$product['id']}");
 ?>
 @extends('client.wookie.master')
 
