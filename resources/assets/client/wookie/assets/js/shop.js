@@ -28,6 +28,10 @@ window.viewCartHeader = function () {
         });
 }
 
+window.closeAddToCartSuccessAlert = function() {
+    $('header').removeClass('added-product');
+}
+
 window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true) {
     $('#loader-wrapper').addClass('loader-custom');
     $('body').removeClass('loaded');
@@ -61,6 +65,7 @@ window.addToCart = function (productId, quantity = 1, isShowModalCartInfo = true
                             $('.preview-product-feature').data('src', imgFeature.path_org);
                         }
 
+                        $('header').addClass('added-product');
                         $('.preview-product-title').text(productDetail.name);
                         $('.preview-product-title').attr('href', `/shop/product/detail/${productDetail.slug}.${productDetail.id}`);
                         $('.preview-product-title').text(productDetail.name);
