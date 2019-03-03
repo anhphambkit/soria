@@ -34,7 +34,7 @@
         $ttSearchObjPopupResults = $ttSearchObj.find('.search-results'),
         //header cart
         $ttcartObj = $ttHeader.find('.tt-cart'),
-        $ttDesctopParentCart = $ttHeader.find('.tt-desctop-parent-cart'),
+        $ttDesctopParentCart = $ttHeader.find('.tt-desktop-parent-cart'),
         $ttMobileParentCart = $ttHeader.find('.tt-mobile-parent-cart'),
         $ttStuckParentCart = $ttHeader.find('.tt-stuck-parent-cart'),
         //header account

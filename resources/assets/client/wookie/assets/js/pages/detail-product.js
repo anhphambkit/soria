@@ -16,6 +16,7 @@ window.addToCartFromDetail = function (productId) {
             if (data.data.status === 0) {
                 let totalItems = data.data.data.total_items;
                 helperShop.updataBasicInfoCartHeader(totalItems); // Update UI cart number
+                $('header').addClass('added-product');
                 manualLoaded();
                 toastr.success(data.data.message)
             }

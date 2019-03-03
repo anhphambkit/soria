@@ -6,7 +6,7 @@
  * Time: 16:30
  */
 ?>
-<div class="tt-desctop-parent-cart tt-parent-box bb-cart-box" onclick="viewCartHeader()">
+<div class="tt-desktop-parent-cart tt-parent-box bb-cart-box" onclick="viewCartHeader()">
     <div class="tt-cart tt-dropdown-obj">
         <button class="tt-dropdown-toggle" data-tooltip="Cart" data-tposition="bottom">
             <i class="icon-f-39"></i>
@@ -14,7 +14,7 @@
         </button>
         <div class="tt-dropdown-menu">
             <div class="tt-mobile-add">
-                <h6 class="tt-title">{{ trans('shop.shopping_cartl') }}</h6>
+                <h6 class="tt-title">{{ trans('shop.shopping_cart') }}</h6>
                 <button class="tt-close">Close</button>
             </div>
             <div class="tt-dropdown-inner">
@@ -26,4 +26,5 @@
             </div>
         </div>
     </div>
+    @include('client.wookie.partials.header.add-to-cart-sucess-alert')
 </div>

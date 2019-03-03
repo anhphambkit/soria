@@ -120,7 +120,7 @@ $classBodyPage .= $classBodyCustom;
 
         <!-- Viewed Posts
         ================================================== -->
-        @include('client.ogato-personal.partials.viewed-posts')
+{{--        @include('client.ogato-personal.partials.viewed-posts')--}}
         <!-- End Viewed Posts
         ================================================== -->
 

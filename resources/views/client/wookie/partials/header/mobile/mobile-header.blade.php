@@ -18,7 +18,9 @@
             <div class="tt-mobile-parent-search tt-parent-box"></div>
             <!-- /search -->
             <!-- cart -->
-            <div class="tt-mobile-parent-cart tt-parent-box"></div>
+            <div class="tt-mobile-parent-cart tt-parent-box" onclick="viewCartHeader()">
+                @include('client.wookie.partials.header.add-to-cart-sucess-alert')
+            </div>
             <!-- /cart -->
             <!-- account -->
             {{--<div class="tt-mobile-parent-account tt-parent-box"></div>--}}

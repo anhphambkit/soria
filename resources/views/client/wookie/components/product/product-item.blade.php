@@ -21,7 +21,7 @@ $rating = isset($rating) ? $rating : null;
 ?>
 <div class="tt-product thumbprod-center bb-product-item">
     <div class="tt-image-box">
-        <a href="#" class="tt-btn-quickview custom-position-left" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+        {{--<a href="#" class="tt-btn-quickview custom-position-left" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>--}}
         {{--<a href="#" class="tt-btn-wishlist custom-position-left" data-tooltip="Add to Wishlist" data-tposition="left"></a>--}}
         {{--<a href="#" class="tt-btn-compare custom-position-left" data-tooltip="Add to Compare" data-tposition="left"></a>--}}
         <a href="{{ route('client.product.detail', $linkProduct) }}">

@@ -52,10 +52,10 @@ $(document).on('click', '.btn-ship-to-this-address', function(e) {
 $(document).on('click', '.btn-delete-shipping-address', function(e) {
     LoadingElementManual = '#content-cart-page';
     swal({
-        title: 'Delete Address Book',
+        title: 'Xóa sổ địa chỉ',
         icon: "warning",
-        text: "Do You Want Delete This Address Book?",
-        buttons: [true, "Delete"],
+        text: "Bạn thực sự muốn xóa sổ địa chỉ này?",
+        buttons: [true, "Xóa"],
         dangerMode: true,
     }).then((confirm) => {
         if (confirm) {
