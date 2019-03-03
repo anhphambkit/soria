@@ -9,7 +9,7 @@
 <div class="tt-product-single-info">
     <div class="tt-add-info">
         <ul>
-            <li><span>SKU:</span> {{ $sku }}</li>
+            <li><span>{{ trans('shop.sku') }}:</span> {{ $sku }}</li>
             {{--<li><span>Availability:</span> 40 in Stock</li>--}}
         </ul>
     </div>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-item">
-                <a href="#" onclick="addToCartFromDetail({{ $productId }})" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+                <a href="#" onclick="addToCartFromDetail({{ $productId }})" class="btn btn-lg text-uppercase"><i class="icon-f-39"></i>{{ trans('shop.add_to_cart') }}</a>
             </div>
         </div>
     </div>

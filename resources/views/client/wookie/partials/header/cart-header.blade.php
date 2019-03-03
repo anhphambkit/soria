@@ -14,7 +14,7 @@
         </button>
         <div class="tt-dropdown-menu">
             <div class="tt-mobile-add">
-                <h6 class="tt-title">SHOPPING CART</h6>
+                <h6 class="tt-title">{{ trans('shop.shopping_cartl') }}</h6>
                 <button class="tt-close">Close</button>
             </div>
             <div class="tt-dropdown-inner">

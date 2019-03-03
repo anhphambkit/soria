@@ -120,7 +120,7 @@
                                             </div>
                                         </div>
                                         <div class="col-item">
-                                            <a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+                                            <a href="#" class="btn btn-lg text-uppercase"><i class="icon-f-39"></i>{{ trans('shop.add_to_cart') }}</a>
                                         </div>
                                     </div>
                                 </div>

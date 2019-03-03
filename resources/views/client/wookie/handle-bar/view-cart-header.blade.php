@@ -21,22 +21,22 @@
         @{{/each}}
     </div>
     <div class="tt-cart-total-row">
-        <div class="tt-cart-total-title">SUBTOTAL:</div>
+        <div class="tt-cart-total-title text-uppercase">TẠM TÍNH:</div>
         <div class="tt-cart-total-price cart-header-sub-price">@{{ formatCurrency total_price }}</div>
     </div>
     <div class="tt-cart-btn">
         <div class="tt-item">
-            <a href="/shop/checkout/shipping" class="btn">PROCEED TO CHECKOUT</a>
+            <a href="/shop/checkout/shipping" class="btn text-uppercase">Tiến hành thanh toán</a>
         </div>
         <div class="tt-item">
-            <a href="/shop/cart" class="btn-link-02 tt-hidden-mobile">View Cart</a>
-            <a href="/shop/cart" class="btn btn-border tt-hidden-desctope">VIEW CART</a>
+            <a href="/shop/cart" class="btn-link-02 tt-hidden-mobile text-uppercase">Xem giỏ hàng</a>
+            <a href="/shop/cart" class="btn btn-border tt-hidden-desctope text-uppercase">Xem giỏ hàng</a>
         </div>
     </div>
 @{{else}}
     <!-- layout emty cart -->
     <a href="#" class="tt-cart-empty">
         <i class="icon-f-39"></i>
-        <p>No Products in the Cart</p>
+        <p>Chưa có sản phẩm nào trong giỏ hàng!</p>
     </a>
 @{{/if}}

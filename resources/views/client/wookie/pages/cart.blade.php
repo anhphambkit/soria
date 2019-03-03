@@ -18,7 +18,7 @@
 @endsection
 
 @section('title')
-    Cart
+    {{ trans('shop.shopping_cart') }}
 @endsection
 
 @section('fonts')
@@ -44,7 +44,7 @@
         <div id="content-cart-page">
             <div class="container-indent">
                 @component('client.wookie.components.header-image')
-                    @slot('headerImage', "Shopping Cart")
+                    @slot('headerImage', trans('shop.shopping_cart'))
                 @endcomponent
                 <div class="container">
                     <div class="row">
@@ -59,18 +59,18 @@
                                     <table class="tt-shopcart-table01">
                                         <tbody>
                                         <tr>
-                                            <th>SUBTOTAL</th>
+                                            <th class="text-uppercase">{{ trans('shop.sub_total') }}</th>
                                             <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
                                         </tr>
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <th>GRAND TOTAL</th>
+                                            <th class="text-uppercase">{{ trans('shop.grand_total') }}</th>
                                             <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
                                         </tr>
                                         </tfoot>
                                     </table>
-                                    <a href="{{ route('client.shop.checkout_shipping') }}" class="btn btn-lg"><span class="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+                                    <a href="{{ route('client.shop.checkout_shipping') }}" class="text-uppercase btn btn-lg full-width-btn-custom"><span class="icon icon-check_circle"></span>{{ trans('shop.proceed_to_checkout') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -83,9 +83,9 @@
             <div class="container-indent nomargin">
                 <div class="tt-empty-cart">
                     <span class="tt-icon icon-f-39"></span>
-                    <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
-                    <p>You have no items in your shopping cart.</p>
-                    <a href="{{ route('client.shop.index') }}" class="btn">CONTINUE SHOPPING</a>
+                    <h1 class="tt-title text-uppercase">{{ trans('shop.shopping_cart_is_empty') }}</h1>
+                    <p>{{ trans('shop.you_have_no_items_in_your_shopping_cart') }}</p>
+                    <a href="{{ route('client.shop.index') }}" class="btn text-uppercase">{{ trans('shop.continue_shopping') }}</a>
                 </div>
             </div>
         </div>
