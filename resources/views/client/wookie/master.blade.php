@@ -7,6 +7,7 @@
  */
 $isHomePage = isset($isHomePage) ? $isHomePage : false;
 $isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
+$breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
 ?>
 <!DOCTYPE html>
 <html lang="en">

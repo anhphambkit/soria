@@ -40,56 +40,48 @@
 @endsection
 
 @section('content-page')
-    @if($cart['total_items'] > 0)
-        <div id="content-cart-page">
-            <div class="container-indent">
-                @component('client.wookie.components.header-image')
-                    @slot('headerImage', trans('shop.shopping_cart'))
-                @endcomponent
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-xl-8">
-                            @component('client.wookie.components.shop-cart-table')
-                                @slot('products', $cart['products'])
-                            @endcomponent
-                        </div>
-                        <div class="col-sm-12 col-xl-4">
-                            <div class="tt-shopcart-wrapper">
-                                <div class="tt-shopcart-box tt-boredr-large">
-                                    <table class="tt-shopcart-table01">
-                                        <tbody>
-                                        <tr>
-                                            <th class="text-uppercase">{{ trans('shop.sub_total') }}</th>
-                                            <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
-                                        </tr>
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <th class="text-uppercase">{{ trans('shop.grand_total') }}</th>
-                                            <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
-                                        </tr>
-                                        </tfoot>
-                                    </table>
-                                    <a href="{{ route('client.shop.checkout_shipping') }}" class="text-uppercase btn btn-lg full-width-btn-custom"><span class="icon icon-check_circle"></span>{{ trans('shop.proceed_to_checkout') }}</a>
-                                </div>
-                            </div>
+    @component('client.wookie.components.header-image')
+        @slot('headerImage', trans('shop.shopping_cart'))
+    @endcomponent
+    <div class="container" id="content-cart-page">
+        @if($cart['total_items'] > 0)
+            <div class="row">
+                <div class="col-sm-12 col-xl-8">
+                    @component('client.wookie.components.shop-cart-table')
+                        @slot('products', $cart['products'])
+                    @endcomponent
+                </div>
+                <div class="col-sm-12 col-xl-4">
+                    <div class="tt-shopcart-wrapper">
+                        <div class="tt-shopcart-box tt-boredr-large">
+                            <table class="tt-shopcart-table01">
+                                <tbody>
+                                <tr>
+                                    <th class="text-uppercase">{{ trans('shop.sub_total') }}</th>
+                                    <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="text-uppercase">{{ trans('shop.grand_total') }}</th>
+                                    <td>{{ number_format($cart['total_price'], 0, ",", ".") }} đ</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <a href="{{ route('client.shop.checkout_shipping') }}" class="text-uppercase btn btn-lg full-width-btn-custom"><span class="icon icon-check_circle"></span>{{ trans('shop.proceed_to_checkout') }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @else
-        <div id="content-cart-page">
-            <div class="container-indent nomargin">
-                <div class="tt-empty-cart">
-                    <span class="tt-icon icon-f-39"></span>
-                    <h1 class="tt-title text-uppercase">{{ trans('shop.shopping_cart_is_empty') }}</h1>
-                    <p>{{ trans('shop.you_have_no_items_in_your_shopping_cart') }}</p>
-                    <a href="{{ route('client.shop.index') }}" class="btn text-uppercase">{{ trans('shop.continue_shopping') }}</a>
-                </div>
+        @else
+            <div class="tt-empty-cart">
+                <span class="tt-icon icon-f-39"></span>
+                <h1 class="tt-title text-uppercase">{{ trans('shop.shopping_cart_is_empty') }}</h1>
+                <p>{{ trans('shop.you_have_no_items_in_your_shopping_cart') }}</p>
+                <a href="{{ route('client.shop.index') }}" class="btn text-uppercase">{{ trans('shop.continue_shopping') }}</a>
             </div>
-        </div>
-    @endif
+        @endif
+    </div>
 @endsection
 
 @section('core-footer-scripts')
