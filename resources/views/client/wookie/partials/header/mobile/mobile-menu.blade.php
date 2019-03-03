@@ -9,13 +9,13 @@
 <nav class="panel-menu mobile-main-menu">
     <ul>
         <li>
-            <a href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
+            <a class="text-uppercase" href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
         </li>
         <li>
-            <a href="{{ route('client.shop.index') }}">SHOP</a>
+            <a class="text-uppercase" href="{{ route('client.shop.index') }}">{{ trans('breadcrumbs.shop') }}</a>
             <ul>
                 <li>
-                    <a href="#">Product Categories</a>
+                    <a href="#"class="text-uppercase">{{ trans('breadcrumbs.product_categories') }}</a>
                     <ul>
                         @foreach($shopCategories as $shopCategory)
                             <li>
@@ -27,7 +27,7 @@
             </ul>
         </li>
         <li>
-            <a href="{{ route('client.blog.home') }}">BLOG</a>
+            <a class="text-uppercase" href="{{ route('client.blog.home') }}">{{ trans('breadcrumbs.blog') }}</a>
         </li>
     </ul>
     <div class="mm-navbtn-names">

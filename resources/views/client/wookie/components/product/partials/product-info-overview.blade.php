@@ -27,7 +27,7 @@
         {{--</div>--}}
         {{--<a class="product-page-gotocomments-js" href="#">(1 Customer Review)</a>--}}
     {{--</div>--}}
-    <div class="tt-wrapper">
+    <div class="tt-wrapper short-description-product">
         {!! $shortDesc !!}
     </div>
     {{--<div class="tt-wrapper">--}}

@@ -16,15 +16,15 @@
                     {{--</a>--}}
                 {{--</li>--}}
                 <li class="dropdown tt-megamenu-col-02 selected">
-                    <a href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
+                    <a class="text-uppercase" href="{{ route('client.page.home') }}">{{ trans('breadcrumbs.home') }}</a>
                 </li>
                 <li class="dropdown megamenu tt-megamenu-col-02">
-                    <a href="{{ route('client.shop.index') }}">SHOP</a>
+                    <a class="text-uppercase" href="{{ route('client.shop.index') }}">{{ trans('breadcrumbs.shop') }}</a>
                     <div class="dropdown-menu dropdown-menu-custom">
                         <div class="row tt-col-list">
                             <div class="col-12">
                                 <h6 class="tt-title-submenu">
-                                    <a href="#">Product Categories</a>
+                                    <a href="#" class="text-uppercase">{{ trans('breadcrumbs.product_categories') }}</a>
                                 </h6>
                                 <ul class="tt-megamenu-submenu custom-menu">
                                     @foreach($shopCategories as $shopCategory)
@@ -41,7 +41,7 @@
                     </div>
                 </li>
                 <li class="dropdown tt-megamenu-col-01">
-                    <a href="{{ route('client.blog.home') }}">BLOG</a>
+                    <a class="text-uppercase" href="{{ route('client.blog.home') }}">{{ trans('breadcrumbs.blog') }}</a>
                 </li>
             </ul>
         </nav>

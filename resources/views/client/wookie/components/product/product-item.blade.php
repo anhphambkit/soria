@@ -21,9 +21,9 @@ $rating = isset($rating) ? $rating : null;
 ?>
 <div class="tt-product thumbprod-center bb-product-item">
     <div class="tt-image-box">
-        <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-        <a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-        <a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+        <a href="#" class="tt-btn-quickview custom-position-left" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+        {{--<a href="#" class="tt-btn-wishlist custom-position-left" data-tooltip="Add to Wishlist" data-tposition="left"></a>--}}
+        {{--<a href="#" class="tt-btn-compare custom-position-left" data-tooltip="Add to Compare" data-tposition="left"></a>--}}
         <a href="{{ route('client.product.detail', $linkProduct) }}">
             <span class="tt-img">
                 <img class="bb-img-feature-product" src="{{ asset($featureImage) }}" alt="">
@@ -59,7 +59,7 @@ $rating = isset($rating) ? $rating : null;
                             $linkCategory['urlCategory'] = "{$categories[$i]['slug']}.{$categories[$i]['id']}";
                         @endphp
                         <a href="{{ route('client.shop.category_page', $linkCategory) }}">
-                            {{ strtoupper($categories[$i]['name']) }}
+                            {{ $categories[$i]['name'] }}
                         </a>
                         {{ ($i < sizeof($categories) - 1) ? "," : "" }}
                     @endfor

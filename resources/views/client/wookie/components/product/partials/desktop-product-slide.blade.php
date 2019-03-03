@@ -12,7 +12,7 @@ $productFeatureMedia = (sizeof($productFeatureMedias) > 0) ? reset($productFeatu
 <div class="tt-product-vertical-layout">
     <div class="tt-product-single-img">
         <div>
-            <button class="tt-btn-zomm tt-top-right"><i class="icon-f-86"></i></button>
+            <button class="tt-btn-zomm tt-top-right custom-position-left"><i class="icon-f-86"></i></button>
             <img class="zoom-product" src="{{ asset($productFeatureMedia['path_org']) }}" alt="{{ $productFeatureMedia['filename'] }}" data-zoom-image="{{ asset($productFeatureMedia['path_org']) }}">
         </div>
     </div>

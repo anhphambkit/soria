@@ -18,6 +18,9 @@ return [
 
     // Title
     'home' => 'Trang chủ',
+    'shop' => 'Cửa hàng',
+    'blog' => 'Blog',
+    'product_categories' => 'Danh mục sản phẩm',
     'categories' => 'Danh mục',
     'products' => 'Sản phẩm',
     'posts' => 'Bài Viết',

@@ -373,3 +373,43 @@ header .tt-cart .tt-cart-layout .tt-cart-content .tt-cart-btn .btn {
 .custom-right-service-sidebar {
   padding-top: 50px;
 }
+
+.bb-product-title {
+  a {
+    line-height: 1.5;
+  }
+}
+
+.tt-description .tt-add-info li a {
+  font-size: 13px;
+  font-weight: 400;
+  color: #3775D8 !important;
+}
+
+.tt-product-single-info .tt-wrapper.short-description-product {
+  margin-top: 33px;
+  line-height: 1.6;
+  font-size: 17px;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-weight: 500;
+  color: #666;
+}
+
+.tt-collapse-block .tt-item.active .tt-collapse-title {
+  color: #fe5722 !important;
+  font-size: 24px;
+}
+
+.custom-position-left {
+  left: 10px !important;
+}
+
+.flex-start-custom {
+  -webkit-justify-content: flex-start !important;
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+}
+
+.custom-icon-socials {
+  font-size: 35px;
+}

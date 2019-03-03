@@ -18,7 +18,7 @@
 @endsection
 
 @section('title')
-    Shop
+    {{ trans('breadcrumbs.shop') }}
 @endsection
 
 @section('fonts')

@@ -49,7 +49,7 @@ $isShowBreadcrumb = isset($isShowBreadcrumb) ? $isShowBreadcrumb : true;
         <!-- ========== START THEME CSS ========== -->
         <link href="{{ asset('assets/client/wookie/app-assets/css/theme.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/client/wookie/app-assets/css/theme-07.css') }}" rel="stylesheet">
-        {{--<link href="{{ asset('assets/client/wookie/assets/css/custom-theme.css') }}" rel="stylesheet">--}}
+        <link href="{{ asset('assets/general/css/typography-content/style.css') }}" rel="stylesheet">
         @yield('theme-css')
         <!-- ========== END THEME CSS ========== -->
 

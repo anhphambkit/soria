@@ -19,5 +19,7 @@ return [
 
     'advisory' => 'Tư vấn',
     'email_support' => 'Email',
+    'best_seller' => 'Bán chạy nhất',
     'product' => 'Sản phẩm',
+    'detail_description' => 'Chi tiết sản phẩm',
 ];

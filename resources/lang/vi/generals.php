@@ -19,7 +19,12 @@ return [
 
     'create' => 'Tạo',
     'sign_up' => 'Đăng ký',
+    'contact' => 'Liên hệ',
+    'email' => 'Email',
+    'phone' => 'Điện thoại',
     'newsletter_sign_up' => 'ĐĂNG KÝ TƯ VẤN BỞI CHUYÊN GIA',
+    'promotion_sign_up' => 'Nhận thông tin khuyến mại',
+    'join_us' => 'Đăng ký',
     'your_email_address' => 'Địa chỉ email của bạn',
     'edit' => 'Sửa',
     'delete' => 'Xóa',

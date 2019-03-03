@@ -8,8 +8,8 @@
 ?>
 <div class="tt-collapse-block">
     <div class="tt-item active">
-        <div class="tt-collapse-title">DESCRIPTION</div>
-        <div class="tt-collapse-content">
+        <div class="tt-collapse-title collagse-title-custom text-uppercase">{{ trans('shop.detail_description') }}</div>
+        <div class="tt-collapse-content bb-content-format">
             {!! $longDesc !!}
         </div>
     </div>

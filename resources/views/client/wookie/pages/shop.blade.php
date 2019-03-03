@@ -18,7 +18,7 @@
 @endsection
 
 @section('title')
-    Shop
+    {{ trans('breadcrumbs.shop') }}
 @endsection
 
 @section('fonts')
@@ -53,7 +53,7 @@
     <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
             @component('client.wookie.components.block-title')
-                @slot('title', "BEST SELLER")
+                @slot('title', trans('shop.best_seller'))
             @endcomponent
             @component('client.wookie.components.product.carousel-products')
                 @slot('products', $bestSellerProducts)
@@ -65,7 +65,7 @@
         <div class="container-indent">
             <div class="container container-fluid-custom-mobile-padding">
                 @component('client.wookie.components.block-title')
-                    @slot('title', strtoupper($categoryName))
+                    @slot('title', $categoryName)
                 @endcomponent
                 @component('client.wookie.components.product.carousel-products')
                     @slot('products', $productGroup)

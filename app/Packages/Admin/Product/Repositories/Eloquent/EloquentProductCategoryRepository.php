@@ -33,6 +33,7 @@ class EloquentProductCategoryRepository implements ProductCategoryRepository {
         try {
             return $this->model
                 ->select('id', 'name', 'slug', 'created_at', 'updated_at')
+                ->orderBy('order', 'asc')
                 ->orderBy('name', 'asc')
                 ->get();
         }
