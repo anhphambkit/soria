@@ -30,4 +30,6 @@ newAddressDefaultForm.beforeSubmit = () => {
 newAddressDefaultForm.afterDone = (data) => {
     refreshListShippingAddress(data.data.data);
     addressDefaultForm.resetDefaultData();
+    $("#shipping-address-area").fadeIn();
+    $(".new-form-area").fadeOut();
 };

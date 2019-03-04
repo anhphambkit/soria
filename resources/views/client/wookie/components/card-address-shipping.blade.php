@@ -32,6 +32,14 @@
                 {{ $address['address'] }}, {{ $address['province_city_name'] }}, {{ $address['district_name'] }}, {{ $address['ward_name'] }}
             </span>
         </div>
+        <div class="card-text email">
+            <span class="title-custom">
+                {{ trans('generals.email') }}:
+            </span>
+            <span class="content-custom">
+                {{ $address['email'] }}
+            </span>
+        </div>
         <div class="card-text phone">
             <span class="title-custom">
                 {{ trans('address-form.mobile_phone') }}:

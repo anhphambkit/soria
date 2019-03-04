@@ -37,6 +37,14 @@
                         @{{ address }}, @{{ province_city_name }}, @{{ district_name }}, @{{ ward_name }}
                     </span>
                 </div>
+                <div class="card-text email">
+                    <span class="title-custom">
+                        Email:
+                    </span>
+                    <span class="content-custom">
+                        @{{ email }}
+                    </span>
+                </div>
                 <div class="card-text phone">
                     <span class="title-custom">
                         Điện thoại:

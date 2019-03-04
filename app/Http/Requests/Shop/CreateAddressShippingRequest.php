@@ -32,6 +32,7 @@ class CreateAddressShippingRequest extends CoreFormRequest
     {
         return [
             'address' => 'required',
+            'email' => 'required|email',
             'district_code' => 'required',
             'full_name' => 'required',
             'mobile_phone' => 'required',

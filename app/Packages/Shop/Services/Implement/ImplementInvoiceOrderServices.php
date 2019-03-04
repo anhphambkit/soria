@@ -60,6 +60,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
                   'user_id' => $userId,
                   'is_guest' => $isGuest,
                   'customer' => $shippingAddress->full_name,
+                  'email' => $shippingAddress->email,
                   'mobile_phone' => $shippingAddress->mobile_phone,
                   'address' => "{$shippingAddress->address}, {$shippingAddress->district_name}, {$shippingAddress->province_city_name}, {$shippingAddress->ward_name}",
                   'shipping_method' => $dataCheckouts['shipping_method'],

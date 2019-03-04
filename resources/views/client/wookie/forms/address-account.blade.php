@@ -7,7 +7,7 @@
  */
 $isDefault = !empty($isDefault) ? $isDefault : false;
 $isUpdate = !empty($isUpdate) ? $isUpdate : false;
-$formMode = ($isDefault && $isUpdate) ? "create-default" : (($isUpdate) ? "update" : "create");
+$formMode = ($isDefault && !$isUpdate) ? "create-default" : (($isUpdate) ? "update" : "create");
 ?>
 <form role="form" class="address-account-form" id="form-{{ $formMode }}-address">
     <div class="form-group row">
@@ -28,6 +28,17 @@ $formMode = ($isDefault && $isUpdate) ? "create-default" : (($isUpdate) ? "updat
                 @slot('name', 'full_name')
                 @slot('id', 'full_name_'.$formMode)
                 @slot('class', 'full_name')
+                @slot('required', true)
+            @endcomponent
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12 form-custom-validate-js">
+            @component('components.elements.field')
+                @slot('title', trans('generals.email'))
+                @slot('name', 'email')
+                @slot('id', 'email_'.$formMode)
+                @slot('class', 'email')
                 @slot('required', true)
             @endcomponent
         </div>

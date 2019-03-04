@@ -198,6 +198,10 @@ class ShopController extends CoreAjaxController {
             return $this->response([], Response::STATUS_SUCCESS, trans('generals.success'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function checkoutNewOrder(Request $request) {
         $dataCheckouts =  $request->all();
         $this->userId = $this->checkUserId($request, $this->userId);
