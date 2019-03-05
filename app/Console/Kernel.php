@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CreateSiteMap;
 use App\Console\Commands\ImportDataCityWardVietNam;
 use App\Console\Commands\Maintenance;
 use Illuminate\Console\Scheduling\Schedule;
@@ -17,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         ImportDataCityWardVietNam::class,
         Maintenance::class,
+        CreateSiteMap::class,
     ];
 
     /**
@@ -27,8 +29,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('sitemap:create')
+                  ->daily();
     }
 
     /**
