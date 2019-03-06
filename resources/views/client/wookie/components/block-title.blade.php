@@ -9,9 +9,9 @@ $title = isset($title) ? $title : "TRENDING";
 $description = isset($description) ? $description : null;
 ?>
 <div class="tt-block-title">
-    <h1 class="tt-title text-uppercase">
+    <h2 class="tt-title text-uppercase">
         {{ $title }}
-    </h1>
+    </h2>
     @if($description !== null)
         <div class="tt-description">
             {{ $description }}
