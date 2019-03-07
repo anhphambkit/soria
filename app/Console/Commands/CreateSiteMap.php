@@ -53,17 +53,17 @@ class CreateSiteMap extends Command
         // add blog pages mặc định
         $sitemap->add(route('client.blog.home'), Carbon::now(), '0.8', 'daily');
 
-        // add shop cart page mặc định
-        $sitemap->add(route('client.shop.cart'), Carbon::now(), '0.8', 'daily');
-
-        // add shop checkout shipping page mặc định
-        $sitemap->add(route('client.shop.checkout_shipping'), Carbon::now(), '0.8', 'daily');
-
-        // add shop checkout payment mặc định
-        $sitemap->add(route('client.shop.checkout_payment'), Carbon::now(), '0.8', 'daily');
-
-        // add success ordered page mặc định
-        $sitemap->add(route('client.shop.complete_order'), Carbon::now(), '0.8', 'daily');
+//        // add shop cart page mặc định
+//        $sitemap->add(route('client.shop.cart'), Carbon::now(), '0.8', 'daily');
+//
+//        // add shop checkout shipping page mặc định
+//        $sitemap->add(route('client.shop.checkout_shipping'), Carbon::now(), '0.8', 'daily');
+//
+//        // add shop checkout payment mặc định
+//        $sitemap->add(route('client.shop.checkout_payment'), Carbon::now(), '0.8', 'daily');
+//
+//        // add success ordered page mặc định
+//        $sitemap->add(route('client.shop.complete_order'), Carbon::now(), '0.8', 'daily');
 
         // add bài viết
         $posts = DB::table('posts')
