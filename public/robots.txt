@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: http://soriabeauty.com/sitemap.xml
