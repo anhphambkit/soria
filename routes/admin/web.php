@@ -43,5 +43,11 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
             // Post Category:
             Route::get('/blog-setting', 'General\BlogSettingController@blogSettings')->name('admin.setting.blog')->middleware('admin_portal');
         });
+
+        /************ Router Invoice Orders ************** */
+        Route::prefix('invoice-order')->group(function () {
+            // Product Category:
+            Route::get('/', 'InvoiceOrder\InvoiceOrderController@index')->name('admin.invoice_order.index')->middleware('admin_portal');
+        });
     });
 });

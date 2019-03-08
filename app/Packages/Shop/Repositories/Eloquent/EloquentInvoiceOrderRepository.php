@@ -37,4 +37,16 @@ class EloquentInvoiceOrderRepository implements InvoiceOrderRepository
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getListOrdersToManage() {
+        try {
+            return $this->invoiceOrdersModel->select('*')->orderBy('created_at', 'desc')->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

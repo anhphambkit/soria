@@ -117,4 +117,11 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @return mixed
+     */
+    public function getListOrdersToManage() {
+        return $this->invoiceOrderRepository->getListOrdersToManage();
+    }
 }
