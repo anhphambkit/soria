@@ -18,4 +18,9 @@ interface InvoiceOrderServices
      * @return mixed
      */
     public function createNewInvoiceOrder(array $dataCheckouts, int $userId, bool $isGuest);
+
+    /**
+     * @return mixed
+     */
+    public function getListOrdersToManage();
 }

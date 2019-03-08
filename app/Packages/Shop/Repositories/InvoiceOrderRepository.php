@@ -16,4 +16,9 @@ interface InvoiceOrderRepository
      * @return mixed
      */
     public function createNewInvoiceOrder(array $data);
+
+    /**
+     * @return mixed
+     */
+    public function getListOrdersToManage();
 }

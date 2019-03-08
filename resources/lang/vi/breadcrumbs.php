@@ -26,4 +26,5 @@ return [
     'posts' => 'Bài Viết',
     'manage' => 'Quản lý',
     'new' => 'Mới',
+    'invoice_order' => "Đơn hàng"
 ];

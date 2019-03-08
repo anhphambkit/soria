@@ -59,4 +59,9 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
         Route::get('/getDetailPostCategory', 'Post\PostCategoryController@getDetailPostCategory')->name('admin_ajax.post.get_detail_post_category');
         Route::patch('/updatePostCategory', 'Post\PostCategoryController@updatePostCategory')->name('admin_ajax.post.update_post_category');
     });
+
+    /************ Router Invoice Orders ************** */
+    Route::prefix('invoice-order')->group(function () {
+        Route::get('/get-all-orders', 'InvoiceOrder\InvoiceOrderController@getAllOrders')->name('admin_ajax.invoice_order.get_all_orders');
+    });
 });
