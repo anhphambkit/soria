@@ -35,6 +35,13 @@
                     </li>
                 </ul>
             </li>
+            <li class=" nav-item"><a href="#"><i class="la la-gift"></i><span class="menu-title" data-i18n="nav
+            .page_layouts.main">Invoice Orders</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{ \Illuminate\Support\Facades\URL::to('/admin/invoice-order/') }}">Manage Orders</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>
