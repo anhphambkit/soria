@@ -1,13 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: BiWin
- * Date: 22/12/2018
- * Time: 2:35 PM
+ * User: AnhPham
+ * Date: 3/9/19
+ * Time: 15:14
  */
-namespace App\Packages\SystemGeneral\Repositories;
 
-interface ReferenceRepository {
+namespace App\Packages\SystemGeneral\Services;
+
+
+interface ReferenceServices
+{
     /**
      * @param $table
      * @param $where

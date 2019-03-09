@@ -7,13 +7,21 @@
  */
 namespace App\Packages\SystemGeneral\Repositories\Eloquent;
 
+use App\Packages\SystemGeneral\Entities\Reference;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
 use Illuminate\Support\Facades\DB;
 
 class EloquentReferenceRepository implements ReferenceRepository {
 
-    public function __construct()
+    protected $referenceModel;
+
+    /**
+     * EloquentReferenceRepository constructor.
+     * @param Reference $referenceModel
+     */
+    public function __construct(Reference $referenceModel)
     {
+        $this->referenceModel = $referenceModel;
     }
 
     /**
@@ -31,5 +39,32 @@ class EloquentReferenceRepository implements ReferenceRepository {
             ->orderBy($orderBy);
         if ($isUnique) return $query->first();
         return $query->get();
+    }
+
+    /**
+     * @param string $type
+     * @param string|null $value
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getReferenceFromAttributeType(string $type, string $value = null) {
+        try {
+            if ($value)
+                return $this->referenceModel
+                    ->select('*')
+                    ->where('type', $type)
+                    ->where('value', $value)
+                    ->where('is_publish', true)
+                    ->first();
+            else
+                return $this->referenceModel
+                    ->select('*')
+                    ->where('type', $type)
+                    ->where('is_publish', true)
+                    ->orderBy('created_at', 'asc')
+                    ->get();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
     }
 }

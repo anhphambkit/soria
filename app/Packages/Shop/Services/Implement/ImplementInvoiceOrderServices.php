@@ -124,4 +124,12 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
     public function getListOrdersToManage() {
         return $this->invoiceOrderRepository->getListOrdersToManage();
     }
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     */
+    public function getDetailInvoiceOrder(int $orderId) {
+        return $this->invoiceOrderRepository->getDetailInvoiceOrder($orderId);
+    }
 }

@@ -52,13 +52,11 @@
                     <div class="col-sm-12 col-xl-6 custom-col">
                         <div class="shipping-area custom-area">
                             <h5>1. {{ trans('address-form.select_method_shipping') }}</h5>
-                            @component('client.wookie.components.shipping-methods')
-                            @endcomponent
+                            @include('client.wookie.components.shipping-methods')
                         </div>
                         <div class="payment-area custom-area">
                             <h5>2. {{ trans('address-form.select_method_payment') }}</h5>
-                            @component('client.wookie.components.payment-methods')
-                            @endcomponent
+                            @include('client.wookie.components.payment-methods')
                         </div>
                         <div class="action-payment-page">
                             <a href="#" class="btn btn-large-custom btn-custom-shop btn-checkout-order">{{ trans('address-form.order') }}</a>

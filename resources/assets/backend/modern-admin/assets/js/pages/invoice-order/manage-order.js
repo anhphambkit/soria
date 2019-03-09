@@ -7,6 +7,9 @@ manageProduct.columns = [
     {
         title: "ID",
         data: 'id',
+        render(data) {
+            return `<a href="/admin/invoice-order/detail/${data}" class="detail-order">${data}</a>`
+        }
     },
     {
         title: "Customer",
@@ -33,9 +36,9 @@ manageProduct.columns = [
     },
     {
         title: "Status",
-        data: 'null',
+        data: 'status_name',
         render(data) {
-            return `<span class="badge badge-primary">NEW</span>`;
+            return `<span class="badge badge-primary">${data}</span>`;
         }
     },
     {
@@ -45,6 +48,20 @@ manageProduct.columns = [
     {
         title: "Updated Date",
         data: 'updated_at'
+    },
+    {
+        title: "Action",
+        data: null,
+        render(data) {
+            return `<span class="dropdown">
+                        <button id="btnSearchDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-primary dropdown-toggle dropdown-menu-right"><i class="ft-settings"></i></button>
+                        <span aria-labelledby="btnSearchDrop2" class="dropdown-menu mt-1 dropdown-menu-right dropdown-menu-custom">
+                            <a href="/admin/invoice-order/detail/${data.id}" class="dropdown-item"><i class="la la-eye"></i> Detail Order</a>
+                            <a href="#" class="dropdown-item"><i class="la la-check"></i> Complete Order</a>
+                            <a href="#" class="dropdown-item"><i class="la la-trash"></i> Delete Order</a>
+                        </span>
+                    </span>`;
+        }
     }
 
 ];

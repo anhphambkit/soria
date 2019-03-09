@@ -17,4 +17,10 @@ interface ProductsInOrderRepository
      * @throws \Exception
      */
     public function insertProductsInOrder(array $data);
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     */
+    public function getAllProductsInOrder(int $orderId);
 }

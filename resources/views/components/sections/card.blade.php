@@ -19,14 +19,14 @@ $id = isset($id) ? $id : '';
     @if(!empty($title) || sizeof($controls) > 0)
         <div class="card-header">
         @if(!empty($title))
-            <h4 class="card-title">
+            <div class="card-title">
                 {{ $title }}
                 @if(!empty($subTitle))
                     <small class="block">
                         {{ $subTitle }}
                     </small>
                 @endif
-            </h4>
+            </div>
         @endif
         @if(sizeof($controls) > 0)
             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>

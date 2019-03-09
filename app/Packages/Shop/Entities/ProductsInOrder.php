@@ -27,14 +27,26 @@ class ProductsInOrder extends Model
      */
     protected $fillable = [
         'order_id',
+        'product_id',
         'name',
         'slug',
         'sku',
-        'image_feature',
+        'categories',
+        'medias',
         'price',
         'sale_price',
-        'quantity'
+        'quantity',
     ];
 
     public $timestamps = true;
+
+    public function getCategoriesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getMediasAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

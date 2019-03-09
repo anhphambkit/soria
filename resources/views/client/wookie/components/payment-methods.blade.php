@@ -7,17 +7,19 @@
  */
 ?>
 <div id="payment-area" class="method-area">
-    <div class="payment-item">
-        @component('components.elements.field')
-            @slot('title', trans('address-form.cod'))
-            @slot('value', trans('address-form.cod'))
-            @slot('name', 'payment_method')
-            @slot('id', 'payment-basic')
-            @slot('required', true)
-            @slot('type', 'radio-single')
-            @slot('class', 'payment-method')
-            @slot('checked', true)
-            @slot('jsValidate', false)
-        @endcomponent
-    </div>
+    @foreach($paymentMethods as $paymentMethod)
+        <div class="payment-item">
+            @component('components.elements.field')
+                @slot('title', $paymentMethod->value)
+                @slot('value', $paymentMethod->id)
+                @slot('name', 'payment_method')
+                @slot('id', $paymentMethod->slug)
+                @slot('required', true)
+                @slot('type', 'radio-single')
+                @slot('class', 'payment-method')
+                @slot('checked', true)
+                @slot('jsValidate', false)
+            @endcomponent
+        </div>
+    @endforeach
 </div>

@@ -23,4 +23,10 @@ interface InvoiceOrderServices
      * @return mixed
      */
     public function getListOrdersToManage();
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     */
+    public function getDetailInvoiceOrder(int $orderId);
 }

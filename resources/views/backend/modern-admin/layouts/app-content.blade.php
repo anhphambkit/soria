@@ -12,7 +12,7 @@
             <div class="content-header-left col-md-6 col-12 mb-2">
                 @yield('breadcrumbs')
             </div>
-            <div class="content-header-right col-md-6 col-12">
+            <div class="content-header-right col-md-6 col-12 text-right">
                 @yield('header-right')
             </div>
         </div>

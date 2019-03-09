@@ -2,3 +2,46 @@
   width: 100px;
   height: 100%;
 }
+
+.dropdown .dropdown-menu.dropdown-menu-custom {
+  min-width: 200px;
+}
+
+.img-product-invoice-item {
+  display: block;
+  height: auto;
+}
+
+.thumb-custom {
+  width: 60px;
+  float: left;
+  margin-right: 10px;
+}
+
+.vertical-middle-custom {
+  vertical-align: middle !important;
+}
+
+.no-border-custom {
+  border: none !important;
+}
+
+.total-price-custom {
+  color: #ff3b27;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.price-custom {
+  font-weight: 500;
+}
+
+.title-information-block {
+  color: white;
+  font-weight: 800;
+}
+
+.sub-title-block-custom {
+  color: #464855;
+  font-weight: 700;
+}

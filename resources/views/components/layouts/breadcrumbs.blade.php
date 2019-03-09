@@ -27,4 +27,4 @@ $header = isset($header) ? $header : 'Breadcrumbs top';
         </ol>
     </div>
 </div>
-<h3 class="content-header-title mb-0">{{ $header }}</h3>
+<h3 class="content-header-title mb-0 mt-1">{{ $header }}</h3>
