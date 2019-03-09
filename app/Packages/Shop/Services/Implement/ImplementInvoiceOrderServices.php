@@ -9,13 +9,19 @@
 namespace App\Packages\Shop\Services\Implement;
 
 
+use App\Mail\OrderNotifyAdminShop;
+use App\Mail\OrderNotifyCustomer;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Repositories\InvoiceOrderRepository;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\Shop\Services\InvoiceOrderServices;
 use App\Packages\Shop\Services\ProductsInOrderServices;
+use App\Packages\SystemGeneral\Constants\SettingConfig;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ImplementInvoiceOrderServices implements InvoiceOrderServices
 {
@@ -23,6 +29,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
     private $shoppingCartServices;
     private $addressBookServices;
     private $productsInOrderServices;
+    private $generalSettingServices;
 
     /**
      * ImplementInvoiceOrderServices constructor.
@@ -30,15 +37,18 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
      * @param ShoppingCartServices $shoppingCartServices
      * @param AddressBookServices $addressBookServices
      * @param ProductsInOrderServices $productsInOrderServices
+     * @param GeneralSettingServices $generalSettingServices
      */
     public function __construct(InvoiceOrderRepository $invoiceOrderRepository, ShoppingCartServices $shoppingCartServices,
-                                AddressBookServices $addressBookServices, ProductsInOrderServices $productsInOrderServices
+                                AddressBookServices $addressBookServices, ProductsInOrderServices $productsInOrderServices,
+                                GeneralSettingServices $generalSettingServices
     )
     {
         $this->invoiceOrderRepository = $invoiceOrderRepository;
         $this->shoppingCartServices = $shoppingCartServices;
         $this->addressBookServices = $addressBookServices;
         $this->productsInOrderServices = $productsInOrderServices;
+        $this->generalSettingServices = $generalSettingServices;
     }
 
     /**
@@ -131,5 +141,25 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
      */
     public function getDetailInvoiceOrder(int $orderId) {
         return $this->invoiceOrderRepository->getDetailInvoiceOrder($orderId);
+    }
+
+    /**
+     * @param int $orderId
+     * @return mixed|void
+     * @throws \Exception
+     */
+    public function sendEmailNotifyNewOrder(int $orderId) {
+        try {
+            $shopSettings =  $this->generalSettingServices->getAllSettingsForRenderByTypeWeb(SettingConfig::SHOP);
+            $detailOrder = $this->invoiceOrderRepository->getDetailInvoiceOrder($orderId);
+            $orderProducts = $this->productsInOrderServices->getAllProductsInOrder($orderId);
+            // Email to customer:
+            Mail::to($detailOrder->email)->send(new OrderNotifyCustomer($shopSettings, $detailOrder, $orderProducts));
+            // Email to Admin:
+            Mail::to(config('mail.admin.to'))->cc(explode(',', config('mail.admin.cc')))->send(new OrderNotifyAdminShop($shopSettings, $detailOrder, $orderProducts));
+            return;
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
     }
 }

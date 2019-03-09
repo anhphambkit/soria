@@ -220,6 +220,7 @@ class ShopController extends CoreAjaxController {
         $dataCheckouts =  $request->all();
         $this->userId = $this->checkUserId($request, $this->userId);
         $orderId = $this->invoiceOrderServices->createNewInvoiceOrder($dataCheckouts, $this->userId, $this->isGuest);
+        $this->invoiceOrderServices->sendEmailNotifyNewOrder($orderId);
         if ($this->isGuest)
             return $this->response($orderId, Response::STATUS_SUCCESS, trans('generals.success'))->withCookie(Cookie::forever('guest_id', $this->userId));
         else

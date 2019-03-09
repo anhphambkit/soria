@@ -174,6 +174,8 @@
                                                     @php
                                                         $featureImageOrderProduct = $orderProduct->medias[0];
                                                         $linkProduct = "{$orderProduct->slug}.{$orderProduct->id}";
+                                                        $salePriceOnProduct = ($orderProduct->sale_price) ? ($orderProduct->price - $orderProduct->sale_price)*$orderProduct->quantity : 0;
+                                                        $priceOnProducts = ($orderProduct->sale_price) ? $orderProduct->sale_price*$orderProduct->quantity : $orderProduct->price*$orderProduct->quantity;
                                                     @endphp
                                                     <tr>
                                                         <td class="name-product-item-invoice">
@@ -187,8 +189,8 @@
                                                         </td>
                                                         <td class="price-product-item-invoice text-right vertical-middle-custom">{{ number_format($orderProduct->price, 0, ',', '.') }} đ</td>
                                                         <td class="quantity-product-item-invoice text-right vertical-middle-custom">{{ number_format($orderProduct->quantity, 0, ',', '.') }}</td>
-                                                        <td class="sale-price-product-item-invoice text-right vertical-middle-custom">{{ number_format($orderProduct->sale_price, 0, ',', '.') }} đ</td>
-                                                        <td class="sub-price-product-item-invoice text-right vertical-middle-custom">{{ number_format($orderProduct->price - $orderProduct->sale_price, 0, ',', '.') }} đ</td>
+                                                        <td class="sale-price-product-item-invoice text-right vertical-middle-custom">{{ number_format($salePriceOnProduct, 0, ',', '.') }} đ</td>
+                                                        <td class="sub-price-product-item-invoice text-right vertical-middle-custom">{{ number_format($priceOnProducts, 0, ',', '.') }} đ</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
