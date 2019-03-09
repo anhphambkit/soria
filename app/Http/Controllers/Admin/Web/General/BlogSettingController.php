@@ -15,15 +15,12 @@ use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 
 class BlogSettingController extends BaseAdminController
 {
-    protected$generalSettingServices;
-
     /**
      * BlogSettingController constructor.
      * @param GeneralSettingServices $generalSettingServices
      */
     public function __construct(GeneralSettingServices $generalSettingServices) {
-        parent::__construct();
-        $this->generalSettingServices = $generalSettingServices;
+        parent::__construct($generalSettingServices);
     }
 
     public function blogSettings() {
