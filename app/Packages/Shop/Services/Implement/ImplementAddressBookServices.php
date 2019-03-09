@@ -30,15 +30,19 @@ class ImplementAddressBookServices implements AddressBookServices
      * @param array $data
      * @param int $userId
      * @param bool $isGuest
+     * @param bool $isDefault
+     * @param bool $isShipping
      * @return mixed
      * @throws \Exception
      */
-    public function createNewAddressBook(array $data, int $userId, bool $isGuest) {
+    public function createNewAddressBook(array $data, int $userId, bool $isGuest, bool $isDefault = false, bool $isShipping = false) {
         $now = Carbon::now();
         $data['user_id'] = $userId;
         $data['is_guest'] = $isGuest;
         $data['created_at'] = $now;
         $data['updated_at'] = $now;
+        $data['is_shipping'] = $isDefault;
+        $data['is_default'] = $isShipping;
         try {
             return $this->addressBookRepository->createNewAddressBook($data);
         }

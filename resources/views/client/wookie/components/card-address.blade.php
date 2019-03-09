@@ -7,16 +7,16 @@
  */
 ?>
 <div class="card card-address card-custom @if($address['is_shipping']) border-dashed-custom @endif" data-address-id="{{ $address['id'] }}">
-    <div class="card-header">
-        <span class="title-address">
-            {{ $address['name_address_book'] }}
-        </span>
-        @if($address['is_default'])
-            <span class="badge badge-success status-address">
-                {{ trans('generals.default') }}
-            </span>
-        @endif
-    </div>
+    {{--<div class="card-header">--}}
+        {{--<span class="title-address">--}}
+            {{--{{ $address['name_address_book'] }}--}}
+        {{--</span>--}}
+        {{--@if($address['is_default'])--}}
+            {{--<span class="badge badge-success status-address">--}}
+                {{--{{ trans('generals.default') }}--}}
+            {{--</span>--}}
+        {{--@endif--}}
+    {{--</div>--}}
     <div class="card-body">
         <div class="card-text full-name">
             <span class="title-custom">

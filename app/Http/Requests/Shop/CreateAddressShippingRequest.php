@@ -38,7 +38,7 @@ class CreateAddressShippingRequest extends CoreFormRequest
             'mobile_phone' => 'required',
             'province_city_code' => 'required',
             'ward_code' => 'required',
-            'name_address_book' => 'required',
+//            'name_address_book' => 'required',
         ];
     }
 }

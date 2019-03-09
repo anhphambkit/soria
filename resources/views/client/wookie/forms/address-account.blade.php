@@ -10,17 +10,17 @@ $isUpdate = !empty($isUpdate) ? $isUpdate : false;
 $formMode = ($isDefault && !$isUpdate) ? "create-default" : (($isUpdate) ? "update" : "create");
 ?>
 <form role="form" class="address-account-form" id="form-{{ $formMode }}-address">
-    <div class="form-group row">
-        <div class="col-md-12 form-custom-validate-js">
-            @component('components.elements.field')
-                @slot('title', trans('address-form.address_name'))
-                @slot('name', 'name_address_book')
-                @slot('id', 'address_name_'.$formMode)
-                @slot('class', 'address_name')
-                @slot('required', true)
-            @endcomponent
-        </div>
-    </div>
+    {{--<div class="form-group row">--}}
+        {{--<div class="col-md-12 form-custom-validate-js">--}}
+            {{--@component('components.elements.field')--}}
+                {{--@slot('title', trans('address-form.address_name'))--}}
+                {{--@slot('name', 'name_address_book')--}}
+                {{--@slot('id', 'address_name_'.$formMode)--}}
+                {{--@slot('class', 'address_name')--}}
+                {{--@slot('required', true)--}}
+            {{--@endcomponent--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group row">
         <div class="col-md-12 form-custom-validate-js">
             @component('components.elements.field')
@@ -111,23 +111,23 @@ $formMode = ($isDefault && !$isUpdate) ? "create-default" : (($isUpdate) ? "upda
             @endcomponent
         </div>
     </div>
-    <div class="form-group row @if($isDefault) d-none @endif">
-        <div class="col-md-12 form-custom-validate-js">
-            @component('components.elements.field')
-                @slot('title', trans('address-form.set_default_address'))
-                @slot('name', 'is_default')
-                @slot('id', 'is-default_'.$formMode)
-                @slot('required', true)
-                @slot('type', 'checkbox')
-                @slot('class', 'is-default')
-                @if($isDefault)
-                    @slot('checked', true)
-                @else
-                    @slot('checked', false)
-                @endif
-            @endcomponent
-        </div>
-    </div>
+    {{--<div class="form-group row @if($isDefault) d-none @endif">--}}
+        {{--<div class="col-md-12 form-custom-validate-js">--}}
+            {{--@component('components.elements.field')--}}
+                {{--@slot('title', trans('address-form.set_default_address'))--}}
+                {{--@slot('name', 'is_default')--}}
+                {{--@slot('id', 'is-default_'.$formMode)--}}
+                {{--@slot('required', true)--}}
+                {{--@slot('type', 'checkbox')--}}
+                {{--@slot('class', 'is-default')--}}
+                {{--@if($isDefault)--}}
+                    {{--@slot('checked', true)--}}
+                {{--@else--}}
+                    {{--@slot('checked', false)--}}
+                {{--@endif--}}
+            {{--@endcomponent--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group row action-group">
         <div class="col-12 text-right">
             @if($formMode === "create-default")

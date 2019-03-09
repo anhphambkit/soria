@@ -10,16 +10,16 @@
 <div class="list-address-shipping">
     @{{#each addressBooks}}
         <div class="card card-address card-custom @{{#if is_shipping }} border-dashed-custom @{{/if}}" data-address-id="@{{ id }}">
-            <div class="card-header">
-                <span class="title-address">
-                    @{{ name_address_book }}
-                </span>
-                @{{#if is_default }}
-                    <span class="badge badge-success status-address">
-                        Mặc định
-                    </span>
-                @{{/if}}
-            </div>
+            {{--<div class="card-header">--}}
+                {{--<span class="title-address">--}}
+                    {{--@{{ name_address_book }}--}}
+                {{--</span>--}}
+                {{--@{{#if is_default }}--}}
+                    {{--<span class="badge badge-success status-address">--}}
+                        {{--Mặc định--}}
+                    {{--</span>--}}
+                {{--@{{/if}}--}}
+            {{--</div>--}}
             <div class="card-body">
                 <div class="card-text full-name">
                     <span class="title-custom">

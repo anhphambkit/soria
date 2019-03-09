@@ -132,6 +132,7 @@
         };
         const API_CHECKOUT = {
             CREATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.create_address_shipping') }}",
+            CREATE_ADDRESS_SHIPPING_DEFAULT : "{{ route('ajax.shop.create_address_shipping_default') }}",
             DELETE_ADDRESS_SHIPPING : "{{ route('ajax.shop.delete_address_shipping') }}",
             UPDATE_ADDRESS_SHIPPING : "{{ route('ajax.shop.update_address_shipping') }}",
             DETAIL_ADDRESS_SHIPPING : "{{ route('ajax.shop.get_detail_address_shipping') }}",

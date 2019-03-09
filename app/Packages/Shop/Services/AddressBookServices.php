@@ -15,9 +15,11 @@ interface AddressBookServices
      * @param array $data
      * @param int $userId
      * @param bool $isGuest
+     * @param bool $isDefault
+     * @param bool $isShipping
      * @return mixed
      */
-    public function createNewAddressBook(array $data, int $userId, bool $isGuest);
+    public function createNewAddressBook(array $data, int $userId, bool $isGuest, bool $isDefault = false, bool $isShipping = false);
 
     /**
      * @param int $userId

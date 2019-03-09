@@ -18,6 +18,8 @@ let newAddressForm = new Form();
 newAddressForm.wrapper = '#form-create-address';
 newAddressForm.url = API_CHECKOUT.CREATE_ADDRESS_SHIPPING;
 newAddressForm.urlCancel = "#";
+newAddressForm.hasSwal = false;
+newAddressForm.hasToastr = false;
 
 // Handle event on form
 newAddressForm.cancel = () => {

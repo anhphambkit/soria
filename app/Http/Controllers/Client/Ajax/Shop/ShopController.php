@@ -133,6 +133,20 @@ class ShopController extends CoreAjaxController {
     }
 
     /**
+     * @param CreateAddressShippingRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createAddressShippingDefault(CreateAddressShippingRequest $request) {
+        $data = $request->all();
+        $this->userId = $this->checkUserId($request, $this->userId);
+        $this->addressBookServices->createNewAddressBook($data, $this->userId, $this->isGuest, true, true);
+        if ($this->isGuest)
+            return $this->response([], Response::STATUS_SUCCESS, trans('generals.create_address_shipping_success'))->withCookie(Cookie::forever('guest_id', $this->userId));
+        else
+            return $this->response([], Response::STATUS_SUCCESS, trans('generals.create_address_shipping_success'));
+    }
+
+    /**
      * @param DeleteOrDetailAddressShippingRequest $request
      * @return \Illuminate\Http\JsonResponse
      */

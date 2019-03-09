@@ -16,8 +16,10 @@ addressDefaultForm.init();
 // Define Form
 let newAddressDefaultForm = new Form();
 newAddressDefaultForm.wrapper = '#form-create-default-address';
-newAddressDefaultForm.url = API_CHECKOUT.CREATE_ADDRESS_SHIPPING;
+newAddressDefaultForm.url = API_CHECKOUT.CREATE_ADDRESS_SHIPPING_DEFAULT;
 newAddressDefaultForm.urlCancel = "#";
+newAddressDefaultForm.hasSwal = false;
+newAddressDefaultForm.hasToastr = false;
 
 // Handle event on form
 newAddressDefaultForm.handleSubmit();
@@ -27,9 +29,11 @@ newAddressDefaultForm.beforeSubmit = () => {
     // return newAddressDefaultForm.data;
 };
 
-newAddressDefaultForm.afterDone = (data) => {
-    refreshListShippingAddress(data.data.data);
-    addressDefaultForm.resetDefaultData();
-    $("#shipping-address-area").fadeIn();
-    $(".new-form-area").fadeOut();
+newAddressDefaultForm.done = (data) => {
+    if (data.data.status === 0) {
+        window.location.href = "/shop/checkout/payment";
+    }
+    else {
+        toastr.error(data.data.message);
+    }
 };

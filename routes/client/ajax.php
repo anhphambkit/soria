@@ -31,6 +31,7 @@ Route::prefix('shop')->group(function () {
 //            Route::get('/detail/{urlProduct}', 'Shop\ShopController@viewDetailProduct')->name('client.product.detail');
 //        });
     Route::post('/create-address-shipping', 'Shop\ShopController@createAddressShipping')->name('ajax.shop.create_address_shipping');
+    Route::post('/create-address-shipping-default', 'Shop\ShopController@createAddressShippingDefault')->name('ajax.shop.create_address_shipping_default');
     Route::post('/delete-address-shipping', 'Shop\ShopController@deleteAddressShipping')->name('ajax.shop.delete_address_shipping');
     Route::post('/update-address-shipping', 'Shop\ShopController@updateAddressShipping')->name('ajax.shop.update_address_shipping');
     Route::get('/get-detail-address-shipping', 'Shop\ShopController@getDetailAddressShipping')->name('ajax.shop.get_detail_address_shipping');
