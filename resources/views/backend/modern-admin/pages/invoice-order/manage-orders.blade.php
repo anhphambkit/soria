@@ -99,6 +99,7 @@
                             <th>Status</th>
                             <th>Updated Date</th>
                             <th>Updated Date</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -112,6 +113,7 @@
                             <th>Status</th>
                             <th>Updated Date</th>
                             <th>Updated Date</th>
+                            <th>Action</th>
                         </tr>
                         </tfoot>
                     @endslot

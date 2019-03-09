@@ -16,9 +16,11 @@ use App\Packages\Admin\Product\Services\ProductServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\Shop\Services\MainFeatureServices;
+use App\Packages\SystemGeneral\Constants\ReferencesConfig;
 use App\Packages\SystemGeneral\Services\AddressGeneralInfoService;
 use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use App\Packages\SystemGeneral\Services\HelperServices;
+use App\Packages\SystemGeneral\Services\ReferenceServices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;
@@ -29,6 +31,7 @@ class ShopController extends BaseShopController {
     protected $productServices;
     protected $shoppingCartServices;
     protected $guestInfoServices;
+    protected $referenceServices;
     protected $addressGeneralInfoService;
     protected $addressBookServices;
     protected $mainFeatureServices;
@@ -40,7 +43,8 @@ class ShopController extends BaseShopController {
                                 ShoppingCartServices $shoppingCartServices, GuestInfoServices $guestInfoServices,
                                 AddressGeneralInfoService $addressGeneralInfoService,
                                 AddressBookServices $addressBookServices, ProductCategoryServices $productCategoryServices,
-                                GeneralSettingServices $generalSettingServices, MainFeatureServices $mainFeatureServices
+                                GeneralSettingServices $generalSettingServices, MainFeatureServices $mainFeatureServices,
+                                ReferenceServices $referenceServices
                                 )
     {
         parent::__construct($productCategoryServices, $generalSettingServices);
@@ -52,6 +56,7 @@ class ShopController extends BaseShopController {
         $this->addressGeneralInfoService = $addressGeneralInfoService;
         $this->addressBookServices = $addressBookServices;
         $this->mainFeatureServices = $mainFeatureServices;
+        $this->referenceServices = $referenceServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -121,7 +126,9 @@ class ShopController extends BaseShopController {
     public function checkoutPayment() {
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         $addressShipping = $this->addressBookServices->getDetailAddressShippingSelected($this->userId, $this->isGuest);
-        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping'));
+        $shippingMethods = $this->referenceServices->getReferenceFromAttributeType(ReferencesConfig::SHIPPING_METHOD_TYPE);
+        $paymentMethods = $this->referenceServices->getReferenceFromAttributeType(ReferencesConfig::PAYMENT_METHOD_TYPE);
+        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping', 'shippingMethods', 'paymentMethods'));
     }
 
     /**

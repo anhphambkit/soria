@@ -59,7 +59,9 @@ use App\Packages\SystemGeneral\Services\Implement\ImplementHelperServices;
 use App\Packages\Shop\Services\Implement\ImplementMainFeatureServices;
 use App\Packages\SystemGeneral\Services\Implement\ImplementMediaServices;
 use App\Packages\Shop\Services\MainFeatureServices;
+use App\Packages\SystemGeneral\Services\Implement\ImplementReferenceServices;
 use App\Packages\SystemGeneral\Services\MediaServices;
+use App\Packages\SystemGeneral\Services\ReferenceServices;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -93,6 +95,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Bind Core DB:
         $this->app->singleton(CoreDBRepository::class, EloquentCoreDBRepository::class);
+        $this->app->singleton(ReferenceServices::class, ImplementReferenceServices::class);
         $this->app->singleton(ReferenceRepository::class, EloquentReferenceRepository::class);
 
         // Bind Setting DB:

@@ -37,4 +37,18 @@ class EloquentProductsInOrderRepository implements ProductsInOrderRepository
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getAllProductsInOrder(int $orderId) {
+        try {
+            $query = $this->productsInOrderModel->select('*')->where('order_id', $orderId)->get();
+            return $query;
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

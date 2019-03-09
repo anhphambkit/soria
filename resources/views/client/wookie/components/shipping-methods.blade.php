@@ -7,17 +7,19 @@
  */
 ?>
 <div id="shipping-area" class="method-area">
-    <div class="shipping-item">
-        @component('components.elements.field')
-            @slot('title', trans('address-form.standard_shipping'))
-            @slot('value', trans('address-form.standard_shipping'))
-            @slot('name', 'shipping_method')
-            @slot('id', 'shipping-basic')
-            @slot('required', true)
-            @slot('type', 'radio-single')
-            @slot('class', 'shipping-method')
-            @slot('checked', true)
-            @slot('jsValidate', false)
-        @endcomponent
-    </div>
+    @foreach($shippingMethods as $shippingMethod)
+        <div class="shipping-item">
+            @component('components.elements.field')
+                @slot('title', $shippingMethod->value)
+                @slot('value', $shippingMethod->id)
+                @slot('name', 'shipping_method')
+                @slot('id', $shippingMethod->slug)
+                @slot('required', true)
+                @slot('type', 'radio-single')
+                @slot('class', 'shipping-method')
+                @slot('checked', true)
+                @slot('jsValidate', false)
+            @endcomponent
+        </div>
+    @endforeach
 </div>

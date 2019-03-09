@@ -46,8 +46,9 @@ Route::domain('{subDomain}.{mainDomain}')->group(function () {
 
         /************ Router Invoice Orders ************** */
         Route::prefix('invoice-order')->group(function () {
-            // Product Category:
             Route::get('/', 'InvoiceOrder\InvoiceOrderController@index')->name('admin.invoice_order.index')->middleware('admin_portal');
+
+            Route::get('/detail/{id}', 'InvoiceOrder\InvoiceOrderController@detailInvoiceOrder')->name('admin.invoice_order.detail')->middleware('admin_portal');
         });
     });
 });

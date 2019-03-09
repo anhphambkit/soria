@@ -28,12 +28,10 @@
     <!-- APP FAVICON -->
 
     <!-- BEGIN FONTS-->
-    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/family-open-sans.css') }}"
-          rel="stylesheet">
-    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/line-awesome/css/line-awesome.min.css') }}"
-          rel="stylesheet">
-    <link href="{{ asset('assets/vendors/plugins/fontawesome/css/all.min.css') }}"
-          rel="stylesheet">
+    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/family-open-sans.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/line-awesome/css/line-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/modern-admin/app-assets/fonts/simple-line-icons/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/plugins/fontawesome/css/all.min.css') }}" rel="stylesheet">
     @yield('fonts')
     <!-- END FONTS-->
 
@@ -64,8 +62,8 @@
     @yield('page-css')
     <!-- ========== START PAGE CSS ========== -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/style-custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/modern-admin/assets/css/custom-web.css') }}">
     <script src="{{ asset('assets/backend/modern-admin/app-assets/js/core/libraries/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/general/js/loading/soria-loading.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/general/js/loading/loaded.js') }}" type="text/javascript"></script>

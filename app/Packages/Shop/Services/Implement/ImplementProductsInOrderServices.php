@@ -37,4 +37,12 @@ class ImplementProductsInOrderServices implements ProductsInOrderServices
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     */
+    public function getAllProductsInOrder(int $orderId) {
+        return $this->productsInOrderRepository->getAllProductsInOrder($orderId);
+    }
 }

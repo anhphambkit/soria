@@ -22,6 +22,7 @@ return [
     'province_city' => 'Tỉnh/Thành phố',
     'district' => 'Quận/Huyện',
     'ward' => 'Phường/Xã',
+    'email' => 'Email',
     'address' => 'Địa chỉ',
     'type_address' => 'Loại địa chỉ',
     'select_province_city' => 'Chọn tỉnh/thành phố',
