@@ -13,9 +13,7 @@
  *********************************************************/
 Route::domain('{subDomain}.{mainDomain}')->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/', function () {
-            return view('backend.modern-admin.pages.dashboard');
-        })->name('admin.dashboard')->middleware('admin_portal');
+        Route::get('/', 'General\GeneralSettingController@index')->name('admin.dashboard')->middleware('admin_portal');
 
         /************ Router Product ************** */
         Route::prefix('product')->group(function () {

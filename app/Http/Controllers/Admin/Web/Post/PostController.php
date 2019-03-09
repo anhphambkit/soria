@@ -11,6 +11,7 @@ use App\Packages\Admin\Post\Services\PostCategoryServices;
 use App\Packages\Admin\Post\Services\PostServices;
 use App\Packages\SystemGeneral\Constants\ReferencesConfig;
 use App\Packages\SystemGeneral\Repositories\ReferenceRepository;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SystemGeneral\Web\BaseAdminController;
 
@@ -20,8 +21,9 @@ class PostController extends BaseAdminController
     protected $postServices;
     protected $postCategoryServices;
     protected $referenceRepository;
-    public function __construct(PostServices $postServices, PostCategoryServices $postCategoryServices, ReferenceRepository $referenceRepository) {
-        parent::__construct();
+    public function __construct(PostServices $postServices, PostCategoryServices $postCategoryServices,
+                                ReferenceRepository $referenceRepository, GeneralSettingServices $generalSettingServices) {
+        parent::__construct($generalSettingServices);
         $this->postServices = $postServices;
         $this->postCategoryServices = $postCategoryServices;
         $this->referenceRepository = $referenceRepository;

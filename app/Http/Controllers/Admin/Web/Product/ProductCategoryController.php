@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Web\Product;
 
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
+use App\Packages\SystemGeneral\Services\GeneralSettingServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SystemGeneral\Web\BaseAdminController;
 
@@ -10,8 +11,8 @@ class ProductCategoryController extends BaseAdminController
 {
     //if you have a constructor in other controllers you need call constructor of parent controller (i.e. BaseController) like so:
     protected $productCategoryServices;
-    public function __construct(ProductCategoryServices $productCategoryServices) {
-        parent::__construct();
+    public function __construct(ProductCategoryServices $productCategoryServices, GeneralSettingServices $generalSettingServices) {
+        parent::__construct($generalSettingServices);
         $this->productCategoryServices = $productCategoryServices;
     }
 
