@@ -23,6 +23,7 @@ use App\Packages\SystemGeneral\Services\HelperServices;
 use App\Packages\SystemGeneral\Services\ReferenceServices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 
 class ShopController extends BaseShopController {

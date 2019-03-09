@@ -111,13 +111,13 @@ class EloquentAddressBookRepository implements AddressBookRepository
     public function updateAddressBook(array $data, int $userId, bool $isGuest) {
         try {
             return DB::transaction(function () use ($data, $userId, $isGuest) {
-                if ($data['is_default']) // Unset default other address book
-                    $this->addressBookModel
-                        ->where('user_id', $userId)
-                        ->where('is_guest', $isGuest)
-                        ->update([
-                            'is_default' => false
-                        ]);
+//                if ($data['is_default']) // Unset default other address book
+//                    $this->addressBookModel
+//                        ->where('user_id', $userId)
+//                        ->where('is_guest', $isGuest)
+//                        ->update([
+//                            'is_default' => false
+//                        ]);
 
                 return $this->addressBookModel
                     ->select('*')

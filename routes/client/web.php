@@ -20,6 +20,13 @@
  */
 Route::get('/', 'Shop\ShopController@index')->name('client.page.home');
 
+Route::get('/mailable', function () {
+    $shopSettings =  app()->make(\App\Packages\SystemGeneral\Services\GeneralSettingServices::class)->getAllSettingsForRenderByTypeWeb(\App\Packages\SystemGeneral\Constants\SettingConfig::SHOP);
+    $detailOrder = app()->make(\App\Packages\Shop\Repositories\InvoiceOrderRepository::class)->getDetailInvoiceOrder(1);
+    $orderProducts = app()->make(\App\Packages\Shop\Services\ProductsInOrderServices::class)->getAllProductsInOrder(1);
+    return new App\Mail\OrderNotifyAdminShop($shopSettings, $detailOrder, $orderProducts);
+});
+
 /************ Router Post ************** */
 Route::prefix('blog')->group(function () {
     // Blog page:

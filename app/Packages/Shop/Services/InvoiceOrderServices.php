@@ -29,4 +29,10 @@ interface InvoiceOrderServices
      * @return mixed
      */
     public function getDetailInvoiceOrder(int $orderId);
+
+    /**
+     * @param int $orderId
+     * @return mixed
+     */
+    public function sendEmailNotifyNewOrder(int $orderId);
 }
