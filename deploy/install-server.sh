@@ -23,3 +23,6 @@ sudo cp /home/projects/drsori/deploy/supervisor-conf/soria-email-order-queue.con
 sudo cp /home/projects/drsori/deploy/supervisor-conf/soria-email-queue.conf /etc/supervisor/conf.d/
 sudo chmod 755 /home/projects/drsori/deploy
 sudo apt-get install telnet -y
+sudo mkdir /home/ssl
+sudo cp /home/projects/drsori/deploy/ssl/soria.pem /home/ssl
+sudo cp /home/projects/drsori/deploy/ssl/soria.key /home/ssl

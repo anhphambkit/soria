@@ -28,17 +28,17 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 }
 
 task('deploy:dev', [
-//    'deploy:chown-directory',
+    'deploy:chown-directory',
 //    'deploy:maintenance-start',
 //    'deploy:git',
 //    'deploy:migrate-rollback',
 //    'deploy:migrate',
     'deploy:upload',
 //    'deploy:install-server',
-//    'deploy:start-supervisor',
+    'deploy:start-supervisor',
 //    'deploy:vendors',
 //    'deploy:node',
-//    'deploy:build',
+    'deploy:build',
 //    'deploy:mkdir-framework',
     'deploy:clear-cache',
 //    'deploy:permission',
@@ -115,7 +115,7 @@ task('deploy:upload', function(){
     $path = get('deploy_path');
     $uploads = [
         "deploy" => "{$path}//deploy",
-        "storage//app//public" => "{$path}//storage//app//public",
+//        "storage//app//public" => "{$path}//storage//app//public",
     ];
     foreach ($uploads as $rootPath => $upload) {
         upload("{$rootPath}//", $upload);
