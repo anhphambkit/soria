@@ -32,7 +32,7 @@ task('deploy:dev', [
     'deploy:git',
 //    'deploy:migrate-rollback',
 //    'deploy:migrate',
-//    'deploy:upload',
+    'deploy:upload',
 //    'deploy:vendors',
 //    'deploy:node',
     'deploy:build',
@@ -75,7 +75,7 @@ task('deploy:migrate', function(){ // Install vendors by composer
 task('deploy:vendors', function(){ // Install vendors by composer
     try {
         $path = get('deploy_path');
-        run("cd \"{$path}\" && COMPOSER_PROCESS_TIMEOUT=2000 composer install");
+        run("cd \"{$path}\" && COMPOSER_PROCESS_TIMEOUT=2000 composer update");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
     }
@@ -106,11 +106,12 @@ task('deploy:upload', function(){
     writeln('Upload...');
     $path = get('deploy_path');
     $uploads = [
-        "storage//app//public//test" => "{$path}//storage//app//public//test",
+        "deploy" => "{$path}//deploy",
     ];
     foreach ($uploads as $rootPath => $upload) {
         upload("{$rootPath}//", $upload);
     }
+    run("sudo chmod -R 755 " . $path . "deploy");
 });
 
 task('deploy:chmod', function(){
