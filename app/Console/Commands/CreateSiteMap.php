@@ -67,6 +67,7 @@ class CreateSiteMap extends Command
 
         // add bài viết
         $posts = DB::table('posts')
+                    ->where('is_publish', true)
                     ->orderBy('created_at', 'desc')
                     ->get();
         foreach ($posts as $post) {
@@ -84,6 +85,7 @@ class CreateSiteMap extends Command
 
         // add sản phẩm
         $products = DB::table('products')
+            ->where('is_publish', true)
             ->orderBy('created_at', 'desc')
             ->get();
         foreach ($products as $product) {
