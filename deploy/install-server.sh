@@ -1,2 +1,2 @@
 #!/bin/bash
-brew install supervisor -y
+sudo apt-get supervisor -y
