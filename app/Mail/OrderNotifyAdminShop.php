@@ -22,12 +22,12 @@ class OrderNotifyAdminShop extends Mailable implements ShouldQueue
      * @param $orderProducts
      */
     public function __construct($shopSettings, $detailOrder, $orderProducts)
-{
-    $this->queue = "email-order";
-    $this->shopSettings = $shopSettings;
-    $this->detailOrder = $detailOrder;
-    $this->orderProducts = $orderProducts;
-}
+    {
+        $this->queue = "email-order";
+        $this->shopSettings = $shopSettings;
+        $this->detailOrder = $detailOrder;
+        $this->orderProducts = $orderProducts;
+    }
 
     /**
      * Build the message.
@@ -35,7 +35,8 @@ class OrderNotifyAdminShop extends Mailable implements ShouldQueue
      * @return $this
      */
     public function build()
-{
-    return $this->view('emails.shop.order-notify-admin-shop');
-}
+    {
+        return $this->subject(trans('mail-shop.notify_new_order_admin', [ 'orderId' => $this->detailOrder->id ]))
+                    ->view('emails.shop.order-notify-admin-shop');
+    }
 }
