@@ -40,6 +40,7 @@ task('deploy:dev', [
 //    'deploy:node',
 //    'deploy:build',
 //    'deploy:mkdir-framework',
+//    'deploy:make-logs',
     'deploy:clear-cache',
 //    'deploy:permission',
     'deploy:chmod',
@@ -100,6 +101,15 @@ task('deploy:build', function(){ // Build frontend
     run("cd \"{$path}\" && npm run build-helper");
     run("cd \"{$path}\" && npm run build");
 });
+
+//task('deploy:make-logs', function(){ // Build frontend
+//    $path = get('deploy_path');
+//    # code...
+//    run("cd \"{$path}\" && sudo mkdir storage/framework");
+//    run("cd \"{$path}\" && sudo mkdir storage/framework/cache");
+//    run("cd \"{$path}\" && sudo mkdir storage/framework/sessions");
+//    run("cd \"{$path}\" && sudo mkdir storage/framework/views");
+//});
 
 task('deploy:mkdir-framework', function(){ // Build frontend
     $path = get('deploy_path');
