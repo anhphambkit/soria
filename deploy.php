@@ -35,7 +35,7 @@ task('deploy:dev', [
     'deploy:upload',
 //    'deploy:vendors',
 //    'deploy:node',
-    'deploy:build',
+//    'deploy:build',
     'deploy:clear-cache',
 //    'deploy:permission',
 //    'deploy:chmod',
