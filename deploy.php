@@ -28,28 +28,31 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 }
 
 task('deploy:dev', [
+//    'deploy:chown-directory',
 //    'deploy:maintenance-start',
 //    'deploy:git',
 //    'deploy:migrate-rollback',
 //    'deploy:migrate',
     'deploy:upload',
+//    'deploy:install-server',
 //    'deploy:start-supervisor',
 //    'deploy:vendors',
 //    'deploy:node',
 //    'deploy:build',
-//    'deploy:clear-cache',
+//    'deploy:mkdir-framework',
+    'deploy:clear-cache',
 //    'deploy:permission',
-//    'deploy:chmod',
-//    'deploy:maintenance-stop'
+    'deploy:chmod',
+    'deploy:maintenance-stop'
 ]);
 
 task('deploy:git', function(){ // Install vendors by composer
     try {
         $path = get('deploy_path');
-        run("cd \"{$path}\" && git checkout .");
+        run("cd \"{$path}\" && sudo git checkout .");
 //        run("cd \"{$path}\" && git add .");
 //        run("cd \"{$path}\" && git commit -m \"auto-commit-by-deployer\" ");
-        run("cd \"{$path}\" && git pull origin master");
+        run("cd \"{$path}\" && sudo git pull origin master");
     } catch (\Symfony\Component\Process\Exception\ProcessFailedException $e) {
         writeln($e->getMessage());
     }
@@ -89,18 +92,22 @@ task('deploy:node', function(){ // Install node modules
 
 task('deploy:build', function(){ // Build frontend
     $path = get('deploy_path');
-	$modules = [
-		'webpack/module-user.config.js',
-	];
 
-	foreach ($modules as $key => $module) {
-		# code...
-		run("cd \"{$path}\" && npm run build-vendors");
-		run("cd \"{$path}\" && npm run build-backend");
-		run("cd \"{$path}\" && npm run build-client");
-		run("cd \"{$path}\" && npm run build-helper");
-		run("cd \"{$path}\" && npm run build");
-	}
+    # code...
+    run("cd \"{$path}\" && npm run build-vendors");
+    run("cd \"{$path}\" && npm run build-backend");
+    run("cd \"{$path}\" && npm run build-client");
+    run("cd \"{$path}\" && npm run build-helper");
+    run("cd \"{$path}\" && npm run build");
+});
+
+task('deploy:mkdir-framework', function(){ // Build frontend
+    $path = get('deploy_path');
+    # code...
+    run("cd \"{$path}\" && sudo mkdir storage/framework");
+    run("cd \"{$path}\" && sudo mkdir storage/framework/cache");
+    run("cd \"{$path}\" && sudo mkdir storage/framework/sessions");
+    run("cd \"{$path}\" && sudo mkdir storage/framework/views");
 });
 
 task('deploy:upload', function(){
@@ -108,6 +115,7 @@ task('deploy:upload', function(){
     $path = get('deploy_path');
     $uploads = [
         "deploy" => "{$path}//deploy",
+        "storage//app//public" => "{$path}//storage//app//public",
     ];
     foreach ($uploads as $rootPath => $upload) {
         upload("{$rootPath}//", $upload);
@@ -115,17 +123,31 @@ task('deploy:upload', function(){
     run("sudo chmod -R 755 " . $path . "deploy");
 });
 
+task('deploy:install-server', function(){
+    writeln('start install server...');
+    $path = get('deploy_path');
+
+    run("/{$path}/deploy/install-server.sh");
+});
+
 task('deploy:start-supervisor', function(){
     writeln('start supervisor...');
     $path = get('deploy_path');
 
-    run("/{$path}/deploy/install-server.sh");
+    run("/{$path}/deploy/start-server.sh");
 });
 
 task('deploy:chmod', function(){
     writeln('Change Mod...');
     $path = get('deploy_path');
     run("sudo chmod -R 777 " . $path . "storage/app/public/");
+});
+
+task('deploy:chown-directory', function(){
+    writeln('Change chown directory...');
+    $path = get('deploy_path');
+    $permission = get('permission');
+    run("sudo chown -R " . $permission . " " . $path);
 });
 
 task('deploy:permission', function(){
