@@ -11,3 +11,4 @@ sudo supervisorctl update
 sudo supervisorctl start soria-queue:*
 sudo supervisorctl start soria-email-order-queue:*
 sudo supervisorctl start soria-email-queue:*
+* * * * * cd php /home/projects/drsori/ schedule:run >> /dev/null 2>&1
