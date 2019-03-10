@@ -1,0 +1,2 @@
+* * * * * ec2-user php /Users/anhpham/Documents/workspace/php/drsori/ schedule:run >> /Users/anhpham/Documents/workspace/php/drsori/storage/schedule.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.
