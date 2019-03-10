@@ -28,18 +28,19 @@ if($env->getEnv('DEPLOY_ENV') === 'production'){
 }
 
 task('deploy:dev', [
-    'deploy:maintenance-start',
-    'deploy:git',
+//    'deploy:maintenance-start',
+//    'deploy:git',
 //    'deploy:migrate-rollback',
 //    'deploy:migrate',
     'deploy:upload',
+//    'deploy:start-supervisor',
 //    'deploy:vendors',
 //    'deploy:node',
 //    'deploy:build',
-    'deploy:clear-cache',
+//    'deploy:clear-cache',
 //    'deploy:permission',
 //    'deploy:chmod',
-    'deploy:maintenance-stop'
+//    'deploy:maintenance-stop'
 ]);
 
 task('deploy:git', function(){ // Install vendors by composer
@@ -112,6 +113,13 @@ task('deploy:upload', function(){
         upload("{$rootPath}//", $upload);
     }
     run("sudo chmod -R 755 " . $path . "deploy");
+});
+
+task('deploy:start-supervisor', function(){
+    writeln('start supervisor...');
+    $path = get('deploy_path');
+
+    run("/{$path}/deploy/install-server.sh");
 });
 
 task('deploy:chmod', function(){

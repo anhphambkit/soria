@@ -1,6 +1,8 @@
 #!/bin/bash
-service php7.1-fpm restart
-service supervisor restart
+sudo cp /home/projects/drsori/deploy/supervisor-conf/soria-queue.conf /etc/supervisor/conf.d/
+sudo cp /home/projects/drsori/deploy/supervisor-conf/soria-email-order-queue.conf /etc/supervisor/conf.d/
+sudo cp /home/projects/drsori/deploy/supervisor-conf/soria-email-queue.conf /etc/supervisor/conf.d/
+service supervisor start
 supervisorctl reread
 supervisorctl update
 supervisorctl start soria-queue:*
