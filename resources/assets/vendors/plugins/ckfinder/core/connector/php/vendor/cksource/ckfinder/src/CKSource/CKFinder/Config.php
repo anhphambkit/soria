@@ -174,7 +174,7 @@ class Config
             'htmlExtensions'           => array('html', 'htm', 'xml', 'js'),
             'hideFolders'              => array(".*", "CVS", "__thumbs"),
             'hideFiles'                => array(".*"),
-            'forceAscii'               => false,
+            'forceAscii'               => true,
             'xSendfile'                => false,
             'debug'                    => false,
             'pluginsDirectory'         => __DIR__ . '/plugins',
