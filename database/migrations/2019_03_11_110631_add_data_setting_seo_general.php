@@ -62,7 +62,7 @@ class AddDataSettingSeoGeneral extends Migration
             ],
             [
                 'main_type' => SettingConfig::SHOP_INFO_TYPE,
-                'value' => "Soria Beauty - Shop online TP HCM <br/> Chuyên dược mỹ phẩm Eucerin chính hãng 100%",
+                'value' => "Soria Beauty - Shop online TP HCM - Chuyên dược mỹ phẩm Eucerin chính hãng 100%",
                 'name' => "Shop Meta Description",
                 'slug' => "shop_meta_description",
                 'type_data' => SettingConfig::TEXT_TYPE_DATA,
@@ -90,7 +90,7 @@ class AddDataSettingSeoGeneral extends Migration
             ],
             [
                 'main_type' => SettingConfig::BLOG_INFO_TYPE,
-                'value' => "Soria Nguyễn - Soria Beauty <br/> Blog chia sẻ kiến thức bệnh da, chăm sóc da.",
+                'value' => "Soria Nguyễn - Soria Beauty - Blog chia sẻ kiến thức bệnh da, chăm sóc da.",
                 'name' => "Blog Meta Description",
                 'slug' => "blog_meta_description",
                 'type_data' => SettingConfig::TEXT_TYPE_DATA,
