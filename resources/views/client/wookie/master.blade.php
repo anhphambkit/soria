@@ -27,7 +27,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title'){{ (!$isHomePage) ? " | {$shopSettings['website_name']} Shop" : "{$shopSettings['website_name']} Shop - " }}@yield('title-description')</title>
+        <title>@yield('title'){{ (!$isHomePage) ? " | {$shopSettings['website_name']} Shop" : "{$shopSettings['website_name']} - " }}@yield('title-description')</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($shopSettings['shop_favicon']) }}">
@@ -101,7 +101,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- ========== END MODAL ADD TO CART ========== -->
 
         <!-- ========== START MODAL QUICK VIEW ========== -->
-        @include('client.wookie.modals.quick-view-modal')
+        {{--@include('client.wookie.modals.quick-view-modal')--}}
         <!-- ========== END MODAL QUICK VIEW ========== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->
