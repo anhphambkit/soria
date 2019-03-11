@@ -9,9 +9,11 @@
 @extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
 @section('keywords')
+    {{ $shopSettings['shop_meta_keywords'] }}
 @endsection
 
 @section('desc')
+    {{ $shopSettings['shop_meta_description'] }}
 @endsection
 
 @section('metas')

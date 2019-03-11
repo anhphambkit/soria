@@ -10,16 +10,18 @@
 @extends('client.ogato-personal.client-master', [ 'isSinglePost' => false ])
 
 @section('keywords')
+    {{ $blogSettings['blog_meta_keywords'] }}
 @endsection
 
 @section('desc')
+    {{ $blogSettings['blog_meta_description'] }}
 @endsection
 
 @section('metas')
 @endsection
 
 @section('title')
-    Homepage
+    {{ trans('breadcrumbs.blog') }}
 @endsection
 
 @section('fonts')
