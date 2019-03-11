@@ -35,7 +35,7 @@ $classBodyPage .= $classBodyCustom;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title'){{ ($isSinglePost) ? " | {$blogSettings['website_name']} Blog" : "{$blogSettings['website_name']} Blog - " }}@yield('title-description')</title>
+        <title>@yield('title'){{ ($isSinglePost) ? " | {$blogSettings['website_name']} Blog" : "{$blogSettings['website_name']} - " }}@yield('title-description')</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($blogSettings['blog_favicon']) }}">

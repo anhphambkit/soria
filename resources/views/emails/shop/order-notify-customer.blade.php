@@ -24,7 +24,7 @@
                                         <a href="{{ route('client.page.home') }}"
                                                 target="_blank"
                                                 data-saferedirecturl="{{ route('client.page.home') }}">
-                                            <img alt="{{ env('SITE_TITLE') }}" height="30"
+                                            <img alt="{{ $shopSettings['website_name'] }}" height="30"
                                                     src="{{ asset($shopSettings['shop_logo_primary']) }}"
                                                     width="300" class="CToWUd" />
                                         </a>
@@ -85,10 +85,10 @@
                                                                                             tại
                                                                                             <a href="{{ route('client.page.home') }}"
                                                                                                style="text-decoration:none;color:#ffffff"
-                                                                                               title="{{ env('SITE_TITLE') }}"
+                                                                                               title="{{ $shopSettings['website_name'] }}"
                                                                                                target="_blank"
                                                                                                data-saferedirecturl="{{ route('client.page.home') }}">
-                                                                                                <span style="color:#ffffff">{{ env('SITE_TITLE') }}</span></a>,
+                                                                                                <span style="color:#ffffff">{{ $shopSettings['website_name'] }}</span></a>,
                                                                                         </p>
 
                                                                                         <p style="padding:0;margin:0 0 7px;font-family:Arial,Helvetica,sans-serif;font-size:20px;text-transform:uppercase;line-height:18px;color:#ffffff">
@@ -124,9 +124,9 @@
                                                                 <p style="font-family:Arial,Helvetica,sans-serif;color:#494949;font-size:13px;padding:0;margin:0;line-height:18px">
                                                                     <a href="{{ route('client.page.home') }}"
                                                                        style="text-decoration:none;color:#494949"
-                                                                       title="{{ env('SITE_TITLE') }}" target="_blank"
+                                                                       title="{{ $shopSettings['website_name'] }}" target="_blank"
                                                                        data-saferedirecturl="{{ route('client.page.home') }}">
-                                                                        <span style="color:#494949">{{ env('SITE_TITLE') }}</span></a>
+                                                                        <span style="color:#494949">{{ $shopSettings['website_name'] }}</span></a>
                                                                     vừa nhận được đơn hàng #<strong><span
                                                                                 class="m_7759863093632542988no-link">{{ $detailOrder->id }}</span></strong>
                                                                     của bạn, được đặt vào lúc <strong><span
@@ -521,7 +521,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;margin:0;padding:10px 15px 15px 15px;line-height:18px;color:#444;font-weight:bold">Một lần nữa {{ env('SITE_TITLE') }} cảm ơn quý khách.</p>
+                                                    <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;margin:0;padding:10px 15px 15px 15px;line-height:18px;color:#444;font-weight:bold">Một lần nữa {{ $shopSettings['website_name'] }} cảm ơn quý khách.</p>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -575,15 +575,15 @@
                                 <tr>
                                     <td align="center" valign="top" style="padding-top:20px">
                                         <p style="font-family:Arial,Helvetica,sans-serif;color:#494949;font-size:10px;line-height:14px;margin:0 0 15px;padding:0">
-                                            © 2018 <a href="{{ route('client.page.home') }}" target="_blank"
-                                                      data-saferedirecturl="{{ route('client.page.home') }}">{{ env('SITE_TITLE') }}</a>
+                                            <a href="{{ route('client.page.home') }}" target="_blank"
+                                                      data-saferedirecturl="{{ route('client.page.home') }}">{{ $shopSettings['shop_signature'] }}</a>
                                         </p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p align="left" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;color:#4b8da5;padding:10px 15px 15px 15px;margin:0px;font-weight:normal">Quý khách nhận được email này vì đã mua hàng tại {{ env('SITE_TITLE') }}.<br>
-                                            Để chắc chắn luôn nhận được email thông báo, xác nhận mua hàng từ {{ env('SITE_TITLE') }}, quý khách vui lòng thêm địa chỉ <strong><a href="mailto:{{ $shopSettings['shop_email'] }}" target="_blank">{{ $shopSettings['shop_email'] }}</a></strong> vào số địa chỉ (Address Book, Contacts) của hộp email.<br>
+                                        <p align="left" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;color:#4b8da5;padding:10px 15px 15px 15px;margin:0px;font-weight:normal">Quý khách nhận được email này vì đã mua hàng tại {{ $shopSettings['website_name'] }}.<br>
+                                            Để chắc chắn luôn nhận được email thông báo, xác nhận mua hàng từ {{ $shopSettings['website_name'] }}, quý khách vui lòng thêm địa chỉ <strong><a href="mailto:{{ $shopSettings['shop_email'] }}" target="_blank">{{ $shopSettings['shop_email'] }}</a></strong> vào số địa chỉ (Address Book, Contacts) của hộp email.<br>
                                         </p>
                                     </td>
                                 </tr>
