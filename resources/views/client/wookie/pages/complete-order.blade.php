@@ -20,7 +20,11 @@
 @endsection
 
 @section('title')
-    Complete Order
+    {{ trans('shop.complete_order') }}
+@endsection
+
+@section('title-description')
+    {{--{{ $shopSettings['shop_title_description'] }}--}}
 @endsection
 
 @section('fonts')

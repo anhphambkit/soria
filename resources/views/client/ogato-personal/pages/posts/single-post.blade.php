@@ -29,6 +29,10 @@
    {{  $post['name'] }}
 @endsection
 
+@section('title-description')
+    {{--{{ $blogSettings['blog_title_description'] }}--}}
+@endsection
+
 @section('fonts')
 @endsection
 

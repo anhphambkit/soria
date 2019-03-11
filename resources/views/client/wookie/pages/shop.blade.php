@@ -20,7 +20,11 @@
 @endsection
 
 @section('title')
-    {{ trans('breadcrumbs.shop') }}
+    {{--{{ trans('breadcrumbs.shop') }}--}}
+@endsection
+
+@section('title-description')
+    {{ $shopSettings['shop_title_description'] }}
 @endsection
 
 @section('fonts')

@@ -20,7 +20,11 @@
 @endsection
 
 @section('title')
-    Check Out - Payment
+    {{ trans('shop.checkout_payment') }}
+@endsection
+
+@section('title-description')
+    {{--{{ $shopSettings['shop_title_description'] }}--}}
 @endsection
 
 @section('fonts')

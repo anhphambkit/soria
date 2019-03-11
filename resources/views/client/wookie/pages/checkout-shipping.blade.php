@@ -23,6 +23,10 @@
     {{ trans('shop.checkout_shipping') }}
 @endsection
 
+@section('title-description')
+    {{--{{ $shopSettings['shop_title_description'] }}--}}
+@endsection
+
 @section('fonts')
 @endsection
 

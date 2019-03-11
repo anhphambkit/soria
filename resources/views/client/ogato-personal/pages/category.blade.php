@@ -26,7 +26,11 @@
 @endsection
 
 @section('title')
-    {{  $category['name'] }}
+    {{  $category['name'] }} - {{ trans('breadcrumbs.categories') }}
+@endsection
+
+@section('title-description')
+    {{--{{ $blogSettings['blog_title_description'] }}--}}
 @endsection
 
 @section('fonts')
