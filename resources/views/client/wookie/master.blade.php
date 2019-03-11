@@ -101,7 +101,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- ========== END MODAL ADD TO CART ========== -->
 
         <!-- ========== START MODAL QUICK VIEW ========== -->
-        @include('client.wookie.modals.quick-view-modal')
+        {{--@include('client.wookie.modals.quick-view-modal')--}}
         <!-- ========== END MODAL QUICK VIEW ========== -->
 
         <!-- ========== START CORE FOOTER SCRIPTS ========== -->

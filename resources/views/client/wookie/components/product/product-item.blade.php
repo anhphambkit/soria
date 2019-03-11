@@ -96,11 +96,11 @@ $rating = isset($rating) ? $rating : null;
             <div class="tt-row-btn">
                 <span onclick="addToCart({{ $product['id'] }})" class="tt-btn-addtocart thumbprod-button-bg add-to-cart-animation text-uppercase">{{ trans('shop.add_to_cart') }}</span>
             </div>
-            <div class="tt-row-btn">
-                <a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-                <a href="#" class="tt-btn-wishlist"></a>
-                <a href="#" class="tt-btn-compare"></a>
-            </div>
+            {{--<div class="tt-row-btn">--}}
+                {{--<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>--}}
+                {{--<a href="#" class="tt-btn-wishlist"></a>--}}
+                {{--<a href="#" class="tt-btn-compare"></a>--}}
+            {{--</div>--}}
         </div>
     </div>
 </div>
