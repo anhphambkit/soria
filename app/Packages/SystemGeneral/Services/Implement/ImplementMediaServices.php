@@ -43,47 +43,51 @@ class ImplementMediaServices implements MediaServices{
         $filenameWithoutExtension = $fileNameOnly = pathinfo($fileNameExt, PATHINFO_FILENAME);
 
         // Format File name:
-        $filenameFormated = to_slug_helper($filenameWithoutExtension);
+        $filenameFormatted = to_slug_helper($filenameWithoutExtension);
 
-        $fileNameFormatedExt = "{$filenameFormated}.{$ext}";
+        $fileNameFormattedExt = "{$filenameFormatted}.{$ext}";
 
-        $filenameFormatedUnique = $this->getNewUniqueFilename($fileNameFormatedExt);
+        $filenameFormattedUnique = $this->getNewUniqueFilename($fileNameFormattedExt);
 
         $type = $this->getType($ext);
 
         $rootDir = $rootPath . '/' . $type;
 
         // If image, create thumbnail + compress image
-        if ($type === "images") {
+        if ($type == "images") {
             // instance an image
             $newImage = Image::make($file->getRealPath());
-            $path = "{$rootDir}/{$filenameFormatedUnique}";
+            $path = "{$rootDir}/{$filenameFormattedUnique}";
             $newImage->save(storage_path("app/{$path}"), $compressImage);
 
             // Create thumbnail 300x300:
-            $this->createThumbnail($file, $rootDir, $filenameFormatedUnique);
+            $imagePath300x300 = $this->createThumbnail($path, $rootDir, $filenameFormattedUnique);
 
             // Create thumbnail 300x400:
-            $this->createThumbnail($file, $rootDir, $filenameFormatedUnique, 300, 400);
+            $imagePath300x400 = $this->createThumbnail($path, $rootDir, $filenameFormattedUnique, 300, 400);
 
             // Create thumbnail 150x150:
-            $this->createThumbnail($file, $rootDir, $filenameFormatedUnique, 150, 150);
+            $imagePath150x150 = $this->createThumbnail($path, $rootDir, $filenameFormattedUnique, 150, 150);
 
             // Create thumbnail 880x400:
-            $this->createThumbnail($file, $rootDir, $filenameFormatedUnique, 880, 400);
+            $imagePath880x400 = $this->createThumbnail($path, $rootDir, $filenameFormattedUnique, 880, 400);
 
             // Get size after compress:
-            $fileSize = round($newImage->filesize()/(1024*8), 2);;
+            $fileSize = round($newImage->filesize()/(1024*8), 2);
         }
         else {
-            $path = Storage::putFileAs($rootDir, $file, $filenameFormatedUnique);
+            $path = Storage::putFileAs($rootDir, $file, $filenameFormattedUnique);
             $fileSize = round($file->getSize()/(1024*8), 2);
         }
 
 
         $media = Media::create([
-            'filename' => $filenameFormatedUnique,
+            'filename' => $filenameFormattedUnique,
             'path_org' => str_replace('public/', 'storage/', $path),
+            'path_300x300' => !empty($imagePath300x300) ? str_replace('public/', 'storage/', $imagePath300x300) : null,
+            'path_300x400' => !empty($imagePath300x400) ? str_replace('public/', 'storage/', $imagePath300x400) : null,
+            'path_880x400' => !empty($imagePath880x400) ? str_replace('public/', 'storage/', $imagePath880x400) : null,
+            'path_150x150' => !empty($imagePath150x150) ? str_replace('public/', 'storage/', $imagePath150x150) : null,
             'mime_type' => $file->getClientOriginalExtension(),
             'type' => $type,
             'file_size' => $fileSize . ' KB',
@@ -91,7 +95,7 @@ class ImplementMediaServices implements MediaServices{
         ]);
 
         $fileObject = new \stdClass();
-        $fileObject->name = $filenameFormatedUnique;
+        $fileObject->name = $filenameFormattedUnique;
         $fileObject->size = $fileSize;
         $fileObject->fileID = $media->id;
         $fileObject->url = str_replace('public/', 'storage/', $path);
@@ -144,12 +148,13 @@ class ImplementMediaServices implements MediaServices{
 
     /**
      * @param $fileName
-     * @return string
+     * @param null $exceptStr
+     * @return bool|mixed|string
      */
-    public function getNewUniqueFilename($fileName)
+    public function getNewUniqueFilename($fileName, $exceptStr = null)
     {
         $fileNameOnly = pathinfo($fileName, PATHINFO_FILENAME);
-        $fileExists = Media::where('filename', 'LIKE', "$fileNameOnly%")->orderBy('created_at', 'desc')->exists();
+        $fileExists = Media::where('filename', $fileNameOnly)->orderBy('created_at', 'desc')->exists();
         $maxCurrentId = Media::max('id') + 1;
         if ($fileExists) {
             $extension = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -164,23 +169,23 @@ class ImplementMediaServices implements MediaServices{
     }
 
     /**
-     * @param $file
+     * @param $filePath
      * @param $rootDir
      * @param $filename
      * @param int $with
      * @param int $height
      * @param int $compressImage
-     * @return mixed
+     * @return string
      */
-    public function createThumbnail($file, $rootDir, $filename, $with = 300, $height = 300, $compressImage = 80) {
+    public function createThumbnail($filePath, $rootDir, $filename, $with = 300, $height = 300, $compressImage = 80) {
         // Create thumbnail 300x300 image from file:
         $pathThumb = "app/{$rootDir}/thumbnail_{$with}x{$height}";
-        $image = Image::make($file->getRealPath());
+        $image = Image::make(storage_path("app/{$filePath}"));
         if (!file_exists(storage_path($pathThumb))) {
             mkdir(storage_path($pathThumb), 0777);
         }
         $image->resize($with, $height)
             ->save(storage_path("{$pathThumb}/{$filename}"), $compressImage);
-        return $image;
+        return "{$rootDir}/thumbnail_{$with}x{$height}/{$filename}";
     }
 }
