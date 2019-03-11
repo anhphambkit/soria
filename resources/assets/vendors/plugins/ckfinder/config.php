@@ -133,7 +133,7 @@ $config['checkSizeAfterScaling'] = true;
 $config['htmlExtensions'] = array('html', 'htm', 'xml', 'js');
 $config['hideFolders'] = array('.*', 'CVS', '__thumbs');
 $config['hideFiles'] = array('.*');
-$config['forceAscii'] = false;
+$config['forceAscii'] = true;
 $config['xSendfile'] = false;
 
 // https://docs.ckeditor.com/ckfinder/ckfinder3-php/configuration.html#configuration_options_debug

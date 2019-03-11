@@ -14,4 +14,5 @@ return [
     ],
 
     'default_admin' => env('DEFAULT_ADMIN', 'Soria Nguyễn'),
+    'max_length_file_name' => 100
 ];

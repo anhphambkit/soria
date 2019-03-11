@@ -11,12 +11,12 @@ namespace App\Packages\SystemGeneral\Services;
 interface MediaServices {
 
     /**
-     * Store new file media
-     * @param  $file
-     * @param  $rootPath
+     * @param $file
+     * @param $rootPath
+     * @param int $compressImage
      * @return mixed
      */
-    public function storeMedia($file, $rootPath);
+    public function storeMedia($file, $rootPath, $compressImage = 80);
 
     /**
      * Get type by extension
