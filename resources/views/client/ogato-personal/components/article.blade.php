@@ -11,13 +11,11 @@ $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
 $author = $blogSettings['blog_name_author'];
-$featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
-$secondaryImage = "assets/client/ogato-personal/app-assets/img/posts/p2sm.jpg";
 if (sizeof($medias) > 0)
-    $featureImage = reset($medias)['path_org'];
+    $featureImage = reset($medias);
 
 if (sizeof($medias) > 1)
-    $secondaryImage = end($medias)['path_org'];
+    $secondaryImage = end($medias);
 
 switch ($typeArticle) {
     case 'gallery':
@@ -48,12 +46,12 @@ switch ($typeArticle) {
         <div class="post_banner post_banner_gallery">
             <div class="gallery_image_1">
                 <a href="#">
-                    <img class="bb-img-feature-custom center" src="{{ asset($featureImage) }}" alt="">
+                    <img class="bb-img-feature-custom center" src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
                 </a>
             </div>
 
             <div class="gallery_image_2">
-                <img src="{{ asset($secondaryImage) }}" alt="">
+                <img src="{{ asset($secondaryImage['path_org']) }}" alt="{{ $secondaryImage['filename'] }}">
                 <a href="#">
 
                 </a>
@@ -62,7 +60,7 @@ switch ($typeArticle) {
     @elseif($typeArticle === 'video')
         <div class="post_banner">
             <div class="gallery_image_1 center" data-overlay='1'>
-                <img class="bb-img-feature-custom" src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p3.jpg') }}" alt="">
+                <img class="bb-img-feature-custom" src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p3.jpg') }}" alt="alternate-video">
 
                 <a class="vid" href="https://vimeo.com/127203262">
                     <div class="play-button">
@@ -100,7 +98,7 @@ switch ($typeArticle) {
     @else
         <div class="gallery_image_1 center">
             <a href="{{ route('client.post.detail', $urlPost) }}">
-                <img class="bb-img-feature-custom" src="{{ asset($featureImage) }}" alt="">
+                <img class="bb-img-feature-custom" src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
             </a>
         </div>
     @endif
@@ -109,7 +107,7 @@ switch ($typeArticle) {
             <span class="post_meta_item post_author">
                 <a href="#">
                     <span class="post_author_img">
-                        <img src="{{ asset($avatarLink) }}" alt="">
+                        <img src="{{ asset($avatarLink) }}" alt="{{ $author }}">
                     </span>
                     <span class="post_author_info">by : {{ $author }} </span>
                 </a>

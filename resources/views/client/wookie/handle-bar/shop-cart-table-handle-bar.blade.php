@@ -19,7 +19,7 @@
                     </td>
                     <td>
                         <div class="tt-product-img">
-                            <img src="@{{ featureProduct medias }}" data-src="@{{ featureProduct medias }}" alt="">
+                            <img src="@{{ featureProduct medias }}" data-src="@{{ featureProduct medias }}" alt="@{{ name }}">
                         </div>
                     </td>
                     <td>

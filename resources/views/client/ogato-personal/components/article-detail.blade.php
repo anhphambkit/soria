@@ -48,7 +48,7 @@ $author = $blogSettings['blog_name_author'];
                     @elseif($typeArticle === 'video')
                         <div class="post_media post_media_video  mb-50">
                             <a href="#">
-                                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p4.jpg') }}" alt="">
+                                <img src="{{ asset('assets/client/ogato-personal/app-assets/img/posts/p4.jpg') }}" alt="video-alternate">
                             </a>
                             <a class="vid" href="https://vimeo.com/127203262">
                                 <div class="play-button">

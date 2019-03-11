@@ -17,10 +17,10 @@
                     <div class="row">
                         <div class="col-12 col-md-5 col-lg-6">
                             <div class="tt-mobile-product-slider arrow-location-center">
-                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12.jpg') }}" alt=""></div>
-                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-02.jpg') }}" alt=""></div>
-                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-03.jpg') }}" alt=""></div>
-                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-04.jpg') }}" alt=""></div>
+                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12.jpg') }}" alt="alternate"></div>
+                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-02.jpg') }}" alt="alternate"></div>
+                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-03.jpg') }}" alt="alternate"></div>
+                                <div><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-12-04.jpg') }}" alt="alternate"></div>
                             </div>
                         </div>
                         <div class="col-12 col-md-7 col-lg-6">
@@ -79,31 +79,31 @@
                                         <ul class="tt-options-swatch options-large">
                                             <li><a class="options-color" href="#">
                                                         <span class="swatch-img">
-                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-01.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-01.jpg') }}" alt="alternate">
                                                         </span>
                                                     <span class="swatch-label color-black"></span>
                                                 </a></li>
                                             <li class="active"><a class="options-color" href="#">
                                                         <span class="swatch-img">
-                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-02.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-02.jpg') }}" alt="alternate">
                                                         </span>
                                                     <span class="swatch-label color-black"></span>
                                                 </a></li>
                                             <li><a class="options-color" href="#">
                                                         <span class="swatch-img">
-                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-03.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-03.jpg') }}" alt="alternate">
                                                         </span>
                                                     <span class="swatch-label color-black"></span>
                                                 </a></li>
                                             <li><a class="options-color" href="#">
                                                         <span class="swatch-img">
-                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-04.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-04.jpg') }}" alt="alternate">
                                                         </span>
                                                     <span class="swatch-label color-black"></span>
                                                 </a></li>
                                             <li><a class="options-color" href="#">
                                                         <span class="swatch-img">
-                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-05.jpg') }}" alt="">
+                                                            <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/texture-img-05.jpg') }}" alt="alternate">
                                                         </span>
                                                     <span class="swatch-label color-black"></span>
                                                 </a></li>

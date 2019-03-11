@@ -34,7 +34,7 @@
         <div class="row">
             <div class="tt-logo-container">
                 <!-- mobile logo -->
-                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home') }}"><img src="{{ asset($shopSettings['shop_logo_primary']) }}" alt=""></a>
+                <a class="tt-logo tt-logo-alignment" href="{{ route('client.page.home') }}"><img src="{{ asset($shopSettings['shop_logo_primary']) }}" alt="{{ asset($shopSettings['website_name']) }}"></a>
                 <!-- /mobile logo -->
             </div>
         </div>

@@ -10,14 +10,13 @@ $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
 $author = $blogSettings['blog_name_author'];
-$featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
 if (sizeof($medias) > 0)
-    $featureImage = reset($medias)['path_org'];
+    $featureImage = reset($medias);
 ?>
 <div class="col-lg-4">
     <div class="related_posts_item">
         <a href="{{ route('client.post.detail', $urlPost) }}" class="post_card_thumbnail post-card-thumbnail-custom">
-            <img src="{{ asset($featureImage) }}" alt="">
+            <img src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
         </a>
         <div class="post_card_body">
             <h3 class="post_card_title">

@@ -28,7 +28,7 @@
                         {{--<ul>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-04.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-04.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}
@@ -40,7 +40,7 @@
                             {{--</li>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-05.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-05.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}
@@ -51,7 +51,7 @@
                             {{--</li>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-06.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-06.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}
@@ -62,7 +62,7 @@
                             {{--</li>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-07.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-07.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}
@@ -73,7 +73,7 @@
                             {{--</li>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-08.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-08.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}
@@ -84,7 +84,7 @@
                             {{--</li>--}}
                             {{--<li>--}}
                                 {{--<a href="product.html">--}}
-                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-09.jpg" alt=""></div>--}}
+                                    {{--<div class="thumbnail"><img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="images/skin-lingerie/product/product-09.jpg" alt="alternate"></div>--}}
                                     {{--<div class="tt-description">--}}
                                         {{--<div class="tt-title">Flared Shift Bag</div>--}}
                                         {{--<div class="tt-price">--}}

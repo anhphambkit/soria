@@ -30,7 +30,7 @@ $productFeatureMedia = (sizeof($productFeatureMedias) > 0) ? reset($productFeatu
                             @break
                         @case("videos")
                             {{--<div class="video-link-product" data-toggle="modal" data-type="youtube" data-target="#modalVideoProduct" data-value="http://www.youtube.com/embed/GhyKqj_P2E4">--}}
-                                {{--<img src="images/product/product-small-empty.png" alt="">--}}
+                                {{--<img src="images/product/product-small-empty.png" alt="alternate-video">--}}
                                 {{--<div>--}}
                                     {{--<i class="icon-f-32"></i>--}}
                                 {{--</div>--}}

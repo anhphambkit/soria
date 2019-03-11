@@ -559,7 +559,7 @@
                                         <a href="{{ $shopSettings['shop_facebook'] }}"
                                                 target="_blank"
                                                 data-saferedirecturl="{{ $shopSettings['shop_facebook'] }}">
-                                            <img src="{{ asset('storage/general/icons/facebook.png') }}" width="30" height="33" alt="" class="CToWUd" />
+                                            <img src="{{ asset('storage/general/icons/facebook.png') }}" width="30" height="33" alt="{{ $shopSettings['shop_facebook'] }}" class="CToWUd" />
                                         </a>
                                     </td>
                                 </tr>

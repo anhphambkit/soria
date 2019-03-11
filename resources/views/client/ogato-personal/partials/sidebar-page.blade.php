@@ -14,7 +14,7 @@
                     <h3 class="widget_title">
                         <span>{{ trans('blog.about_me') }}</span>
                     </h3>
-                    <img src="{{ asset($blogSettings['blog_avatar_author']) }}" alt="">
+                    <img src="{{ asset($blogSettings['blog_avatar_author']) }}" alt="{{ $blogSettings['blog_name_author'] }}">
                     <div class="short-description-author">
                         {!! $blogSettings['blog_short_about'] !!}
                     </div>

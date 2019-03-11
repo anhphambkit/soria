@@ -14,7 +14,7 @@
                     <h1 class="mb-20">{{ $blogSettings['blog_hi_sentence'] }}</h1>
                     <div class="author_avatar mb-20">
                         <div class="avatar">
-                            <img src="{{ asset($blogSettings['blog_avatar_author']) }}" alt="">
+                            <img src="{{ asset($blogSettings['blog_avatar_author']) }}" alt="{{ $blogSettings['blog_name_author'] }}">
                         </div>
                         <span class="author-url">
                             <i class="fas fa-share-alt open"></i>

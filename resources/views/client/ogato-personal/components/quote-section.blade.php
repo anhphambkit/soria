@@ -14,7 +14,7 @@
 
             <div class="author">
                 <div class="part-img">
-                    <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" alt="">
+                    <img src="{{ asset('assets/client/ogato-personal/app-assets/img/authors/1.jpg') }}" alt="quote">
                 </div>
                 <div class="text">
                     <h5><a href="#">John Smith</a></h5>

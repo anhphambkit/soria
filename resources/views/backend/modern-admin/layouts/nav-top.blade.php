@@ -14,7 +14,7 @@ navbar-semi-light bg-info navbar-hide-on-scroll navbar-shadow">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
-                        <img class="brand-logo" alt="modern admin logo" src="{{ asset($webSettings['web_logo_secondary']) }}">
+                        <img class="brand-logo" alt="{{ $webSettings['website_name'] }}" src="{{ asset($webSettings['web_logo_secondary']) }}">
                         <h3 class="brand-text">{{ $webSettings['web_title'] }}</h3>
                     </a>
                 </li>
