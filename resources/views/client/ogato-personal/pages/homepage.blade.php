@@ -21,7 +21,11 @@
 @endsection
 
 @section('title')
-    {{ trans('breadcrumbs.blog') }}
+    {{--{{ trans('breadcrumbs.blog') }}--}}
+@endsection
+
+@section('title-description')
+    {{ $blogSettings['blog_title_description'] }}
 @endsection
 
 @section('fonts')

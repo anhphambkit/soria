@@ -27,7 +27,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title') - {{ $shopSettings['website_name'] }}</title>
+        <title>@yield('title'){{ (!$isHomePage) ? " | {$shopSettings['website_name']} Shop" : "{$shopSettings['website_name']} Shop - " }}@yield('title-description')</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($shopSettings['shop_favicon']) }}">

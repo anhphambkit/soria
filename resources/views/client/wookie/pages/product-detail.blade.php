@@ -35,6 +35,10 @@ $breadcrumbs[$product['name']] = route('client.product.detail', "{$product['slug
     {{ $product['name'] }}
 @endsection
 
+@section('title-description')
+    {{--{{ $shopSettings['shop_title_description'] }}--}}
+@endsection
+
 @section('fonts')
 @endsection
 

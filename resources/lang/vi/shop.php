@@ -38,6 +38,8 @@ return [
     'grand_total' => 'Tổng cộng',
     'sub_total' => 'Tạm tính',
     'shopping_cart' => 'Giỏ hàng',
+    'complete_order' => 'Đặt hàng thanh công',
+    'checkout_payment' => 'Thanh toán',
     'checkout_shipping' => 'Địa chỉ giao hàng',
     'shopping_cart_is_empty' => 'Giỏ hàng trống',
     'view_cart_and_check_out' => 'Xem giỏ hàng và thanh toán',
