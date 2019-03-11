@@ -16,8 +16,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Route;
-
 
 class BaseShopController extends BaseController
 {
@@ -36,7 +34,7 @@ class BaseShopController extends BaseController
         $this->generalSettingServices = $generalSettingServices;
         $shopSettings = $this->generalSettingServices->getAllSettingsForRenderByTypeWeb(SettingConfig::SHOP);
         $shopCategories = $this->productCategoryServices->getAllProductCategory();
-//        dd($shopSettings);
+
         View::share([
             "shopCategories" => $shopCategories,
             "shopSettings" => $shopSettings,

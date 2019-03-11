@@ -42,7 +42,6 @@ class BaseBlogController extends BaseController
         $blogSettings = $this->generalSettingServices->getAllSettingsForRenderByTypeWeb(SettingConfig::BLOG);
         $blogCategories = $this->postCategoryServices->getAllPostCategory();
         $blogNewPosts = $this->postServices->getNewPosts();
-//        dd($blogNewPosts);
         View::share([
             "blogCategories" => $blogCategories,
             "blogSettings" => $blogSettings,

@@ -1,2 +1,2 @@
-* * * * * cd php /home/projects/drsori/ schedule:run >> /dev/null 2>&1
+* * * * * cd php /home/projects/drsori/ php artisan schedule:run >> /dev/null 2>&1
 # An empty line is required at the end of this file for a valid cron file.

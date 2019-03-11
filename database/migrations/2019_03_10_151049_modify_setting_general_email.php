@@ -16,23 +16,26 @@ class ModifySettingGeneralEmail extends Migration
      */
     public function up()
     {
-       $data = [
-           'main_type' => SettingConfig::SHOP_CONTACT_TYPE,
-           'sub_type' => SettingConfig::EMAIL_TYPE,
-           'value' => "hotro@soriabeauty.com",
-           'name' => "Shop Email",
-           'slug' => "shop_email",
-           'type_data' => SettingConfig::TEXT_TYPE_DATA,
-           'apply_for' => SettingConfig::SHOP,
-           'is_publish' => true,
-       ];
+        // Update General Shop/Blog:
+        $dataUpdate = [
+            'main_type' => SettingConfig::SHOP_CONTACT_TYPE,
+            'sub_type' => SettingConfig::EMAIL_TYPE,
+            'value' => "hotro@soriabeauty.com",
+            'name' => "Shop Email",
+            'slug' => "shop_email",
+            'type_data' => SettingConfig::TEXT_TYPE_DATA,
+            'apply_for' => SettingConfig::SHOP,
+            'is_publish' => true,
+        ];
 
         DB::table(SettingConfig::SETTING_TBL)
-                ->where('main_type', $data['main_type'])
-                ->where('sub_type', $data['sub_type'])
-                ->where('slug', $data['slug'])
-                ->update([ 'value' => $data['value'] ]);
+            ->where('main_type', $dataUpdate['main_type'])
+            ->where('sub_type', $dataUpdate['sub_type'])
+            ->where('slug', $dataUpdate['slug'])
+            ->update([ 'value' => $dataUpdate['value'] ]);
 
+
+        // Update main Services Info:
         $dataService = [
             'title' => "Email",
             'desc' => "<p>Mọi thắc mắc hay yêu cầu hỗ trợ, vui lòng gửi email tới:</p><p>hotro@soriabeauty.com</p>",
@@ -41,10 +44,10 @@ class ModifySettingGeneralEmail extends Migration
         ];
 
         DB::table(MainServiceConfig::MAIN_SERVICES_TBL)
-                ->where('title', $dataService['title'])
-                ->where('order', $dataService['order'])
-                ->where('icon', $dataService['icon'])
-                ->update([ 'desc' => $dataService['desc'] ]);
+            ->where('title', $dataService['title'])
+            ->where('order', $dataService['order'])
+            ->where('icon', $dataService['icon'])
+            ->update([ 'desc' => $dataService['desc'] ]);
     }
 
     /**

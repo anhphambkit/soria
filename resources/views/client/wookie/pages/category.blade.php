@@ -9,9 +9,11 @@
 @extends('client.wookie.master')
 
 @section('keywords')
+    {{ $category->meta_keywords }}
 @endsection
 
 @section('desc')
+    {{ $category->meta_description }}
 @endsection
 
 @section('metas')

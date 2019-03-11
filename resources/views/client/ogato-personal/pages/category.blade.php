@@ -19,7 +19,7 @@
 @endsection
 
 @section('desc')
-    {{--{{  $category['desc'] }}--}}
+    {{  $category['desc'] }}
 @endsection
 
 @section('metas')

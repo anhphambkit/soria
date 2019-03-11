@@ -27,7 +27,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title') - Soria Shop</title>
+        <title>@yield('title') - {{ $shopSettings['website_name'] }}</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($shopSettings['shop_favicon']) }}">
@@ -60,6 +60,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
 
         <!-- ========== START PAGE CSS ========== -->
         <link href="{{ asset('assets/client/wookie/assets/css/custom-shop.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/general/css/custom.css') }}" rel="stylesheet">
         <script src="{{ asset('assets/client/wookie/app-assets/external/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/general/js/loading/soria-loading.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/general/js/loading/loaded.js') }}" type="text/javascript"></script>

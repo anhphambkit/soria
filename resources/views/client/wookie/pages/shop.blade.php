@@ -9,9 +9,11 @@
 @extends('client.wookie.master', [ 'isHomePage' => true ])
 
 @section('keywords')
+    {{ $shopSettings['shop_meta_keywords'] }}
 @endsection
 
 @section('desc')
+    {{ $shopSettings['shop_meta_description'] }}
 @endsection
 
 @section('metas')
@@ -52,6 +54,13 @@
 
     <div class="container-indent">
         <div class="container container-fluid-custom-mobile-padding">
+            @component('components.partials.message-call-out')
+                @slot('contentCallout')
+                    <h1 class="title-header-custom text-center">
+                        {!! $shopSettings['shop_title'] !!}
+                    </h1>
+                @endslot
+            @endcomponent
             @component('client.wookie.components.block-title')
                 @slot('title', trans('shop.best_seller'))
             @endcomponent
