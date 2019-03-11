@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CompressImageAndRenameUtf;
 use App\Console\Commands\CreateSiteMap;
 use App\Console\Commands\ImportDataCityWardVietNam;
 use App\Console\Commands\Maintenance;
@@ -19,6 +20,7 @@ class Kernel extends ConsoleKernel
         ImportDataCityWardVietNam::class,
         Maintenance::class,
         CreateSiteMap::class,
+        CompressImageAndRenameUtf::class,
     ];
 
     /**

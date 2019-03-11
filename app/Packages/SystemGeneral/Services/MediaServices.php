@@ -36,4 +36,21 @@ interface MediaServices {
      * @return string Specific user directory
      */
     public function getUserDir();
+
+    /**
+     * @param $filePath
+     * @param $rootDir
+     * @param $filename
+     * @param int $with
+     * @param int $height
+     * @param int $compressImage
+     * @return string
+     */
+    public function createThumbnail($filePath, $rootDir, $filename, $with = 300, $height = 300, $compressImage = 80);
+
+    /**
+     * @param $fileName
+     * @return string
+     */
+    public function getNewUniqueFilename($fileName);
 }
