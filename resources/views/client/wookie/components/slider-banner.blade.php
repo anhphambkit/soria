@@ -39,13 +39,13 @@
             <img class="d-block w-100" src="{{ asset('storage/slider/4.png') }}" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('storage/slider/combo_tri_mun.png') }}" alt="Second slide">
+            <img class="d-block w-100" src="{{ asset('storage/slider/combo_tri_mun.png') }}" alt="combo_tri_mun.png">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('storage/slider/combo_tri_nam.png') }}" alt="Third slide">
+            <img class="d-block w-100" src="{{ asset('storage/slider/combo_tri_nam.png') }}" alt="combo_tri_nam.png">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('storage/slider/nut_dang_ky.png') }}" alt="Third slide">
+            <img class="d-block w-100" src="{{ asset('storage/slider/nut_dang_ky.png') }}" alt="nut_dang_ky.png">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

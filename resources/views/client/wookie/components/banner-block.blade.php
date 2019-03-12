@@ -13,7 +13,7 @@ $classBanner = isset($classBanner) ? $classBanner : 'col-sm-6 col-md-6';
         <div class="{{ $classBanner }}">
             <div class="tt-promo02">
                 <a href="#">
-                    <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/promo/index-promo-img-04.jpg') }}" alt="">
+                    <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/promo/index-promo-img-04.jpg') }}" alt="alternate">
                 </a>
                 <div class="tt-description text-center">
                     <a href="#" class="tt-title">
@@ -28,7 +28,7 @@ $classBanner = isset($classBanner) ? $classBanner : 'col-sm-6 col-md-6';
     @case("titleInBox")
         <div class="{{ $classBanner }}">
             <a href="listing-left-column.html" class="tt-promo-box hover-type-2">
-                <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/listing_promo_img_04.jpg') }}" alt="">
+                <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/custom/listing_promo_img_04.jpg') }}" alt="alternate">
                 <div class="tt-description">
                     <div class="tt-description-wrapper">
                         <div class="tt-background"></div>

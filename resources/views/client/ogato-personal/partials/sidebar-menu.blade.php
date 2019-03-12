@@ -17,7 +17,7 @@
 
         <!-- Logo -->
         <a class="header-logo" href="{{ route('client.page.home') }}">
-            <img class="logo" src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="">
+            <img class="logo" src="{{ asset($blogSettings['blog_logo_secondary']) }}" alt="{{ $blogSettings['website_name'] }}">
         </a>
         <!-- End Logo -->
 

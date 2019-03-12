@@ -10,14 +10,13 @@ $medias = isset($medias) ? $medias : [];
 $categories = isset($categories) ? $categories : [];
 $avatarLink = isset($avatarLink) ? $avatarLink : $blogSettings['blog_avatar_author'];
 $author = $blogSettings['blog_name_author'];
-$featureImage = "assets/client/ogato-personal/app-assets/img/posts/p2.jpg";
 if (sizeof($medias) > 0)
-    $featureImage = reset($medias)['path_org'];
+    $featureImage = reset($medias);
 ?>
 <article class="recent_post">
     <div class="post-media">
         <a href="{{ route('client.post.detail', $urlPost) }}" class="post-thumbnail-smaill-custom">
-            <img src="{{ asset($featureImage) }}" alt="">
+            <img src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
         </a>
     </div>
     <div class="post_info">

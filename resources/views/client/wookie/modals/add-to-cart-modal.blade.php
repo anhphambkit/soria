@@ -29,7 +29,7 @@
                             </div>
                             <div class="tt-modal-product">
                                 <div class="tt-img">
-                                    <img class="preview-product-feature" src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-07.jpg') }}" alt="">
+                                    <img class="preview-product-feature" src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/product/product-07.jpg') }}" alt="add-to-cart">
                                 </div>
                                 <h2 class="tt-title"><a class="preview-product-title custom-line-height" href="#">Flared Shift Dress</a></h2>
                                 <div class="tt-qty">

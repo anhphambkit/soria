@@ -9,12 +9,11 @@ $linkProduct['urlProduct'] = $product['slug'] . "." . $product['id'];
 $medias = isset($product['medias']) ? $product['medias'] : [];
 $categories = isset($product['categories']) ? $product['categories'] : [];
 $options = isset($options) ? $options : [];
-$featureImage = "assets/client/wookie/app-assets/images/skin-lingerie/product/product-08.jpg";
 $hoverImage = null;
 if (sizeof($medias) > 0)
-    $featureImage = reset($medias)['path_org'];
+    $featureImage = reset($medias);
 if (sizeof($medias) > 1)
-    $hoverImage = end($medias)['path_org'];
+    $hoverImage = end($medias);
 
 $countdown = isset($countdown) ? $countdown : null;
 $rating = isset($rating) ? $rating : null;
@@ -26,11 +25,11 @@ $rating = isset($rating) ? $rating : null;
         {{--<a href="#" class="tt-btn-compare custom-position-left" data-tooltip="Add to Compare" data-tposition="left"></a>--}}
         <a href="{{ route('client.product.detail', $linkProduct) }}">
             <span class="tt-img">
-                <img class="bb-img-feature-product" src="{{ asset($featureImage) }}" alt="">
+                <img class="bb-img-feature-product" src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
             </span>
-            @if($hoverImage !== null)
+            @if(!empty($hoverImage))
                 <span class="tt-img-roll-over">
-                    <img src="{{ asset($hoverImage) }}" data-src="{{ asset($hoverImage) }}" alt="">
+                    <img src="{{ asset($hoverImage['path_org']) }}" data-src="{{ asset($hoverImage['path_org']) }}" alt="{{ $hoverImage['filename'] }}">
                 </span>
             @endif
         </a>

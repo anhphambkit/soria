@@ -28,12 +28,8 @@
             $medias = isset($product['medias']) ? $product['medias'] : [];
             $categories = isset($product['categories']) ? $product['categories'] : [];
             $options = isset($options) ? $options : [];
-            $featureImage = "assets/client/wookie/app-assets/images/skin-lingerie/product/product-08.jpg";
-            $hoverImage = null;
             if (sizeof($medias) > 0)
-                $featureImage = reset($medias)['path_org'];
-            if (sizeof($medias) > 1)
-                $hoverImage = end($medias)['path_org'];
+                $featureImage = reset($medias);
 
             $countdown = isset($countdown) ? $countdown : null;
             $rating = isset($rating) ? $rating : null;
@@ -48,7 +44,7 @@
             <tr class="row-product" data-product-id="{{ $product['id'] }}">
                 <td>
                     <div class="tt-product-img">
-                        <img src="{{ asset($featureImage) }}" data-src="{{ asset($featureImage) }}" alt="">
+                        <img src="{{ asset($featureImage['path_org']) }}" data-src="{{ asset($featureImage['path_org']) }}" alt="{{ $featureImage['filename'] }}">
                     </div>
                 </td>
                 <td>

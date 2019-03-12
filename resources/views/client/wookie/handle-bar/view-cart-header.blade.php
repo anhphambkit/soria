@@ -4,7 +4,7 @@
         <div class="tt-item">
             <a href="@{{ urlProduct slug id }}">
                 <div class="tt-item-img">
-                    <img src="@{{ featureProduct medias }}" data-src="@{{ featureProduct medias }}" alt="">
+                    <img src="@{{ featureProduct medias }}" data-src="@{{ featureProduct medias }}" alt="@{{ name }}">
                 </div>
                 <div class="tt-item-descriptions">
                     <h2 class="tt-title">@{{ name }}</h2>

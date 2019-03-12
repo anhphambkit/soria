@@ -69,7 +69,7 @@
                 <div class="card border-grey border-lighten-3 m-0">
                     <div class="card-header border-0">
                         <div class="card-title text-center">
-                            <div class="p-1"><img src="{{ asset($webSettings['web_logo_secondary']) }}" class="logo-form-custom" alt="branding logo"></div>
+                            <div class="p-1"><img src="{{ asset($webSettings['web_logo_secondary']) }}" class="logo-form-custom" alt="{{ $webSettings['website_name'] }}"></div>
                         </div>
                     </div>
                     <div class="card-content">

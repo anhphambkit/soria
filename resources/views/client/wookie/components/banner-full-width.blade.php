@@ -8,7 +8,7 @@
 ?>
 <div class="col-sm-12">
     <div class="tt-promo-fullwidth">
-        <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/promo/index-promo-img-01.jpg') }}" alt="">
+        <img src="{{ asset('assets/client/wookie/app-assets/images/loader.svg') }}" data-src="{{ asset('assets/client/wookie/app-assets/images/skin-lingerie/promo/index-promo-img-01.jpg') }}" alt="alternate">
         <div class="tt-description">
             <div class="tt-description-wrapper">
                 <div class="tt-title-small"><span class="tt-base-color">Limited Time!</span></div>
