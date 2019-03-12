@@ -180,6 +180,20 @@
                                                                                 <tr>
                                                                                     <td align="left" valign="top">
                                                                                         <p style="font-family:Arial,Helvetica,sans-serif;color:#494949;margin:0;padding:0;line-height:18px;font-size:13px">
+                                                                                            Email:
+                                                                                        </p>
+                                                                                    </td>
+                                                                                    <td align="left"
+                                                                                        class="m_7759863093632542988padding-left1"
+                                                                                        valign="top">
+                                                                                        <p style="font-family:Arial,Helvetica,sans-serif;color:#494949;margin:0;padding:0;line-height:18px;font-weight:bold;font-size:13px">
+                                                                                            {{ $detailOrder->email }}
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="left" valign="top">
+                                                                                        <p style="font-family:Arial,Helvetica,sans-serif;color:#494949;margin:0;padding:0;line-height:18px;font-size:13px">
                                                                                             Điện thoại:
                                                                                         </p>
                                                                                     </td>
@@ -326,7 +340,7 @@
                                                                                 @foreach($orderProducts as $orderProduct)
                                                                                     @php
                                                                                         $featureImageOrderProduct = $orderProduct->medias[0];
-                                                                                        $linkProduct = "{$orderProduct->slug}.{$orderProduct->id}";
+                                                                                        $linkProduct = "{$orderProduct->slug}.{$orderProduct->product_id}";
                                                                                         $salePriceOnProduct = ($orderProduct->sale_price) ? ($orderProduct->price - $orderProduct->sale_price)*$orderProduct->quantity : 0;
                                                                                         $priceOnProducts = ($orderProduct->sale_price) ? $orderProduct->sale_price*$orderProduct->quantity : $orderProduct->price*$orderProduct->quantity;
                                                                                     @endphp
