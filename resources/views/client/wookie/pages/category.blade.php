@@ -12,11 +12,11 @@
 
 @section('desc'){{ $category->meta_description }}@endsection
 
-@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+@section('large-image-meta'){{ asset($shopSettings['shop_favicon']) }}@endsection
 
 @section('author-meta'){{ $shopSettings['website_name'] }}@endsection
 
-@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+@section('image-meta'){{ asset($shopSettings['shop_favicon']) }}@endsection
 
 @section('type-post-meta'){{ 'article' }}@endsection
 

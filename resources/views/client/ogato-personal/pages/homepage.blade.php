@@ -12,11 +12,11 @@
 
 @section('desc'){{ $blogSettings['blog_meta_description'] }}@endsection
 
-@section('large-image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+@section('large-image-meta'){{ asset($blogSettings['blog_favicon']) }}@endsection
 
 @section('author-meta'){{ $blogSettings['website_name'] }}@endsection
 
-@section('image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+@section('image-meta'){{ asset($blogSettings['blog_favicon']) }}@endsection
 
 @section('type-post-meta'){{ 'article' }}@endsection
 
