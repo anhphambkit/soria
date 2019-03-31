@@ -85,7 +85,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
                   'payment_method' => $dataCheckouts['payment_method'],
                   'sub_total' => $cart['sub_total'],
                   'discount_on_products' => $cart['discount_on_products'],
-                  'total_price' => $cart['total_price'],
+                  'total_price' => $cart['total_price'] + $shippingFee,
                   'is_home' => $shippingAddress->is_home,
                   'shipping_fee' => $shippingFee,
                   'is_free_shipping' => ($shippingFee > 0) ? false : true,
