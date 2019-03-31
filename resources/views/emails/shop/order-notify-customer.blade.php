@@ -128,7 +128,7 @@
                                                                        data-saferedirecturl="{{ route('client.page.home') }}">
                                                                         <span style="color:#494949">{{ $shopSettings['website_name'] }}</span></a>
                                                                     vừa nhận được đơn hàng #<strong><span
-                                                                                class="m_7759863093632542988no-link">{{ $detailOrder->id }}</span></strong>
+                                                                                class="m_7759863093632542988no-link">{{ $orderIdGenerate }}</span></strong>
                                                                     của bạn, được đặt vào lúc <strong><span
                                                                                 class="m_7759863093632542988no-link">{{ $detailOrder->created_at }}</span>.
                                                                     </strong> Hiện tại, đơn hàng đang chờ được xử lý.
