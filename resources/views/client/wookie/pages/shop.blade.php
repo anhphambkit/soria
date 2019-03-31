@@ -8,27 +8,31 @@
 ?>
 @extends('client.wookie.master', [ 'isHomePage' => true ])
 
-@section('keywords')
-    {{ $shopSettings['shop_meta_keywords'] }}
-@endsection
+@section('keywords'){{ $shopSettings['shop_meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $shopSettings['shop_meta_description'] }}
-@endsection
+@section('desc'){{ $shopSettings['shop_meta_description'] }}@endsection
 
-@section('metas')
-@endsection
+@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
 
-@section('title')
-    {{--{{ trans('breadcrumbs.shop') }}--}}
-@endsection
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
 
-@section('title-description')
-    {{ $shopSettings['shop_title_description'] }}
-@endsection
+@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
 
-@section('fonts')
-@endsection
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.shop.index') }}@endsection
+
+@section('created-date-post-meta')@endsection
+
+@section('updated-date-post-meta')@endsection
+
+@section('section-post-meta')@endsection
+
+@section('title')@endsection
+
+@section('title-description'){{ $shopSettings['shop_title_description'] }}@endsection
+
+@section('fonts')@endsection
 
 @section('core-scripts')
 @endsection
@@ -64,6 +68,7 @@
                         {!! $shopSettings['shop_title'] !!}
                     </h1>
                 @endslot
+                @slot('calloutClass', 'callout-custom-primary')
             @endcomponent
             @component('client.wookie.components.block-title')
                 @slot('title', trans('shop.best_seller'))

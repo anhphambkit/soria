@@ -14,24 +14,32 @@
     </a>
 @endsection
 
-@section('keywords')
-    {{  $category['meta_keywords'] }}
-@endsection
+@section('keywords'){{  $category['meta_keywords'] }}@endsection
 
-@section('desc')
-    {{  $category['desc'] }}
-@endsection
+@section('desc'){{  $category['meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $blogSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.blog.category_page', "{$category['slug']}.{$category['id']}") }}@endsection
+
+@section('created-date-post-meta'){{ $category['created_at'] }}@endsection
+
+@section('updated-date-post-meta'){{ $category['updated_at'] }}@endsection
+
+@section('section-post-meta'){{ $category['meta_description'] }}@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{  $category['name'] }} - {{ trans('breadcrumbs.categories') }}
-@endsection
+@section('title'){{  $category['name'] }} - {{ trans('breadcrumbs.categories') }}@endsection
 
-@section('title-description')
-    {{--{{ $blogSettings['blog_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection

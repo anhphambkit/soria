@@ -14,8 +14,12 @@ $author = $blogSettings['blog_name_author'];
 if (sizeof($medias) > 0)
     $featureImage = reset($medias);
 
-if (sizeof($medias) > 1)
+$secondaryImage = $featureImage;
+
+if ($typeArticle === 'gallery' && sizeof($medias) > 1) {
     $secondaryImage = end($medias);
+}
+
 
 switch ($typeArticle) {
     case 'gallery':

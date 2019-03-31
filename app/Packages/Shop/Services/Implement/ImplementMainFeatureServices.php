@@ -31,4 +31,12 @@ class ImplementMainFeatureServices implements MainFeatureServices
     public function getAllMainServices() {
         return $this->mainFeatureRepository->getAllMainServices();
     }
+
+    /**
+     * @param string $type
+     * @return mixed
+     */
+    public function getMainServiceByType(string $type) {
+        return $this->mainFeatureRepository->getMainServiceByType($type);
+    }
 }

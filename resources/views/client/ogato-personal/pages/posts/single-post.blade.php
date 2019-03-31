@@ -14,24 +14,32 @@
     </a>
 @endsection
 
-@section('keywords')
-    {{  $post['meta_keywords'] }}
-@endsection
+@section('keywords'){{  $post['meta_keywords'] }}@endsection
 
-@section('desc')
-    {{  $post['desc'] }}
-@endsection
+@section('desc'){{  $post['meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($post['image_feature']['path_300x300']) }}@endsection
+
+@section('author-meta'){{ $post['author']}}@endsection
+
+@section('image-meta'){{ asset($post['image_feature']['path_300x300']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.post.detail', "{$post['slug']}.{$post['id']}") }}@endsection
+
+@section('created-date-post-meta'){{ $post['created_at'] }}@endsection
+
+@section('updated-date-post-meta'){{ $post['updated_at'] }}@endsection
+
+@section('section-post-meta'){{ $post['meta_description'] }}@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-   {{  $post['name'] }}
-@endsection
+@section('title'){{  $post['name'] }}@endsection
 
-@section('title-description')
-    {{--{{ $blogSettings['blog_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection

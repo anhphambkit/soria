@@ -39,4 +39,20 @@ class EloquentMainFeatureRepository implements MainFeatureRepository
             throw new \Exception($e->getMessage());
         }
     }
+
+    /**
+     * @param string $type
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getMainServiceByType(string $type) {
+        try {
+            return $this->mainServiceModel
+                ->select('*')
+                ->where('title', $type)
+                ->first();
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 }

@@ -15,4 +15,10 @@ interface MainFeatureServices
      * @return mixed
      */
     public function getAllMainServices();
+
+    /**
+     * @param string $type
+     * @return mixed
+     */
+    public function getMainServiceByType(string $type);
 }
