@@ -6,7 +6,7 @@
         "build-backend": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=backend.mix --watch-poll",
         "build-client": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=client.mix --watch-poll",
         "build-helper": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=helper.mix --watch-poll",
-        "build": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=resources.mix --watch-poll",
+        "build": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --p --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --env.mixfile=resources.mix --watch-poll",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
@@ -24,7 +24,8 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue-template-compiler": "^2.5.21"
+        "vue-template-compiler": "^2.5.21",
+        "webpack-merge": "^4.2.1"
     },
     "dependencies": {
         "handlebars": "^4.0.12",

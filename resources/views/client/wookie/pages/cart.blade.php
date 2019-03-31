@@ -8,24 +8,32 @@
 ?>
 @extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
-@section('keywords')
-    {{ $shopSettings['shop_meta_keywords'] }}
-@endsection
+@section('keywords'){{ $shopSettings['shop_meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $shopSettings['shop_meta_description'] }}
-@endsection
+@section('desc'){{ $shopSettings['shop_meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.shop.cart') }}@endsection
+
+@section('created-date-post-meta')@endsection
+
+@section('updated-date-post-meta')@endsection
+
+@section('section-post-meta')@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{ trans('shop.shopping_cart') }}
-@endsection
+@section('title'){{ trans('shop.shopping_cart') }}@endsection
 
-@section('title-description')
-    {{--{{ $shopSettings['shop_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection

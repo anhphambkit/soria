@@ -13,7 +13,9 @@ use App\Http\Controllers\SystemGeneral\Web\BaseShopController;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\ProductCategoryServices;
 use App\Packages\Admin\Product\Services\ProductServices;
+use App\Packages\Admin\Product\Services\ShippingFeeServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
+use App\Packages\Shop\Constants\MainServiceConfig;
 use App\Packages\Shop\Services\AddressBookServices;
 use App\Packages\Shop\Services\MainFeatureServices;
 use App\Packages\SystemGeneral\Constants\ReferencesConfig;
@@ -36,6 +38,7 @@ class ShopController extends BaseShopController {
     protected $addressGeneralInfoService;
     protected $addressBookServices;
     protected $mainFeatureServices;
+    protected $shippingFeeServices;
     protected $userId;
     protected $isGuest;
     protected $totalItems;
@@ -45,7 +48,7 @@ class ShopController extends BaseShopController {
                                 AddressGeneralInfoService $addressGeneralInfoService,
                                 AddressBookServices $addressBookServices, ProductCategoryServices $productCategoryServices,
                                 GeneralSettingServices $generalSettingServices, MainFeatureServices $mainFeatureServices,
-                                ReferenceServices $referenceServices
+                                ReferenceServices $referenceServices, ShippingFeeServices $shippingFeeServices
                                 )
     {
         parent::__construct($productCategoryServices, $generalSettingServices);
@@ -58,6 +61,7 @@ class ShopController extends BaseShopController {
         $this->addressBookServices = $addressBookServices;
         $this->mainFeatureServices = $mainFeatureServices;
         $this->referenceServices = $referenceServices;
+        $this->shippingFeeServices = $shippingFeeServices;
         $this->isGuest = true;
         if (Auth::check()) {
             $this->userId = Auth::id();
@@ -107,7 +111,6 @@ class ShopController extends BaseShopController {
      */
     public function cart() {
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
-//        dd($basicInfoCart);
         return view(config('setting.theme.shop') . '.pages.cart', compact('cart'));
     }
 
@@ -118,7 +121,9 @@ class ShopController extends BaseShopController {
         $provincesCities = $this->addressGeneralInfoService->getProvincesCitiesByCountryId();
         $cart = $this->shoppingCartServices->getBasicInfoCartOfUser($this->userId, $this->isGuest);
         $addressBooks = $this->addressBookServices->getAddressBooks($this->userId, $this->isGuest);
-        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities', 'addressBooks'));
+        $freeShipService = $this->mainFeatureServices->getMainServiceByType(MainServiceConfig::FREE_SHIPPING_SERVICE);
+
+        return view(config('setting.theme.shop') . '.pages.checkout-shipping', compact('cart', 'provincesCities', 'addressBooks', 'freeShipService'));
     }
 
     /**
@@ -129,7 +134,8 @@ class ShopController extends BaseShopController {
         $addressShipping = $this->addressBookServices->getDetailAddressShippingSelected($this->userId, $this->isGuest);
         $shippingMethods = $this->referenceServices->getReferenceFromAttributeType(ReferencesConfig::SHIPPING_METHOD_TYPE);
         $paymentMethods = $this->referenceServices->getReferenceFromAttributeType(ReferencesConfig::PAYMENT_METHOD_TYPE);
-        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping', 'shippingMethods', 'paymentMethods'));
+        $shippingFee = $this->shippingFeeServices->getShippingFee($cart['total_price'], $addressShipping->province_city_code, $addressShipping->district_code, $addressShipping->ward_code);
+        return view(config('setting.theme.shop') . '.pages.checkout-payment', compact('cart', 'addressShipping', 'shippingMethods', 'paymentMethods', 'shippingFee'));
     }
 
     /**

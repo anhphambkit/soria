@@ -22,6 +22,8 @@ use App\Packages\Admin\Product\Repositories\ProductCategoryRepository;
 use App\Packages\Admin\Product\Repositories\ProductRepository;
 use App\Packages\Admin\Product\Services\GuestInfoServices;
 use App\Packages\Admin\Product\Services\Implement\ImplementGuestInfoServices;
+use App\Packages\Admin\Product\Services\Implement\ImplementShippingFeeServices;
+use App\Packages\Admin\Product\Services\ShippingFeeServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Admin\Product\Services\Implement\ImplementShoppingCartServices;
 use App\Packages\Admin\Product\Services\Implement\ImplementProductCategoryServices;
@@ -119,6 +121,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(InvoiceOrderRepository::class, EloquentInvoiceOrderRepository::class);
         $this->app->singleton(ProductsInOrderServices::class, ImplementProductsInOrderServices::class);
         $this->app->singleton(ProductsInOrderRepository::class, EloquentProductsInOrderRepository::class);
+
+        // Bind Fee Shipping:
+        $this->app->singleton(ShippingFeeServices::class, ImplementShippingFeeServices::class);
 
         // Bind Product:
         $this->app->singleton(ProductServices::class, ImplementProductServices::class);

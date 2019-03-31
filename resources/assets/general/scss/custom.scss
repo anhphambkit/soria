@@ -1,4 +1,37 @@
-.callout-custom {
+.callout-border-left {
+  border-left: 5px solid;
+}
+
+.callout-border-right {
+  border-right: 5px solid;
+}
+
+.bs-callout-warning {
+  background-color: #FFF4EC;
+  color: #491D00;
+}
+
+.apt-callout {
+  border-radius: 0.25rem;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+.message-normal-custom {
+  font-weight: 600;
+  font-size: 17px;
+  p {
+    margin: 0;
+  }
+}
+
+.bs-callout-warning, .bs-callout-warning.callout-transparent {
+  display: block;
+  border-color: #FF9149!important;
+  border-radius: .25rem;
+}
+
+.callout-custom-primary {
   display: block;
   border-color: #FF9149!important;
   border-radius: .25rem;

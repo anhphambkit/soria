@@ -5,6 +5,7 @@
  * Date: 2/17/19
  * Time: 11:26
  */
+$isCheckout = isset($isCheckout) ? $isCheckout : false;
 ?>
 <div class="tt-shopcart-table tt-list-overview-products">
     <div class="over-list">
@@ -78,18 +79,35 @@
                 </td>
             </tr>
         @endforeach
+            @if(isset($shippingFee))
+                <tr class="row-total">
+                    <td>
+
+                    </td>
+                    <td>
+                        <span class="title-total-list">
+                            {{ trans('shop.shipping_fee') }}:
+                        </span>
+                    </td>
+                    <td>
+                        <div class="tt-price subtotal shipping-fee">
+                            {{ number_format($shippingFee, 0, ",", ".") }} đ
+                        </div>
+                    </td>
+                </tr>
+            @endif
             <tr class="row-total">
                 <td>
 
                 </td>
                 <td>
                     <span class="title-total-list">
-                        {{ trans('shop.sub_total') }}:
+                        {{ ($isCheckout) ? trans('shop.grand_total') : trans('shop.sub_total') }}:
                     </span>
                 </td>
                 <td>
                     <div class="tt-price cart-table-total-price">
-                        {{ number_format($totalPrice, 0, ",", ".") }} đ
+                        {{ number_format($totalPrice + (!empty($shippingFee) ? $shippingFee : 0), 0, ",", ".") }} đ
                     </div>
                 </td>
             </tr>

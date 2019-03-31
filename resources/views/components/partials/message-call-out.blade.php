@@ -6,9 +6,9 @@
  * Time: 10:48
  */
 $calloutType = !empty($calloutType) ? $calloutType : "warning";
-$calloutClass = !empty($calloutClass) ? $calloutClass : "callout-border-right";
+$calloutClass = !empty($calloutClass) ? $calloutClass : "callout-border-left";
 $contentCallout = !empty($contentCallout) ? $contentCallout : "";
 ?>
-<div class="bs-callout-{{ $calloutType }}  {{ $calloutClass }} callout-custom">
+<div class="apt-callout bs-callout-{{ $calloutType }}  {{ $calloutClass }}">
     {{ $contentCallout }}
 </div>

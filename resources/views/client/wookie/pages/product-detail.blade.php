@@ -17,27 +17,45 @@ if (!empty($product['categories'])) {
 }
 
 $breadcrumbs[$product['name']] = route('client.product.detail', "{$product['slug']}.{$product['id']}");
+
+//dd($product);
+$productFeatureImageMeta = $product['feature_images'][0];
+
 ?>
 @extends('client.wookie.master')
 
-@section('keywords')
-    {{ $product['meta_keywords'] }}
-@endsection
+@section('keywords'){{ $product['meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $product['meta_description'] }}
-@endsection
+@section('desc'){{ $product['meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($productFeatureImageMeta['path_org']) }}@endsection
+
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($productFeatureImageMeta['path_org']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.product.detail', "{$product['slug']}.{$product['id']}") }}@endsection
+
+@section('created-date-post-meta'){{ $product['created_at'] }}@endsection
+
+@section('updated-date-post-meta'){{ $product['updated_at'] }}@endsection
+
+@section('section-post-meta'){{ $product['meta_description'] }}@endsection
 
 @section('metas')
+    {{--product meta--}}
+    <meta name="twitter:data1" content="{{ $product['price'] }}đ">
+    <meta name="twitter:label1" content="Giá">
+
+    <meta property="og:price:amount" content="{{ $product['price'] }}" />
+    <meta property="og:price:currency" content="VNĐ" />
 @endsection
 
-@section('title')
-    {{ $product['name'] }}
-@endsection
+@section('title'){{ $product['name'] }}@endsection
 
-@section('title-description')
-    {{--{{ $shopSettings['shop_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection

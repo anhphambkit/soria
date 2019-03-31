@@ -5,28 +5,35 @@
  * Date: 12/18/18
  * Time: 16:02
  */
-//dd($posts);
 ?>
 @extends('client.ogato-personal.client-master', [ 'isSinglePost' => false ])
 
-@section('keywords')
-    {{ $blogSettings['blog_meta_keywords'] }}
-@endsection
+@section('keywords'){{ $blogSettings['blog_meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $blogSettings['blog_meta_description'] }}
-@endsection
+@section('desc'){{ $blogSettings['blog_meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $blogSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($blogSettings['blog_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.blog.home') }}@endsection
+
+@section('created-date-post-meta')@endsection
+
+@section('updated-date-post-meta')@endsection
+
+@section('section-post-meta')@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{--{{ trans('breadcrumbs.blog') }}--}}
-@endsection
+@section('title')@endsection
 
-@section('title-description')
-    {{ $blogSettings['blog_title_description'] }}
-@endsection
+@section('title-description'){{ $blogSettings['blog_title_description'] }}@endsection
 
 @section('fonts')
 @endsection

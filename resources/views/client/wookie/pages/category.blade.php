@@ -8,24 +8,32 @@
 ?>
 @extends('client.wookie.master')
 
-@section('keywords')
-    {{ $category->meta_keywords }}
-@endsection
+@section('keywords'){{ $category->meta_keywords }}@endsection
 
-@section('desc')
-    {{ $category->meta_description }}
-@endsection
+@section('desc'){{ $category->meta_description }}@endsection
+
+@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.shop.category_page', "{$category->slug}.{$category->id}") }}@endsection
+
+@section('created-date-post-meta'){{ $category->created_at }}@endsection
+
+@section('updated-date-post-meta'){{ $category->updated_at }}@endsection
+
+@section('section-post-meta'){{ $category->meta_description }}@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{ $category->name }}
-@endsection
+@section('title'){{ $category->name }}@endsection
 
-@section('title-description')
-    {{--{{ $shopSettings['shop_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection

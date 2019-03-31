@@ -8,24 +8,32 @@
 ?>
 @extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
-@section('keywords')
-    {{ $shopSettings['shop_meta_keywords'] }}
-@endsection
+@section('keywords'){{ $shopSettings['shop_meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $shopSettings['shop_meta_description'] }}
-@endsection
+@section('desc'){{ $shopSettings['shop_meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.shop.complete_order') }}@endsection
+
+@section('created-date-post-meta')@endsection
+
+@section('updated-date-post-meta')@endsection
+
+@section('section-post-meta')@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{ trans('shop.complete_order') }}
-@endsection
+@section('title'){{ trans('shop.complete_order') }}@endsection
 
-@section('title-description')
-    {{--{{ $shopSettings['shop_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection
@@ -53,7 +61,7 @@
                     <div class="icon-success">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <h3 class="order-success-thanks">Thank you. Your order has been processed.</h3>
+                    <h3 class="order-success-thanks">{{ trans('shop.thank_you_after_order_completed') }}</h3>
                     <a href="{{ route('client.shop.index') }}" class="btn">{{ trans('shop.continue_shopping') }}</a>
                 </div>
             </div>

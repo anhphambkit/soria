@@ -11,4 +11,6 @@ namespace App\Packages\Shop\Constants;
 interface MainServiceConfig
 {
     CONST MAIN_SERVICES_TBL = 'main_services';
+
+    CONST FREE_SHIPPING_SERVICE = 'Freeship';
 }

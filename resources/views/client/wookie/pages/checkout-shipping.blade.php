@@ -8,24 +8,32 @@
 ?>
 @extends('client.wookie.master', [ 'isShowBreadcrumb' => false ])
 
-@section('keywords')
-    {{ $shopSettings['shop_meta_keywords'] }}
-@endsection
+@section('keywords'){{ $shopSettings['shop_meta_keywords'] }}@endsection
 
-@section('desc')
-    {{ $shopSettings['shop_meta_description'] }}
-@endsection
+@section('desc'){{ $shopSettings['shop_meta_description'] }}@endsection
+
+@section('large-image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('author-meta'){{ $shopSettings['website_name'] }}@endsection
+
+@section('image-meta'){{ asset($shopSettings['shop_logo_primary']) }}@endsection
+
+@section('type-post-meta'){{ 'article' }}@endsection
+
+@section('url-post-meta'){{ route('client.shop.checkout_shipping') }}@endsection
+
+@section('created-date-post-meta')@endsection
+
+@section('updated-date-post-meta')@endsection
+
+@section('section-post-meta')@endsection
 
 @section('metas')
 @endsection
 
-@section('title')
-    {{ trans('shop.checkout_shipping') }}
-@endsection
+@section('title'){{ trans('shop.checkout_shipping') }}@endsection
 
-@section('title-description')
-    {{--{{ $shopSettings['shop_title_description'] }}--}}
-@endsection
+@section('title-description')@endsection
 
 @section('fonts')
 @endsection
@@ -55,6 +63,16 @@
             @endcomponent
             <div class="container">
                 <div class="row">
+                    @if($freeShipService)
+                        <div class="col-sm-12 col-xl-12 col-md-12">
+                            @component('components.partials.message-call-out')
+                                @slot('contentCallout')
+                                    {!! $freeShipService->desc !!}
+                                @endslot
+                                @slot('calloutClass', 'callout-border-left message-normal-custom')
+                            @endcomponent
+                        </div>
+                    @endif
                     <div class="col-sm-12 col-xl-6 custom-col">
                         <div id="shipping-address-area">
                             @if($addressBooks->isNotEmpty())
