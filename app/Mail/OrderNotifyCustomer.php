@@ -36,7 +36,15 @@ class OrderNotifyCustomer extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject(trans('mail-shop.notify_new_order_customer', [ 'orderId' => $this->detailOrder->id ]))
-                    ->view('emails.shop.order-notify-customer');
+        $orderIdGenerate = "SB" . rand(19,99) . $this->detailOrder->id . rand(19,99);
+
+        return $this->subject(trans('mail-shop.notify_new_order_customer', [ 'orderId' => $orderIdGenerate]))
+                    ->view('emails.shop.order-notify-customer')
+                    ->with([
+                        'shopSettings' => $this->shopSettings,
+                        'detailOrder' => $this->detailOrder,
+                        'orderProducts' => $this->orderProducts,
+                        'orderIdGenerate' => $orderIdGenerate,
+                    ]);
     }
 }
