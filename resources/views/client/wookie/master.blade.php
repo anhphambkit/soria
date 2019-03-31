@@ -36,14 +36,14 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="@yield('large-image-meta')">
         <meta name="twitter:site" content="{{ $shopSettings['website_link'] }}">
-        <meta name="twitter:title" content="@yield('title'){{(!$isHomePage)?" | {$shopSettings['website_name']} Shop":"{$shopSettings['website_name']} - "}}@yield('title-description')">
+        <meta name="twitter:title" content="@yield('title'){{(!$isHomePage)?" | {$shopSettings['website_name']} Shop":" {$shopSettings['website_name']} - "}}@yield('title-description')">
         <meta name="twitter:description" content="@yield('desc')">
         <meta name="twitter:creator" content="@yield('author-meta')">
         <!-- Hình ảnh mô tả cho Twitter summary card với kích thước tối thiểu 280x150px -->
         <meta name="twitter:image" content="@yield('image-meta')">
 
         <!-- Open Graph data -->
-        <meta property="og:title" content="@yield('title'){{(!$isHomePage)?" | {$shopSettings['website_name']} Shop":"{$shopSettings['website_name']} - "}}@yield('title-description')" />
+        <meta property="og:title" content="@yield('title'){{(!$isHomePage)?" | {$shopSettings['website_name']} Shop":" {$shopSettings['website_name']} - "}}@yield('title-description')" />
         <meta property="og:type" content="@yield('type-post-meta')" />
         <meta property="og:url" content="@yield('url-post-meta')" />
         <meta property="og:image" content="@yield('image-meta')" />
@@ -61,7 +61,7 @@ $breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [];;
         <!-- APP CUSTOM META -->
 
         <!-- Template Title -->
-        <title>@yield('title'){{ (!$isHomePage) ? " | {$shopSettings['website_name']} Shop" : "{$shopSettings['website_name']} - " }}@yield('title-description')</title>
+        <title>@yield('title'){{ (!$isHomePage) ? " | {$shopSettings['website_name']} Shop" : " {$shopSettings['website_name']} - " }}@yield('title-description')</title>
 
         <!-- START APP FAVICON -->
         <link rel="apple-touch-icon" href="{{ asset($shopSettings['shop_favicon']) }}">
