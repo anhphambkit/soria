@@ -33,12 +33,12 @@ task('deploy:dev', [
     'deploy:git',
 //    'deploy:migrate-rollback',
 //    'deploy:migrate',
-//    'deploy:upload',
 //    'deploy:install-server',
 //    'deploy:start-supervisor',
 //    'deploy:vendors',
 //    'deploy:node',
-//    'deploy:build',
+    'deploy:build',
+    'deploy:upload',
 //    'deploy:mkdir-framework',
 //    'deploy:make-logs',
     'deploy:clear-cache',
@@ -100,7 +100,7 @@ task('deploy:build', function(){ // Build frontend
     run("cd \"{$path}\" && npm run build-client");
     run("cd \"{$path}\" && npm run build-helper");
     run("cd \"{$path}\" && npm run build");
-});
+})->local();
 
 //task('deploy:make-logs', function(){ // Build frontend
 //    $path = get('deploy_path');
@@ -124,13 +124,13 @@ task('deploy:upload', function(){
     writeln('Upload...');
     $path = get('deploy_path');
     $uploads = [
-        "deploy" => "{$path}//deploy",
-//        "storage//app//public" => "{$path}//storage//app//public",
+//        "deploy" => "{$path}//deploy",
+        "public//assets" => "{$path}//public//assets",
     ];
     foreach ($uploads as $rootPath => $upload) {
         upload("{$rootPath}//", $upload);
     }
-    run("sudo chmod -R 755 " . $path . "deploy");
+//    run("sudo chmod -R 755 " . $path . "deploy");
 });
 
 task('deploy:install-server', function(){
