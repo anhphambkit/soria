@@ -93,7 +93,7 @@
 
                                                                                         <p style="padding:0;margin:0 0 7px;font-family:Arial,Helvetica,sans-serif;font-size:20px;text-transform:uppercase;line-height:18px;color:#ffffff">
                                                                                             MÃ ĐƠN HÀNG #<span
-                                                                                                    class="m_7759863093632542988no-link">{{ rand(1412,9999) }}{{ $detailOrder->id }}</span>
+                                                                                                    class="m_7759863093632542988no-link">{{ rand(19,99) }}{{ $detailOrder->id }}{{ rand(19,99) }}</span>
                                                                                         </p>
                                                                                     </td>
                                                                                 </tr>
