@@ -11,6 +11,7 @@ namespace App\Packages\Shop\Services\Implement;
 
 use App\Mail\OrderNotifyAdminShop;
 use App\Mail\OrderNotifyCustomer;
+use App\Packages\Admin\Product\Services\ShippingFeeServices;
 use App\Packages\Admin\Product\Services\ShoppingCartServices;
 use App\Packages\Shop\Repositories\InvoiceOrderRepository;
 use App\Packages\Shop\Services\AddressBookServices;
@@ -30,6 +31,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
     private $addressBookServices;
     private $productsInOrderServices;
     private $generalSettingServices;
+    private $shippingFeeServices;
 
     /**
      * ImplementInvoiceOrderServices constructor.
@@ -38,10 +40,11 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
      * @param AddressBookServices $addressBookServices
      * @param ProductsInOrderServices $productsInOrderServices
      * @param GeneralSettingServices $generalSettingServices
+     * @param ShippingFeeServices $shippingFeeServices
      */
     public function __construct(InvoiceOrderRepository $invoiceOrderRepository, ShoppingCartServices $shoppingCartServices,
                                 AddressBookServices $addressBookServices, ProductsInOrderServices $productsInOrderServices,
-                                GeneralSettingServices $generalSettingServices
+                                GeneralSettingServices $generalSettingServices, ShippingFeeServices $shippingFeeServices
     )
     {
         $this->invoiceOrderRepository = $invoiceOrderRepository;
@@ -49,6 +52,7 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
         $this->addressBookServices = $addressBookServices;
         $this->productsInOrderServices = $productsInOrderServices;
         $this->generalSettingServices = $generalSettingServices;
+        $this->shippingFeeServices = $shippingFeeServices;
     }
 
     /**
@@ -65,6 +69,10 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
             $cart = $this->shoppingCartServices->getProductsInCartToOrder($userId, $isGuest);
             // Current shipping address
             $shippingAddress = $this->addressBookServices->getDetailAddressShippingSelected($userId, $isGuest);
+
+            // Get fee shipping:
+            $shippingFee = $this->shippingFeeServices->getShippingFee($cart['total_price'], $shippingAddress->province_city_code, $shippingAddress->district_code, $shippingAddress->ward_code);
+
             // Prepare data for create new order
             $dataOrder = [
                   'user_id' => $userId,
@@ -79,6 +87,8 @@ class ImplementInvoiceOrderServices implements InvoiceOrderServices
                   'discount_on_products' => $cart['discount_on_products'],
                   'total_price' => $cart['total_price'],
                   'is_home' => $shippingAddress->is_home,
+                  'shipping_fee' => $shippingFee,
+                  'is_free_shipping' => ($shippingFee > 0) ? false : true,
                   'updated_at' => $now,
                   'created_at' => $now,
             ];
